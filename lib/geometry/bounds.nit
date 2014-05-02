@@ -86,15 +86,15 @@ end
 redef class ALine[N]
 	super ABounded[N]
 
-	redef fun left do return lines.first.x.min(lines.second.x)
-	redef fun right do return lines.first.x.max(lines.second.x)
-	redef fun top do return lines.first.y.min(lines.second.y)
-	redef fun bottom do return lines.first.y.max(lines.second.y)
+	redef fun left do return points.first.x.min(points.second.x)
+	redef fun right do return points.first.x.max(points.second.x)
+	redef fun top do return points.first.y.min(points.second.y)
+	redef fun bottom do return points.first.y.max(points.second.y)
 end
 
 redef class ALine3d[N]
 	super ABounded3d[N]
 
-	redef fun front do return lines.first.z.min(lines.second.z)
-	redef fun back do return lines.first.z.max(lines.second.z)
+	redef fun front do return points.first.z.min(points.second.z)
+	redef fun back do return points.first.z.max(points.second.z)
 end
