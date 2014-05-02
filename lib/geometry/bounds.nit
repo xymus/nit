@@ -62,6 +62,7 @@ class Bounded3d[N: Numeric]
 
 	init(l, r, t, b, front, back: N)
 	do
+		super
 		self.front = front
 		self.back = back
 	end
