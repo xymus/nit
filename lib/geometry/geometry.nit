@@ -18,4 +18,4 @@
 module geometry
 
 import points_and_lines
-import bounded
+import bounds

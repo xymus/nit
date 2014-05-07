@@ -35,6 +35,8 @@ class Point[N: Numeric]
 		self.x = x
 		self.y = y
 	end
+
+	redef fun to_s do return "(" + self.x.to_s + ", " + self.y.to_s + ")"
 end
 
 # An abstract 3d point, strongly linked to its implementation `Point3d`
@@ -47,33 +49,37 @@ end
 # A 3d point and an implementation of `APoint3d`
 class Point3d[N: Numeric]
 	super APoint3d[N]
+	super Point[N]
 
 	redef var z: N
 
 	init(x, y, z: N)
 	do
-		super
+		super	
 		self.z = z
 	end
+
+	redef fun to_s do return  "(" + self.x.to_s + ", " + self.y.to_s + ", " + self.z.to_s + ")"
 end
 
 # An abstract 2d line segment
 interface ALine[N: Numeric]
 	type P: APoint[N]
 
-	fun points: Couple[P]
+	fun points: Couple[P, P] is abstract
 end
 
 class Line[N: Numeric]
 	super ALine[N]
 
-	redef var points = new Couple[P]
+	redef var points: Couple[P, P]
 
 	init(a, b: P)
 	do
-		points.first = a
-		prints.second = b
+		points = new Couple[P, P](a, b)
 	end
+
+	redef fun to_s do return points.first.to_s + points.second.to_s
 end
 
 interface ALine3d[N: Numeric]

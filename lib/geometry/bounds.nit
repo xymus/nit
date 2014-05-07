@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Provides interfaces and classes to represent basic geometry needs.
-module gbounds
+module bounds
 
 import points_and_lines
 
@@ -43,6 +43,8 @@ class Bounded[N: Numeric]
 		self.top = t
 		self.bottom = b
 	end
+
+	redef fun to_s do return "left: " + self.left.to_s + " right: " + self.right.to_s + " top:" + self.top.to_s + " bottom: " + self.bottom.to_s
 end
 
 # An 3d abstract bounded object, strongly linked to its implementation `Bounded`
@@ -65,6 +67,8 @@ class Bounded3d[N: Numeric]
 		self.front = front
 		self.back = back
 	end
+	
+	redef fun to_s do return super + " front: " + self.front.to_s + " back: " + self.back.to_s
 end
 
 redef class APoint[N]
