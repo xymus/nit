@@ -25,6 +25,40 @@ interface IBoxed[N: Numeric]
 	fun right: N is abstract
 	fun top: N is abstract
 	fun bottom: N is abstract
+	
+	# Is `other` contained within `self`?
+	#
+	#     var a = new Box[Int].lbwh(1, 1, 4, 4)
+	#     var b = new Box[Int].lbwh(2, 2, 2, 2)
+	#     var c = new Box[Int].lbwh(0, 2, 8, 2)
+	#     assert a.contains(b)
+	#     assert not b.contains(a)
+	#     assert c.contains(b)
+	#     assert not b.contains(c)
+	#     assert not a.contains(c)
+	#     assert not c.contains(a)
+	fun contains(other: IBoxed[N]): Bool
+	do
+		return self.top >= other.top and self.bottom <= other.bottom and
+			self.left <= other.left and self.right >= other.right
+	end
+
+	# Does `self` intersect with `other`?
+	#
+	#     var a = new Box[Int].lbwh(0, 0, 2, 2)
+	#     var b = new Box[Int].lbwh(1, 1, 8, 2)
+	#     var c = new Box[Int].lbwh(3, 0, 2, 8)
+	#     assert a.intersects(b)
+	#     assert b.intersects(a)
+	#     assert b.intersects(c)
+	#     assert c.intersects(b)
+	#     assert not c.intersects(a)
+	#     assert not a.intersects(c)
+	fun intersects(other: IBoxed[N]): Bool
+	do
+		return self.left <= other.right and other.left <= self.right and
+			self.top >= other.bottom and other.top >= self.bottom
+	end
 end
 
 # A 2d bounded object and an implementation of `IBoxed`
@@ -86,6 +120,38 @@ interface IBoxed3d[N: Numeric]
 
 	fun front: N is abstract
 	fun back: N is abstract
+	
+	#     var a = new Box3d[Int].lbfwhd(1, 1, 1, 4, 4, 4)
+	#     var b = new Box3d[Int].lbfwhd(2, 2, 2, 2, 2, 2)
+	#     var c = new Box3d[Int].lbfwhd(0, 2, 2, 8, 2, 2)
+	#     assert a.contains(b)
+	#     assert not b.contains(a)
+	#     assert c.contains(b)
+	#     assert not b.contains(c)
+	#     assert not a.contains(c)
+	#     assert not c.contains(a)
+	redef fun contains(other)
+	do
+		if not super then return false
+		if other isa IBoxed3d[N] then return self.front <= other.front and self.back >= other.back
+		return true
+	end
+
+	#     var a = new Box3d[Int].lbfwhd(0, 0, 0, 2, 2, 2)
+	#     var b = new Box3d[Int].lbfwhd(1, 1, 1, 8, 2, 2)
+	#     var c = new Box3d[Int].lbfwhd(3, 0, 0, 2, 8, 2)
+	#     assert a.intersects(b)
+	#     assert b.intersects(a)
+	#     assert b.intersects(c)
+	#     assert c.intersects(b)
+	#     assert not c.intersects(a)
+	#     assert not a.intersects(c)
+	redef fun intersects(other)
+	do
+		if not super then return false
+		if other isa IBoxed3d[N] then return self.back >= other.front and other.back >= self.front
+		return true
+	end
 end
 
 # A 3d bounded object and an implementation of IBoxed
