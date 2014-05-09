@@ -66,21 +66,29 @@ end
 interface ILine[N: Numeric]
 	type P: IPoint[N]
 
-	fun points: Couple[P, P] is abstract
+	fun point_left: P is abstract
+	fun point_right: P is abstract
 end
 
 # A 2d line segment
 class Line[N: Numeric]
 	super ILine[N]
 
-	redef var points: Couple[P, P]
+	redef var point_left: P
+	redef var point_right: P
 
 	init(a, b: P)
 	do
-		points = new Couple[P, P](a, b)
+		if a.x < b.x then
+			point_left = a
+			point_right = b
+		else
+			point_left = b
+			point_right = a
+		end
 	end
 
-	redef fun to_s do return "{points.first}--{points.second}"
+	redef fun to_s do return "{point_left}--{point_right}"
 end
 
 # An abstract 3d line segment

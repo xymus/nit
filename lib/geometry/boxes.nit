@@ -91,15 +91,15 @@ end
 redef class ILine[N]
 	super IBoxed[N]
 
-	redef fun left do return points.first.x.min(points.second.x)
-	redef fun right do return points.first.x.max(points.second.x)
-	redef fun top do return points.first.y.min(points.second.y)
-	redef fun bottom do return points.first.y.max(points.second.y)
+	redef fun left do return point_left.x
+	redef fun right do return point_right.x
+	redef fun top do return point_left.y.min(point_right.y)
+	redef fun bottom do return point_left.y.max(point_right.y)
 end
 
 redef class ILine3d[N]
 	super IBoxed3d[N]
 
-	redef fun front do return points.first.z.min(points.second.z)
-	redef fun back do return points.first.z.max(points.second.z)
+	redef fun front do return point_left.z.min(point_right.z)
+	redef fun back do return point_left.z.max(point_right.z)
 end
