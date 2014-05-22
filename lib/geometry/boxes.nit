@@ -21,9 +21,13 @@ import points_and_lines
 
 # An 2d abstract bounded object
 interface IBoxed[N: Numeric]
+	# must be < right
 	fun left: N is abstract
+	# must be > left
 	fun right: N is abstract
+	# must be > bottom
 	fun top: N is abstract
+	# must be < top
 	fun bottom: N is abstract
 	
 	# Is `other` contained within `self`?
@@ -111,7 +115,7 @@ class Box[N: Numeric]
 		self.bottom = top - height
 	end
 
-	redef fun to_s do return "<left: {left}, right: {right}, top: {top}, bottom: {bottom}"
+	redef fun to_s do return "<left: {left}, right: {right}, top: {top}, bottom: {bottom}>"
 end
 
 # An 3d abstract bounded object
@@ -123,7 +127,7 @@ interface IBoxed3d[N: Numeric]
 	
 	#     var a = new Box3d[Int].lbfwhd(1, 1, 1, 4, 4, 4)
 	#     var b = new Box3d[Int].lbfwhd(2, 2, 2, 2, 2, 2)
-	#     var c = new Box3d[Int].lbfwhd(0, 2, 2, 8, 2, 2)
+	#     var c = new Box3d[Int].lbfwhd(0, 2, 2, 2, 2, 8)
 	#     assert a.contains(b)
 	#     assert not b.contains(a)
 	#     assert c.contains(b)
@@ -132,9 +136,7 @@ interface IBoxed3d[N: Numeric]
 	#     assert not c.contains(a)
 	redef fun contains(other)
 	do
-		if not super then return false
-		if other isa IBoxed3d[N] then return self.front <= other.front and self.back >= other.back
-		return true
+		return super and (not other isa IBoxed3d[N] or (self.front <= other.front and self.back >= other.back))
 	end
 
 	#     var a = new Box3d[Int].lbfwhd(0, 0, 0, 2, 2, 2)

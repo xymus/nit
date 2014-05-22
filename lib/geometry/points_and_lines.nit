@@ -19,8 +19,12 @@ module points_and_lines
 
 # An abstract 2d point, strongly linked to its implementation `Point`
 interface IPoint[N: Numeric]
+	# horizontal coordinate
 	fun x: N is abstract
+	# vertical coordinate
 	fun y: N is abstract
+
+	redef fun to_s do return "({x}, {y})"
 end
 
 # A 2d point and an implementation of `IPoint`
@@ -35,15 +39,16 @@ class Point[N: Numeric]
 		self.x = x
 		self.y = y
 	end
-
-	redef fun to_s do return "({x}, {y})"
 end
 
 # An abstract 3d point, strongly linked to its implementation `Point3d`
 interface IPoint3d[N: Numeric]
 	super IPoint[N]
 
+	# depth coordinate
 	fun z: N is abstract
+
+	redef fun to_s do return "({x}, {y}, {z})"
 end
 
 # A 3d point and an implementation of `IPoint3d`
@@ -58,8 +63,6 @@ class Point3d[N: Numeric]
 		super
 		self.z = z
 	end
-
-	redef fun to_s do return "({x}, {y}, {z})"
 end
 
 # An abstract 2d line segment
@@ -68,6 +71,8 @@ interface ILine[N: Numeric]
 
 	fun point_left: P is abstract
 	fun point_right: P is abstract
+
+	redef fun to_s do return "{point_left}--{point_right}"
 end
 
 # A 2d line segment
@@ -88,7 +93,6 @@ class Line[N: Numeric]
 		end
 	end
 
-	redef fun to_s do return "{point_left}--{point_right}"
 end
 
 # An abstract 3d line segment
