@@ -77,6 +77,35 @@ class Box[N: Numeric]
 	redef var top: N
 	redef var bottom: N
 
+	# Create a `Box` covering all of the `boxed`
+	#
+	#     var box = new Box[Int].around(new Point[Int](-4,-4), new Point[Int](4,4))
+	#     assert box.left == -4 and box.bottom == -4
+	#     assert box.right == 4 and box.top == 4
+	init around(boxed: Boxed[N]...)
+	do
+		assert not boxed.is_empty
+
+		var left: nullable N = null
+		var right: nullable N = null
+		var top: nullable N = null
+		var bottom: nullable N = null
+
+		for box in boxed do
+			if left == null or box.left < left then left = box.left
+			if right == null or box.right > right then right = box.right
+			if top == null or box.top > top then top = box.top
+			if bottom == null or box.bottom < bottom then bottom = box.bottom
+		end
+
+		assert left != null and right != null and top != null and bottom != null
+
+		self.left = left
+		self.right = right
+		self.top = top
+		self.bottom = bottom
+	end
+
 	# Create a `Box` using left, right, bottom and top
 	init lrbt(left, right, bottom, top: N)
 	do
