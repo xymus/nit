@@ -29,7 +29,7 @@ interface Boxed[N: Numeric]
 	fun top: N is abstract
 	# must be < top
 	fun bottom: N is abstract
-	
+
 	# Is `other` contained within `self`?
 	#
 	#     var a = new Box[Int].lbwh(1, 1, 4, 4)
@@ -153,7 +153,7 @@ interface Boxed3d[N: Numeric]
 
 	fun front: N is abstract
 	fun back: N is abstract
-	
+
 	#     var a = new Box3d[Int].lbfwhd(1, 1, 1, 4, 4, 4)
 	#     var b = new Box3d[Int].lbfwhd(2, 2, 2, 2, 2, 2)
 	#     var c = new Box3d[Int].lbfwhd(2, 2, 0, 2, 2, 8)
@@ -166,7 +166,7 @@ interface Boxed3d[N: Numeric]
 	redef fun contains(other)
 	do
 		return super and (not other isa Boxed3d[N] or
-			(self.front <= other.front and self.back >= other.back))
+			(self.front >= other.front and self.back <= other.back))
 	end
 
 	#     var a = new Box3d[Int].lbfwhd(0, 0, 0, 2, 2, 2)
@@ -181,7 +181,7 @@ interface Boxed3d[N: Numeric]
 	redef fun intersects(other)
 	do
 		return super and (not other isa Boxed3d[N] or
-			(self.back >= other.front and other.back >= self.front))
+			(self.back <= other.front and other.back <= self.front))
 	end
 end
 
@@ -195,6 +195,39 @@ class Box3d[N: Numeric]
 
 	redef var front: N
 	redef var back: N
+
+	# Create a `Box` covering all of the `boxed`
+	#
+	#     var box = new Box[Int].around(new Point[Int](-4,-4), new Point[Int](4,4))
+	#     assert box.left == -4 and box.bottom == -4
+	#     assert box.right == 4 and box.top == 4
+	init around(boxed: Boxed3d[N]...)
+	do
+		assert not boxed.is_empty
+
+		var left: nullable N = null
+		var right: nullable N = null
+		var top: nullable N = null
+		var bottom: nullable N = null
+		var front: nullable N = null
+		var back: nullable N= null
+
+		for box in boxed do
+			if left == null or box.left < left then left = box.left
+			if right == null or box.right > right then right = box.right
+			if top == null or box.top > top then top = box.top
+			if bottom == null or box.bottom < bottom then bottom = box.bottom
+			if front == null or box.front > front then front = box.front
+			if back == null or box.back < back then back = box.back
+		end
+
+		assert left != null and right != null and top != null and bottom != null
+
+		self.left = left
+		self.right = right
+		self.top = top
+		self.bottom = bottom
+	end
 
 	# Create a `Box3d` using left, right, bottom, top, front and back
 	init lrbtfb(left, right, bottom, top, front, back: N)
@@ -231,7 +264,7 @@ class Box3d[N: Numeric]
 		self.front = front
 		self.back = front + depth
 	end
-	
+
 	redef fun to_s do return "<left: {left}, right: {right}, top: {top}, bottom: {bottom}, front: {front}, back: {back}"
 end
 
