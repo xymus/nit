@@ -156,7 +156,7 @@ interface Boxed3d[N: Numeric]
 	
 	#     var a = new Box3d[Int].lbfwhd(1, 1, 1, 4, 4, 4)
 	#     var b = new Box3d[Int].lbfwhd(2, 2, 2, 2, 2, 2)
-	#     var c = new Box3d[Int].lbfwhd(0, 2, 2, 2, 2, 8)
+	#     var c = new Box3d[Int].lbfwhd(2, 2, 0, 2, 2, 8)
 	#     assert a.contains(b)
 	#     assert not b.contains(a)
 	#     assert c.contains(b)
@@ -165,12 +165,13 @@ interface Boxed3d[N: Numeric]
 	#     assert not c.contains(a)
 	redef fun contains(other)
 	do
-		return super and (not other isa Boxed3d[N] or (self.front <= other.front and self.back >= other.back))
+		return super and (not other isa Boxed3d[N] or
+			(self.front <= other.front and self.back >= other.back))
 	end
 
 	#     var a = new Box3d[Int].lbfwhd(0, 0, 0, 2, 2, 2)
 	#     var b = new Box3d[Int].lbfwhd(1, 1, 1, 8, 2, 2)
-	#     var c = new Box3d[Int].lbfwhd(3, 0, 0, 2, 8, 2)
+	#     var c = new Box3d[Int].lbfwhd(3, 0, 0, 2, 2, 8)
 	#     assert a.intersects(b)
 	#     assert b.intersects(a)
 	#     assert b.intersects(c)
@@ -179,9 +180,8 @@ interface Boxed3d[N: Numeric]
 	#     assert not a.intersects(c)
 	redef fun intersects(other)
 	do
-		if not super then return false
-		if other isa Boxed3d[N] then return self.back >= other.front and other.back >= self.front
-		return true
+		return super and (not other isa Boxed3d[N] or
+			(self.back >= other.front and other.back >= self.front))
 	end
 end
 
