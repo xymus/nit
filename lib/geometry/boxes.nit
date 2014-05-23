@@ -20,7 +20,7 @@ module boxes
 import points_and_lines
 
 # An 2d abstract bounded object
-interface IBoxed[N: Numeric]
+interface Boxed[N: Numeric]
 	# must be < right
 	fun left: N is abstract
 	# must be > left
@@ -41,7 +41,7 @@ interface IBoxed[N: Numeric]
 	#     assert not b.contains(c)
 	#     assert not a.contains(c)
 	#     assert not c.contains(a)
-	fun contains(other: IBoxed[N]): Bool
+	fun contains(other: Boxed[N]): Bool
 	do
 		return self.top >= other.top and self.bottom <= other.bottom and
 			self.left <= other.left and self.right >= other.right
@@ -58,19 +58,19 @@ interface IBoxed[N: Numeric]
 	#     assert c.intersects(b)
 	#     assert not c.intersects(a)
 	#     assert not a.intersects(c)
-	fun intersects(other: IBoxed[N]): Bool
+	fun intersects(other: Boxed[N]): Bool
 	do
 		return self.left <= other.right and other.left <= self.right and
 			self.top >= other.bottom and other.top >= self.bottom
 	end
 end
 
-# A 2d bounded object and an implementation of `IBoxed`
+# A 2d bounded object and an implementation of `Boxed`
 #
 # This class offers many constructor specialized for different usage. They are
 # named according to the order of their arguments.
 class Box[N: Numeric]
-	super IBoxed[N]
+	super Boxed[N]
 
 	redef var left: N
 	redef var right: N
@@ -119,8 +119,8 @@ class Box[N: Numeric]
 end
 
 # An 3d abstract bounded object
-interface IBoxed3d[N: Numeric]
-	super IBoxed[N]
+interface Boxed3d[N: Numeric]
+	super Boxed[N]
 
 	fun front: N is abstract
 	fun back: N is abstract
@@ -136,7 +136,7 @@ interface IBoxed3d[N: Numeric]
 	#     assert not c.contains(a)
 	redef fun contains(other)
 	do
-		return super and (not other isa IBoxed3d[N] or (self.front <= other.front and self.back >= other.back))
+		return super and (not other isa Boxed3d[N] or (self.front <= other.front and self.back >= other.back))
 	end
 
 	#     var a = new Box3d[Int].lbfwhd(0, 0, 0, 2, 2, 2)
@@ -151,17 +151,17 @@ interface IBoxed3d[N: Numeric]
 	redef fun intersects(other)
 	do
 		if not super then return false
-		if other isa IBoxed3d[N] then return self.back >= other.front and other.back >= self.front
+		if other isa Boxed3d[N] then return self.back >= other.front and other.back >= self.front
 		return true
 	end
 end
 
-# A 3d bounded object and an implementation of IBoxed
+# A 3d bounded object and an implementation of Boxed
 #
 # This class offers many constructor specialized for different usage. They are
 # named according to the order of their arguments.
 class Box3d[N: Numeric]
-	super IBoxed3d[N]
+	super Boxed3d[N]
 	super Box[N]
 
 	redef var front: N
@@ -207,7 +207,7 @@ class Box3d[N: Numeric]
 end
 
 redef class IPoint[N]
-	super IBoxed[N]
+	super Boxed[N]
 
 	redef fun left do return x
 	redef fun right do return x
@@ -216,14 +216,14 @@ redef class IPoint[N]
 end
 
 redef class IPoint3d[N]
-	super IBoxed3d[N]
+	super Boxed3d[N]
 
 	redef fun front do return z
 	redef fun back do return z
 end
 
 redef class ILine[N]
-	super IBoxed[N]
+	super Boxed[N]
 
 	redef fun left do return point_left.x
 	redef fun right do return point_right.x
@@ -232,7 +232,7 @@ redef class ILine[N]
 end
 
 redef class ILine3d[N]
-	super IBoxed3d[N]
+	super Boxed3d[N]
 
 	redef fun front do return point_left.z.min(point_right.z)
 	redef fun back do return point_left.z.max(point_right.z)
