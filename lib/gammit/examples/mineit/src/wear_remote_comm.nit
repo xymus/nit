@@ -1,11 +1,5 @@
 
 
-# Android Wear remote for Gamnit in virtual reality mode
-module wear_remote
-
-import android
-import java::collections
-
 redef class App
 	fun nodes: JavaStringArray in "Java" `{
 	    HashSet <String>results = new HashSet<String>();
