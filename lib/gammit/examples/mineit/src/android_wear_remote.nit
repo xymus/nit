@@ -30,8 +30,8 @@ redef class Activity
 		layout.set_vertical
 
 		# 
-		var labels = ["Mine", "Put", "Move"]
-		for but in [but_mine, but_place, but_forward] do
+		var labels = ["Mine", "Put", "Move", "Quit"]
+		for but in [but_mine, but_place, but_forward, but_quit] do
 			but.event_catcher = self
 			but.text = labels.shift
 			but.text_size = 20
