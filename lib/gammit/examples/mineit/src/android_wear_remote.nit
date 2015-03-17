@@ -1,6 +1,22 @@
-
+# This file is part of NIT ( http://www.nitlanguage.org ).
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 # Android Wear remote for Gamnit in virtual reality mode
+#
+# * This module, UI
+# * Sensor
+# * Communication with main
 module android_wear_remote is
 	java_package "net.xymus.mineit.wear_remote"
 	app_name "Mineit Remote"
@@ -29,7 +45,7 @@ redef class Activity
 		var layout = new NativeLinearLayout(native)
 		layout.set_vertical
 
-		# 
+		#
 		var labels = ["Mine", "Put", "Move", "Quit"]
 		for but in [but_mine, but_place, but_forward, but_quit] do
 			but.event_catcher = self
@@ -49,7 +65,7 @@ redef class Activity
 			if sender == but_mine then print "Mine!"
 			if sender == but_place then print "Mine!"
 			if sender == but_quit then
-				native.finish	
+				native.finish
 			end
 		end
 	end

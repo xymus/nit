@@ -1,4 +1,4 @@
-
+import android_wear_remote
 
 redef class App
 	fun nodes: JavaStringArray in "Java" `{
@@ -32,7 +32,7 @@ end
 redef class NativeActivity
 
 	fun listen_for_messages in "Java" `{
-		
+
 		recv.addListener(mGoogleApiClient, new MessageApi.MessageListener() {
 
 			@Override
