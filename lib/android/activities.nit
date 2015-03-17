@@ -37,4 +37,7 @@ extern class NativeActivity in "Java" `{ android.app.Activity `}
 		JNIEnv *env = Sys_jni_env(sys);
 		return (*env)->NewGlobalRef(env, recv);
 	`}
+
+	# 
+	fun finish in "Java" `{ recv.finish(); `}
 end
