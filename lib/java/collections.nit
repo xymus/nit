@@ -77,6 +77,20 @@ extern class JavaDoubleArray in "Java" `{ double[] `}
 	redef fun length in "Java" `{ return recv.length; `}
 end
 
+# Java primitive array `String[]`
+extern class JavaStringArray in "Java" `{ java.lang.String[] `}
+	super AbstractJavaArray[JavaString]
+
+	# Get a new array of the given `size`
+	new(size: Int) in "Java" `{ return new String[(int)size]; `}
+
+	redef fun [](i) in "Java" `{ return recv[(int)i]; `}
+
+	redef fun []=(i, e) in "Java" `{ recv[(int)i] = (String)e; `}
+
+	redef fun length in "Java" `{ return recv.length; `}
+end
+
 # Java primitive array `Object[]`
 extern class JavaArray in "Java" `{ java.lang.Object[] `}
 	super AbstractJavaArray[JavaObject]
