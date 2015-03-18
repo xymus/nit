@@ -63,27 +63,61 @@ redef class NativeActivity
 			// Request access only to the Wearable API
 			.addApi(Wearable.API)
 			.build();
+	`}
 
-	/*
-		Activity context = App_native_activity(recv);
+	private fun native_google_api_client_java_thread: GoogleApiClient
+	in "Java" `{
+
+		final android.app.Activity context = recv;
 		final java.util.ArrayList<GoogleApiClient> apis = new java.util.ArrayList<GoogleApiClient>();
 		final java.util.concurrent.Semaphore mutex = new java.util.concurrent.Semaphore(0);
 
 		Runnable r = new Runnable(){
 			@Override
 			public void run() {
-				apis.add(gh1.getApiClient());
+
+
+
+				GoogleApiClient client = new GoogleApiClient.Builder(context)
+					.addConnectionCallbacks(new ConnectionCallbacks() {
+							@Override
+							public void onConnected(Bundle connectionHint) {
+								Log.d("Nit", "onConnected: " + connectionHint);
+								// Now you can use the Data Layer API
+							}
+							@Override
+							public void onConnectionSuspended(int cause) {
+								Log.d("Nit", "onConnectionSuspended: " + cause);
+							}
+					})
+					.addOnConnectionFailedListener(new OnConnectionFailedListener() {
+							@Override
+							public void onConnectionFailed(ConnectionResult result) {
+								Log.d("Nit", "onConnectionFailed: " + result);
+							}
+						})
+					// Request access only to the Wearable API
+					.addApi(Wearable.API)
+					.build();
+
+
+
+				apis.add(client);
 				mutex.release();
 			}
 		};
 
-			context.runOnUiThread(r);
+		new java.lang.Thread(r).start();
+
+			//recv.runOnUiThread(r);
 			try {
 				mutex.acquire();
 			} catch(Exception ex) {}
 
+
+
+
 		return apis.get(0);
-	*/
 	`}
 end
 
