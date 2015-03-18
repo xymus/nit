@@ -67,12 +67,13 @@ redef class Activity
 
 	redef fun catch_event(event)
 	do
-		app.log_warning "Event!!!"
+		log("-------".to_java_string, "Event!!!".to_java_string)
 		if event isa ClickEvent then
 			var sender = event.sender
 			if sender == but_mine then
 				app.log_error(nodes(app.google_api_client).length.to_s)
-				for e in nodes(app.google_api_client) do app.log_warning(e.to_s)
+				for e in nodes(app.google_api_client) do log("----------".to_java_string, e.to_s.to_java_string)
+				#app.log_warning(e.to_s)
 			end
 			if sender == but_place then print "Mine!"
 			if sender == but_quit then
@@ -89,5 +90,9 @@ redef class Activity
 	    for (Node node: nodes.getNodes()) results.add(node.getId());
 
 	    return results.toArray(new String[results.size()]);
+	`}
+
+	fun log(tag, msg: JavaString) in "Java" `{
+		android.util.Log.e(tag, msg);
 	`}
 end
