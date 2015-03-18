@@ -26,6 +26,14 @@ import android::log
 import android::ui
 import java::collections
 
+
+import android::google_play_services
+in "Java" `{
+	import java.util.HashSet;
+	import com.google.android.gms.wearable.*;
+	import com.google.android.gms.wearable.NodeApi.*;
+`}
+
 redef class Activity
 	super EventCatcher
 
@@ -59,14 +67,27 @@ redef class Activity
 
 	redef fun catch_event(event)
 	do
-		print "Event!!!"
+		app.log_warning "Event!!!"
 		if event isa ClickEvent then
 			var sender = event.sender
-			if sender == but_mine then print "Mine!"
+			if sender == but_mine then
+				app.log_error(nodes(app.google_api_client).length.to_s)
+				for e in nodes(app.google_api_client) do app.log_warning(e.to_s)
+			end
 			if sender == but_place then print "Mine!"
 			if sender == but_quit then
 				native.finish
 			end
 		end
 	end
+
+	fun nodes(mGoogleApiClient: GoogleApiClient): JavaStringArray in "Java" `{
+	    HashSet <String>results = new HashSet<String>();
+	    NodeApi.GetConnectedNodesResult nodes =
+		    Wearable.NodeApi.getConnectedNodes(mGoogleApiClient).await();
+
+	    for (Node node: nodes.getNodes()) results.add(node.getId());
+
+	    return results.toArray(new String[results.size()]);
+	`}
 end
