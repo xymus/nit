@@ -17,13 +17,20 @@ import rss_downloader
 # Current user's home directory
 fun home: String do return "HOME".environ
 
+redef class Text
+	fun html_unescape: String
+	do
+		return self.replace("&amp;", "&")
+	end
+end
+
 redef class Config
 	redef fun tag_title do return "showrss:rawtitle"
 
 	redef fun act_on(element)
 	do
 		var proc = new ProcessWriter("deluge-console", new Array[String]...)
-		proc.write "add '{element.link}'\n"
+		proc.write "add '{element.link.html_unescape}'\n"
 		proc.write "exit\n"
 		proc.wait
 	end
