@@ -13,6 +13,7 @@ module checker
 
 import dom
 
+# Check arguments
 if args.length != 1 then
 	print_error "Usage: checker xml_file"
 	exit 2
@@ -25,6 +26,7 @@ if not path.file_exists then
 end
 
 var content = path.to_path.read_all
+# Parse XML
 var xml = content.to_xml
 
 if xml isa XMLError then
