@@ -12,23 +12,41 @@
 module checker
 
 import dom
+import curl
 
 # Check arguments
 if args.length != 1 then
-	print_error "Usage: checker xml_file"
+	print_error "Usage: checker xml_file|url_to_xml_file"
 	exit 2
 end
 
 var path = args.first
-if not path.file_exists then
-	print_error "Path '{path}' does not exist"
-	exit 3
+var content
+
+if path.has_prefix("http://") then
+	# Use curl to download from HTTP
+	var request = new CurlHTTPRequest(path)
+	var response = request.execute
+
+	if response isa CurlResponseFailed then
+		print_error "Failed to download URL '{path}' with: {response.error_msg} ({response.error_code})"
+		exit 3
+	end
+
+	assert response isa CurlResponseSuccess
+	content = response.body_str
+else
+	# Use the local path
+	if not path.file_exists then
+		print_error "Path '{path}' does not exist"
+		exit 3
+	end
+
+	content = path.to_path.read_all
 end
 
-var content = path.to_path.read_all
 # Parse XML
 var xml = content.to_xml
-
 if xml isa XMLError then
 	print_error "XML file at '{path}' is invalid:"
 	print_error xml.message
