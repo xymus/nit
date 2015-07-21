@@ -52,6 +52,7 @@ class Config
 	# XML tag used for pattern recognition
 	fun tag_title: String do return "title"
 
+	# XML tag of the link to act upon
 	fun tag_link: String do return "link"
 
 	# Action to apply on each selected RSS element
