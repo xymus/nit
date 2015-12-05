@@ -1,0 +1,8 @@
+res/
+bin/
+pub/
+libs/
+assets/android_controls.png
+assets/splash.png
+release.sh
+world.mineit
