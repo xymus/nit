@@ -44,6 +44,17 @@ class Typedef
 
 	var typedef: String
 	var type_: String
+
+	# Custom deserialization for the "type" attribute not usable as a Nit identifier
+	redef init from_deserializer(v)
+	do
+		if v isa JsonDeserializer then
+			v.notify_of_creation self
+
+			typedef = v.deserialize_attribute("typedef").as(String)
+			type_ = v.deserialize_attribute("type").as(String)
+		else super
+	end
 end
 
 class Const
