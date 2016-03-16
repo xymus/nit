@@ -351,10 +351,14 @@ class JsonDeserializer
 				else has_nullable = true
 			end
 
+			# Are all elements of the array of the same type?
 			if types.length == 1 then
 				var array_type = types.first
 
-				var typed_array
+				# TODO remove error
+				var typed_array = deserialize_class("Array[{array_type}]")
+
+				if typed_array == null then
 				if array_type == "FlatString" then
 					if has_nullable then
 						typed_array = new Array[nullable FlatString]
@@ -377,6 +381,7 @@ class JsonDeserializer
 						# Unsupported array type, return as `Array[nullable Object]`
 						return array
 					end
+				end
 				end
 
 				assert typed_array isa Array[nullable Object]
