@@ -1,28 +1,28 @@
-{"typedefs":[{"typedef": "vr::glSharedTextureHandle_t","type_": "void *"}
-,{"typedef": "vr::glInt_t","type_": "int32_t"}
-,{"typedef": "vr::glUInt_t","type_": "uint32_t"}
-,{"typedef": "vr::TrackedDeviceIndex_t","type_": "uint32_t"}
-,{"typedef": "vr::VREvent_Data_t","type_": "union VREvent_Data_t"}
-,{"typedef": "vr::VRControllerState_t","type_": "struct vr::VRControllerState001_t"}
-,{"typedef": "vr::VROverlayHandle_t","type_": "uint64_t"}
-,{"typedef": "vr::VRComponentProperties","type_": "uint32_t"}
-,{"typedef": "vr::TextureID_t","type_": "int32_t"}
-,{"typedef": "vr::VRNotificationId","type_": "uint32_t"}
-,{"typedef": "vr::HmdError","type_": "enum vr::EVRInitError"}
-,{"typedef": "vr::Hmd_Eye","type_": "enum vr::EVREye"}
-,{"typedef": "vr::GraphicsAPIConvention","type_": "enum vr::EGraphicsAPIConvention"}
-,{"typedef": "vr::ColorSpace","type_": "enum vr::EColorSpace"}
-,{"typedef": "vr::HmdTrackingResult","type_": "enum vr::ETrackingResult"}
-,{"typedef": "vr::TrackedDeviceClass","type_": "enum vr::ETrackedDeviceClass"}
-,{"typedef": "vr::TrackingUniverseOrigin","type_": "enum vr::ETrackingUniverseOrigin"}
-,{"typedef": "vr::TrackedDeviceProperty","type_": "enum vr::ETrackedDeviceProperty"}
-,{"typedef": "vr::TrackedPropertyError","type_": "enum vr::ETrackedPropertyError"}
-,{"typedef": "vr::VRSubmitFlags_t","type_": "enum vr::EVRSubmitFlags"}
-,{"typedef": "vr::VRState_t","type_": "enum vr::EVRState"}
-,{"typedef": "vr::CollisionBoundsStyle_t","type_": "enum vr::ECollisionBoundsStyle"}
-,{"typedef": "vr::VROverlayError","type_": "enum vr::EVROverlayError"}
-,{"typedef": "vr::VRFirmwareError","type_": "enum vr::EVRFirmwareError"}
-,{"typedef": "vr::VRCompositorError","type_": "enum vr::EVRCompositorError"}
+{"typedefs":[{"typedef": "vr::glSharedTextureHandle_t","type": "void *"}
+,{"typedef": "vr::glInt_t","type": "int32_t"}
+,{"typedef": "vr::glUInt_t","type": "uint32_t"}
+,{"typedef": "vr::TrackedDeviceIndex_t","type": "uint32_t"}
+,{"typedef": "vr::VREvent_Data_t","type": "union VREvent_Data_t"}
+,{"typedef": "vr::VRControllerState_t","type": "struct vr::VRControllerState001_t"}
+,{"typedef": "vr::VROverlayHandle_t","type": "uint64_t"}
+,{"typedef": "vr::VRComponentProperties","type": "uint32_t"}
+,{"typedef": "vr::TextureID_t","type": "int32_t"}
+,{"typedef": "vr::VRNotificationId","type": "uint32_t"}
+,{"typedef": "vr::HmdError","type": "enum vr::EVRInitError"}
+,{"typedef": "vr::Hmd_Eye","type": "enum vr::EVREye"}
+,{"typedef": "vr::GraphicsAPIConvention","type": "enum vr::EGraphicsAPIConvention"}
+,{"typedef": "vr::ColorSpace","type": "enum vr::EColorSpace"}
+,{"typedef": "vr::HmdTrackingResult","type": "enum vr::ETrackingResult"}
+,{"typedef": "vr::TrackedDeviceClass","type": "enum vr::ETrackedDeviceClass"}
+,{"typedef": "vr::TrackingUniverseOrigin","type": "enum vr::ETrackingUniverseOrigin"}
+,{"typedef": "vr::TrackedDeviceProperty","type": "enum vr::ETrackedDeviceProperty"}
+,{"typedef": "vr::TrackedPropertyError","type": "enum vr::ETrackedPropertyError"}
+,{"typedef": "vr::VRSubmitFlags_t","type": "enum vr::EVRSubmitFlags"}
+,{"typedef": "vr::VRState_t","type": "enum vr::EVRState"}
+,{"typedef": "vr::CollisionBoundsStyle_t","type": "enum vr::ECollisionBoundsStyle"}
+,{"typedef": "vr::VROverlayError","type": "enum vr::EVROverlayError"}
+,{"typedef": "vr::VRFirmwareError","type": "enum vr::EVRFirmwareError"}
+,{"typedef": "vr::VRCompositorError","type": "enum vr::EVRCompositorError"}
 ],
 "enums":[
 	{"enumname": "vr::EVREye","values": [ 
@@ -102,7 +102,7 @@
 	,{"name": "Prop_PreviousUniverseId_Uint64","value": "2005"}
 	,{"name": "Prop_DisplayFirmwareVersion_Uint64","value": "2006"}
 	,{"name": "Prop_IsOnDesktop_Bool","value": "2007"}
-	,{"name": "Prop_DisplayMCType_Int32","value": "2008"}
+	,{"name": "Prop_DisplayMCtypeInt32","value": "2008"}
 	,{"name": "Prop_DisplayMCOffset_Float","value": "2009"}
 	,{"name": "Prop_DisplayMCScale_Float","value": "2010"}
 	,{"name": "Prop_EdidVendorID_Int32","value": "2011"}
@@ -111,7 +111,7 @@
 	,{"name": "Prop_DisplayGCBlackClamp_Float","value": "2014"}
 	,{"name": "Prop_EdidProductID_Int32","value": "2015"}
 	,{"name": "Prop_CameraToHeadTransform_Matrix34","value": "2016"}
-	,{"name": "Prop_DisplayGCType_Int32","value": "2017"}
+	,{"name": "Prop_DisplayGCtypeInt32","value": "2017"}
 	,{"name": "Prop_DisplayGCOffset_Float","value": "2018"}
 	,{"name": "Prop_DisplayGCScale_Float","value": "2019"}
 	,{"name": "Prop_DisplayGCPrescale_Float","value": "2020"}
@@ -130,11 +130,11 @@
 	,{"name": "Prop_CameraCompatibilityMode_Int32","value": "2033"}
 	,{"name": "Prop_AttachedDeviceId_String","value": "3000"}
 	,{"name": "Prop_SupportedButtons_Uint64","value": "3001"}
-	,{"name": "Prop_Axis0Type_Int32","value": "3002"}
-	,{"name": "Prop_Axis1Type_Int32","value": "3003"}
-	,{"name": "Prop_Axis2Type_Int32","value": "3004"}
-	,{"name": "Prop_Axis3Type_Int32","value": "3005"}
-	,{"name": "Prop_Axis4Type_Int32","value": "3006"}
+	,{"name": "Prop_Axis0typeInt32","value": "3002"}
+	,{"name": "Prop_Axis1typeInt32","value": "3003"}
+	,{"name": "Prop_Axis2typeInt32","value": "3004"}
+	,{"name": "Prop_Axis3typeInt32","value": "3005"}
+	,{"name": "Prop_Axis4typeInt32","value": "3006"}
 	,{"name": "Prop_FieldOfViewLeftDegrees_Float","value": "4000"}
 	,{"name": "Prop_FieldOfViewRightDegrees_Float","value": "4001"}
 	,{"name": "Prop_FieldOfViewTopDegrees_Float","value": "4002"}
@@ -425,7 +425,7 @@
 ]}
 ,	{"enumname": "vr::EVRApplicationProperty","values": [ 
 	{"name": "VRApplicationProperty_Name_String","value": "0"}
-	,{"name": "VRApplicationProperty_LaunchType_String","value": "11"}
+	,{"name": "VRApplicationProperty_LaunchtypeString","value": "11"}
 	,{"name": "VRApplicationProperty_WorkingDirectory_String","value": "12"}
 	,{"name": "VRApplicationProperty_BinaryPath_String","value": "13"}
 	,{"name": "VRApplicationProperty_Arguments_String","value": "14"}
@@ -532,8 +532,8 @@
 	,{"name": "VRComponentProperty_IsScrolled","value": "16"}
 ]}
 ,	{"enumname": "vr::EVRNotificationType","values": [ 
-	{"name": "EVRNotificationType_Transient","value": "0"}
-	,{"name": "EVRNotificationType_Persistent","value": "1"}
+	{"name": "EVRNotificationtypeTransient","value": "0"}
+	,{"name": "EVRNotificationtypePersistent","value": "1"}
 ]}
 ,	{"enumname": "vr::EVRNotificationStyle","values": [ 
 	{"name": "EVRNotificationStyle_None","value": "0"}
@@ -2736,7 +2736,7 @@
 	"params": [ 
 {	"paramname": "ulOverlayHandle" ,"paramtype": "vr::VROverlayHandle_t"},
 {	"paramname": "ulUserValue" ,"paramtype": "uint64_t"},
-{	"paramname": "type_" ,"paramtype": "vr::EVRNotificationType"},
+{	"paramname": "type" ,"paramtype": "vr::EVRNotificationType"},
 {	"paramname": "pchText" ,"paramtype": "const char *"},
 {	"paramname": "style" ,"paramtype": "vr::EVRNotificationStyle"},
 {	"paramname": "pImage" ,"paramtype": "const struct vr::NotificationBitmap_t *"},
