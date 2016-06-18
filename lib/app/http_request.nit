@@ -92,6 +92,8 @@ class AsyncHttpRequest
 			app.run_on_ui_thread new RestRunnableOnLoad(self, res)
 		end
 
+		app.run_on_ui_thread new RestRunnableJoin(self)
+
 		return null
 	end
 
@@ -140,6 +142,7 @@ class HttpRequestResult
 	var maybe_code: nullable Int
 
 	# The status code
+	#
 	# Require: `not is_error`
 	fun code: Int do return maybe_code.as(not null)
 end
@@ -173,4 +176,10 @@ private class RestRunnableOnFail
 		sender_thread.on_fail(error)
 		sender_thread.after
 	end
+end
+
+private class RestRunnableJoin
+	super HttpRequestTask
+
+	redef fun main do sender_thread.join
 end
