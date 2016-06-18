@@ -88,9 +88,10 @@ class AsyncHttpRequest
 		var res = deserializer.deserialize
 		if deserializer.errors.not_empty then
 			app.run_on_ui_thread new RestRunnableOnFail(self, deserializer.errors.first)
+		else
+			app.run_on_ui_thread new RestRunnableOnLoad(self, res)
 		end
 
-		app.run_on_ui_thread new RestRunnableOnLoad(self, res)
 		return null
 	end
 
