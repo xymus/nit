@@ -75,7 +75,7 @@ end
 abstract class Action
 end
 
-### Intelligent lists ###
+### Smart lists ###
 
 # A list of interfaces with dynamic port listeners
 class Interfaces
@@ -84,19 +84,54 @@ class Interfaces
 	# Back reference to the associtated `VirtualHost`
 	var virtual_host: VirtualHost
 
-	# Add an `Interface` described by `text` formatted as `interface.name.com:port`
-	fun add_from_string(text: String)
+	# Add an `Interface` described by `text`
+	#
+	# `text` can be formatted as:
+	# * `interface.name.com`
+	# * `interface.name.com:80`
+	# * `127.0.0.1`
+	# * `127.0.0.1:80`
+	# * `::1`
+	# * `[::1]:80`
+	#
+	# When the port is not specified it defaults to 80.
+	private fun add_from_string(text: String)
 	do
-		assert text.chars.count(':') <= 1
+		var name
+		var port = null
 
-		var words = text.split(':')
-		var name = words[0]
-		var port
-		if words.length > 1 then
-			port = words[1].to_i
-		else port = 80
+		var ipv6_re = ipv6_re
+		var ipv6_match = text.search(ipv6_re)
+		if ipv6_match != null then
+			# IPv6 in format '[::1]:8080'
+			name = ipv6_match[1].as(not null).to_s
+
+			var port_sub = ipv6_match[3]
+			if port_sub != null then
+				print port_sub
+				port = port_sub.to_s.to_i
+			end
+		else if text.chars.count(':') > 1 then
+			# IPv6 in format '::1'
+			name = text
+		else
+			# IPv4 and domain names
+			var words = text.split(':')
+			name = words[0]
+			if words.length > 1 then port = words[1].to_i
+		end
+
+		if port == null then port = 80
 
 		add new Interface(name, port)
+	end
+end
+
+redef class Sys
+	private var ipv6_re: Regex is lazy do
+		var re = "\\[(.*)\\](:([0-9]+))?".to_re
+		assert re.compile == null
+		return re
 	end
 end
 
