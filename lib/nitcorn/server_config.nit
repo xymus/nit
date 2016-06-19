@@ -45,15 +45,21 @@ class VirtualHost
 	end
 end
 
-# An interface composed of a `name`:`port`
+# An interface composed of a `name` and a `port`
 class Interface
+
 	# Name of this interface (such as "localhost", "example.org", etc.)
 	var name: String
 
 	# The port to open
 	var port: Int
 
-	redef fun to_s do return "{name}:{port}"
+	redef fun to_s
+	do
+		var name = name
+		if name.chars.has(":") then name = "[{name}]"
+		return "{name}:{port}"
+	end
 end
 
 # A route to an `Action` according to a `path`
