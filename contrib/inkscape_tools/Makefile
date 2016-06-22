@@ -12,3 +12,7 @@ test-tinks: bin/svg_to_png_and_nit
 	bin/svg_to_png_and_nit --assets tests/tinks/ --src tests/tinks/ ../tinks/art/drawing.svg
 
 .PHONY: bin/svg_to_png_and_nit
+
+clean:
+	rm -rf -- ./bin
+	$(MAKE) -C ./tests/app clean

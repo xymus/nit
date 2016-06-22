@@ -17,3 +17,6 @@ icons:
 	#../../bin/svg_to_icons art/icon.svg --large --out res1
 	../../bin/svg_to_icons art/drawing.svg --large --out res2 --id 0circle
 	#../../bin/svg_to_icons art/icon.svg --android --out res3
+
+clean:
+	rm -rf ./assets ./bin ./res2 ./drawing.nit ./tinks

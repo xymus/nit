@@ -4,3 +4,6 @@ all:
 	msgfmt meetup.po -o meetup.mo
 	msgfmt meetup_creation.po -o meetup_creation.mo
 	msgfmt meetup_confirmation.po -o meetup_confirmation.mo
+
+clean:
+	rm -rf -- *.mo

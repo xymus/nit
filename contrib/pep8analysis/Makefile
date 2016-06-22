@@ -16,3 +16,7 @@ www/pep8analysis.js:
 	cp tests/micro/*.pep tests/privat/02-fibo.pep tests/privat/06-calc-non-pur.pep www/samples
 
 .PHONY: bin/pep8analysis tests doc/index.html www/pep8analysis.js
+
+clean distclean mostlyclean maintainer-clean:
+	rm -rf -- ./doc ./bin ./out
+	$(MAKE) -C ./src/parser $@

@@ -7,3 +7,6 @@ xymus.net: ../benitlux/src/server/benitlux_restful.nit $(shell nitls -M xymus_ne
 	make -C ../benitlux src/server/benitlux_restful.nit
 
 pre-build: ../benitlux/src/server/benitlux_restful.nit
+
+clean:
+	rm -rf -- ./bin ./xymus.net

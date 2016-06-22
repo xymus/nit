@@ -37,3 +37,6 @@ android/libs/cardboard.jar:
 	mkdir -p android/libs
 	curl --progress-bar -o libs/cardboard.jar \
 	https://raw.githubusercontent.com/googlesamples/cardboard-java/master/CardboardSample/libs/cardboard.jar
+
+clean:
+	rm -rf -- ./android ./bin/*

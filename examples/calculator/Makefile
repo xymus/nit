@@ -54,3 +54,6 @@ bin/test: $(shell ${NITLS} -M src/calculator_test.nit) ${NITC}
 
 check: bin/test
 	bin/test
+
+clean:
+	rm -rf ./res ./ios

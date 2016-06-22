@@ -39,3 +39,8 @@ check-apple: bin/objcwrapper
 
 bin/header_static: $(shell nitls -M src/header_static.nit)
 	nitc --dir bin src/header_static.nit
+
+clean:
+	rm -rf -- ./bin/* ./objc.ast.dot
+	rm -f -- ./src/objc_lexer.nit ./src/objc_parser.nit ./src/objc_test_parser.nit
+	rm -f -- ./tests/MyClass.nit ./tests/nsarray.nit ./tests/nsalert.nit

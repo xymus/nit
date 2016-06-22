@@ -50,3 +50,6 @@ android/res/: art/icon.svg
 	../inkscape_tools/bin/svg_to_icons art/icon.svg --android --out android/res/
 
 .PHONY: pub
+
+clean:
+	rm -rf -- ./bin/* ./src/*/*_serialize.nit ./src/client/drawing.nit ./config.json
