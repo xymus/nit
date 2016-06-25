@@ -85,14 +85,8 @@ redef class App
 	# Explosion image for particle effect
 	private var texture_explosion = new Texture("particles/explosion00.png")
 
-	# Explosion particles
-	var explosion_system = new ParticleSystem(20, explosion_program, texture_explosion)
-
 	# Explosion image for particle effect
 	private var texture_smoke = new Texture("particles/blackSmoke12.png")
-
-	# Explosion particles
-	var smoke_system = new ParticleSystem(200, smoke_program, texture_smoke)
 
 	# ---
 	# Sounds
@@ -156,30 +150,43 @@ redef class App
 		ground.scale = 5000.0
 
 		self.ground = ground
-		actors.add ground
+		scene.actors.add ground
 
 		# Config the view
-		world_camera.near = 0.1
+		scene.world_camera.near = 0.1
 
 		# Sky color
 		glClearColor(100.0/256.0, 120.0/256.0, 224.0/256.0, 1.0)
 
 		# Move the sun a bit off right above
-		light.position.x = 1000.0
-		light.position.z = 500.0
-
-		# Register our two systems
-		particle_systems.add explosion_system
-		particle_systems.add smoke_system
+		scene.light.position.x = 1000.0
+		scene.light.position.z = 500.0
 
 		# Connect to server (or launch one) and assign models to rules
 		var context = context
 		context.game.story.assign_models
 	end
+end
+
+redef class Scene
+
+	# Explosion particles
+	var explosion_system = new ParticleSystem(20, app.explosion_program, app.texture_explosion)
+
+	# Explosion particles
+	var smoke_system = new ParticleSystem(200, app.smoke_program, app.texture_smoke)
+
+	init
+	do
+		# Register our two systems
+		particle_systems.add explosion_system
+		particle_systems.add smoke_system
+	end
 
 	redef fun update(dt)
 	do
 		# Game logic
+		var context = app.context
 		var turn = context.do_turn
 		for event in turn.events do event.client_react
 
@@ -203,6 +210,7 @@ redef class App
 		# Let `pressed_keys` be populated first
 		var s = super
 
+		var context = app.context
 		var local_player = context.local_player
 		var local_tank = null
 		if local_player != null then local_tank = local_player.tank
@@ -271,7 +279,7 @@ redef class App
 		if event isa PointerEvent and event.pressed and not event.is_move then
 			if local_player == null then return false
 
-			var display = display
+			var display = app.display
 			if display == null then return false
 
 			if local_tank == null then
@@ -347,12 +355,14 @@ redef class Feature
 	# Instantiate `actor` and add it to the 3D world
 	fun add_actor_to_scene
 	do
+		var scene = app.scene
+
 		app.features_in_sight.add self
 
 		var actor = actor
 		if actor != null then
 			# Reuse existing actor
-			if not app.actors.has(actor) then app.actors.add actor
+			if not scene.actors.has(actor) then scene.actors.add actor
 			return
 		end
 
@@ -363,7 +373,7 @@ redef class Feature
 		actor.scale = 0.75
 
 		self.actor = actor
-		app.actors.add actor
+		scene.actors.add actor
 	end
 
 	# Remove `actor` from the `actors` list as it will net be used anymore
@@ -371,7 +381,7 @@ redef class Feature
 	do
 		var actor = actor
 		if actor != null then
-			app.actors.remove actor
+			app.scene.actors.remove actor
 			self.actor = null
 		end
 	end
@@ -382,11 +392,11 @@ redef class Tank
 	var actors: Array[Actor] is lazy do
 		var actors = new Array[Actor]
 		var actor = new Actor(app.model_tank_base, new Point3d[Float](0.0, 0.0, 0.0))
-		app.actors.add actor
+		app.scene.actors.add actor
 		actors.add actor
 
 		var tank_turret = new Actor(app.model_tank_turret, new Point3d[Float](0.0, 0.0, 0.0))
-		app.actors.add tank_turret
+		app.scene.actors.add tank_turret
 		actors.add tank_turret
 		return actors
 	end
@@ -416,9 +426,9 @@ redef class ExplosionEvent
 		for feature in destroyed_features do feature.destroy_actor
 
 		# Particles
-		app.explosion_system.add(new Point3d[Float](pos.x, 1.0, pos.y), 4096.0, 0.3)
+		app.scene.explosion_system.add(new Point3d[Float](pos.x, 1.0, pos.y), 4096.0, 0.3)
 		for i in 8.times do
-			app.explosion_system.add(
+			app.scene.explosion_system.add(
 				new Point3d[Float](pos.x & 1.0, 1.0 & 1.0, pos.y & 1.0),
 				2048.0 & 1024.0, 0.3 & 0.1)
 		end
@@ -427,12 +437,12 @@ redef class ExplosionEvent
 		var blast = new Actor(app.blast_model, new Point3d[Float](pos.x, 0.05 & 0.04, pos.y))
 		blast.scale = 3.0
 		blast.rotation = 2.0*pi.rand
-		app.actors.add blast
+		app.scene.actors.add blast
 
 		# Smoke
 		for s in 32.times do
 			var dt = 0.2 * s.to_f + 0.1.rand
-			app.smoke_system.add(
+			app.scene.smoke_system.add(
 				new Point3d[Float](pos.x & 0.2, 0.0, pos.y & 0.2),
 				1024.0 & 512.0, 10.0 & 4.0, dt)
 		end
@@ -442,7 +452,7 @@ end
 redef class OpenFireEvent
 	redef fun client_react
 	do
-		if tank.pos.dist2_3d(app.world_camera.position) < app.far_dist2 then
+		if tank.pos.dist2_3d(app.scene.world_camera.position) < app.far_dist2 then
 			# Within earshot
 			app.turret_fire.play
 
@@ -450,7 +460,7 @@ redef class OpenFireEvent
 			var d = 1.7
 			var a = tank.turret.heading - 0.025 # Correct to center the art
 			var pos = new Point3d[Float](tank.pos.x + d*a.cos, 1.25, tank.pos.y + d*a.sin)
-			app.explosion_system.add(pos, 0.75*256.0, 0.15)
+			app.scene.explosion_system.add(pos, 0.75*256.0, 0.15)
 		end
 	end
 end
@@ -458,7 +468,7 @@ end
 redef class TurretReadyEvent
 	redef fun client_react
 	do
-		if tank.pos.dist2_3d(app.world_camera.position) < app.far_dist2 then
+		if tank.pos.dist2_3d(app.scene.world_camera.position) < app.far_dist2 then
 			# Within earshot
 			app.turret_ready.play
 		end
@@ -494,7 +504,7 @@ redef class TankMoveEvent
 			var y = feature.pos.y.to_i
 			if x < l or x > r or y < t or y > b then
 				var actor = feature.actor
-				app.actors.remove actor
+				app.scene.actors.remove actor
 				app.features_in_sight.remove feature
 			end
 		end
@@ -514,7 +524,7 @@ end
 redef class TankDeathEvent
 	redef fun client_react
 	do
-		for actor in tank.actors do app.actors.remove actor
+		for actor in tank.actors do app.scene.actors.remove actor
 		tank.actors.clear
 	end
 end
