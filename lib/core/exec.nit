@@ -45,6 +45,8 @@ in "C Header" `{
 
 # Simple sub-process
 class Process
+	super FinalizableOnce
+
 	# The pid of the process
 	fun id: Int do return data.id
 
@@ -207,6 +209,8 @@ class Process
 
 		return result;
 	`}
+
+	redef fun finalize_once do data.free
 end
 
 # `Process` on which the `stdout` is readable like a `Reader`
