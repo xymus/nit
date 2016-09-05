@@ -304,6 +304,16 @@ class Scene
 
 		frame_core_sprites(display, ui_sprites.as(SpriteSet), ui_camera)
 	end
+
+	# Main method to refine in clients to update game logic and `sprites`
+	fun update(dt: Float) do end
+
+	# Receive `InputEvent` produced by the system
+	#
+	# Returns whether or not the event is used or intercepted.
+	# If `true`, the event will not be processed further by the system.
+	# Returns `false` to intercepts events like the back key on mobile devices.
+	fun accept_event(event: InputEvent): Bool do return false
 end
 
 redef class App
@@ -403,6 +413,8 @@ redef class App
 		gl_error = glGetError
 		assert gl_error == gl_NO_ERROR else print_error gl_error
 	end
+
+	redef fun accept_event(event) do return scene.accept_event(event)
 end
 
 redef class Texture
