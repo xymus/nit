@@ -68,6 +68,9 @@ redef class App
 	# Main play scene
 	var play_scene = new PlayScene is lazy
 
+	# Between play scene
+	var pause_scene = new PauseScene is lazy
+
 	redef fun on_create
 	do
 		super
@@ -106,6 +109,7 @@ class PlayScene
 		if world.asteroids.is_empty then
 			sprites.clear
 			self.world = new World(world.n_asteroids*2, world.n_asteroid_parts+1, app.display.aspect_ratio)
+			app.scene = app.pause_scene
 		end
 	end
 
@@ -134,6 +138,24 @@ class PlayScene
 				app.dynamic_resolution_ratio /= 2.0
 				print app.dynamic_resolution_ratio
 			end
+		end
+
+		return false
+	end
+end
+
+# Scene shown between plays
+class PauseScene
+	super Scene
+
+	# Unpause and launch next level
+	fun launch_next_level do app.scene = app.play_scene
+
+	redef fun accept_event(event)
+	do
+		if event isa KeyEvent and event.is_down then
+			launch_next_level
+			return true
 		end
 
 		return false
