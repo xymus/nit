@@ -131,10 +131,11 @@ class GlobeMaterial
 		program.tex_displace.uniform 3
 
 		# Update camera view and light
-		var p = app.world_camera.position
+		# TODO don't rely on the current `app.scene`
+		var p = app.scene.world_camera.position
 		program.camera.uniform(p.x, p.y, p.z)
-		program.mvp.uniform app.world_camera.mvp_matrix
-		program.light_center.uniform(app.light.position.x, app.light.position.y, app.light.position.z)
+		program.mvp.uniform app.scene.world_camera.mvp_matrix
+		program.light_center.uniform(app.scene.light.position.x, app.scene.light.position.y, app.scene.light.position.z)
 
 		# Set attributes
 		program.coord.array_enabled = true

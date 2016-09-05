@@ -64,8 +64,8 @@ redef class App
 			models.unshift model
 		end
 
-		world_camera.near = 0.1
-		world_camera.far = 100.0
+		scene.world_camera.near = 0.1
+		scene.world_camera.far = 100.0
 
 		for model in models do model.load
 		for texture in asset_textures_by_name.values do texture.load
@@ -75,17 +75,17 @@ redef class App
 
 		# Setup UI
 		# Use 800 px in height as screen reference
-		ui_camera.reset_height 800.0
+		scene.ui_camera.reset_height 800.0
 
 		var prev_sprite = new Sprite(ui_prev,
-			ui_camera.bottom_left.offset(200, 40, 0))
+			scene.ui_camera.bottom_left.offset(200, 40, 0))
 		prev_sprite.scale = 0.5
-		ui_sprites.add prev_sprite
+		scene.ui_sprites.add prev_sprite
 
 		var next_sprite = new Sprite(ui_next,
-			ui_camera.bottom_right.offset(-165, 40, 0))
+			scene.ui_camera.bottom_right.offset(-165, 40, 0))
 		next_sprite.scale = 0.5
-		ui_sprites.add next_sprite
+		scene.ui_sprites.add next_sprite
 	end
 
 	# Set the currently displayed model
@@ -102,10 +102,10 @@ redef class App
 		var height = model.dimensions.x
 		height = height.max(model.dimensions.y)
 		height = height.max(model.dimensions.z)
-		world_camera.reset_height(height * 1.5)
+		scene.world_camera.reset_height(height * 1.5)
 
-		actors.clear
-		actors.add actor
+		scene.actors.clear
+		scene.actors.add actor
 	end
 
 	# Cycle to the next or previous model, changing the index by `d`
@@ -138,21 +138,23 @@ redef class App
 	end
 
 	private var clock = new Clock
+end
 
+redef class Scene
 	redef fun update(dt)
 	do
 		super
 
-		var t = clock.total.to_f
+		var t = app.clock.total.to_f
 
 		# Rotate the model
-		actors.first.rotation = t
+		app.scene.actors.first.rotation = t
 
 		# Move the light source
 		var dist_to_light = 20.0
 		t *= 1.33
-		light.position.x = dist_to_light * t.cos
-		light.position.y = 4.0
-		light.position.z = dist_to_light * t.sin
+		app.scene.light.position.x = dist_to_light * t.cos
+		app.scene.light.position.y = 4.0
+		app.scene.light.position.z = dist_to_light * t.sin
 	end
 end
