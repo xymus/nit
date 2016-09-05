@@ -65,6 +65,15 @@ redef class App
 	# Main spritesheet with ships, asteroids and beams
 	var spritesheet = new Spritesheet
 
+	# Background for `PlayScene`
+	var background_play = new Texture("images/background_play.jpg")
+
+	# Background for `PauseScene`
+	var background_pause = new Texture("images/background_pause.jpg")
+
+	# Text displayed by `PauseScene`
+	var level_cleared = new Texture("images/level_cleared.png")
+
 	# Main play scene
 	var play_scene = new PlayScene is lazy
 
@@ -94,8 +103,13 @@ class PlayScene
 
 	# Current world in play
 	var world: World is lazy do
-		var world = new World(12, 2, app.display.aspect_ratio)
-		world_camera.reset_height(world.half_height * 2.0)
+		var world = new World(1, 2, app.display.aspect_ratio)
+		world_camera.reset_height 2.0*world.half_height
+
+		var background = new Sprite(app.background_play, new Point3d[Float](0.0, 0.0, 0.0))
+		background.scale = 2.0 * world.half_width / app.background_play.width
+		sprites.add background
+
 		return world
 	end
 
@@ -107,7 +121,8 @@ class PlayScene
 
 		# Setup new world if all asteroids are destroyed
 		if world.asteroids.is_empty then
-			sprites.clear
+			for obj in world.objects do for s in obj.sprites do sprites.remove s
+
 			self.world = new World(world.n_asteroids*2, world.n_asteroid_parts+1, app.display.aspect_ratio)
 			app.scene = app.pause_scene
 		end
@@ -147,6 +162,17 @@ end
 # Scene shown between plays
 class PauseScene
 	super Scene
+
+	init
+	do
+		var background = new Sprite(app.background_pause, new Point3d[Float](0.0, 0.0, 0.0))
+		sprites.add background
+		world_camera.reset_height(background.texture.width / world_camera.display.aspect_ratio)
+
+		var text = new Sprite(app.level_cleared, new Point3d[Float](0.0, 0.0, 1.0))
+		text.scale = 2.0
+		sprites.add text
+	end
 
 	# Unpause and launch next level
 	fun launch_next_level do app.scene = app.play_scene
