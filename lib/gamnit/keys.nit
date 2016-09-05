@@ -43,20 +43,20 @@
 module keys
 
 import mnit::input
-import gamnit
+import gamnit::flat
 
-redef class App
+redef class Scene
 	# Currently pressed keys
-	var pressed_keys = new Set[String] is lazy
+	var pressed_keys = new Set[String]
 
 	# Register `event` to update `app.pressed_keys`
 	private fun register_key_event(event: KeyEvent)
 	do
 		var key = event.name
 		if event.is_down then
-			app.pressed_keys.add key
-		else if app.pressed_keys.has(key) then
-			app.pressed_keys.remove key
+			pressed_keys.add key
+		else if pressed_keys.has(key) then
+			pressed_keys.remove key
 		end
 	end
 
@@ -65,5 +65,13 @@ redef class App
 		if event isa KeyEvent then register_key_event event
 
 		return super
+	end
+end
+
+redef class App
+	redef fun scene=(scene)
+	do
+		scene.pressed_keys.clear
+		super
 	end
 end
