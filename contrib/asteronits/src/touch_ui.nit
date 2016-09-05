@@ -30,3 +30,16 @@ redef class PlayScene
 		self.gamepad = gamepad
 	end
 end
+
+redef class PauseScene
+
+	redef fun accept_event(event)
+	do
+		if event isa PointerEvent and event.pressed then
+			launch_next_level
+			return true
+		end
+
+		return super
+	end
+end
