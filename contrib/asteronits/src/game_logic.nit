@@ -103,7 +103,7 @@ abstract class SpacialObject
 	var world: World
 
 	# Current position
-	var center = new Point3d[Float](0.0, 0.0, 0.0)
+	var center = new Point3d[Float](0.0, 0.0, 10.0)
 
 	# Position inertia, applied on `center` at each `do_turn`
 	var inertia = new Point3d[Float](0.0, 0.0, 0.0)
@@ -192,7 +192,7 @@ class Ship
 	fun fire
 	do
 		var bullet = new Bullet.copy(world.ship)
-		bullet.center.z = -1.0 # in the background
+		bullet.center.z = 5.0 # in the background
 		bullet.apply_thrust 500.0 # give a boost
 
 		world.objects.add bullet
