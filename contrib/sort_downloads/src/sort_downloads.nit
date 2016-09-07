@@ -62,14 +62,6 @@ redef class String
 		else return false
 	end
 
-	# Returns null on success
-	fun file_rename_to(dest: String): nullable String import String.to_cstring,
-	NativeString.to_s, String.as nullable `{
-		int res = rename(String_to_cstring(self), String_to_cstring(dest));
-		if (res == 0) return null_String();
-		return String_as_nullable(NativeString_to_s(strerror(errno)));
-	`}
-
 	# Replace `~` by the path to the home diretory
 	fun replace_tilde: String
 	do
@@ -79,6 +71,16 @@ redef class String
 			return "{home_folder}/{substring(match.after, length)}"
 		else return self
 	end
+end
+
+redef class NativeString
+	# Returns null on success
+	fun rename(dest: NativeString): NativeString
+	`{
+		int res = rename(self, dest);
+		if (res == 0) return NULL;
+		return strerror(errno);
+	`}
 end
 
 # Keeps track of the real directory name associated to this pattern
@@ -181,8 +183,8 @@ class XySorter
 				if not opt_dry_run.value then
 					if not full_dir_dest.file_exists then full_dir_dest.mkdir
 
-					var res = full_source.file_rename_to(full_dest)
-					if res != null then
+					var res = full_source.to_cstring.rename(full_dest.to_cstring)
+					if not res.address_is_null then
 						print "Error moving '{full_source}' -> '{full_dest}': {res}"
 						abort
 					end
