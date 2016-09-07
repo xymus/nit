@@ -16,8 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Smart file sorting using folder names to sort files. Has built in support for
-# a distributed or multi-disk setup.
+# Sort files into folders based on their name
 module sort_downloads
 
 # TODO sort patterns by longer first
