@@ -173,17 +173,17 @@ class XySorter
 
 			# lets' move it!
 			if move_to_dir != null then
-				var full_dir_dest = dest_dir + "/" + move_to_dir
-				var full_dest = full_dir_dest + "/" + file
+				var full_dir_dest = dest_dir / move_to_dir
+				var full_dest = full_dir_dest / file
 
-				if opt_verbose.value then print "moving {full_source} -> {full_dest}"
+				if opt_verbose.value then print "moving '{full_source}' -> '{full_dest}'"
 
 				if not opt_dry_run.value then
 					if not full_dir_dest.file_exists then full_dir_dest.mkdir
 
 					var res = full_source.file_rename_to(full_dest)
 					if res != null then
-						print "Moving error: {res}"
+						print "Error moving '{full_source}' -> '{full_dest}': {res}"
 						abort
 					end
 				end
