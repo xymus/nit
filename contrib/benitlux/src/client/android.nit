@@ -119,6 +119,7 @@ redef class SectionTitle
 
 	private fun set_text_style(view: NativeTextView, context: NativeContext) in "Java" `{
 		view.setTextAppearance(context, android.R.style.TextAppearance_Large);
+		//view.setBackgroundResource(R.color.header_background);
 	`}
 end
 
@@ -259,5 +260,31 @@ redef class BeerView
 				return true;
 			}
 		});
+	`}
+end
+
+redef class HomeWindow
+	#init do native.load_back
+	#redef fun add(v) do
+
+	var back_set = false
+	redef fun on_resume
+	do
+		super
+		if not back_set then
+			native.load_back
+			back_set = true
+		end
+	end
+end
+
+redef class NativeView
+	fun load_back in "Java" `{
+	`}
+end
+
+redef class Android_app_Fragment
+	fun load_back in "Java" `{
+		self.getView().setBackground(self.getResources().getDrawable(R.drawable.background));
 	`}
 end
