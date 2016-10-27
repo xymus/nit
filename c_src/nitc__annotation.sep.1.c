@@ -1,5 +1,5 @@
 #include "nitc__annotation.sep.0.h"
-/* method annotation#Prod#get_single_annotation for (self: Prod, String, ModelBuilder): nullable AAnnotation */
+/* method annotation$Prod$get_single_annotation for (self: Prod, String, ModelBuilder): nullable AAnnotation */
 val* nitc__annotation___Prod___get_single_annotation(val* self, val* p0, val* p1) {
 val* var /* : nullable AAnnotation */;
 val* var_name /* var name: String */;
@@ -7,8 +7,8 @@ val* var_modelbuilder /* var modelbuilder: ModelBuilder */;
 val* var1 /* : Array[AAnnotation] */;
 val* var_res /* var res: Array[AAnnotation] */;
 short int var2 /* : Bool */;
-long var3 /* : Int */;
-long var5 /* : Int */;
+int64_t var3 /* : Int */;
+int64_t var5 /* : Int */;
 short int var6 /* : Bool */;
 short int var8 /* : Bool */;
 int cltype;
@@ -33,8 +33,8 @@ val* var23 /* : String */;
 val* var24 /* : nullable Object */;
 val* var25 /* : Location */;
 val* var27 /* : Location */;
-long var28 /* : Int */;
-long var30 /* : Int */;
+int64_t var28 /* : Int */;
+int64_t var30 /* : Int */;
 val* var31 /* : String */;
 val* var32 /* : String */;
 val* var33 /* : nullable Object */;
@@ -53,21 +53,21 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline array#AbstractArrayRead#length (var_res) on <var_res:Array[AAnnotation]> */
+{ /* Inline array$AbstractArrayRead$length (var_res) on <var_res:Array[AAnnotation]> */
 var5 = var_res->attrs[COLOR_core__array__AbstractArrayRead___length].l; /* _length on <var_res:Array[AAnnotation]> */
 var3 = var5;
 RET_LABEL4:(void)0;
 }
 }
 {
-{ /* Inline kernel#Int#> (var3,1l) on <var3:Int> */
+{ /* Inline kernel$Int$> (var3,1l) on <var3:Int> */
 /* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
 /* <1l:Int> isa OTHER */
 var8 = 1; /* easy <1l:Int> isa OTHER*/
 if (unlikely(!var8)) {
 var_class_name = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 730);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 727);
 fatal_exit(1);
 }
 var9 = var3 > 1l;
@@ -118,9 +118,12 @@ varonce = NULL;
 var24 = core___core__Array___core__abstract_collection__SequenceRead___91d_93d(var_res, 0l);
 }
 {
-{ /* Inline parser_nodes#ANode#location (var24) on <var24:nullable Object(AAnnotation)> */
+{ /* Inline parser_nodes$ANode$location (var24) on <var24:nullable Object(AAnnotation)> */
 var27 = var24->attrs[COLOR_nitc__parser_nodes__ANode___location].val; /* _location on <var24:nullable Object(AAnnotation)> */
 if (unlikely(var27 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _location");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 24);
 fatal_exit(1);
@@ -130,7 +133,7 @@ RET_LABEL26:(void)0;
 }
 }
 {
-{ /* Inline location#Location#line_start (var25) on <var25:Location> */
+{ /* Inline location$Location$line_start (var25) on <var25:Location> */
 var30 = var25->attrs[COLOR_nitc__location__Location___line_start].l; /* _line_start on <var25:Location> */
 var28 = var30;
 RET_LABEL29:(void)0;
@@ -143,7 +146,7 @@ var32 = ((val*(*)(val* self))(var11->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce = var11;
 {
-nitc___nitc__ModelBuilder___error(var_modelbuilder, var10, var32); /* Direct call modelbuilder_base#ModelBuilder#error on <var_modelbuilder:ModelBuilder>*/
+nitc___nitc__ModelBuilder___error(var_modelbuilder, var10, var32); /* Direct call modelbuilder_base$ModelBuilder$error on <var_modelbuilder:ModelBuilder>*/
 }
 } else {
 }
@@ -155,14 +158,14 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method annotation#AAnnotation#arg_as_string for (self: AAnnotation, ModelBuilder): nullable String */
+/* method annotation$AAnnotation$arg_as_string for (self: AAnnotation, ModelBuilder): nullable String */
 val* nitc__annotation___AAnnotation___arg_as_string(val* self, val* p0) {
 val* var /* : nullable String */;
 val* var_modelbuilder /* var modelbuilder: ModelBuilder */;
 val* var1 /* : ANodes[AExpr] */;
 val* var3 /* : ANodes[AExpr] */;
 val* var_args /* var args: ANodes[AExpr] */;
-long var4 /* : Int */;
+int64_t var4 /* : Int */;
 short int var5 /* : Bool */;
 short int var7 /* : Bool */;
 val* var8 /* : nullable Object */;
@@ -187,11 +190,14 @@ val* var24 /* : String */;
 val* var25 /* : String */;
 var_modelbuilder = p0;
 {
-{ /* Inline parser_nodes#AAnnotation#n_args (self) on <self:AAnnotation> */
+{ /* Inline parser_nodes$AAnnotation$n_args (self) on <self:AAnnotation> */
 var3 = self->attrs[COLOR_nitc__parser_nodes__AAnnotation___n_args].val; /* _n_args on <self:AAnnotation> */
 if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_args");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2926);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2950);
 fatal_exit(1);
 }
 var1 = var3;
@@ -203,7 +209,7 @@ var_args = var1;
 var4 = nitc___nitc__ANodes___core__abstract_collection__Collection__length(var_args);
 }
 {
-{ /* Inline kernel#Int#== (var4,1l) on <var4:Int> */
+{ /* Inline kernel$Int$== (var4,1l) on <var4:Int> */
 var7 = var4 == 1l;
 var5 = var7;
 goto RET_LABEL6;
@@ -224,7 +230,7 @@ var10 = 0; /* is null */
 var10 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_arg,((val*)NULL)) on <var_arg:nullable String> */
+{ /* Inline kernel$Object$!= (var_arg,((val*)NULL)) on <var_arg:nullable String> */
 var_other = ((val*)NULL);
 {
 var13 = ((short int(*)(val* self, val* p0))(var_arg->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_arg, var_other); /* == on <var_arg:nullable String(String)>*/
@@ -276,21 +282,21 @@ var25 = ((val*(*)(val* self))(var15->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce = var15;
 {
-nitc___nitc__ModelBuilder___error(var_modelbuilder, self, var25); /* Direct call modelbuilder_base#ModelBuilder#error on <var_modelbuilder:ModelBuilder>*/
+nitc___nitc__ModelBuilder___error(var_modelbuilder, self, var25); /* Direct call modelbuilder_base$ModelBuilder$error on <var_modelbuilder:ModelBuilder>*/
 }
 var = ((val*)NULL);
 goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method annotation#AAnnotation#arg_as_id for (self: AAnnotation, ModelBuilder): nullable String */
+/* method annotation$AAnnotation$arg_as_id for (self: AAnnotation, ModelBuilder): nullable String */
 val* nitc__annotation___AAnnotation___arg_as_id(val* self, val* p0) {
 val* var /* : nullable String */;
 val* var_modelbuilder /* var modelbuilder: ModelBuilder */;
 val* var1 /* : ANodes[AExpr] */;
 val* var3 /* : ANodes[AExpr] */;
 val* var_args /* var args: ANodes[AExpr] */;
-long var4 /* : Int */;
+int64_t var4 /* : Int */;
 short int var5 /* : Bool */;
 short int var7 /* : Bool */;
 val* var8 /* : nullable Object */;
@@ -315,11 +321,14 @@ val* var24 /* : String */;
 val* var25 /* : String */;
 var_modelbuilder = p0;
 {
-{ /* Inline parser_nodes#AAnnotation#n_args (self) on <self:AAnnotation> */
+{ /* Inline parser_nodes$AAnnotation$n_args (self) on <self:AAnnotation> */
 var3 = self->attrs[COLOR_nitc__parser_nodes__AAnnotation___n_args].val; /* _n_args on <self:AAnnotation> */
 if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_args");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2926);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2950);
 fatal_exit(1);
 }
 var1 = var3;
@@ -331,7 +340,7 @@ var_args = var1;
 var4 = nitc___nitc__ANodes___core__abstract_collection__Collection__length(var_args);
 }
 {
-{ /* Inline kernel#Int#== (var4,1l) on <var4:Int> */
+{ /* Inline kernel$Int$== (var4,1l) on <var4:Int> */
 var7 = var4 == 1l;
 var5 = var7;
 goto RET_LABEL6;
@@ -352,7 +361,7 @@ var10 = 0; /* is null */
 var10 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_arg,((val*)NULL)) on <var_arg:nullable String> */
+{ /* Inline kernel$Object$!= (var_arg,((val*)NULL)) on <var_arg:nullable String> */
 var_other = ((val*)NULL);
 {
 var13 = ((short int(*)(val* self, val* p0))(var_arg->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_arg, var_other); /* == on <var_arg:nullable String(String)>*/
@@ -404,7 +413,7 @@ var25 = ((val*(*)(val* self))(var15->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce = var15;
 {
-nitc___nitc__ModelBuilder___error(var_modelbuilder, self, var25); /* Direct call modelbuilder_base#ModelBuilder#error on <var_modelbuilder:ModelBuilder>*/
+nitc___nitc__ModelBuilder___error(var_modelbuilder, self, var25); /* Direct call modelbuilder_base$ModelBuilder$error on <var_modelbuilder:ModelBuilder>*/
 }
 var = ((val*)NULL);
 goto RET_LABEL;

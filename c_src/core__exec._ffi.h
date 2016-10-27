@@ -6,7 +6,7 @@
 
 #include <stdint.h>
 #include "core__exec._nitni.h"
-#line 29 "../lib/core/exec.nit"
+#line 31 "../lib/core/exec.nit"
 
 
 	#include <sys/types.h>

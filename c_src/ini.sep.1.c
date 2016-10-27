@@ -1,10 +1,13 @@
 #include "ini.sep.0.h"
-/* method ini#ConfigTree#ini_file for (self: ConfigTree): String */
+/* method ini$ConfigTree$ini_file for (self: ConfigTree): String */
 val* ini___ini__ConfigTree___ini_file(val* self) {
 val* var /* : String */;
 val* var1 /* : String */;
 var1 = self->attrs[COLOR_ini__ConfigTree___ini_file].val; /* _ini_file on <self:ConfigTree> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _ini_file");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 37);
 fatal_exit(1);
@@ -13,12 +16,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method ini#ConfigTree#ini_file= for (self: ConfigTree, String) */
+/* method ini$ConfigTree$ini_file= for (self: ConfigTree, String) */
 void ini___ini__ConfigTree___ini_file_61d(val* self, val* p0) {
 self->attrs[COLOR_ini__ConfigTree___ini_file].val = p0; /* _ini_file on <self:ConfigTree> */
 RET_LABEL:;
 }
-/* method ini#ConfigTree#init for (self: ConfigTree) */
+/* method ini$ConfigTree$init for (self: ConfigTree) */
 void ini___ini__ConfigTree___core__kernel__Object__init(val* self) {
 val* var /* : String */;
 val* var2 /* : String */;
@@ -27,9 +30,12 @@ short int var3 /* : Bool */;
 ((void(*)(val* self))(self->class->vft[COLOR_ini___ini__ConfigTree___core__kernel__Object__init]))(self); /* init on <self:ConfigTree>*/
 }
 {
-{ /* Inline ini#ConfigTree#ini_file (self) on <self:ConfigTree> */
+{ /* Inline ini$ConfigTree$ini_file (self) on <self:ConfigTree> */
 var2 = self->attrs[COLOR_ini__ConfigTree___ini_file].val; /* _ini_file on <self:ConfigTree> */
 if (unlikely(var2 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _ini_file");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 37);
 fatal_exit(1);
@@ -39,17 +45,17 @@ RET_LABEL1:(void)0;
 }
 }
 {
-var3 = core__file___String___file_exists(var);
+var3 = core__file___Text___file_exists(var);
 }
 if (var3){
 {
-ini___ini__ConfigTree___load(self); /* Direct call ini#ConfigTree#load on <self:ConfigTree>*/
+ini___ini__ConfigTree___load(self); /* Direct call ini$ConfigTree$load on <self:ConfigTree>*/
 }
 } else {
 }
 RET_LABEL:;
 }
-/* method ini#ConfigTree#[] for (self: ConfigTree, String): nullable String */
+/* method ini$ConfigTree$[] for (self: ConfigTree, String): nullable String */
 val* ini___ini__ConfigTree____91d_93d(val* self, val* p0) {
 val* var /* : nullable String */;
 val* var_key /* var key: String */;
@@ -73,10 +79,10 @@ var2 = 1; /* is null */
 var2 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_node,((val*)NULL)) on <var_node:nullable ConfigNode> */
+{ /* Inline kernel$Object$== (var_node,((val*)NULL)) on <var_node:nullable ConfigNode> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_node,var_other) on <var_node:nullable ConfigNode(ConfigNode)> */
+{ /* Inline kernel$Object$is_same_instance (var_node,var_other) on <var_node:nullable ConfigNode(ConfigNode)> */
 var7 = var_node == var_other;
 var5 = var7;
 goto RET_LABEL6;
@@ -95,7 +101,7 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline ini#ConfigNode#value (var_node) on <var_node:nullable ConfigNode(ConfigNode)> */
+{ /* Inline ini$ConfigNode$value (var_node) on <var_node:nullable ConfigNode(ConfigNode)> */
 var10 = var_node->attrs[COLOR_ini__ConfigNode___value].val; /* _value on <var_node:nullable ConfigNode(ConfigNode)> */
 var8 = var10;
 RET_LABEL9:(void)0;
@@ -106,7 +112,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method ini#ConfigTree#has_key for (self: ConfigTree, String): Bool */
+/* method ini$ConfigTree$has_key for (self: ConfigTree, String): Bool */
 short int ini___ini__ConfigTree___has_key(val* self, val* p0) {
 short int var /* : Bool */;
 val* var_key /* var key: String */;
@@ -162,10 +168,10 @@ var8 = 1; /* is null */
 var8 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_node,((val*)NULL)) on <var_node:nullable ConfigNode> */
+{ /* Inline kernel$Object$== (var_node,((val*)NULL)) on <var_node:nullable ConfigNode> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_node,var_other) on <var_node:nullable ConfigNode(ConfigNode)> */
+{ /* Inline kernel$Object$is_same_instance (var_node,var_other) on <var_node:nullable ConfigNode(ConfigNode)> */
 var13 = var_node == var_other;
 var11 = var13;
 goto RET_LABEL12;
@@ -202,10 +208,10 @@ var18 = 1; /* is null */
 var18 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_node,((val*)NULL)) on <var_node:nullable ConfigNode> */
+{ /* Inline kernel$Object$== (var_node,((val*)NULL)) on <var_node:nullable ConfigNode> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_node,var_other) on <var_node:nullable ConfigNode(ConfigNode)> */
+{ /* Inline kernel$Object$is_same_instance (var_node,var_other) on <var_node:nullable ConfigNode(ConfigNode)> */
 var23 = var_node == var_other;
 var21 = var23;
 goto RET_LABEL22;
@@ -233,7 +239,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method ini#ConfigTree#to_map for (self: ConfigTree): Map[String, String] */
+/* method ini$ConfigTree$to_map for (self: ConfigTree): Map[String, String] */
 val* ini___ini__ConfigTree___to_map(val* self) {
 val* var /* : Map[String, String] */;
 val* var1 /* : HashMap[String, String] */;
@@ -255,7 +261,7 @@ val* var16 /* : nullable String */;
 val* var17 /* : String */;
 var1 = NEW_core__HashMap(&type_core__HashMap__core__String__core__String);
 {
-core___core__HashMap___core__kernel__Object__init(var1); /* Direct call hash_collection#HashMap#init on <var1:HashMap[String, String]>*/
+core___core__HashMap___core__kernel__Object__init(var1); /* Direct call hash_collection$HashMap$init on <var1:HashMap[String, String]>*/
 }
 var_map = var1;
 {
@@ -268,18 +274,18 @@ var3 = core___core__AbstractArrayRead___core__abstract_collection__Collection__i
 var_4 = var3;
 for(;;) {
 {
-var5 = ((short int(*)(val* self))((((long)var_4&3)?class_info[((long)var_4&3)]:var_4->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_4); /* is_ok on <var_4:IndexedIterator[ConfigNode]>*/
+var5 = ((short int(*)(val* self))((((int64_t)var_4&3)?class_info[((int64_t)var_4&3)]:var_4->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_4); /* is_ok on <var_4:IndexedIterator[ConfigNode]>*/
 }
 if (var5){
 } else {
 goto BREAK_label;
 }
 {
-var6 = ((val*(*)(val* self))((((long)var_4&3)?class_info[((long)var_4&3)]:var_4->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_4); /* item on <var_4:IndexedIterator[ConfigNode]>*/
+var6 = ((val*(*)(val* self))((((int64_t)var_4&3)?class_info[((int64_t)var_4&3)]:var_4->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_4); /* item on <var_4:IndexedIterator[ConfigNode]>*/
 }
 var_node = var6;
 {
-{ /* Inline ini#ConfigNode#value (var_node) on <var_node:ConfigNode> */
+{ /* Inline ini$ConfigNode$value (var_node) on <var_node:ConfigNode> */
 var9 = var_node->attrs[COLOR_ini__ConfigNode___value].val; /* _value on <var_node:ConfigNode> */
 var7 = var9;
 RET_LABEL8:(void)0;
@@ -302,13 +308,16 @@ goto BREAK_label12;
 var13 = ini___ini__ConfigNode___key(var_node);
 }
 {
-{ /* Inline ini#ConfigNode#value (var_node) on <var_node:ConfigNode> */
+{ /* Inline ini$ConfigNode$value (var_node) on <var_node:ConfigNode> */
 var16 = var_node->attrs[COLOR_ini__ConfigNode___value].val; /* _value on <var_node:ConfigNode> */
 var14 = var16;
 RET_LABEL15:(void)0;
 }
 }
 if (var14 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 116);
 fatal_exit(1);
@@ -316,23 +325,23 @@ fatal_exit(1);
 var17 = core___core__String___Object__to_s(var14);
 }
 {
-core___core__HashMap___core__abstract_collection__Map___91d_93d_61d(var_map, var13, var17); /* Direct call hash_collection#HashMap#[]= on <var_map:HashMap[String, String]>*/
+core___core__HashMap___core__abstract_collection__Map___91d_93d_61d(var_map, var13, var17); /* Direct call hash_collection$HashMap$[]= on <var_map:HashMap[String, String]>*/
 }
 BREAK_label12: (void)0;
 {
-((void(*)(val* self))((((long)var_4&3)?class_info[((long)var_4&3)]:var_4->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_4); /* next on <var_4:IndexedIterator[ConfigNode]>*/
+((void(*)(val* self))((((int64_t)var_4&3)?class_info[((int64_t)var_4&3)]:var_4->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_4); /* next on <var_4:IndexedIterator[ConfigNode]>*/
 }
 }
 BREAK_label: (void)0;
 {
-((void(*)(val* self))((((long)var_4&3)?class_info[((long)var_4&3)]:var_4->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_4); /* finish on <var_4:IndexedIterator[ConfigNode]>*/
+((void(*)(val* self))((((int64_t)var_4&3)?class_info[((int64_t)var_4&3)]:var_4->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_4); /* finish on <var_4:IndexedIterator[ConfigNode]>*/
 }
 var = var_map;
 goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method ini#ConfigTree#to_s for (self: ConfigTree): String */
+/* method ini$ConfigTree$to_s for (self: ConfigTree): String */
 val* ini___ini__ConfigTree___core__abstract_text__Object__to_s(val* self) {
 val* var /* : String */;
 val* var1 /* : Map[String, String] */;
@@ -372,7 +381,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method ini#ConfigTree#write_to for (self: ConfigTree, Writer) */
+/* method ini$ConfigTree$write_to for (self: ConfigTree, Writer) */
 void ini___ini__ConfigTree___core__stream__Writable__write_to(val* self, val* p0) {
 val* var_stream /* var stream: Writer */;
 val* var /* : Array[ConfigNode] */;
@@ -412,18 +421,18 @@ var1 = core___core__AbstractArrayRead___core__abstract_collection__Collection__i
 var_2 = var1;
 for(;;) {
 {
-var3 = ((short int(*)(val* self))((((long)var_2&3)?class_info[((long)var_2&3)]:var_2->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_2); /* is_ok on <var_2:IndexedIterator[ConfigNode]>*/
+var3 = ((short int(*)(val* self))((((int64_t)var_2&3)?class_info[((int64_t)var_2&3)]:var_2->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_2); /* is_ok on <var_2:IndexedIterator[ConfigNode]>*/
 }
 if (var3){
 } else {
 goto BREAK_label;
 }
 {
-var4 = ((val*(*)(val* self))((((long)var_2&3)?class_info[((long)var_2&3)]:var_2->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_2); /* item on <var_2:IndexedIterator[ConfigNode]>*/
+var4 = ((val*(*)(val* self))((((int64_t)var_2&3)?class_info[((int64_t)var_2&3)]:var_2->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_2); /* item on <var_2:IndexedIterator[ConfigNode]>*/
 }
 var_node = var4;
 {
-{ /* Inline ini#ConfigNode#value (var_node) on <var_node:ConfigNode> */
+{ /* Inline ini$ConfigNode$value (var_node) on <var_node:ConfigNode> */
 var7 = var_node->attrs[COLOR_ini__ConfigNode___value].val; /* _value on <var_node:ConfigNode> */
 var5 = var7;
 RET_LABEL6:(void)0;
@@ -471,13 +480,16 @@ var20 = ini___ini__ConfigNode___key(var_node);
 }
 ((struct instance_core__NativeArray*)var11)->values[0]=var20;
 {
-{ /* Inline ini#ConfigNode#value (var_node) on <var_node:ConfigNode> */
+{ /* Inline ini$ConfigNode$value (var_node) on <var_node:ConfigNode> */
 var23 = var_node->attrs[COLOR_ini__ConfigNode___value].val; /* _value on <var_node:ConfigNode> */
 var21 = var23;
 RET_LABEL22:(void)0;
 }
 }
 if (var21 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 126);
 fatal_exit(1);
@@ -490,20 +502,20 @@ var25 = ((val*(*)(val* self))(var11->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce = var11;
 {
-core___core__FileWriter___core__stream__Writer__write(var_stream, var25); /* Direct call file#FileWriter#write on <var_stream:Writer>*/
+core___core__FileWriter___core__stream__Writer__write(var_stream, var25); /* Direct call file$FileWriter$write on <var_stream:Writer>*/
 }
 BREAK_label10: (void)0;
 {
-((void(*)(val* self))((((long)var_2&3)?class_info[((long)var_2&3)]:var_2->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_2); /* next on <var_2:IndexedIterator[ConfigNode]>*/
+((void(*)(val* self))((((int64_t)var_2&3)?class_info[((int64_t)var_2&3)]:var_2->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_2); /* next on <var_2:IndexedIterator[ConfigNode]>*/
 }
 }
 BREAK_label: (void)0;
 {
-((void(*)(val* self))((((long)var_2&3)?class_info[((long)var_2&3)]:var_2->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_2); /* finish on <var_2:IndexedIterator[ConfigNode]>*/
+((void(*)(val* self))((((int64_t)var_2&3)?class_info[((int64_t)var_2&3)]:var_2->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_2); /* finish on <var_2:IndexedIterator[ConfigNode]>*/
 }
 RET_LABEL:;
 }
-/* method ini#ConfigTree#load for (self: ConfigTree) */
+/* method ini$ConfigTree$load for (self: ConfigTree) */
 void ini___ini__ConfigTree___load(val* self) {
 val* var /* : Array[ConfigNode] */;
 val* var2 /* : Array[ConfigNode] */;
@@ -512,17 +524,17 @@ val* var4 /* : String */;
 val* var6 /* : String */;
 val* var_stream /* var stream: FileReader */;
 val* var_path /* var path: nullable String */;
-long var_line_number /* var line_number: Int */;
+int64_t var_line_number /* var line_number: Int */;
 short int var7 /* : Bool */;
 short int var8 /* : Bool */;
 val* var9 /* : String */;
 val* var_line /* var line: String */;
-long var10 /* : Int */;
+int64_t var10 /* : Int */;
 short int var12 /* : Bool */;
 int cltype;
 int idtype;
 const char* var_class_name;
-long var13 /* : Int */;
+int64_t var13 /* : Int */;
 short int var14 /* : Bool */;
 static val* varonce;
 val* var15 /* : String */;
@@ -535,13 +547,13 @@ char* var21 /* : NativeString */;
 val* var22 /* : String */;
 short int var23 /* : Bool */;
 val* var24 /* : Text */;
-long var25 /* : Int */;
-long var26 /* : Int */;
+int64_t var25 /* : Int */;
+int64_t var26 /* : Int */;
 short int var28 /* : Bool */;
 int cltype29;
 int idtype30;
 const char* var_class_name31;
-long var32 /* : Int */;
+int64_t var32 /* : Int */;
 val* var33 /* : Text */;
 val* var_key /* var key: String */;
 static val* varonce34;
@@ -550,8 +562,8 @@ char* var36 /* : NativeString */;
 val* var37 /* : String */;
 val* var38 /* : Array[String] */;
 val* var_parts /* var parts: Array[String] */;
-long var39 /* : Int */;
-long var41 /* : Int */;
+int64_t var39 /* : Int */;
+int64_t var41 /* : Int */;
 short int var42 /* : Bool */;
 short int var44 /* : Bool */;
 int cltype45;
@@ -591,9 +603,12 @@ char* var77 /* : NativeString */;
 val* var78 /* : String */;
 short int var79 /* : Bool */;
 {
-{ /* Inline ini#ConfigTree#roots (self) on <self:ConfigTree> */
+{ /* Inline ini$ConfigTree$roots (self) on <self:ConfigTree> */
 var2 = self->attrs[COLOR_ini__ConfigTree___roots].val; /* _roots on <self:ConfigTree> */
 if (unlikely(var2 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _roots");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 231);
 fatal_exit(1);
@@ -603,13 +618,16 @@ RET_LABEL1:(void)0;
 }
 }
 {
-core___core__AbstractArray___core__abstract_collection__RemovableCollection__clear(var); /* Direct call array#AbstractArray#clear on <var:Array[ConfigNode]>*/
+core___core__AbstractArray___core__abstract_collection__RemovableCollection__clear(var); /* Direct call array$AbstractArray$clear on <var:Array[ConfigNode]>*/
 }
 var3 = NEW_core__FileReader(&type_core__FileReader);
 {
-{ /* Inline ini#ConfigTree#ini_file (self) on <self:ConfigTree> */
+{ /* Inline ini$ConfigTree$ini_file (self) on <self:ConfigTree> */
 var6 = self->attrs[COLOR_ini__ConfigTree___ini_file].val; /* _ini_file on <self:ConfigTree> */
 if (unlikely(var6 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _ini_file");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 37);
 fatal_exit(1);
@@ -619,7 +637,7 @@ RET_LABEL5:(void)0;
 }
 }
 {
-core___core__FileReader___open(var3, var4); /* Direct call file#FileReader#open on <var3:FileReader>*/
+core___core__FileReader___open(var3, var4); /* Direct call file$FileReader$open on <var3:FileReader>*/
 }
 var_stream = var3;
 var_path = ((val*)NULL);
@@ -635,14 +653,14 @@ var9 = core___core__Reader___read_line(var_stream);
 }
 var_line = var9;
 {
-{ /* Inline kernel#Int#+ (var_line_number,1l) on <var_line_number:Int> */
+{ /* Inline kernel$Int$+ (var_line_number,1l) on <var_line_number:Int> */
 /* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
 /* <1l:Int> isa OTHER */
 var12 = 1; /* easy <1l:Int> isa OTHER*/
 if (unlikely(!var12)) {
 var_class_name = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 731);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 728);
 fatal_exit(1);
 }
 var13 = var_line_number + 1l;
@@ -689,17 +707,17 @@ var24 = core___core__Text___trim(var_line);
 }
 var_line = var24;
 {
-var25 = ((long(*)(val* self))(var_line->class->vft[COLOR_core__abstract_text__Text__length]))(var_line); /* length on <var_line:String>*/
+var25 = ((int64_t(*)(val* self))(var_line->class->vft[COLOR_core__abstract_text__Text__length]))(var_line); /* length on <var_line:String>*/
 }
 {
-{ /* Inline kernel#Int#- (var25,2l) on <var25:Int> */
+{ /* Inline kernel$Int$- (var25,2l) on <var25:Int> */
 /* Covariant cast for argument 0 (i) <2l:Int> isa OTHER */
 /* <2l:Int> isa OTHER */
 var28 = 1; /* easy <2l:Int> isa OTHER*/
 if (unlikely(!var28)) {
 var_class_name31 = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name31);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 734);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 731);
 fatal_exit(1);
 }
 var32 = var25 - 2l;
@@ -709,12 +727,12 @@ RET_LABEL27:(void)0;
 }
 }
 {
-var33 = ((val*(*)(val* self, long p0, long p1))(var_line->class->vft[COLOR_core__abstract_text__Text__substring]))(var_line, 1l, var26); /* substring on <var_line:String>*/
+var33 = ((val*(*)(val* self, int64_t p0, int64_t p1))(var_line->class->vft[COLOR_core__abstract_text__Text__substring]))(var_line, 1l, var26); /* substring on <var_line:String>*/
 }
 var_key = var33;
 var_path = var_key;
 {
-ini___ini__ConfigTree___set_node(self, var_path, ((val*)NULL)); /* Direct call ini#ConfigTree#set_node on <self:ConfigTree>*/
+ini___ini__ConfigTree___set_node(self, var_path, ((val*)NULL)); /* Direct call ini$ConfigTree$set_node on <self:ConfigTree>*/
 }
 } else {
 if (likely(varonce34!=NULL)) {
@@ -730,21 +748,21 @@ var38 = core__string_search___Text___split(var_line, var35);
 }
 var_parts = var38;
 {
-{ /* Inline array#AbstractArrayRead#length (var_parts) on <var_parts:Array[String]> */
+{ /* Inline array$AbstractArrayRead$length (var_parts) on <var_parts:Array[String]> */
 var41 = var_parts->attrs[COLOR_core__array__AbstractArrayRead___length].l; /* _length on <var_parts:Array[String]> */
 var39 = var41;
 RET_LABEL40:(void)0;
 }
 }
 {
-{ /* Inline kernel#Int#> (var39,1l) on <var39:Int> */
+{ /* Inline kernel$Int$> (var39,1l) on <var39:Int> */
 /* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
 /* <1l:Int> isa OTHER */
 var44 = 1; /* easy <1l:Int> isa OTHER*/
 if (unlikely(!var44)) {
 var_class_name47 = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name47);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 730);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 727);
 fatal_exit(1);
 }
 var48 = var39 > 1l;
@@ -777,7 +795,10 @@ var57 = ((val*(*)(val* self))(var51->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce50 = var51;
 {
-core__file___Sys___print(var49, var57); /* Direct call file#Sys#print on <var49:Sys>*/
+core__file___Sys___print(var49, var57); /* Direct call file$Sys$print on <var49:Sys>*/
+}
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
 }
 PRINT_ERROR("Runtime error: %s", "Assert failed");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 212);
@@ -803,7 +824,7 @@ var63 = 0; /* is null */
 var63 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_path,((val*)NULL)) on <var_path:nullable String> */
+{ /* Inline kernel$Object$!= (var_path,((val*)NULL)) on <var_path:nullable String> */
 var_other = ((val*)NULL);
 {
 var66 = ((short int(*)(val* self, val* p0))(var_path->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_path, var_other); /* == on <var_path:nullable String(String)>*/
@@ -853,11 +874,11 @@ var79 = core___core__Text___has_suffix(var_key60, var76);
 }
 if (var79){
 {
-ini___ini__ConfigTree___set_array(self, var_key60, var_val); /* Direct call ini#ConfigTree#set_array on <self:ConfigTree>*/
+ini___ini__ConfigTree___set_array(self, var_key60, var_val); /* Direct call ini$ConfigTree$set_array on <self:ConfigTree>*/
 }
 } else {
 {
-ini___ini__ConfigTree___set_node(self, var_key60, var_val); /* Direct call ini#ConfigTree#set_node on <self:ConfigTree>*/
+ini___ini__ConfigTree___set_node(self, var_key60, var_val); /* Direct call ini$ConfigTree$set_node on <self:ConfigTree>*/
 }
 }
 }
@@ -870,16 +891,19 @@ BREAK_label: (void)0;
 }
 BREAK_label80: (void)0;
 {
-core___core__FileReader___core__stream__Stream__close(var_stream); /* Direct call file#FileReader#close on <var_stream:FileReader>*/
+core___core__FileReader___core__stream__Stream__close(var_stream); /* Direct call file$FileReader$close on <var_stream:FileReader>*/
 }
 RET_LABEL:;
 }
-/* method ini#ConfigTree#roots for (self: ConfigTree): Array[ConfigNode] */
+/* method ini$ConfigTree$roots for (self: ConfigTree): Array[ConfigNode] */
 val* ini___ini__ConfigTree___roots(val* self) {
 val* var /* : Array[ConfigNode] */;
 val* var1 /* : Array[ConfigNode] */;
 var1 = self->attrs[COLOR_ini__ConfigTree___roots].val; /* _roots on <self:ConfigTree> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _roots");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 231);
 fatal_exit(1);
@@ -888,24 +912,24 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method ini#ConfigTree#set_array for (self: ConfigTree, String, nullable String) */
+/* method ini$ConfigTree$set_array for (self: ConfigTree, String, nullable String) */
 void ini___ini__ConfigTree___set_array(val* self, val* p0, val* p1) {
 val* var_key /* var key: String */;
 val* var_value /* var value: nullable String */;
-long var /* : Int */;
-long var1 /* : Int */;
+int64_t var /* : Int */;
+int64_t var1 /* : Int */;
 short int var3 /* : Bool */;
 int cltype;
 int idtype;
 const char* var_class_name;
-long var4 /* : Int */;
+int64_t var4 /* : Int */;
 val* var5 /* : Text */;
-long var_len /* var len: Int */;
+int64_t var_len /* var len: Int */;
 short int var6 /* : Bool */;
 val* var7 /* : nullable ConfigNode */;
 val* var8 /* : HashMap[String, ConfigNode] */;
 val* var10 /* : HashMap[String, ConfigNode] */;
-long var11 /* : Int */;
+int64_t var11 /* : Int */;
 val* var12 /* : NativeArray[String] */;
 static val* varonce;
 static val* varonce13;
@@ -917,17 +941,17 @@ val* var18 /* : String */;
 var_key = p0;
 var_value = p1;
 {
-var = ((long(*)(val* self))(var_key->class->vft[COLOR_core__abstract_text__Text__length]))(var_key); /* length on <var_key:String>*/
+var = ((int64_t(*)(val* self))(var_key->class->vft[COLOR_core__abstract_text__Text__length]))(var_key); /* length on <var_key:String>*/
 }
 {
-{ /* Inline kernel#Int#- (var,2l) on <var:Int> */
+{ /* Inline kernel$Int$- (var,2l) on <var:Int> */
 /* Covariant cast for argument 0 (i) <2l:Int> isa OTHER */
 /* <2l:Int> isa OTHER */
 var3 = 1; /* easy <2l:Int> isa OTHER*/
 if (unlikely(!var3)) {
 var_class_name = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 734);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 731);
 fatal_exit(1);
 }
 var4 = var - 2l;
@@ -937,7 +961,7 @@ RET_LABEL2:(void)0;
 }
 }
 {
-var5 = ((val*(*)(val* self, long p0, long p1))(var_key->class->vft[COLOR_core__abstract_text__Text__substring]))(var_key, 0l, var1); /* substring on <var_key:String>*/
+var5 = ((val*(*)(val* self, int64_t p0, int64_t p1))(var_key->class->vft[COLOR_core__abstract_text__Text__substring]))(var_key, 0l, var1); /* substring on <var_key:String>*/
 }
 var_key = var5;
 var_len = 0l;
@@ -949,18 +973,27 @@ if (var6){
 var7 = ini___ini__ConfigTree___get_node(self, var_key);
 }
 if (var7 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 238);
 fatal_exit(1);
 } else {
-{ /* Inline ini#ConfigNode#children (var7) on <var7:nullable ConfigNode> */
+{ /* Inline ini$ConfigNode$children (var7) on <var7:nullable ConfigNode> */
 if (unlikely(var7 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 304);
 fatal_exit(1);
 }
 var10 = var7->attrs[COLOR_ini__ConfigNode___children].val; /* _children on <var7:nullable ConfigNode> */
 if (unlikely(var10 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _children");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 304);
 fatal_exit(1);
@@ -1000,11 +1033,11 @@ var18 = ((val*(*)(val* self))(var12->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce = var12;
 {
-ini___ini__ConfigTree___set_node(self, var18, var_value); /* Direct call ini#ConfigTree#set_node on <self:ConfigTree>*/
+ini___ini__ConfigTree___set_node(self, var18, var_value); /* Direct call ini$ConfigTree$set_node on <self:ConfigTree>*/
 }
 RET_LABEL:;
 }
-/* method ini#ConfigTree#set_node for (self: ConfigTree, String, nullable String) */
+/* method ini$ConfigTree$set_node for (self: ConfigTree, String, nullable String) */
 void ini___ini__ConfigTree___set_node(val* self, val* p0, val* p1) {
 val* var_key /* var key: String */;
 val* var_value /* var value: nullable String */;
@@ -1074,10 +1107,10 @@ var7 = 1; /* is null */
 var7 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_root,((val*)NULL)) on <var_root:nullable ConfigNode> */
+{ /* Inline kernel$Object$== (var_root,((val*)NULL)) on <var_root:nullable ConfigNode> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_root,var_other) on <var_root:nullable ConfigNode(ConfigNode)> */
+{ /* Inline kernel$Object$is_same_instance (var_root,var_other) on <var_root:nullable ConfigNode(ConfigNode)> */
 var12 = var_root == var_other;
 var10 = var12;
 goto RET_LABEL11;
@@ -1104,7 +1137,7 @@ var14 = core___core__AbstractArrayRead___core__abstract_collection__Collection__
 }
 if (var14){
 {
-{ /* Inline ini#ConfigNode#value= (var_root,var_value) on <var_root:nullable ConfigNode(ConfigNode)> */
+{ /* Inline ini$ConfigNode$value= (var_root,var_value) on <var_root:nullable ConfigNode(ConfigNode)> */
 var_root->attrs[COLOR_ini__ConfigNode___value].val = var_value; /* _value on <var_root:nullable ConfigNode(ConfigNode)> */
 RET_LABEL15:(void)0;
 }
@@ -1112,9 +1145,12 @@ RET_LABEL15:(void)0;
 } else {
 }
 {
-{ /* Inline ini#ConfigTree#roots (self) on <self:ConfigTree> */
+{ /* Inline ini$ConfigTree$roots (self) on <self:ConfigTree> */
 var18 = self->attrs[COLOR_ini__ConfigTree___roots].val; /* _roots on <self:ConfigTree> */
 if (unlikely(var18 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _roots");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 231);
 fatal_exit(1);
@@ -1124,7 +1160,7 @@ RET_LABEL17:(void)0;
 }
 }
 {
-core___core__Array___core__abstract_collection__SimpleCollection__add(var16, var_root); /* Direct call array#Array#add on <var16:Array[ConfigNode]>*/
+core___core__Array___core__abstract_collection__SimpleCollection__add(var16, var_root); /* Direct call array$Array$add on <var16:Array[ConfigNode]>*/
 }
 } else {
 }
@@ -1148,10 +1184,10 @@ var23 = 1; /* is null */
 var23 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_node,((val*)NULL)) on <var_node:nullable ConfigNode> */
+{ /* Inline kernel$Object$== (var_node,((val*)NULL)) on <var_node:nullable ConfigNode> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_node,var_other) on <var_node:nullable ConfigNode(ConfigNode)> */
+{ /* Inline kernel$Object$is_same_instance (var_node,var_other) on <var_node:nullable ConfigNode(ConfigNode)> */
 var28 = var_node == var_other;
 var26 = var28;
 goto RET_LABEL27;
@@ -1174,15 +1210,18 @@ var29 = NEW_ini__ConfigNode(&type_ini__ConfigNode);
 }
 var_node = var29;
 {
-{ /* Inline ini#ConfigNode#parent= (var_node,var_root) on <var_node:nullable ConfigNode(ConfigNode)> */
+{ /* Inline ini$ConfigNode$parent= (var_node,var_root) on <var_node:nullable ConfigNode(ConfigNode)> */
 var_node->attrs[COLOR_ini__ConfigNode___parent].val = var_root; /* _parent on <var_node:nullable ConfigNode(ConfigNode)> */
 RET_LABEL30:(void)0;
 }
 }
 {
-{ /* Inline ini#ConfigNode#children (var_root) on <var_root:nullable ConfigNode(ConfigNode)> */
+{ /* Inline ini$ConfigNode$children (var_root) on <var_root:nullable ConfigNode(ConfigNode)> */
 var33 = var_root->attrs[COLOR_ini__ConfigNode___children].val; /* _children on <var_root:nullable ConfigNode(ConfigNode)> */
 if (unlikely(var33 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _children");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 304);
 fatal_exit(1);
@@ -1192,9 +1231,12 @@ RET_LABEL32:(void)0;
 }
 }
 {
-{ /* Inline ini#ConfigNode#name (var_node) on <var_node:nullable ConfigNode(ConfigNode)> */
+{ /* Inline ini$ConfigNode$name (var_node) on <var_node:nullable ConfigNode(ConfigNode)> */
 var36 = var_node->attrs[COLOR_ini__ConfigNode___name].val; /* _name on <var_node:nullable ConfigNode(ConfigNode)> */
 if (unlikely(var36 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _name");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 305);
 fatal_exit(1);
@@ -1204,7 +1246,7 @@ RET_LABEL35:(void)0;
 }
 }
 {
-core___core__HashMap___core__abstract_collection__Map___91d_93d_61d(var31, var34, var_node); /* Direct call hash_collection#HashMap#[]= on <var31:HashMap[String, ConfigNode]>*/
+core___core__HashMap___core__abstract_collection__Map___91d_93d_61d(var31, var34, var_node); /* Direct call hash_collection$HashMap$[]= on <var31:HashMap[String, ConfigNode]>*/
 }
 } else {
 }
@@ -1213,7 +1255,7 @@ var37 = core___core__AbstractArrayRead___core__abstract_collection__Collection__
 }
 if (var37){
 {
-{ /* Inline ini#ConfigNode#value= (var_node,var_value) on <var_node:nullable ConfigNode(ConfigNode)> */
+{ /* Inline ini$ConfigNode$value= (var_node,var_value) on <var_node:nullable ConfigNode(ConfigNode)> */
 var_node->attrs[COLOR_ini__ConfigNode___value].val = var_value; /* _value on <var_node:nullable ConfigNode(ConfigNode)> */
 RET_LABEL38:(void)0;
 }
@@ -1228,7 +1270,7 @@ goto BREAK_label;
 BREAK_label: (void)0;
 RET_LABEL:;
 }
-/* method ini#ConfigTree#get_node for (self: ConfigTree, String): nullable ConfigNode */
+/* method ini$ConfigTree$get_node for (self: ConfigTree, String): nullable ConfigNode */
 val* ini___ini__ConfigTree___get_node(val* self, val* p0) {
 val* var /* : nullable ConfigNode */;
 val* var_key /* var key: String */;
@@ -1283,7 +1325,7 @@ var9 = 0; /* is null */
 var9 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_node,((val*)NULL)) on <var_node:nullable ConfigNode> */
+{ /* Inline kernel$Object$!= (var_node,((val*)NULL)) on <var_node:nullable ConfigNode> */
 var_other = ((val*)NULL);
 {
 var12 = ((short int(*)(val* self, val* p0))(var_node->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_node, var_other); /* == on <var_node:nullable ConfigNode(ConfigNode)>*/
@@ -1323,7 +1365,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method ini#ConfigTree#get_root for (self: ConfigTree, String): nullable ConfigNode */
+/* method ini$ConfigTree$get_root for (self: ConfigTree, String): nullable ConfigNode */
 val* ini___ini__ConfigTree___get_root(val* self, val* p0) {
 val* var /* : nullable ConfigNode */;
 val* var_name /* var name: String */;
@@ -1340,9 +1382,12 @@ val* var10 /* : String */;
 short int var11 /* : Bool */;
 var_name = p0;
 {
-{ /* Inline ini#ConfigTree#roots (self) on <self:ConfigTree> */
+{ /* Inline ini$ConfigTree$roots (self) on <self:ConfigTree> */
 var3 = self->attrs[COLOR_ini__ConfigTree___roots].val; /* _roots on <self:ConfigTree> */
 if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _roots");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 231);
 fatal_exit(1);
@@ -1358,20 +1403,23 @@ var4 = core___core__AbstractArrayRead___core__abstract_collection__Collection__i
 var_5 = var4;
 for(;;) {
 {
-var6 = ((short int(*)(val* self))((((long)var_5&3)?class_info[((long)var_5&3)]:var_5->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_5); /* is_ok on <var_5:IndexedIterator[ConfigNode]>*/
+var6 = ((short int(*)(val* self))((((int64_t)var_5&3)?class_info[((int64_t)var_5&3)]:var_5->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_5); /* is_ok on <var_5:IndexedIterator[ConfigNode]>*/
 }
 if (var6){
 } else {
 goto BREAK_label;
 }
 {
-var7 = ((val*(*)(val* self))((((long)var_5&3)?class_info[((long)var_5&3)]:var_5->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_5); /* item on <var_5:IndexedIterator[ConfigNode]>*/
+var7 = ((val*(*)(val* self))((((int64_t)var_5&3)?class_info[((int64_t)var_5&3)]:var_5->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_5); /* item on <var_5:IndexedIterator[ConfigNode]>*/
 }
 var_root = var7;
 {
-{ /* Inline ini#ConfigNode#name (var_root) on <var_root:ConfigNode> */
+{ /* Inline ini$ConfigNode$name (var_root) on <var_root:ConfigNode> */
 var10 = var_root->attrs[COLOR_ini__ConfigNode___name].val; /* _name on <var_root:ConfigNode> */
 if (unlikely(var10 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _name");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 305);
 fatal_exit(1);
@@ -1389,19 +1437,19 @@ goto RET_LABEL;
 } else {
 }
 {
-((void(*)(val* self))((((long)var_5&3)?class_info[((long)var_5&3)]:var_5->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_5); /* next on <var_5:IndexedIterator[ConfigNode]>*/
+((void(*)(val* self))((((int64_t)var_5&3)?class_info[((int64_t)var_5&3)]:var_5->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_5); /* next on <var_5:IndexedIterator[ConfigNode]>*/
 }
 }
 BREAK_label: (void)0;
 {
-((void(*)(val* self))((((long)var_5&3)?class_info[((long)var_5&3)]:var_5->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_5); /* finish on <var_5:IndexedIterator[ConfigNode]>*/
+((void(*)(val* self))((((int64_t)var_5&3)?class_info[((int64_t)var_5&3)]:var_5->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_5); /* finish on <var_5:IndexedIterator[ConfigNode]>*/
 }
 var = ((val*)NULL);
 goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method ini#ConfigTree#leaves for (self: ConfigTree): Array[ConfigNode] */
+/* method ini$ConfigTree$leaves for (self: ConfigTree): Array[ConfigNode] */
 val* ini___ini__ConfigTree___leaves(val* self) {
 val* var /* : Array[ConfigNode] */;
 val* var1 /* : Array[ConfigNode] */;
@@ -1422,18 +1470,21 @@ val* var15 /* : HashMap[String, ConfigNode] */;
 val* var16 /* : RemovableCollection[nullable Object] */;
 var1 = NEW_core__Array(&type_core__Array__ini__ConfigNode);
 {
-core___core__Array___core__kernel__Object__init(var1); /* Direct call array#Array#init on <var1:Array[ConfigNode]>*/
+core___core__Array___core__kernel__Object__init(var1); /* Direct call array$Array$init on <var1:Array[ConfigNode]>*/
 }
 var_res = var1;
 var2 = NEW_core__Array(&type_core__Array__ini__ConfigNode);
 {
-core___core__Array___core__kernel__Object__init(var2); /* Direct call array#Array#init on <var2:Array[ConfigNode]>*/
+core___core__Array___core__kernel__Object__init(var2); /* Direct call array$Array$init on <var2:Array[ConfigNode]>*/
 }
 var_todo = var2;
 {
-{ /* Inline ini#ConfigTree#roots (self) on <self:ConfigTree> */
+{ /* Inline ini$ConfigTree$roots (self) on <self:ConfigTree> */
 var5 = self->attrs[COLOR_ini__ConfigTree___roots].val; /* _roots on <self:ConfigTree> */
 if (unlikely(var5 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _roots");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 231);
 fatal_exit(1);
@@ -1443,7 +1494,7 @@ RET_LABEL4:(void)0;
 }
 }
 {
-core___core__Array___core__abstract_collection__SimpleCollection__add_all(var_todo, var3); /* Direct call array#Array#add_all on <var_todo:Array[ConfigNode]>*/
+core___core__Array___core__abstract_collection__SimpleCollection__add_all(var_todo, var3); /* Direct call array$Array$add_all on <var_todo:Array[ConfigNode]>*/
 }
 for(;;) {
 {
@@ -1456,9 +1507,12 @@ var8 = core___core__AbstractArray___core__abstract_collection__Sequence__pop(var
 }
 var_node = var8;
 {
-{ /* Inline ini#ConfigNode#children (var_node) on <var_node:ConfigNode> */
+{ /* Inline ini$ConfigNode$children (var_node) on <var_node:ConfigNode> */
 var11 = var_node->attrs[COLOR_ini__ConfigNode___children].val; /* _children on <var_node:ConfigNode> */
 if (unlikely(var11 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _children");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 304);
 fatal_exit(1);
@@ -1472,13 +1526,16 @@ var12 = core___core__HashMap___core__abstract_collection__MapRead__is_empty(var9
 }
 if (var12){
 {
-core___core__Array___core__abstract_collection__SimpleCollection__add(var_res, var_node); /* Direct call array#Array#add on <var_res:Array[ConfigNode]>*/
+core___core__Array___core__abstract_collection__SimpleCollection__add(var_res, var_node); /* Direct call array$Array$add on <var_res:Array[ConfigNode]>*/
 }
 } else {
 {
-{ /* Inline ini#ConfigNode#children (var_node) on <var_node:ConfigNode> */
+{ /* Inline ini$ConfigNode$children (var_node) on <var_node:ConfigNode> */
 var15 = var_node->attrs[COLOR_ini__ConfigNode___children].val; /* _children on <var_node:ConfigNode> */
 if (unlikely(var15 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _children");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 304);
 fatal_exit(1);
@@ -1491,7 +1548,7 @@ RET_LABEL14:(void)0;
 var16 = core___core__HashMap___core__abstract_collection__MapRead__values(var13);
 }
 {
-core___core__Array___core__abstract_collection__SimpleCollection__add_all(var_todo, var16); /* Direct call array#Array#add_all on <var_todo:Array[ConfigNode]>*/
+core___core__Array___core__abstract_collection__SimpleCollection__add_all(var_todo, var16); /* Direct call array$Array$add_all on <var_todo:Array[ConfigNode]>*/
 }
 }
 } else {
@@ -1504,7 +1561,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method ini#ConfigNode#parent for (self: ConfigNode): nullable ConfigNode */
+/* method ini$ConfigNode$parent for (self: ConfigNode): nullable ConfigNode */
 val* ini___ini__ConfigNode___parent(val* self) {
 val* var /* : nullable ConfigNode */;
 val* var1 /* : nullable ConfigNode */;
@@ -1513,17 +1570,20 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method ini#ConfigNode#parent= for (self: ConfigNode, nullable ConfigNode) */
+/* method ini$ConfigNode$parent= for (self: ConfigNode, nullable ConfigNode) */
 void ini___ini__ConfigNode___parent_61d(val* self, val* p0) {
 self->attrs[COLOR_ini__ConfigNode___parent].val = p0; /* _parent on <self:ConfigNode> */
 RET_LABEL:;
 }
-/* method ini#ConfigNode#children for (self: ConfigNode): HashMap[String, ConfigNode] */
+/* method ini$ConfigNode$children for (self: ConfigNode): HashMap[String, ConfigNode] */
 val* ini___ini__ConfigNode___children(val* self) {
 val* var /* : HashMap[String, ConfigNode] */;
 val* var1 /* : HashMap[String, ConfigNode] */;
 var1 = self->attrs[COLOR_ini__ConfigNode___children].val; /* _children on <self:ConfigNode> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _children");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 304);
 fatal_exit(1);
@@ -1532,12 +1592,15 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method ini#ConfigNode#name for (self: ConfigNode): String */
+/* method ini$ConfigNode$name for (self: ConfigNode): String */
 val* ini___ini__ConfigNode___name(val* self) {
 val* var /* : String */;
 val* var1 /* : String */;
 var1 = self->attrs[COLOR_ini__ConfigNode___name].val; /* _name on <self:ConfigNode> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _name");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 305);
 fatal_exit(1);
@@ -1546,12 +1609,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method ini#ConfigNode#name= for (self: ConfigNode, String) */
+/* method ini$ConfigNode$name= for (self: ConfigNode, String) */
 void ini___ini__ConfigNode___name_61d(val* self, val* p0) {
 self->attrs[COLOR_ini__ConfigNode___name].val = p0; /* _name on <self:ConfigNode> */
 RET_LABEL:;
 }
-/* method ini#ConfigNode#value for (self: ConfigNode): nullable String */
+/* method ini$ConfigNode$value for (self: ConfigNode): nullable String */
 val* ini___ini__ConfigNode___value(val* self) {
 val* var /* : nullable String */;
 val* var1 /* : nullable String */;
@@ -1560,12 +1623,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method ini#ConfigNode#value= for (self: ConfigNode, nullable String) */
+/* method ini$ConfigNode$value= for (self: ConfigNode, nullable String) */
 void ini___ini__ConfigNode___value_61d(val* self, val* p0) {
 self->attrs[COLOR_ini__ConfigNode___value].val = p0; /* _value on <self:ConfigNode> */
 RET_LABEL:;
 }
-/* method ini#ConfigNode#key for (self: ConfigNode): String */
+/* method ini$ConfigNode$key for (self: ConfigNode): String */
 val* ini___ini__ConfigNode___key(val* self) {
 val* var /* : String */;
 val* var1 /* : nullable ConfigNode */;
@@ -1590,7 +1653,7 @@ val* var22 /* : String */;
 val* var24 /* : String */;
 val* var25 /* : String */;
 {
-{ /* Inline ini#ConfigNode#parent (self) on <self:ConfigNode> */
+{ /* Inline ini$ConfigNode$parent (self) on <self:ConfigNode> */
 var3 = self->attrs[COLOR_ini__ConfigNode___parent].val; /* _parent on <self:ConfigNode> */
 var1 = var3;
 RET_LABEL2:(void)0;
@@ -1602,10 +1665,10 @@ var4 = 1; /* is null */
 var4 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var1,((val*)NULL)) on <var1:nullable ConfigNode> */
+{ /* Inline kernel$Object$== (var1,((val*)NULL)) on <var1:nullable ConfigNode> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var1,var_other) on <var1:nullable ConfigNode(ConfigNode)> */
+{ /* Inline kernel$Object$is_same_instance (var1,var_other) on <var1:nullable ConfigNode(ConfigNode)> */
 var9 = var1 == var_other;
 var7 = var9;
 goto RET_LABEL8;
@@ -1620,9 +1683,12 @@ var4 = var5;
 }
 if (var4){
 {
-{ /* Inline ini#ConfigNode#name (self) on <self:ConfigNode> */
+{ /* Inline ini$ConfigNode$name (self) on <self:ConfigNode> */
 var12 = self->attrs[COLOR_ini__ConfigNode___name].val; /* _name on <self:ConfigNode> */
 if (unlikely(var12 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _name");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 305);
 fatal_exit(1);
@@ -1651,13 +1717,16 @@ var13 = varonce;
 varonce = NULL;
 }
 {
-{ /* Inline ini#ConfigNode#parent (self) on <self:ConfigNode> */
+{ /* Inline ini$ConfigNode$parent (self) on <self:ConfigNode> */
 var20 = self->attrs[COLOR_ini__ConfigNode___parent].val; /* _parent on <self:ConfigNode> */
 var18 = var20;
 RET_LABEL19:(void)0;
 }
 }
 if (var18 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 312);
 fatal_exit(1);
@@ -1666,9 +1735,12 @@ var21 = ini___ini__ConfigNode___key(var18);
 }
 ((struct instance_core__NativeArray*)var13)->values[0]=var21;
 {
-{ /* Inline ini#ConfigNode#name (self) on <self:ConfigNode> */
+{ /* Inline ini$ConfigNode$name (self) on <self:ConfigNode> */
 var24 = self->attrs[COLOR_ini__ConfigNode___name].val; /* _name on <self:ConfigNode> */
 if (unlikely(var24 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _name");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 305);
 fatal_exit(1);
@@ -1687,7 +1759,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method ini#ConfigNode#get_child for (self: ConfigNode, String): nullable ConfigNode */
+/* method ini$ConfigNode$get_child for (self: ConfigNode, String): nullable ConfigNode */
 val* ini___ini__ConfigNode___get_child(val* self, val* p0) {
 val* var /* : nullable ConfigNode */;
 val* var_name /* var name: String */;
@@ -1699,9 +1771,12 @@ val* var7 /* : HashMap[String, ConfigNode] */;
 val* var8 /* : nullable Object */;
 var_name = p0;
 {
-{ /* Inline ini#ConfigNode#children (self) on <self:ConfigNode> */
+{ /* Inline ini$ConfigNode$children (self) on <self:ConfigNode> */
 var3 = self->attrs[COLOR_ini__ConfigNode___children].val; /* _children on <self:ConfigNode> */
 if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _children");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 304);
 fatal_exit(1);
@@ -1715,9 +1790,12 @@ var4 = core___core__HashMap___core__abstract_collection__MapRead__has_key(var1, 
 }
 if (var4){
 {
-{ /* Inline ini#ConfigNode#children (self) on <self:ConfigNode> */
+{ /* Inline ini$ConfigNode$children (self) on <self:ConfigNode> */
 var7 = self->attrs[COLOR_ini__ConfigNode___children].val; /* _children on <self:ConfigNode> */
 if (unlikely(var7 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _children");
 PRINT_ERROR(" (%s:%d)\n", FILE_ini, 304);
 fatal_exit(1);
@@ -1738,7 +1816,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method ini#ConfigNode#init for (self: ConfigNode) */
+/* method ini$ConfigNode$init for (self: ConfigNode) */
 void ini___ini__ConfigNode___core__kernel__Object__init(val* self) {
 {
 ((void(*)(val* self))(self->class->vft[COLOR_ini___ini__ConfigNode___core__kernel__Object__init]))(self); /* init on <self:ConfigNode>*/

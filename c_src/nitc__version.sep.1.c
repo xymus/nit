@@ -1,5 +1,5 @@
 #include "nitc__version.sep.0.h"
-/* method version#Sys#nit_version for (self: Sys): String */
+/* method version$Sys$nit_version for (self: Sys): String */
 val* nitc__version___core__Sys___nit_version(val* self) {
 val* var /* : String */;
 static val* varonce;
@@ -9,8 +9,8 @@ val* var3 /* : String */;
 if (likely(varonce!=NULL)) {
 var1 = varonce;
 } else {
-var2 = "v0.7.9-559-gaa72992";
-var3 = core__flat___NativeString___to_s_full(var2, 19l, 19l);
+var2 = "v0.8-1552-g1e15e0d_dirty";
+var3 = core__flat___NativeString___to_s_full(var2, 24l, 24l);
 var1 = var3;
 varonce = var1;
 }

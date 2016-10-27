@@ -1,5 +1,5 @@
 #include "nitc__nitni_utilities.sep.0.h"
-/* method nitni_utilities#MMethod#build_cname for (self: MMethod, MClassType, MModule, nullable String, SignatureLength): String */
+/* method nitni_utilities$MMethod$build_cname for (self: MMethod, MClassType, MModule, nullable String, SignatureLength): String */
 val* nitc__nitni_utilities___MMethod___build_cname(val* self, val* p0, val* p1, val* p2, val* p3) {
 val* var /* : String */;
 val* var_recv_mtype /* var recv_mtype: MClassType */;
@@ -72,14 +72,13 @@ val* var64 /* : String */;
 char* var65 /* : NativeString */;
 val* var66 /* : String */;
 val* var67 /* : String */;
-val* var69 /* : String */;
-val* var70 /* : String */;
+val* var68 /* : String */;
 var_recv_mtype = p0;
 var_from_mmodule = p1;
 var_suffix = p2;
 var_length = p3;
 {
-{ /* Inline model#MMethod#is_init (self) on <self:MMethod> */
+{ /* Inline model$MMethod$is_init (self) on <self:MMethod> */
 var3 = self->attrs[COLOR_nitc__model__MMethod___is_init].s; /* _is_init on <self:MMethod> */
 var1 = var3;
 RET_LABEL2:(void)0;
@@ -87,11 +86,14 @@ RET_LABEL2:(void)0;
 }
 if (var1){
 {
-{ /* Inline model#MProperty#name (self) on <self:MMethod> */
+{ /* Inline model$MProperty$name (self) on <self:MMethod> */
 var7 = self->attrs[COLOR_nitc__model__MProperty___name].val; /* _name on <self:MMethod> */
 if (unlikely(var7 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _name");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1951);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2047);
 fatal_exit(1);
 }
 var5 = var7;
@@ -114,11 +116,14 @@ if (var11){
 var4 = var_;
 } else {
 {
-{ /* Inline model#MProperty#name (self) on <self:MMethod> */
+{ /* Inline model$MProperty$name (self) on <self:MMethod> */
 var14 = self->attrs[COLOR_nitc__model__MProperty___name].val; /* _name on <self:MMethod> */
 if (unlikely(var14 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _name");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1951);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2047);
 fatal_exit(1);
 }
 var12 = var14;
@@ -238,7 +243,7 @@ var50 = 0; /* is null */
 var50 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_suffix,((val*)NULL)) on <var_suffix:nullable String> */
+{ /* Inline kernel$Object$!= (var_suffix,((val*)NULL)) on <var_suffix:nullable String> */
 var_other = ((val*)NULL);
 {
 var53 = ((short int(*)(val* self, val* p0))(var_suffix->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_suffix, var_other); /* == on <var_suffix:nullable String(String)>*/
@@ -267,7 +272,7 @@ var_cname = var57;
 } else {
 }
 {
-{ /* Inline nitni_utilities#SignatureLength#long (var_length) on <var_length:SignatureLength> */
+{ /* Inline nitni_utilities$SignatureLength$long (var_length) on <var_length:SignatureLength> */
 var60 = var_length->attrs[COLOR_nitc__nitni_utilities__SignatureLength___long].s; /* _long on <var_length:SignatureLength> */
 var58 = var60;
 RET_LABEL59:(void)0;
@@ -290,24 +295,15 @@ var62 = varonce61;
 varonce61 = NULL;
 }
 {
-{ /* Inline mmodule#MModule#name (var_from_mmodule) on <var_from_mmodule:MModule> */
-var69 = var_from_mmodule->attrs[COLOR_nitc__mmodule__MModule___name].val; /* _name on <var_from_mmodule:MModule> */
-if (unlikely(var69 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _name");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__mmodule, 95);
-fatal_exit(1);
-}
-var67 = var69;
-RET_LABEL68:(void)0;
-}
+var67 = nitc___nitc__MModule___nitc__model_base__MEntity__c_name(var_from_mmodule);
 }
 ((struct instance_core__NativeArray*)var62)->values[0]=var67;
 ((struct instance_core__NativeArray*)var62)->values[2]=var_cname;
 {
-var70 = ((val*(*)(val* self))(var62->class->vft[COLOR_core__abstract_text__NativeArray__native_to_s]))(var62); /* native_to_s on <var62:NativeArray[String]>*/
+var68 = ((val*(*)(val* self))(var62->class->vft[COLOR_core__abstract_text__NativeArray__native_to_s]))(var62); /* native_to_s on <var62:NativeArray[String]>*/
 }
 varonce61 = var62;
-var_cname = var70;
+var_cname = var68;
 } else {
 }
 var = var_cname;
@@ -315,7 +311,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method nitni_utilities#MMethod#build_csignature for (self: MMethod, MClassType, MModule, nullable String, SignatureLength, CallContext): String */
+/* method nitni_utilities$MMethod$build_csignature for (self: MMethod, MClassType, MModule, nullable String, SignatureLength, CallContext): String */
 val* nitc__nitni_utilities___MMethod___build_csignature(val* self, val* p0, val* p1, val* p2, val* p3, val* p4) {
 val* var /* : String */;
 val* var_recv_mtype /* var recv_mtype: MClassType */;
@@ -419,7 +415,7 @@ var1 = nitc___nitc__MProperty___lookup_first_definition(self, var_from_mmodule, 
 }
 var_mmethoddef = var1;
 {
-{ /* Inline model#MMethodDef#msignature (var_mmethoddef) on <var_mmethoddef:MMethodDef> */
+{ /* Inline model$MMethodDef$msignature (var_mmethoddef) on <var_mmethoddef:MMethodDef> */
 var4 = var_mmethoddef->attrs[COLOR_nitc__model__MMethodDef___msignature].val; /* _msignature on <var_mmethoddef:MMethodDef> */
 var2 = var4;
 RET_LABEL3:(void)0;
@@ -432,7 +428,7 @@ var5 = 0; /* is null */
 var5 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_signature,((val*)NULL)) on <var_signature:nullable MSignature> */
+{ /* Inline kernel$Object$!= (var_signature,((val*)NULL)) on <var_signature:nullable MSignature> */
 var_other = ((val*)NULL);
 {
 var8 = ((short int(*)(val* self, val* p0))(var_signature->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_signature, var_other); /* == on <var_signature:nullable MSignature(MSignature)>*/
@@ -445,12 +441,15 @@ RET_LABEL7:(void)0;
 var5 = var6;
 }
 if (unlikely(!var5)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Assert failed");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__nitni_utilities, 58);
 fatal_exit(1);
 }
 {
-{ /* Inline model#MMethod#is_init (self) on <self:MMethod> */
+{ /* Inline model$MMethod$is_init (self) on <self:MMethod> */
 var12 = self->attrs[COLOR_nitc__model__MMethod___is_init].s; /* _is_init on <self:MMethod> */
 var10 = var12;
 RET_LABEL11:(void)0;
@@ -463,7 +462,7 @@ var13 = ((val*(*)(val* self, val* p0))(var_call_context->class->vft[COLOR_nitc__
 var_creturn_type = var13;
 } else {
 {
-{ /* Inline model#MSignature#return_mtype (var_signature) on <var_signature:nullable MSignature(MSignature)> */
+{ /* Inline model$MSignature$return_mtype (var_signature) on <var_signature:nullable MSignature(MSignature)> */
 var16 = var_signature->attrs[COLOR_nitc__model__MSignature___return_mtype].val; /* _return_mtype on <var_signature:nullable MSignature(MSignature)> */
 var14 = var16;
 RET_LABEL15:(void)0;
@@ -475,7 +474,7 @@ var17 = 0; /* is null */
 var17 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var14,((val*)NULL)) on <var14:nullable MType> */
+{ /* Inline kernel$Object$!= (var14,((val*)NULL)) on <var14:nullable MType> */
 var_other = ((val*)NULL);
 {
 var20 = ((short int(*)(val* self, val* p0))(var14->class->vft[COLOR_core__kernel__Object___61d_61d]))(var14, var_other); /* == on <var14:nullable MType(MType)>*/
@@ -489,7 +488,7 @@ var17 = var18;
 }
 if (var17){
 {
-{ /* Inline model#MSignature#return_mtype (var_signature) on <var_signature:nullable MSignature(MSignature)> */
+{ /* Inline model$MSignature$return_mtype (var_signature) on <var_signature:nullable MSignature(MSignature)> */
 var24 = var_signature->attrs[COLOR_nitc__model__MSignature___return_mtype].val; /* _return_mtype on <var_signature:nullable MSignature(MSignature)> */
 var22 = var24;
 RET_LABEL23:(void)0;
@@ -497,6 +496,9 @@ RET_LABEL23:(void)0;
 }
 var_ret_mtype = var22;
 if (var_ret_mtype == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__nitni_utilities, 65);
 fatal_exit(1);
@@ -526,7 +528,7 @@ var30 = nitc__nitni_utilities___MMethod___build_cname(self, var_recv_mtype, var_
 var_cname = var30;
 var31 = NEW_core__List(&type_core__List__core__String);
 {
-{ /* Inline list#List#init (var31) on <var31:List[String]> */
+{ /* Inline list$List$init (var31) on <var31:List[String]> */
 {
 ((void(*)(val* self))(var31->class->vft[COLOR_core___core__List___core__kernel__Object__init]))(var31); /* init on <var31:List[String]>*/
 }
@@ -535,7 +537,7 @@ RET_LABEL32:(void)0;
 }
 var_cparams = var31;
 {
-{ /* Inline model#MMethod#is_init (self) on <self:MMethod> */
+{ /* Inline model$MMethod$is_init (self) on <self:MMethod> */
 var35 = self->attrs[COLOR_nitc__model__MMethod___is_init].s; /* _is_init on <self:MMethod> */
 var33 = var35;
 RET_LABEL34:(void)0;
@@ -567,16 +569,19 @@ var44 = ((val*(*)(val* self))(var38->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce37 = var38;
 {
-core___core__Sequence___SimpleCollection__add(var_cparams, var44); /* Direct call abstract_collection#Sequence#add on <var_cparams:List[String]>*/
+core___core__Sequence___SimpleCollection__add(var_cparams, var44); /* Direct call abstract_collection$Sequence$add on <var_cparams:List[String]>*/
 }
 } else {
 }
 {
-{ /* Inline model#MSignature#mparameters (var_signature) on <var_signature:nullable MSignature(MSignature)> */
+{ /* Inline model$MSignature$mparameters (var_signature) on <var_signature:nullable MSignature(MSignature)> */
 var47 = var_signature->attrs[COLOR_nitc__model__MSignature___mparameters].val; /* _mparameters on <var_signature:nullable MSignature(MSignature)> */
 if (unlikely(var47 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mparameters");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1783);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1879);
 fatal_exit(1);
 }
 var45 = var47;
@@ -590,22 +595,25 @@ var48 = core___core__AbstractArrayRead___core__abstract_collection__Collection__
 var_49 = var48;
 for(;;) {
 {
-var50 = ((short int(*)(val* self))((((long)var_49&3)?class_info[((long)var_49&3)]:var_49->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_49); /* is_ok on <var_49:IndexedIterator[MParameter]>*/
+var50 = ((short int(*)(val* self))((((int64_t)var_49&3)?class_info[((int64_t)var_49&3)]:var_49->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_49); /* is_ok on <var_49:IndexedIterator[MParameter]>*/
 }
 if (var50){
 } else {
 goto BREAK_label;
 }
 {
-var51 = ((val*(*)(val* self))((((long)var_49&3)?class_info[((long)var_49&3)]:var_49->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_49); /* item on <var_49:IndexedIterator[MParameter]>*/
+var51 = ((val*(*)(val* self))((((int64_t)var_49&3)?class_info[((int64_t)var_49&3)]:var_49->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_49); /* item on <var_49:IndexedIterator[MParameter]>*/
 }
 var_p = var51;
 {
-{ /* Inline model#MParameter#mtype (var_p) on <var_p:MParameter> */
+{ /* Inline model$MParameter$mtype (var_p) on <var_p:MParameter> */
 var54 = var_p->attrs[COLOR_nitc__model__MParameter___mtype].val; /* _mtype on <var_p:MParameter> */
 if (unlikely(var54 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1900);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1996);
 fatal_exit(1);
 }
 var52 = var54;
@@ -636,11 +644,14 @@ var62 = ((val*(*)(val* self, val* p0))(var_call_context->class->vft[COLOR_nitc__
 }
 ((struct instance_core__NativeArray*)var57)->values[0]=var62;
 {
-{ /* Inline model#MParameter#name (var_p) on <var_p:MParameter> */
+{ /* Inline model$MParameter$name (var_p) on <var_p:MParameter> */
 var65 = var_p->attrs[COLOR_nitc__model__MParameter___name].val; /* _name on <var_p:MParameter> */
 if (unlikely(var65 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _name");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1897);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1993);
 fatal_exit(1);
 }
 var63 = var65;
@@ -653,15 +664,15 @@ var66 = ((val*(*)(val* self))(var57->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce56 = var57;
 {
-core___core__Sequence___SimpleCollection__add(var_cparams, var66); /* Direct call abstract_collection#Sequence#add on <var_cparams:List[String]>*/
+core___core__Sequence___SimpleCollection__add(var_cparams, var66); /* Direct call abstract_collection$Sequence$add on <var_cparams:List[String]>*/
 }
 {
-((void(*)(val* self))((((long)var_49&3)?class_info[((long)var_49&3)]:var_49->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_49); /* next on <var_49:IndexedIterator[MParameter]>*/
+((void(*)(val* self))((((int64_t)var_49&3)?class_info[((int64_t)var_49&3)]:var_49->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_49); /* next on <var_49:IndexedIterator[MParameter]>*/
 }
 }
 BREAK_label: (void)0;
 {
-((void(*)(val* self))((((long)var_49&3)?class_info[((long)var_49&3)]:var_49->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_49); /* finish on <var_49:IndexedIterator[MParameter]>*/
+((void(*)(val* self))((((int64_t)var_49&3)?class_info[((int64_t)var_49&3)]:var_49->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_49); /* finish on <var_49:IndexedIterator[MParameter]>*/
 }
 if (unlikely(varonce67==NULL)) {
 var68 = NEW_core__NativeArray(6l, &type_core__NativeArray__core__String);
@@ -707,7 +718,7 @@ var82 = var84;
 varonce81 = var82;
 }
 {
-var85 = core__abstract_text___Collection___join(var_cparams, var82);
+var85 = core__abstract_text___Collection___join(var_cparams, var82, ((val*)NULL));
 }
 ((struct instance_core__NativeArray*)var68)->values[4]=var85;
 {
@@ -719,7 +730,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method nitni_utilities#CallContext#name_mtype for (self: CallContext, MType): String */
+/* method nitni_utilities$CallContext$name_mtype for (self: CallContext, MType): String */
 val* nitc___nitc__CallContext___name_mtype(val* self, val* p0) {
 val* var /* : String */;
 val* var_mtype /* var mtype: MType */;
@@ -733,7 +744,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method nitni_utilities#SignatureLength#long for (self: SignatureLength): Bool */
+/* method nitni_utilities$SignatureLength$long for (self: SignatureLength): Bool */
 short int nitc___nitc__SignatureLength___long(val* self) {
 short int var /* : Bool */;
 short int var1 /* : Bool */;
@@ -742,25 +753,25 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method nitni_utilities#SignatureLength#long= for (self: SignatureLength, Bool) */
+/* method nitni_utilities$SignatureLength$long= for (self: SignatureLength, Bool) */
 void nitc___nitc__SignatureLength___long_61d(val* self, short int p0) {
 self->attrs[COLOR_nitc__nitni_utilities__SignatureLength___long].s = p0; /* _long on <self:SignatureLength> */
 RET_LABEL:;
 }
-/* method nitni_utilities#SignatureLength#init for (self: SignatureLength) */
+/* method nitni_utilities$SignatureLength$init for (self: SignatureLength) */
 void nitc___nitc__SignatureLength___core__kernel__Object__init(val* self) {
 {
 ((void(*)(val* self))(self->class->vft[COLOR_nitc___nitc__SignatureLength___core__kernel__Object__init]))(self); /* init on <self:SignatureLength>*/
 }
 RET_LABEL:;
 }
-/* method nitni_utilities#Sys#internal_call_context for (self: Sys): CallContext */
+/* method nitni_utilities$Sys$internal_call_context for (self: Sys): CallContext */
 val* nitc__nitni_utilities___core__Sys___internal_call_context(val* self) {
 val* var /* : CallContext */;
 val* var1 /* : CallContext */;
 var1 = NEW_nitc__CallContext(&type_nitc__CallContext);
 {
-{ /* Inline kernel#Object#init (var1) on <var1:CallContext> */
+{ /* Inline kernel$Object$init (var1) on <var1:CallContext> */
 RET_LABEL2:(void)0;
 }
 }
@@ -769,7 +780,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method nitni_utilities#Sys#long_signature for (self: Sys): SignatureLength */
+/* method nitni_utilities$Sys$long_signature for (self: Sys): SignatureLength */
 val* nitc__nitni_utilities___core__Sys___long_signature(val* self) {
 val* var /* : SignatureLength */;
 static val* varonce;

@@ -1,5 +1,5 @@
 #include "nitc__separate_erasure_compiler.sep.0.h"
-/* method separate_erasure_compiler#SeparateErasureCompilerVisitor#type_test for (self: SeparateErasureCompilerVisitor, RuntimeVariable, MType, String): RuntimeVariable */
+/* method separate_erasure_compiler$SeparateErasureCompilerVisitor$type_test for (self: SeparateErasureCompilerVisitor, RuntimeVariable, MType, String): RuntimeVariable */
 val* nitc___nitc__SeparateErasureCompilerVisitor___nitc__abstract_compiler__AbstractCompilerVisitor__type_test(val* self, val* p0, val* p1, val* p2) {
 val* var /* : RuntimeVariable */;
 val* var_value /* var value: RuntimeVariable */;
@@ -167,13 +167,13 @@ val* var181 /* : HashMap[String, Int] */;
 val* var_ /* var : HashMap[String, Int] */;
 val* var_182 /* var : String */;
 val* var183 /* : nullable Object */;
-long var184 /* : Int */;
+int64_t var184 /* : Int */;
 short int var186 /* : Bool */;
 int cltype187;
 int idtype188;
 const char* var_class_name;
-long var189 /* : Int */;
-long var190 /* : Int */;
+int64_t var189 /* : Int */;
+int64_t var190 /* : Int */;
 val* var191 /* : nullable Object */;
 val* var193 /* : NativeArray[String] */;
 static val* varonce192;
@@ -287,13 +287,13 @@ val* var311 /* : HashMap[String, Int] */;
 val* var_312 /* var : HashMap[String, Int] */;
 val* var_313 /* var : String */;
 val* var314 /* : nullable Object */;
-long var315 /* : Int */;
+int64_t var315 /* : Int */;
 short int var317 /* : Bool */;
 int cltype318;
 int idtype319;
 const char* var_class_name320;
-long var321 /* : Int */;
-long var322 /* : Int */;
+int64_t var321 /* : Int */;
+int64_t var322 /* : Int */;
 val* var323 /* : nullable Object */;
 val* var325 /* : NativeArray[String] */;
 static val* varonce324;
@@ -471,13 +471,13 @@ val* var506 /* : HashMap[String, Int] */;
 val* var_507 /* var : HashMap[String, Int] */;
 val* var_508 /* var : String */;
 val* var509 /* : nullable Object */;
-long var510 /* : Int */;
+int64_t var510 /* : Int */;
 short int var512 /* : Bool */;
 int cltype513;
 int idtype514;
 const char* var_class_name515;
-long var516 /* : Int */;
-long var517 /* : Int */;
+int64_t var516 /* : Int */;
+int64_t var517 /* : Int */;
 val* var518 /* : nullable Object */;
 val* var520 /* : NativeArray[String] */;
 static val* varonce519;
@@ -639,7 +639,7 @@ var16 = ((val*(*)(val* self))(var1->class->vft[COLOR_core__abstract_text__Native
 }
 varonce = var1;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var16); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var16); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 {
 var17 = nitc___nitc__AbstractCompilerVisitor___bool_type(self);
@@ -690,7 +690,7 @@ var34 = ((val*(*)(val* self))(var25->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce24 = var25;
 {
-nitc___nitc__AbstractCompilerVisitor___add_decl(self, var34); /* Direct call abstract_compiler#AbstractCompilerVisitor#add_decl on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add_decl(self, var34); /* Direct call abstract_compiler$AbstractCompilerVisitor$add_decl on <self:SeparateErasureCompilerVisitor>*/
 }
 if (likely(varonce35!=NULL)) {
 var36 = varonce35;
@@ -734,7 +734,7 @@ var50 = ((val*(*)(val* self))(var41->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce40 = var41;
 {
-nitc___nitc__AbstractCompilerVisitor___add_decl(self, var50); /* Direct call abstract_compiler#AbstractCompilerVisitor#add_decl on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add_decl(self, var50); /* Direct call abstract_compiler$AbstractCompilerVisitor$add_decl on <self:SeparateErasureCompilerVisitor>*/
 }
 {
 var51 = nitc___nitc__SeparateCompilerVisitor___maybe_null(self, var_value);
@@ -759,11 +759,14 @@ var56 = var_mtype->type->type_table[cltype] == idtype;
 }
 if (var56){
 {
-{ /* Inline model#MProxyType#mtype (var_mtype) on <var_mtype:MType(MNullableType)> */
+{ /* Inline model$MProxyType$mtype (var_mtype) on <var_mtype:MType(MNullableType)> */
 var59 = var_mtype->attrs[COLOR_nitc__model__MProxyType___mtype].val; /* _mtype on <var_mtype:MType(MNullableType)> */
 if (unlikely(var59 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1625);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1689);
 fatal_exit(1);
 }
 var57 = var59;
@@ -792,27 +795,36 @@ var64 = var_mtype->type->type_table[cltype65] == idtype66;
 }
 if (var64){
 {
-{ /* Inline abstract_compiler#AbstractCompilerVisitor#frame (self) on <self:SeparateErasureCompilerVisitor> */
+{ /* Inline abstract_compiler$AbstractCompilerVisitor$frame (self) on <self:SeparateErasureCompilerVisitor> */
 var69 = self->attrs[COLOR_nitc__abstract_compiler__AbstractCompilerVisitor___frame].val; /* _frame on <self:SeparateErasureCompilerVisitor> */
 var67 = var69;
 RET_LABEL68:(void)0;
 }
 }
 if (var67 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__separate_erasure_compiler, 521);
 fatal_exit(1);
 } else {
-{ /* Inline abstract_compiler#StaticFrame#mpropdef (var67) on <var67:nullable StaticFrame> */
+{ /* Inline abstract_compiler$StaticFrame$mpropdef (var67) on <var67:nullable StaticFrame> */
 if (unlikely(var67 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1914);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 2003);
 fatal_exit(1);
 }
 var72 = var67->attrs[COLOR_nitc__abstract_compiler__StaticFrame___mpropdef].val; /* _mpropdef on <var67:nullable StaticFrame> */
 if (unlikely(var72 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mpropdef");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1914);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 2003);
 fatal_exit(1);
 }
 var70 = var72;
@@ -820,11 +832,14 @@ RET_LABEL71:(void)0;
 }
 }
 {
-{ /* Inline model#MPropDef#mclassdef (var70) on <var70:MPropDef> */
+{ /* Inline model$MPropDef$mclassdef (var70) on <var70:MPropDef> */
 var75 = var70->attrs[COLOR_nitc__model__MPropDef___mclassdef].val; /* _mclassdef on <var70:MPropDef> */
 if (unlikely(var75 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclassdef");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2227);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2354);
 fatal_exit(1);
 }
 var73 = var75;
@@ -832,11 +847,14 @@ RET_LABEL74:(void)0;
 }
 }
 {
-{ /* Inline model#MClassDef#bound_mtype (var73) on <var73:MClassDef> */
+{ /* Inline model$MClassDef$bound_mtype (var73) on <var73:MClassDef> */
 var78 = var73->attrs[COLOR_nitc__model__MClassDef___bound_mtype].val; /* _bound_mtype on <var73:MClassDef> */
 if (unlikely(var78 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _bound_mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 579);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 594);
 fatal_exit(1);
 }
 var76 = var78;
@@ -844,27 +862,36 @@ RET_LABEL77:(void)0;
 }
 }
 {
-{ /* Inline abstract_compiler#AbstractCompilerVisitor#frame (self) on <self:SeparateErasureCompilerVisitor> */
+{ /* Inline abstract_compiler$AbstractCompilerVisitor$frame (self) on <self:SeparateErasureCompilerVisitor> */
 var81 = self->attrs[COLOR_nitc__abstract_compiler__AbstractCompilerVisitor___frame].val; /* _frame on <self:SeparateErasureCompilerVisitor> */
 var79 = var81;
 RET_LABEL80:(void)0;
 }
 }
 if (var79 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__separate_erasure_compiler, 521);
 fatal_exit(1);
 } else {
-{ /* Inline abstract_compiler#StaticFrame#mpropdef (var79) on <var79:nullable StaticFrame> */
+{ /* Inline abstract_compiler$StaticFrame$mpropdef (var79) on <var79:nullable StaticFrame> */
 if (unlikely(var79 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1914);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 2003);
 fatal_exit(1);
 }
 var84 = var79->attrs[COLOR_nitc__abstract_compiler__StaticFrame___mpropdef].val; /* _mpropdef on <var79:nullable StaticFrame> */
 if (unlikely(var84 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mpropdef");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1914);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 2003);
 fatal_exit(1);
 }
 var82 = var84;
@@ -872,11 +899,14 @@ RET_LABEL83:(void)0;
 }
 }
 {
-{ /* Inline model#MPropDef#mclassdef (var82) on <var82:MPropDef> */
+{ /* Inline model$MPropDef$mclassdef (var82) on <var82:MPropDef> */
 var87 = var82->attrs[COLOR_nitc__model__MPropDef___mclassdef].val; /* _mclassdef on <var82:MPropDef> */
 if (unlikely(var87 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclassdef");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2227);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2354);
 fatal_exit(1);
 }
 var85 = var87;
@@ -884,11 +914,14 @@ RET_LABEL86:(void)0;
 }
 }
 {
-{ /* Inline model#MClassDef#bound_mtype (var85) on <var85:MClassDef> */
+{ /* Inline model$MClassDef$bound_mtype (var85) on <var85:MClassDef> */
 var90 = var85->attrs[COLOR_nitc__model__MClassDef___bound_mtype].val; /* _bound_mtype on <var85:MClassDef> */
 if (unlikely(var90 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _bound_mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 579);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 594);
 fatal_exit(1);
 }
 var88 = var90;
@@ -896,27 +929,36 @@ RET_LABEL89:(void)0;
 }
 }
 {
-{ /* Inline abstract_compiler#AbstractCompilerVisitor#frame (self) on <self:SeparateErasureCompilerVisitor> */
+{ /* Inline abstract_compiler$AbstractCompilerVisitor$frame (self) on <self:SeparateErasureCompilerVisitor> */
 var93 = self->attrs[COLOR_nitc__abstract_compiler__AbstractCompilerVisitor___frame].val; /* _frame on <self:SeparateErasureCompilerVisitor> */
 var91 = var93;
 RET_LABEL92:(void)0;
 }
 }
 if (var91 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__separate_erasure_compiler, 521);
 fatal_exit(1);
 } else {
-{ /* Inline abstract_compiler#StaticFrame#mpropdef (var91) on <var91:nullable StaticFrame> */
+{ /* Inline abstract_compiler$StaticFrame$mpropdef (var91) on <var91:nullable StaticFrame> */
 if (unlikely(var91 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1914);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 2003);
 fatal_exit(1);
 }
 var96 = var91->attrs[COLOR_nitc__abstract_compiler__StaticFrame___mpropdef].val; /* _mpropdef on <var91:nullable StaticFrame> */
 if (unlikely(var96 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mpropdef");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1914);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 2003);
 fatal_exit(1);
 }
 var94 = var96;
@@ -924,11 +966,14 @@ RET_LABEL95:(void)0;
 }
 }
 {
-{ /* Inline model#MPropDef#mclassdef (var94) on <var94:MPropDef> */
+{ /* Inline model$MPropDef$mclassdef (var94) on <var94:MPropDef> */
 var99 = var94->attrs[COLOR_nitc__model__MPropDef___mclassdef].val; /* _mclassdef on <var94:MPropDef> */
 if (unlikely(var99 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclassdef");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2227);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2354);
 fatal_exit(1);
 }
 var97 = var99;
@@ -936,11 +981,14 @@ RET_LABEL98:(void)0;
 }
 }
 {
-{ /* Inline model#MClassDef#mmodule (var97) on <var97:MClassDef> */
+{ /* Inline model$MClassDef$mmodule (var97) on <var97:MClassDef> */
 var102 = var97->attrs[COLOR_nitc__model__MClassDef___mmodule].val; /* _mmodule on <var97:MClassDef> */
 if (unlikely(var102 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mmodule");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 573);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 588);
 fatal_exit(1);
 }
 var100 = var102;
@@ -961,11 +1009,14 @@ var104 = var_mtype->type->type_table[cltype105] == idtype106;
 }
 if (var104){
 {
-{ /* Inline model#MProxyType#mtype (var_mtype) on <var_mtype:MType(MNullableType)> */
+{ /* Inline model$MProxyType$mtype (var_mtype) on <var_mtype:MType(MNullableType)> */
 var109 = var_mtype->attrs[COLOR_nitc__model__MProxyType___mtype].val; /* _mtype on <var_mtype:MType(MNullableType)> */
 if (unlikely(var109 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1625);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1689);
 fatal_exit(1);
 }
 var107 = var109;
@@ -987,11 +1038,14 @@ var_accept_null = var111;
 } else {
 }
 {
-{ /* Inline abstract_compiler#RuntimeVariable#mcasttype (var_value) on <var_value:RuntimeVariable> */
+{ /* Inline abstract_compiler$RuntimeVariable$mcasttype (var_value) on <var_value:RuntimeVariable> */
 var116 = var_value->attrs[COLOR_nitc__abstract_compiler__RuntimeVariable___mcasttype].val; /* _mcasttype on <var_value:RuntimeVariable> */
 if (unlikely(var116 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mcasttype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1873);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1962);
 fatal_exit(1);
 }
 var114 = var116;
@@ -999,27 +1053,36 @@ RET_LABEL115:(void)0;
 }
 }
 {
-{ /* Inline abstract_compiler#AbstractCompilerVisitor#frame (self) on <self:SeparateErasureCompilerVisitor> */
+{ /* Inline abstract_compiler$AbstractCompilerVisitor$frame (self) on <self:SeparateErasureCompilerVisitor> */
 var119 = self->attrs[COLOR_nitc__abstract_compiler__AbstractCompilerVisitor___frame].val; /* _frame on <self:SeparateErasureCompilerVisitor> */
 var117 = var119;
 RET_LABEL118:(void)0;
 }
 }
 if (var117 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__separate_erasure_compiler, 528);
 fatal_exit(1);
 } else {
-{ /* Inline abstract_compiler#StaticFrame#mpropdef (var117) on <var117:nullable StaticFrame> */
+{ /* Inline abstract_compiler$StaticFrame$mpropdef (var117) on <var117:nullable StaticFrame> */
 if (unlikely(var117 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1914);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 2003);
 fatal_exit(1);
 }
 var122 = var117->attrs[COLOR_nitc__abstract_compiler__StaticFrame___mpropdef].val; /* _mpropdef on <var117:nullable StaticFrame> */
 if (unlikely(var122 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mpropdef");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1914);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 2003);
 fatal_exit(1);
 }
 var120 = var122;
@@ -1027,11 +1090,14 @@ RET_LABEL121:(void)0;
 }
 }
 {
-{ /* Inline model#MPropDef#mclassdef (var120) on <var120:MPropDef> */
+{ /* Inline model$MPropDef$mclassdef (var120) on <var120:MPropDef> */
 var125 = var120->attrs[COLOR_nitc__model__MPropDef___mclassdef].val; /* _mclassdef on <var120:MPropDef> */
 if (unlikely(var125 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclassdef");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2227);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2354);
 fatal_exit(1);
 }
 var123 = var125;
@@ -1039,11 +1105,14 @@ RET_LABEL124:(void)0;
 }
 }
 {
-{ /* Inline model#MClassDef#mmodule (var123) on <var123:MClassDef> */
+{ /* Inline model$MClassDef$mmodule (var123) on <var123:MClassDef> */
 var128 = var123->attrs[COLOR_nitc__model__MClassDef___mmodule].val; /* _mmodule on <var123:MClassDef> */
 if (unlikely(var128 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mmodule");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 573);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 588);
 fatal_exit(1);
 }
 var126 = var128;
@@ -1051,27 +1120,36 @@ RET_LABEL127:(void)0;
 }
 }
 {
-{ /* Inline abstract_compiler#AbstractCompilerVisitor#frame (self) on <self:SeparateErasureCompilerVisitor> */
+{ /* Inline abstract_compiler$AbstractCompilerVisitor$frame (self) on <self:SeparateErasureCompilerVisitor> */
 var131 = self->attrs[COLOR_nitc__abstract_compiler__AbstractCompilerVisitor___frame].val; /* _frame on <self:SeparateErasureCompilerVisitor> */
 var129 = var131;
 RET_LABEL130:(void)0;
 }
 }
 if (var129 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__separate_erasure_compiler, 528);
 fatal_exit(1);
 } else {
-{ /* Inline abstract_compiler#StaticFrame#mpropdef (var129) on <var129:nullable StaticFrame> */
+{ /* Inline abstract_compiler$StaticFrame$mpropdef (var129) on <var129:nullable StaticFrame> */
 if (unlikely(var129 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1914);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 2003);
 fatal_exit(1);
 }
 var134 = var129->attrs[COLOR_nitc__abstract_compiler__StaticFrame___mpropdef].val; /* _mpropdef on <var129:nullable StaticFrame> */
 if (unlikely(var134 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mpropdef");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1914);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 2003);
 fatal_exit(1);
 }
 var132 = var134;
@@ -1079,11 +1157,14 @@ RET_LABEL133:(void)0;
 }
 }
 {
-{ /* Inline model#MPropDef#mclassdef (var132) on <var132:MPropDef> */
+{ /* Inline model$MPropDef$mclassdef (var132) on <var132:MPropDef> */
 var137 = var132->attrs[COLOR_nitc__model__MPropDef___mclassdef].val; /* _mclassdef on <var132:MPropDef> */
 if (unlikely(var137 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclassdef");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2227);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2354);
 fatal_exit(1);
 }
 var135 = var137;
@@ -1091,11 +1172,14 @@ RET_LABEL136:(void)0;
 }
 }
 {
-{ /* Inline model#MClassDef#bound_mtype (var135) on <var135:MClassDef> */
+{ /* Inline model$MClassDef$bound_mtype (var135) on <var135:MClassDef> */
 var140 = var135->attrs[COLOR_nitc__model__MClassDef___bound_mtype].val; /* _bound_mtype on <var135:MClassDef> */
 if (unlikely(var140 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _bound_mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 579);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 594);
 fatal_exit(1);
 }
 var138 = var140;
@@ -1156,14 +1240,17 @@ var159 = ((val*(*)(val* self))(var143->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce142 = var143;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var159); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var159); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 {
-{ /* Inline abstract_compiler#AbstractCompilerVisitor#compiler (self) on <self:SeparateErasureCompilerVisitor> */
+{ /* Inline abstract_compiler$AbstractCompilerVisitor$compiler (self) on <self:SeparateErasureCompilerVisitor> */
 var162 = self->attrs[COLOR_nitc__abstract_compiler__AbstractCompilerVisitor___compiler].val; /* _compiler on <self:SeparateErasureCompilerVisitor> */
 if (unlikely(var162 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _compiler");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1133);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1190);
 fatal_exit(1);
 }
 var160 = var162;
@@ -1171,11 +1258,14 @@ RET_LABEL161:(void)0;
 }
 }
 {
-{ /* Inline abstract_compiler#AbstractCompiler#modelbuilder (var160) on <var160:AbstractCompiler(SeparateCompiler)> */
+{ /* Inline abstract_compiler$AbstractCompiler$modelbuilder (var160) on <var160:AbstractCompiler(SeparateCompiler)> */
 var165 = var160->attrs[COLOR_nitc__abstract_compiler__AbstractCompiler___modelbuilder].val; /* _modelbuilder on <var160:AbstractCompiler(SeparateCompiler)> */
 if (unlikely(var165 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _modelbuilder");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 538);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 544);
 fatal_exit(1);
 }
 var163 = var165;
@@ -1183,9 +1273,12 @@ RET_LABEL164:(void)0;
 }
 }
 {
-{ /* Inline modelbuilder_base#ModelBuilder#toolcontext (var163) on <var163:ModelBuilder> */
+{ /* Inline modelbuilder_base$ModelBuilder$toolcontext (var163) on <var163:ModelBuilder> */
 var168 = var163->attrs[COLOR_nitc__modelbuilder_base__ModelBuilder___toolcontext].val; /* _toolcontext on <var163:ModelBuilder> */
 if (unlikely(var168 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__modelbuilder_base, 47);
 fatal_exit(1);
@@ -1195,9 +1288,12 @@ RET_LABEL167:(void)0;
 }
 }
 {
-{ /* Inline abstract_compiler#ToolContext#opt_typing_test_metrics (var166) on <var166:ToolContext> */
+{ /* Inline abstract_compiler$ToolContext$opt_typing_test_metrics (var166) on <var166:ToolContext> */
 var171 = var166->attrs[COLOR_nitc__abstract_compiler__ToolContext___opt_typing_test_metrics].val; /* _opt_typing_test_metrics on <var166:ToolContext> */
 if (unlikely(var171 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_typing_test_metrics");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 60);
 fatal_exit(1);
@@ -1207,20 +1303,23 @@ RET_LABEL170:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var169) on <var169:OptionBool> */
+{ /* Inline opts$Option$value (var169) on <var169:OptionBool> */
 var174 = var169->attrs[COLOR_opts__Option___value].val; /* _value on <var169:OptionBool> */
 var172 = var174;
 RET_LABEL173:(void)0;
 }
 }
-var175 = (short int)((long)(var172)>>2);
+var175 = (short int)((int64_t)(var172)>>2);
 if (var175){
 {
-{ /* Inline abstract_compiler#AbstractCompilerVisitor#compiler (self) on <self:SeparateErasureCompilerVisitor> */
+{ /* Inline abstract_compiler$AbstractCompilerVisitor$compiler (self) on <self:SeparateErasureCompilerVisitor> */
 var178 = self->attrs[COLOR_nitc__abstract_compiler__AbstractCompilerVisitor___compiler].val; /* _compiler on <self:SeparateErasureCompilerVisitor> */
 if (unlikely(var178 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _compiler");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1133);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1190);
 fatal_exit(1);
 }
 var176 = var178;
@@ -1228,11 +1327,14 @@ RET_LABEL177:(void)0;
 }
 }
 {
-{ /* Inline abstract_compiler#AbstractCompiler#count_type_test_skipped (var176) on <var176:AbstractCompiler(SeparateCompiler)> */
+{ /* Inline abstract_compiler$AbstractCompiler$count_type_test_skipped (var176) on <var176:AbstractCompiler(SeparateCompiler)> */
 var181 = var176->attrs[COLOR_nitc__abstract_compiler__AbstractCompiler___count_type_test_skipped].val; /* _count_type_test_skipped on <var176:AbstractCompiler(SeparateCompiler)> */
 if (unlikely(var181 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _count_type_test_skipped");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1048);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1105);
 fatal_exit(1);
 }
 var179 = var181;
@@ -1245,17 +1347,17 @@ var_182 = var_tag;
 var183 = core___core__HashMap___core__abstract_collection__MapRead___91d_93d(var_, var_182);
 }
 {
-{ /* Inline kernel#Int#+ (var183,1l) on <var183:nullable Object(Int)> */
+{ /* Inline kernel$Int$+ (var183,1l) on <var183:nullable Object(Int)> */
 /* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
 /* <1l:Int> isa OTHER */
 var186 = 1; /* easy <1l:Int> isa OTHER*/
 if (unlikely(!var186)) {
 var_class_name = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 731);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 728);
 fatal_exit(1);
 }
-var189 = (long)(var183)>>2;
+var189 = (int64_t)(var183)>>2;
 var190 = var189 + 1l;
 var184 = var190;
 goto RET_LABEL185;
@@ -1264,7 +1366,7 @@ RET_LABEL185:(void)0;
 }
 {
 var191 = (val*)(var184<<2|1);
-core___core__HashMap___core__abstract_collection__Map___91d_93d_61d(var_, var_182, var191); /* Direct call hash_collection#HashMap#[]= on <var_:HashMap[String, Int]>*/
+core___core__HashMap___core__abstract_collection__Map___91d_93d_61d(var_, var_182, var191); /* Direct call hash_collection$HashMap$[]= on <var_:HashMap[String, Int]>*/
 }
 if (unlikely(varonce192==NULL)) {
 var193 = NEW_core__NativeArray(3l, &type_core__NativeArray__core__String);
@@ -1296,7 +1398,7 @@ var202 = ((val*(*)(val* self))(var193->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce192 = var193;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var202); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var202); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 } else {
 }
@@ -1305,11 +1407,14 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline abstract_compiler#RuntimeVariable#mtype (var_value) on <var_value:RuntimeVariable> */
+{ /* Inline abstract_compiler$RuntimeVariable$mtype (var_value) on <var_value:RuntimeVariable> */
 var205 = var_value->attrs[COLOR_nitc__abstract_compiler__RuntimeVariable___mtype].val; /* _mtype on <var_value:RuntimeVariable> */
 if (unlikely(var205 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1870);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1959);
 fatal_exit(1);
 }
 var203 = var205;
@@ -1347,11 +1452,14 @@ varonce208 = var209;
 var_class_ptr = var215;
 } else {
 {
-{ /* Inline abstract_compiler#RuntimeVariable#mtype (var_value) on <var_value:RuntimeVariable> */
+{ /* Inline abstract_compiler$RuntimeVariable$mtype (var_value) on <var_value:RuntimeVariable> */
 var218 = var_value->attrs[COLOR_nitc__abstract_compiler__RuntimeVariable___mtype].val; /* _mtype on <var_value:RuntimeVariable> */
 if (unlikely(var218 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1870);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1959);
 fatal_exit(1);
 }
 var216 = var218;
@@ -1373,11 +1481,14 @@ PRINT_ERROR(" (%s:%d)\n", FILE_nitc__separate_erasure_compiler, 541);
 fatal_exit(1);
 }
 {
-{ /* Inline model#MClassType#mclass (var216) on <var216:MType(MClassType)> */
+{ /* Inline model$MClassType$mclass (var216) on <var216:MType(MClassType)> */
 var225 = var216->attrs[COLOR_nitc__model__MClassType___mclass].val; /* _mclass on <var216:MType(MClassType)> */
 if (unlikely(var225 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclass");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1163);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1197);
 fatal_exit(1);
 }
 var223 = var225;
@@ -1409,7 +1520,7 @@ var233 = ((val*(*)(val* self))(var227->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce226 = var227;
 {
-nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var233); /* Direct call abstract_compiler#AbstractCompilerVisitor#require_declaration on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var233); /* Direct call abstract_compiler$AbstractCompilerVisitor$require_declaration on <self:SeparateErasureCompilerVisitor>*/
 }
 if (unlikely(varonce234==NULL)) {
 var235 = NEW_core__NativeArray(3l, &type_core__NativeArray__core__String);
@@ -1470,11 +1581,14 @@ var250 = varonce249;
 varonce249 = NULL;
 }
 {
-{ /* Inline model#MClassType#mclass (var_mtype) on <var_mtype:MType(MClassType)> */
+{ /* Inline model$MClassType$mclass (var_mtype) on <var_mtype:MType(MClassType)> */
 var257 = var_mtype->attrs[COLOR_nitc__model__MClassType___mclass].val; /* _mclass on <var_mtype:MType(MClassType)> */
 if (unlikely(var257 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclass");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1163);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1197);
 fatal_exit(1);
 }
 var255 = var257;
@@ -1490,7 +1604,7 @@ var259 = ((val*(*)(val* self))(var250->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce249 = var250;
 {
-nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var259); /* Direct call abstract_compiler#AbstractCompilerVisitor#require_declaration on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var259); /* Direct call abstract_compiler$AbstractCompilerVisitor$require_declaration on <self:SeparateErasureCompilerVisitor>*/
 }
 if (unlikely(varonce260==NULL)) {
 var261 = NEW_core__NativeArray(4l, &type_core__NativeArray__core__String);
@@ -1518,11 +1632,14 @@ varonce260 = NULL;
 }
 ((struct instance_core__NativeArray*)var261)->values[0]=var_cltype;
 {
-{ /* Inline model#MClassType#mclass (var_mtype) on <var_mtype:MType(MClassType)> */
+{ /* Inline model$MClassType$mclass (var_mtype) on <var_mtype:MType(MClassType)> */
 var272 = var_mtype->attrs[COLOR_nitc__model__MClassType___mclass].val; /* _mclass on <var_mtype:MType(MClassType)> */
 if (unlikely(var272 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclass");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1163);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1197);
 fatal_exit(1);
 }
 var270 = var272;
@@ -1538,7 +1655,7 @@ var274 = ((val*(*)(val* self))(var261->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce260 = var261;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var274); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var274); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 if (unlikely(varonce275==NULL)) {
 var276 = NEW_core__NativeArray(4l, &type_core__NativeArray__core__String);
@@ -1566,11 +1683,14 @@ varonce275 = NULL;
 }
 ((struct instance_core__NativeArray*)var276)->values[0]=var_idtype;
 {
-{ /* Inline model#MClassType#mclass (var_mtype) on <var_mtype:MType(MClassType)> */
+{ /* Inline model$MClassType$mclass (var_mtype) on <var_mtype:MType(MClassType)> */
 var287 = var_mtype->attrs[COLOR_nitc__model__MClassType___mclass].val; /* _mclass on <var_mtype:MType(MClassType)> */
 if (unlikely(var287 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclass");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1163);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1197);
 fatal_exit(1);
 }
 var285 = var287;
@@ -1586,14 +1706,17 @@ var289 = ((val*(*)(val* self))(var276->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce275 = var276;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var289); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var289); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 {
-{ /* Inline abstract_compiler#AbstractCompilerVisitor#compiler (self) on <self:SeparateErasureCompilerVisitor> */
+{ /* Inline abstract_compiler$AbstractCompilerVisitor$compiler (self) on <self:SeparateErasureCompilerVisitor> */
 var292 = self->attrs[COLOR_nitc__abstract_compiler__AbstractCompilerVisitor___compiler].val; /* _compiler on <self:SeparateErasureCompilerVisitor> */
 if (unlikely(var292 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _compiler");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1133);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1190);
 fatal_exit(1);
 }
 var290 = var292;
@@ -1601,11 +1724,14 @@ RET_LABEL291:(void)0;
 }
 }
 {
-{ /* Inline abstract_compiler#AbstractCompiler#modelbuilder (var290) on <var290:AbstractCompiler(SeparateCompiler)> */
+{ /* Inline abstract_compiler$AbstractCompiler$modelbuilder (var290) on <var290:AbstractCompiler(SeparateCompiler)> */
 var295 = var290->attrs[COLOR_nitc__abstract_compiler__AbstractCompiler___modelbuilder].val; /* _modelbuilder on <var290:AbstractCompiler(SeparateCompiler)> */
 if (unlikely(var295 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _modelbuilder");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 538);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 544);
 fatal_exit(1);
 }
 var293 = var295;
@@ -1613,9 +1739,12 @@ RET_LABEL294:(void)0;
 }
 }
 {
-{ /* Inline modelbuilder_base#ModelBuilder#toolcontext (var293) on <var293:ModelBuilder> */
+{ /* Inline modelbuilder_base$ModelBuilder$toolcontext (var293) on <var293:ModelBuilder> */
 var298 = var293->attrs[COLOR_nitc__modelbuilder_base__ModelBuilder___toolcontext].val; /* _toolcontext on <var293:ModelBuilder> */
 if (unlikely(var298 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__modelbuilder_base, 47);
 fatal_exit(1);
@@ -1625,9 +1754,12 @@ RET_LABEL297:(void)0;
 }
 }
 {
-{ /* Inline abstract_compiler#ToolContext#opt_typing_test_metrics (var296) on <var296:ToolContext> */
+{ /* Inline abstract_compiler$ToolContext$opt_typing_test_metrics (var296) on <var296:ToolContext> */
 var301 = var296->attrs[COLOR_nitc__abstract_compiler__ToolContext___opt_typing_test_metrics].val; /* _opt_typing_test_metrics on <var296:ToolContext> */
 if (unlikely(var301 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_typing_test_metrics");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 60);
 fatal_exit(1);
@@ -1637,20 +1769,23 @@ RET_LABEL300:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var299) on <var299:OptionBool> */
+{ /* Inline opts$Option$value (var299) on <var299:OptionBool> */
 var304 = var299->attrs[COLOR_opts__Option___value].val; /* _value on <var299:OptionBool> */
 var302 = var304;
 RET_LABEL303:(void)0;
 }
 }
-var305 = (short int)((long)(var302)>>2);
+var305 = (short int)((int64_t)(var302)>>2);
 if (var305){
 {
-{ /* Inline abstract_compiler#AbstractCompilerVisitor#compiler (self) on <self:SeparateErasureCompilerVisitor> */
+{ /* Inline abstract_compiler$AbstractCompilerVisitor$compiler (self) on <self:SeparateErasureCompilerVisitor> */
 var308 = self->attrs[COLOR_nitc__abstract_compiler__AbstractCompilerVisitor___compiler].val; /* _compiler on <self:SeparateErasureCompilerVisitor> */
 if (unlikely(var308 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _compiler");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1133);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1190);
 fatal_exit(1);
 }
 var306 = var308;
@@ -1658,11 +1793,14 @@ RET_LABEL307:(void)0;
 }
 }
 {
-{ /* Inline abstract_compiler#AbstractCompiler#count_type_test_resolved (var306) on <var306:AbstractCompiler(SeparateCompiler)> */
+{ /* Inline abstract_compiler$AbstractCompiler$count_type_test_resolved (var306) on <var306:AbstractCompiler(SeparateCompiler)> */
 var311 = var306->attrs[COLOR_nitc__abstract_compiler__AbstractCompiler___count_type_test_resolved].val; /* _count_type_test_resolved on <var306:AbstractCompiler(SeparateCompiler)> */
 if (unlikely(var311 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _count_type_test_resolved");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1046);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1103);
 fatal_exit(1);
 }
 var309 = var311;
@@ -1675,17 +1813,17 @@ var_313 = var_tag;
 var314 = core___core__HashMap___core__abstract_collection__MapRead___91d_93d(var_312, var_313);
 }
 {
-{ /* Inline kernel#Int#+ (var314,1l) on <var314:nullable Object(Int)> */
+{ /* Inline kernel$Int$+ (var314,1l) on <var314:nullable Object(Int)> */
 /* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
 /* <1l:Int> isa OTHER */
 var317 = 1; /* easy <1l:Int> isa OTHER*/
 if (unlikely(!var317)) {
 var_class_name320 = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name320);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 731);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 728);
 fatal_exit(1);
 }
-var321 = (long)(var314)>>2;
+var321 = (int64_t)(var314)>>2;
 var322 = var321 + 1l;
 var315 = var322;
 goto RET_LABEL316;
@@ -1694,7 +1832,7 @@ RET_LABEL316:(void)0;
 }
 {
 var323 = (val*)(var315<<2|1);
-core___core__HashMap___core__abstract_collection__Map___91d_93d_61d(var_312, var_313, var323); /* Direct call hash_collection#HashMap#[]= on <var_312:HashMap[String, Int]>*/
+core___core__HashMap___core__abstract_collection__Map___91d_93d_61d(var_312, var_313, var323); /* Direct call hash_collection$HashMap$[]= on <var_312:HashMap[String, Int]>*/
 }
 if (unlikely(varonce324==NULL)) {
 var325 = NEW_core__NativeArray(3l, &type_core__NativeArray__core__String);
@@ -1726,7 +1864,7 @@ var334 = ((val*(*)(val* self))(var325->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce324 = var325;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var334); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var334); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 } else {
 }
@@ -1741,27 +1879,36 @@ var335 = var_mtype->type->type_table[cltype336] == idtype337;
 }
 if (var335){
 {
-{ /* Inline abstract_compiler#AbstractCompilerVisitor#frame (self) on <self:SeparateErasureCompilerVisitor> */
+{ /* Inline abstract_compiler$AbstractCompilerVisitor$frame (self) on <self:SeparateErasureCompilerVisitor> */
 var340 = self->attrs[COLOR_nitc__abstract_compiler__AbstractCompilerVisitor___frame].val; /* _frame on <self:SeparateErasureCompilerVisitor> */
 var338 = var340;
 RET_LABEL339:(void)0;
 }
 }
 if (var338 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__separate_erasure_compiler, 555);
 fatal_exit(1);
 } else {
-{ /* Inline abstract_compiler#StaticFrame#arguments (var338) on <var338:nullable StaticFrame> */
+{ /* Inline abstract_compiler$StaticFrame$arguments (var338) on <var338:nullable StaticFrame> */
 if (unlikely(var338 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1921);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 2010);
 fatal_exit(1);
 }
 var343 = var338->attrs[COLOR_nitc__abstract_compiler__StaticFrame___arguments].val; /* _arguments on <var338:nullable StaticFrame> */
 if (unlikely(var343 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _arguments");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1921);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 2010);
 fatal_exit(1);
 }
 var341 = var343;
@@ -1773,11 +1920,14 @@ var344 = core___core__SequenceRead___Collection__first(var341);
 }
 var_recv = var344;
 {
-{ /* Inline abstract_compiler#RuntimeVariable#mtype (var_recv) on <var_recv:RuntimeVariable> */
+{ /* Inline abstract_compiler$RuntimeVariable$mtype (var_recv) on <var_recv:RuntimeVariable> */
 var347 = var_recv->attrs[COLOR_nitc__abstract_compiler__RuntimeVariable___mtype].val; /* _mtype on <var_recv:RuntimeVariable> */
 if (unlikely(var347 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1870);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1959);
 fatal_exit(1);
 }
 var345 = var347;
@@ -1815,11 +1965,14 @@ varonce350 = var351;
 var_recv_ptr = var357;
 } else {
 {
-{ /* Inline abstract_compiler#RuntimeVariable#mtype (var_recv) on <var_recv:RuntimeVariable> */
+{ /* Inline abstract_compiler$RuntimeVariable$mtype (var_recv) on <var_recv:RuntimeVariable> */
 var360 = var_recv->attrs[COLOR_nitc__abstract_compiler__RuntimeVariable___mtype].val; /* _mtype on <var_recv:RuntimeVariable> */
 if (unlikely(var360 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1870);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1959);
 fatal_exit(1);
 }
 var358 = var360;
@@ -1841,11 +1994,14 @@ PRINT_ERROR(" (%s:%d)\n", FILE_nitc__separate_erasure_compiler, 560);
 fatal_exit(1);
 }
 {
-{ /* Inline model#MClassType#mclass (var358) on <var358:MType(MClassType)> */
+{ /* Inline model$MClassType$mclass (var358) on <var358:MType(MClassType)> */
 var367 = var358->attrs[COLOR_nitc__model__MClassType___mclass].val; /* _mclass on <var358:MType(MClassType)> */
 if (unlikely(var367 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclass");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1163);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1197);
 fatal_exit(1);
 }
 var365 = var367;
@@ -1877,7 +2033,7 @@ var376 = ((val*(*)(val* self))(var370->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce369 = var370;
 {
-nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var376); /* Direct call abstract_compiler#AbstractCompilerVisitor#require_declaration on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var376); /* Direct call abstract_compiler$AbstractCompilerVisitor$require_declaration on <self:SeparateErasureCompilerVisitor>*/
 }
 if (unlikely(varonce377==NULL)) {
 var378 = NEW_core__NativeArray(3l, &type_core__NativeArray__core__String);
@@ -1955,14 +2111,17 @@ var404 = ((val*(*)(val* self))(var395->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce394 = var395;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var404); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var404); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 {
-{ /* Inline model#MVirtualType#mproperty (var_mtype) on <var_mtype:MType(MVirtualType)> */
+{ /* Inline model$MVirtualType$mproperty (var_mtype) on <var_mtype:MType(MVirtualType)> */
 var407 = var_mtype->attrs[COLOR_nitc__model__MVirtualType___mproperty].val; /* _mproperty on <var_mtype:MType(MVirtualType)> */
 if (unlikely(var407 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mproperty");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1369);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1423);
 fatal_exit(1);
 }
 var405 = var407;
@@ -1973,7 +2132,7 @@ RET_LABEL406:(void)0;
 var408 = nitc__separate_compiler___MEntity___const_color(var405);
 }
 {
-nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var408); /* Direct call abstract_compiler#AbstractCompilerVisitor#require_declaration on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var408); /* Direct call abstract_compiler$AbstractCompilerVisitor$require_declaration on <self:SeparateErasureCompilerVisitor>*/
 }
 if (unlikely(varonce409==NULL)) {
 var410 = NEW_core__NativeArray(6l, &type_core__NativeArray__core__String);
@@ -2011,11 +2170,14 @@ varonce409 = NULL;
 ((struct instance_core__NativeArray*)var410)->values[0]=var_entry;
 ((struct instance_core__NativeArray*)var410)->values[2]=var_recv_ptr;
 {
-{ /* Inline model#MVirtualType#mproperty (var_mtype) on <var_mtype:MType(MVirtualType)> */
+{ /* Inline model$MVirtualType$mproperty (var_mtype) on <var_mtype:MType(MVirtualType)> */
 var425 = var_mtype->attrs[COLOR_nitc__model__MVirtualType___mproperty].val; /* _mproperty on <var_mtype:MType(MVirtualType)> */
 if (unlikely(var425 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mproperty");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1369);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1423);
 fatal_exit(1);
 }
 var423 = var425;
@@ -2031,7 +2193,7 @@ var427 = ((val*(*)(val* self))(var410->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce409 = var410;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var427); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var427); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 if (unlikely(varonce428==NULL)) {
 var429 = NEW_core__NativeArray(4l, &type_core__NativeArray__core__String);
@@ -2064,7 +2226,7 @@ var438 = ((val*(*)(val* self))(var429->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce428 = var429;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var438); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var438); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 if (unlikely(varonce439==NULL)) {
 var440 = NEW_core__NativeArray(4l, &type_core__NativeArray__core__String);
@@ -2097,7 +2259,7 @@ var449 = ((val*(*)(val* self))(var440->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce439 = var440;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var449); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var449); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 var_451 = var_maybe_null;
 if (var_maybe_null){
@@ -2159,7 +2321,7 @@ var472 = ((val*(*)(val* self))(var463->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce462 = var463;
 {
-nitc___nitc__AbstractCompilerVisitor___add_decl(self, var472); /* Direct call abstract_compiler#AbstractCompilerVisitor#add_decl on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add_decl(self, var472); /* Direct call abstract_compiler$AbstractCompilerVisitor$add_decl on <self:SeparateErasureCompilerVisitor>*/
 }
 if (unlikely(varonce473==NULL)) {
 var474 = NEW_core__NativeArray(4l, &type_core__NativeArray__core__String);
@@ -2192,7 +2354,7 @@ var483 = ((val*(*)(val* self))(var474->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce473 = var474;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var483); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var483); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 {
 var484 = core___core__String___Object__to_s(var_is_nullable);
@@ -2201,11 +2363,14 @@ var_accept_null = var484;
 } else {
 }
 {
-{ /* Inline abstract_compiler#AbstractCompilerVisitor#compiler (self) on <self:SeparateErasureCompilerVisitor> */
+{ /* Inline abstract_compiler$AbstractCompilerVisitor$compiler (self) on <self:SeparateErasureCompilerVisitor> */
 var487 = self->attrs[COLOR_nitc__abstract_compiler__AbstractCompilerVisitor___compiler].val; /* _compiler on <self:SeparateErasureCompilerVisitor> */
 if (unlikely(var487 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _compiler");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1133);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1190);
 fatal_exit(1);
 }
 var485 = var487;
@@ -2213,11 +2378,14 @@ RET_LABEL486:(void)0;
 }
 }
 {
-{ /* Inline abstract_compiler#AbstractCompiler#modelbuilder (var485) on <var485:AbstractCompiler(SeparateCompiler)> */
+{ /* Inline abstract_compiler$AbstractCompiler$modelbuilder (var485) on <var485:AbstractCompiler(SeparateCompiler)> */
 var490 = var485->attrs[COLOR_nitc__abstract_compiler__AbstractCompiler___modelbuilder].val; /* _modelbuilder on <var485:AbstractCompiler(SeparateCompiler)> */
 if (unlikely(var490 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _modelbuilder");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 538);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 544);
 fatal_exit(1);
 }
 var488 = var490;
@@ -2225,9 +2393,12 @@ RET_LABEL489:(void)0;
 }
 }
 {
-{ /* Inline modelbuilder_base#ModelBuilder#toolcontext (var488) on <var488:ModelBuilder> */
+{ /* Inline modelbuilder_base$ModelBuilder$toolcontext (var488) on <var488:ModelBuilder> */
 var493 = var488->attrs[COLOR_nitc__modelbuilder_base__ModelBuilder___toolcontext].val; /* _toolcontext on <var488:ModelBuilder> */
 if (unlikely(var493 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__modelbuilder_base, 47);
 fatal_exit(1);
@@ -2237,9 +2408,12 @@ RET_LABEL492:(void)0;
 }
 }
 {
-{ /* Inline abstract_compiler#ToolContext#opt_typing_test_metrics (var491) on <var491:ToolContext> */
+{ /* Inline abstract_compiler$ToolContext$opt_typing_test_metrics (var491) on <var491:ToolContext> */
 var496 = var491->attrs[COLOR_nitc__abstract_compiler__ToolContext___opt_typing_test_metrics].val; /* _opt_typing_test_metrics on <var491:ToolContext> */
 if (unlikely(var496 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_typing_test_metrics");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 60);
 fatal_exit(1);
@@ -2249,20 +2423,23 @@ RET_LABEL495:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var494) on <var494:OptionBool> */
+{ /* Inline opts$Option$value (var494) on <var494:OptionBool> */
 var499 = var494->attrs[COLOR_opts__Option___value].val; /* _value on <var494:OptionBool> */
 var497 = var499;
 RET_LABEL498:(void)0;
 }
 }
-var500 = (short int)((long)(var497)>>2);
+var500 = (short int)((int64_t)(var497)>>2);
 if (var500){
 {
-{ /* Inline abstract_compiler#AbstractCompilerVisitor#compiler (self) on <self:SeparateErasureCompilerVisitor> */
+{ /* Inline abstract_compiler$AbstractCompilerVisitor$compiler (self) on <self:SeparateErasureCompilerVisitor> */
 var503 = self->attrs[COLOR_nitc__abstract_compiler__AbstractCompilerVisitor___compiler].val; /* _compiler on <self:SeparateErasureCompilerVisitor> */
 if (unlikely(var503 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _compiler");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1133);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1190);
 fatal_exit(1);
 }
 var501 = var503;
@@ -2270,11 +2447,14 @@ RET_LABEL502:(void)0;
 }
 }
 {
-{ /* Inline abstract_compiler#AbstractCompiler#count_type_test_unresolved (var501) on <var501:AbstractCompiler(SeparateCompiler)> */
+{ /* Inline abstract_compiler$AbstractCompiler$count_type_test_unresolved (var501) on <var501:AbstractCompiler(SeparateCompiler)> */
 var506 = var501->attrs[COLOR_nitc__abstract_compiler__AbstractCompiler___count_type_test_unresolved].val; /* _count_type_test_unresolved on <var501:AbstractCompiler(SeparateCompiler)> */
 if (unlikely(var506 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _count_type_test_unresolved");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1047);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1104);
 fatal_exit(1);
 }
 var504 = var506;
@@ -2287,17 +2467,17 @@ var_508 = var_tag;
 var509 = core___core__HashMap___core__abstract_collection__MapRead___91d_93d(var_507, var_508);
 }
 {
-{ /* Inline kernel#Int#+ (var509,1l) on <var509:nullable Object(Int)> */
+{ /* Inline kernel$Int$+ (var509,1l) on <var509:nullable Object(Int)> */
 /* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
 /* <1l:Int> isa OTHER */
 var512 = 1; /* easy <1l:Int> isa OTHER*/
 if (unlikely(!var512)) {
 var_class_name515 = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name515);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 731);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 728);
 fatal_exit(1);
 }
-var516 = (long)(var509)>>2;
+var516 = (int64_t)(var509)>>2;
 var517 = var516 + 1l;
 var510 = var517;
 goto RET_LABEL511;
@@ -2306,7 +2486,7 @@ RET_LABEL511:(void)0;
 }
 {
 var518 = (val*)(var510<<2|1);
-core___core__HashMap___core__abstract_collection__Map___91d_93d_61d(var_507, var_508, var518); /* Direct call hash_collection#HashMap#[]= on <var_507:HashMap[String, Int]>*/
+core___core__HashMap___core__abstract_collection__Map___91d_93d_61d(var_507, var_508, var518); /* Direct call hash_collection$HashMap$[]= on <var_507:HashMap[String, Int]>*/
 }
 if (unlikely(varonce519==NULL)) {
 var520 = NEW_core__NativeArray(3l, &type_core__NativeArray__core__String);
@@ -2338,7 +2518,7 @@ var529 = ((val*(*)(val* self))(var520->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce519 = var520;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var529); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var529); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 } else {
 }
@@ -2389,7 +2569,10 @@ var546 = ((val*(*)(val* self))(var531->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce530 = var531;
 {
-nitc___nitc__AbstractCompilerVisitor___debug(self, var546); /* Direct call abstract_compiler#AbstractCompilerVisitor#debug on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___debug(self, var546); /* Direct call abstract_compiler$AbstractCompilerVisitor$debug on <self:SeparateErasureCompilerVisitor>*/
+}
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
 }
 PRINT_ERROR("Runtime error: %s", "Aborted");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__separate_erasure_compiler, 582);
@@ -2430,7 +2613,7 @@ var558 = ((val*(*)(val* self))(var548->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce547 = var548;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var558); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var558); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 if (unlikely(varonce559==NULL)) {
 var560 = NEW_core__NativeArray(4l, &type_core__NativeArray__core__String);
@@ -2466,7 +2649,7 @@ var570 = ((val*(*)(val* self))(var560->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce559 = var560;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var570); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var570); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 if (likely(varonce571!=NULL)) {
 var572 = varonce571;
@@ -2477,7 +2660,7 @@ var572 = var574;
 varonce571 = var572;
 }
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var572); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var572); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 } else {
 }
@@ -2521,7 +2704,7 @@ var589 = ((val*(*)(val* self))(var576->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce575 = var576;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var589); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var589); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 if (unlikely(varonce590==NULL)) {
 var591 = NEW_core__NativeArray(2l, &type_core__NativeArray__core__String);
@@ -2547,7 +2730,7 @@ var597 = ((val*(*)(val* self))(var591->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce590 = var591;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var597); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var597); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 if (likely(varonce598!=NULL)) {
 var599 = varonce598;
@@ -2558,7 +2741,7 @@ var599 = var601;
 varonce598 = var599;
 }
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var599); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var599); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 if (unlikely(varonce602==NULL)) {
 var603 = NEW_core__NativeArray(8l, &type_core__NativeArray__core__String);
@@ -2614,7 +2797,7 @@ var621 = ((val*(*)(val* self))(var603->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce602 = var603;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var621); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var621); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 if (likely(varonce622!=NULL)) {
 var623 = varonce622;
@@ -2625,7 +2808,7 @@ var623 = var625;
 varonce622 = var623;
 }
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var623); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var623); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 if (var_maybe_null){
 if (likely(varonce626!=NULL)) {
@@ -2637,7 +2820,7 @@ var627 = var629;
 varonce626 = var627;
 }
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var627); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var627); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 } else {
 }
@@ -2646,7 +2829,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method separate_erasure_compiler#SeparateErasureCompilerVisitor#unbox_extern for (self: SeparateErasureCompilerVisitor, RuntimeVariable, MType): RuntimeVariable */
+/* method separate_erasure_compiler$SeparateErasureCompilerVisitor$unbox_extern for (self: SeparateErasureCompilerVisitor, RuntimeVariable, MType): RuntimeVariable */
 val* nitc___nitc__SeparateErasureCompilerVisitor___nitc__abstract_compiler__AbstractCompilerVisitor__unbox_extern(val* self, val* p0, val* p1) {
 val* var /* : RuntimeVariable */;
 val* var_value /* var value: RuntimeVariable */;
@@ -2726,11 +2909,14 @@ var3 = var_mtype->type->type_table[cltype] == idtype;
 var_ = var3;
 if (var3){
 {
-{ /* Inline model#MClassType#mclass (var_mtype) on <var_mtype:MType(MClassType)> */
+{ /* Inline model$MClassType$mclass (var_mtype) on <var_mtype:MType(MClassType)> */
 var6 = var_mtype->attrs[COLOR_nitc__model__MClassType___mclass].val; /* _mclass on <var_mtype:MType(MClassType)> */
 if (unlikely(var6 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclass");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1163);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1197);
 fatal_exit(1);
 }
 var4 = var6;
@@ -2738,11 +2924,14 @@ RET_LABEL5:(void)0;
 }
 }
 {
-{ /* Inline model#MClass#kind (var4) on <var4:MClass> */
+{ /* Inline model$MClass$kind (var4) on <var4:MClass> */
 var9 = var4->attrs[COLOR_nitc__model__MClass___kind].val; /* _kind on <var4:MClass> */
 if (unlikely(var9 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _kind");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 459);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 472);
 fatal_exit(1);
 }
 var7 = var9;
@@ -2754,10 +2943,10 @@ var10 = glob_sys;
 var11 = nitc__model___core__Sys___extern_kind(var10);
 }
 {
-{ /* Inline kernel#Object#== (var7,var11) on <var7:MClassKind> */
+{ /* Inline kernel$Object$== (var7,var11) on <var7:MClassKind> */
 var_other = var11;
 {
-{ /* Inline kernel#Object#is_same_instance (var7,var_other) on <var7:MClassKind> */
+{ /* Inline kernel$Object$is_same_instance (var7,var_other) on <var7:MClassKind> */
 var16 = var7 == var_other;
 var14 = var16;
 goto RET_LABEL15;
@@ -2776,11 +2965,14 @@ var2 = var_;
 var_17 = var2;
 if (var2){
 {
-{ /* Inline model#MClassType#mclass (var_mtype) on <var_mtype:MType(MClassType)> */
+{ /* Inline model$MClassType$mclass (var_mtype) on <var_mtype:MType(MClassType)> */
 var20 = var_mtype->attrs[COLOR_nitc__model__MClassType___mclass].val; /* _mclass on <var_mtype:MType(MClassType)> */
 if (unlikely(var20 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclass");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1163);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1197);
 fatal_exit(1);
 }
 var18 = var20;
@@ -2788,11 +2980,14 @@ RET_LABEL19:(void)0;
 }
 }
 {
-{ /* Inline model#MClass#name (var18) on <var18:MClass> */
+{ /* Inline model$MClass$name (var18) on <var18:MClass> */
 var23 = var18->attrs[COLOR_nitc__model__MClass___name].val; /* _name on <var18:MClass> */
 if (unlikely(var23 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _name");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 385);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 396);
 fatal_exit(1);
 }
 var21 = var23;
@@ -2808,7 +3003,7 @@ var24 = var26;
 varonce = var24;
 }
 {
-{ /* Inline kernel#Object#!= (var21,var24) on <var21:String> */
+{ /* Inline kernel$Object$!= (var21,var24) on <var21:String> */
 var_other29 = var24;
 {
 var30 = ((short int(*)(val* self, val* p0))(var21->class->vft[COLOR_core__kernel__Object___61d_61d]))(var21, var_other29); /* == on <var21:String>*/
@@ -2825,11 +3020,14 @@ var1 = var_17;
 }
 if (var1){
 {
-{ /* Inline abstract_compiler#AbstractCompilerVisitor#compiler (self) on <self:SeparateErasureCompilerVisitor> */
+{ /* Inline abstract_compiler$AbstractCompilerVisitor$compiler (self) on <self:SeparateErasureCompilerVisitor> */
 var34 = self->attrs[COLOR_nitc__abstract_compiler__AbstractCompilerVisitor___compiler].val; /* _compiler on <self:SeparateErasureCompilerVisitor> */
 if (unlikely(var34 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _compiler");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1133);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1190);
 fatal_exit(1);
 }
 var32 = var34;
@@ -2837,11 +3035,14 @@ RET_LABEL33:(void)0;
 }
 }
 {
-{ /* Inline abstract_compiler#AbstractCompiler#mainmodule (var32) on <var32:AbstractCompiler(SeparateCompiler)> */
+{ /* Inline abstract_compiler$AbstractCompiler$mainmodule (var32) on <var32:AbstractCompiler(SeparateCompiler)> */
 var37 = var32->attrs[COLOR_nitc__abstract_compiler__AbstractCompiler___mainmodule].val; /* _mainmodule on <var32:AbstractCompiler(SeparateCompiler)> */
 if (unlikely(var37 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mainmodule");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 531);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 537);
 fatal_exit(1);
 }
 var35 = var37;
@@ -2911,11 +3112,14 @@ var60 = ((val*(*)(val* self))(var_value->class->vft[COLOR_core__abstract_text__O
 }
 ((struct instance_core__NativeArray*)var41)->values[4]=var60;
 {
-{ /* Inline abstract_compiler#RuntimeVariable#mtype (var_value) on <var_value:RuntimeVariable> */
+{ /* Inline abstract_compiler$RuntimeVariable$mtype (var_value) on <var_value:RuntimeVariable> */
 var63 = var_value->attrs[COLOR_nitc__abstract_compiler__RuntimeVariable___mtype].val; /* _mtype on <var_value:RuntimeVariable> */
 if (unlikely(var63 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1870);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1959);
 fatal_exit(1);
 }
 var61 = var63;
@@ -2931,7 +3135,7 @@ var65 = ((val*(*)(val* self))(var41->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce40 = var41;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var65); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var65); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 var = var_res;
 goto RET_LABEL;
@@ -2942,7 +3146,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method separate_erasure_compiler#SeparateErasureCompilerVisitor#box_extern for (self: SeparateErasureCompilerVisitor, RuntimeVariable, MType): RuntimeVariable */
+/* method separate_erasure_compiler$SeparateErasureCompilerVisitor$box_extern for (self: SeparateErasureCompilerVisitor, RuntimeVariable, MType): RuntimeVariable */
 val* nitc___nitc__SeparateErasureCompilerVisitor___nitc__abstract_compiler__AbstractCompilerVisitor__box_extern(val* self, val* p0, val* p1) {
 val* var /* : RuntimeVariable */;
 val* var_value /* var value: RuntimeVariable */;
@@ -3100,11 +3304,14 @@ var3 = var_mtype->type->type_table[cltype] == idtype;
 var_ = var3;
 if (var3){
 {
-{ /* Inline model#MClassType#mclass (var_mtype) on <var_mtype:MType(MClassType)> */
+{ /* Inline model$MClassType$mclass (var_mtype) on <var_mtype:MType(MClassType)> */
 var6 = var_mtype->attrs[COLOR_nitc__model__MClassType___mclass].val; /* _mclass on <var_mtype:MType(MClassType)> */
 if (unlikely(var6 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclass");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1163);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1197);
 fatal_exit(1);
 }
 var4 = var6;
@@ -3112,11 +3319,14 @@ RET_LABEL5:(void)0;
 }
 }
 {
-{ /* Inline model#MClass#kind (var4) on <var4:MClass> */
+{ /* Inline model$MClass$kind (var4) on <var4:MClass> */
 var9 = var4->attrs[COLOR_nitc__model__MClass___kind].val; /* _kind on <var4:MClass> */
 if (unlikely(var9 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _kind");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 459);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 472);
 fatal_exit(1);
 }
 var7 = var9;
@@ -3128,10 +3338,10 @@ var10 = glob_sys;
 var11 = nitc__model___core__Sys___extern_kind(var10);
 }
 {
-{ /* Inline kernel#Object#== (var7,var11) on <var7:MClassKind> */
+{ /* Inline kernel$Object$== (var7,var11) on <var7:MClassKind> */
 var_other = var11;
 {
-{ /* Inline kernel#Object#is_same_instance (var7,var_other) on <var7:MClassKind> */
+{ /* Inline kernel$Object$is_same_instance (var7,var_other) on <var7:MClassKind> */
 var16 = var7 == var_other;
 var14 = var16;
 goto RET_LABEL15;
@@ -3150,11 +3360,14 @@ var2 = var_;
 var_17 = var2;
 if (var2){
 {
-{ /* Inline model#MClassType#mclass (var_mtype) on <var_mtype:MType(MClassType)> */
+{ /* Inline model$MClassType$mclass (var_mtype) on <var_mtype:MType(MClassType)> */
 var20 = var_mtype->attrs[COLOR_nitc__model__MClassType___mclass].val; /* _mclass on <var_mtype:MType(MClassType)> */
 if (unlikely(var20 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclass");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1163);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1197);
 fatal_exit(1);
 }
 var18 = var20;
@@ -3162,11 +3375,14 @@ RET_LABEL19:(void)0;
 }
 }
 {
-{ /* Inline model#MClass#name (var18) on <var18:MClass> */
+{ /* Inline model$MClass$name (var18) on <var18:MClass> */
 var23 = var18->attrs[COLOR_nitc__model__MClass___name].val; /* _name on <var18:MClass> */
 if (unlikely(var23 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _name");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 385);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 396);
 fatal_exit(1);
 }
 var21 = var23;
@@ -3182,7 +3398,7 @@ var24 = var26;
 varonce = var24;
 }
 {
-{ /* Inline kernel#Object#!= (var21,var24) on <var21:String> */
+{ /* Inline kernel$Object$!= (var21,var24) on <var21:String> */
 var_other29 = var24;
 {
 var30 = ((short int(*)(val* self, val* p0))(var21->class->vft[COLOR_core__kernel__Object___61d_61d]))(var21, var_other29); /* == on <var21:String>*/
@@ -3199,11 +3415,14 @@ var1 = var_17;
 }
 if (var1){
 {
-{ /* Inline abstract_compiler#AbstractCompilerVisitor#compiler (self) on <self:SeparateErasureCompilerVisitor> */
+{ /* Inline abstract_compiler$AbstractCompilerVisitor$compiler (self) on <self:SeparateErasureCompilerVisitor> */
 var34 = self->attrs[COLOR_nitc__abstract_compiler__AbstractCompilerVisitor___compiler].val; /* _compiler on <self:SeparateErasureCompilerVisitor> */
 if (unlikely(var34 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _compiler");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1133);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1190);
 fatal_exit(1);
 }
 var32 = var34;
@@ -3211,11 +3430,14 @@ RET_LABEL33:(void)0;
 }
 }
 {
-{ /* Inline abstract_compiler#AbstractCompiler#mainmodule (var32) on <var32:AbstractCompiler(SeparateCompiler)> */
+{ /* Inline abstract_compiler$AbstractCompiler$mainmodule (var32) on <var32:AbstractCompiler(SeparateCompiler)> */
 var37 = var32->attrs[COLOR_nitc__abstract_compiler__AbstractCompiler___mainmodule].val; /* _mainmodule on <var32:AbstractCompiler(SeparateCompiler)> */
 if (unlikely(var37 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mainmodule");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 531);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 537);
 fatal_exit(1);
 }
 var35 = var37;
@@ -3231,11 +3453,14 @@ var39 = nitc___nitc__AbstractCompilerVisitor___new_var(self, var_mtype);
 }
 var_res = var39;
 {
-{ /* Inline abstract_compiler#AbstractCompilerVisitor#compiler (self) on <self:SeparateErasureCompilerVisitor> */
+{ /* Inline abstract_compiler$AbstractCompilerVisitor$compiler (self) on <self:SeparateErasureCompilerVisitor> */
 var43 = self->attrs[COLOR_nitc__abstract_compiler__AbstractCompilerVisitor___compiler].val; /* _compiler on <self:SeparateErasureCompilerVisitor> */
 if (unlikely(var43 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _compiler");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1133);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1190);
 fatal_exit(1);
 }
 var41 = var43;
@@ -3243,7 +3468,7 @@ RET_LABEL42:(void)0;
 }
 }
 {
-{ /* Inline separate_compiler#SeparateCompiler#runtime_type_analysis (var41) on <var41:AbstractCompiler(SeparateCompiler)> */
+{ /* Inline separate_compiler$SeparateCompiler$runtime_type_analysis (var41) on <var41:AbstractCompiler(SeparateCompiler)> */
 var46 = var41->attrs[COLOR_nitc__separate_compiler__SeparateCompiler___runtime_type_analysis].val; /* _runtime_type_analysis on <var41:AbstractCompiler(SeparateCompiler)> */
 var44 = var46;
 RET_LABEL45:(void)0;
@@ -3255,7 +3480,7 @@ var47 = 0; /* is null */
 var47 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var44,((val*)NULL)) on <var44:nullable RapidTypeAnalysis> */
+{ /* Inline kernel$Object$!= (var44,((val*)NULL)) on <var44:nullable RapidTypeAnalysis> */
 var_other29 = ((val*)NULL);
 {
 var50 = ((short int(*)(val* self, val* p0))(var44->class->vft[COLOR_core__kernel__Object___61d_61d]))(var44, var_other29); /* == on <var44:nullable RapidTypeAnalysis(RapidTypeAnalysis)>*/
@@ -3270,11 +3495,14 @@ var47 = var48;
 var_52 = var47;
 if (var47){
 {
-{ /* Inline abstract_compiler#AbstractCompilerVisitor#compiler (self) on <self:SeparateErasureCompilerVisitor> */
+{ /* Inline abstract_compiler$AbstractCompilerVisitor$compiler (self) on <self:SeparateErasureCompilerVisitor> */
 var55 = self->attrs[COLOR_nitc__abstract_compiler__AbstractCompilerVisitor___compiler].val; /* _compiler on <self:SeparateErasureCompilerVisitor> */
 if (unlikely(var55 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _compiler");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1133);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1190);
 fatal_exit(1);
 }
 var53 = var55;
@@ -3282,25 +3510,34 @@ RET_LABEL54:(void)0;
 }
 }
 {
-{ /* Inline separate_compiler#SeparateCompiler#runtime_type_analysis (var53) on <var53:AbstractCompiler(SeparateCompiler)> */
+{ /* Inline separate_compiler$SeparateCompiler$runtime_type_analysis (var53) on <var53:AbstractCompiler(SeparateCompiler)> */
 var58 = var53->attrs[COLOR_nitc__separate_compiler__SeparateCompiler___runtime_type_analysis].val; /* _runtime_type_analysis on <var53:AbstractCompiler(SeparateCompiler)> */
 var56 = var58;
 RET_LABEL57:(void)0;
 }
 }
 if (var56 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__separate_erasure_compiler, 622);
 fatal_exit(1);
 } else {
-{ /* Inline rapid_type_analysis#RapidTypeAnalysis#live_types (var56) on <var56:nullable RapidTypeAnalysis> */
+{ /* Inline rapid_type_analysis$RapidTypeAnalysis$live_types (var56) on <var56:nullable RapidTypeAnalysis> */
 if (unlikely(var56 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__rapid_type_analysis, 60);
 fatal_exit(1);
 }
 var61 = var56->attrs[COLOR_nitc__rapid_type_analysis__RapidTypeAnalysis___live_types].val; /* _live_types on <var56:nullable RapidTypeAnalysis> */
 if (unlikely(var61 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _live_types");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__rapid_type_analysis, 60);
 fatal_exit(1);
@@ -3310,11 +3547,14 @@ RET_LABEL60:(void)0;
 }
 }
 {
-{ /* Inline abstract_compiler#RuntimeVariable#mtype (var_value) on <var_value:RuntimeVariable> */
+{ /* Inline abstract_compiler$RuntimeVariable$mtype (var_value) on <var_value:RuntimeVariable> */
 var64 = var_value->attrs[COLOR_nitc__abstract_compiler__RuntimeVariable___mtype].val; /* _mtype on <var_value:RuntimeVariable> */
 if (unlikely(var64 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1870);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1959);
 fatal_exit(1);
 }
 var62 = var64;
@@ -3378,11 +3618,14 @@ var71 = varonce70;
 varonce70 = NULL;
 }
 {
-{ /* Inline abstract_compiler#RuntimeVariable#mtype (var_value) on <var_value:RuntimeVariable> */
+{ /* Inline abstract_compiler$RuntimeVariable$mtype (var_value) on <var_value:RuntimeVariable> */
 var86 = var_value->attrs[COLOR_nitc__abstract_compiler__RuntimeVariable___mtype].val; /* _mtype on <var_value:RuntimeVariable> */
 if (unlikely(var86 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1870);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1959);
 fatal_exit(1);
 }
 var84 = var86;
@@ -3394,11 +3637,14 @@ var87 = ((val*(*)(val* self))(var84->class->vft[COLOR_core__abstract_text__Objec
 }
 ((struct instance_core__NativeArray*)var71)->values[1]=var87;
 {
-{ /* Inline abstract_compiler#RuntimeVariable#mtype (var_value) on <var_value:RuntimeVariable> */
+{ /* Inline abstract_compiler$RuntimeVariable$mtype (var_value) on <var_value:RuntimeVariable> */
 var90 = var_value->attrs[COLOR_nitc__abstract_compiler__RuntimeVariable___mtype].val; /* _mtype on <var_value:RuntimeVariable> */
 if (unlikely(var90 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1870);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1959);
 fatal_exit(1);
 }
 var88 = var90;
@@ -3414,7 +3660,7 @@ var92 = ((val*(*)(val* self))(var71->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce70 = var71;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var92); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var92); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 if (likely(varonce93!=NULL)) {
 var94 = varonce93;
@@ -3425,7 +3671,7 @@ var94 = var96;
 varonce93 = var94;
 }
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var94); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var94); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 var = var_res;
 goto RET_LABEL;
@@ -3455,7 +3701,7 @@ var104 = ((val*(*)(val* self))(var98->class->vft[COLOR_core__abstract_text__Nati
 }
 varonce97 = var98;
 {
-nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var104); /* Direct call abstract_compiler#AbstractCompilerVisitor#require_declaration on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var104); /* Direct call abstract_compiler$AbstractCompilerVisitor$require_declaration on <self:SeparateErasureCompilerVisitor>*/
 }
 if (unlikely(varonce105==NULL)) {
 var106 = NEW_core__NativeArray(8l, &type_core__NativeArray__core__String);
@@ -3512,11 +3758,14 @@ var125 = ((val*(*)(val* self))(var_value->class->vft[COLOR_core__abstract_text__
 }
 ((struct instance_core__NativeArray*)var106)->values[4]=var125;
 {
-{ /* Inline abstract_compiler#RuntimeVariable#mtype (var_value) on <var_value:RuntimeVariable> */
+{ /* Inline abstract_compiler$RuntimeVariable$mtype (var_value) on <var_value:RuntimeVariable> */
 var128 = var_value->attrs[COLOR_nitc__abstract_compiler__RuntimeVariable___mtype].val; /* _mtype on <var_value:RuntimeVariable> */
 if (unlikely(var128 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1870);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1959);
 fatal_exit(1);
 }
 var126 = var128;
@@ -3532,7 +3781,7 @@ var130 = ((val*(*)(val* self))(var106->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce105 = var106;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var130); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var130); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 if (unlikely(varonce131==NULL)) {
 var132 = NEW_core__NativeArray(2l, &type_core__NativeArray__core__String);
@@ -3558,7 +3807,7 @@ var138 = ((val*(*)(val* self))(var132->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce131 = var132;
 {
-nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var138); /* Direct call abstract_compiler#AbstractCompilerVisitor#require_declaration on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var138); /* Direct call abstract_compiler$AbstractCompilerVisitor$require_declaration on <self:SeparateErasureCompilerVisitor>*/
 }
 if (unlikely(varonce139==NULL)) {
 var140 = NEW_core__NativeArray(4l, &type_core__NativeArray__core__String);
@@ -3597,7 +3846,7 @@ var151 = ((val*(*)(val* self))(var140->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce139 = var140;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var151); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var151); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 var = var_res;
 goto RET_LABEL;
@@ -3608,7 +3857,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method separate_erasure_compiler#SeparateErasureCompilerVisitor#class_name_string for (self: SeparateErasureCompilerVisitor, RuntimeVariable): String */
+/* method separate_erasure_compiler$SeparateErasureCompilerVisitor$class_name_string for (self: SeparateErasureCompilerVisitor, RuntimeVariable): String */
 val* nitc___nitc__SeparateErasureCompilerVisitor___nitc__abstract_compiler__AbstractCompilerVisitor__class_name_string(val* self, val* p0) {
 val* var /* : String */;
 val* var_value /* var value: RuntimeVariable */;
@@ -3717,14 +3966,17 @@ var15 = ((val*(*)(val* self))(var6->class->vft[COLOR_core__abstract_text__Native
 }
 varonce5 = var6;
 {
-nitc___nitc__AbstractCompilerVisitor___add_decl(self, var15); /* Direct call abstract_compiler#AbstractCompilerVisitor#add_decl on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add_decl(self, var15); /* Direct call abstract_compiler$AbstractCompilerVisitor$add_decl on <self:SeparateErasureCompilerVisitor>*/
 }
 {
-{ /* Inline abstract_compiler#RuntimeVariable#mtype (var_value) on <var_value:RuntimeVariable> */
+{ /* Inline abstract_compiler$RuntimeVariable$mtype (var_value) on <var_value:RuntimeVariable> */
 var18 = var_value->attrs[COLOR_nitc__abstract_compiler__RuntimeVariable___mtype].val; /* _mtype on <var_value:RuntimeVariable> */
 if (unlikely(var18 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1870);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1959);
 fatal_exit(1);
 }
 var16 = var18;
@@ -3783,7 +4035,7 @@ var37 = ((val*(*)(val* self))(var22->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce21 = var22;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var37); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var37); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 } else {
 if (unlikely(varonce38==NULL)) {
@@ -3802,11 +4054,14 @@ var39 = varonce38;
 varonce38 = NULL;
 }
 {
-{ /* Inline abstract_compiler#RuntimeVariable#mtype (var_value) on <var_value:RuntimeVariable> */
+{ /* Inline abstract_compiler$RuntimeVariable$mtype (var_value) on <var_value:RuntimeVariable> */
 var46 = var_value->attrs[COLOR_nitc__abstract_compiler__RuntimeVariable___mtype].val; /* _mtype on <var_value:RuntimeVariable> */
 if (unlikely(var46 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1870);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1959);
 fatal_exit(1);
 }
 var44 = var46;
@@ -3822,7 +4077,7 @@ var48 = ((val*(*)(val* self))(var39->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce38 = var39;
 {
-nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var48); /* Direct call abstract_compiler#AbstractCompilerVisitor#require_declaration on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var48); /* Direct call abstract_compiler$AbstractCompilerVisitor$require_declaration on <self:SeparateErasureCompilerVisitor>*/
 }
 if (unlikely(varonce49==NULL)) {
 var50 = NEW_core__NativeArray(4l, &type_core__NativeArray__core__String);
@@ -3850,11 +4105,14 @@ varonce49 = NULL;
 }
 ((struct instance_core__NativeArray*)var50)->values[0]=var_res;
 {
-{ /* Inline abstract_compiler#RuntimeVariable#mtype (var_value) on <var_value:RuntimeVariable> */
+{ /* Inline abstract_compiler$RuntimeVariable$mtype (var_value) on <var_value:RuntimeVariable> */
 var61 = var_value->attrs[COLOR_nitc__abstract_compiler__RuntimeVariable___mtype].val; /* _mtype on <var_value:RuntimeVariable> */
 if (unlikely(var61 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1870);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__abstract_compiler, 1959);
 fatal_exit(1);
 }
 var59 = var61;
@@ -3870,7 +4128,7 @@ var63 = ((val*(*)(val* self))(var50->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce49 = var50;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var63); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var63); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 }
 var = var_res;
@@ -3878,7 +4136,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method separate_erasure_compiler#SeparateErasureCompilerVisitor#native_array_instance for (self: SeparateErasureCompilerVisitor, MType, RuntimeVariable): RuntimeVariable */
+/* method separate_erasure_compiler$SeparateErasureCompilerVisitor$native_array_instance for (self: SeparateErasureCompilerVisitor, MType, RuntimeVariable): RuntimeVariable */
 val* nitc___nitc__SeparateErasureCompilerVisitor___nitc__abstract_compiler__AbstractCompilerVisitor__native_array_instance(val* self, val* p0, val* p1) {
 val* var /* : RuntimeVariable */;
 val* var_elttype /* var elttype: MType */;
@@ -3929,11 +4187,11 @@ var2 = nitc__model___MModule___native_array_class(var1);
 var_nclass = var2;
 var3 = NEW_core__Array(&type_core__Array__nitc__MType);
 {
-core___core__Array___with_capacity(var3, 1l); /* Direct call array#Array#with_capacity on <var3:Array[MType]>*/
+core___core__Array___with_capacity(var3, 1l); /* Direct call array$Array$with_capacity on <var3:Array[MType]>*/
 }
 var_ = var3;
 {
-core___core__AbstractArray___core__abstract_collection__Sequence__push(var_, var_elttype); /* Direct call array#AbstractArray#push on <var_:Array[MType]>*/
+core___core__AbstractArray___core__abstract_collection__Sequence__push(var_, var_elttype); /* Direct call array$AbstractArray$push on <var_:Array[MType]>*/
 }
 {
 var4 = nitc___nitc__MClass___get_mtype(var_nclass, var_);
@@ -3944,7 +4202,7 @@ var5 = nitc___nitc__AbstractCompilerVisitor___new_var(self, var_mtype);
 }
 var_res = var5;
 {
-{ /* Inline abstract_compiler#RuntimeVariable#is_exact= (var_res,1) on <var_res:RuntimeVariable> */
+{ /* Inline abstract_compiler$RuntimeVariable$is_exact= (var_res,1) on <var_res:RuntimeVariable> */
 var_res->attrs[COLOR_nitc__abstract_compiler__RuntimeVariable___is_exact].s = 1; /* _is_exact on <var_res:RuntimeVariable> */
 RET_LABEL6:(void)0;
 }
@@ -3973,7 +4231,7 @@ var13 = ((val*(*)(val* self))(var7->class->vft[COLOR_core__abstract_text__Native
 }
 varonce = var7;
 {
-nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var13); /* Direct call abstract_compiler#AbstractCompilerVisitor#require_declaration on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var13); /* Direct call abstract_compiler$AbstractCompilerVisitor$require_declaration on <self:SeparateErasureCompilerVisitor>*/
 }
 if (unlikely(varonce14==NULL)) {
 var15 = NEW_core__NativeArray(6l, &type_core__NativeArray__core__String);
@@ -4025,173 +4283,10 @@ var31 = ((val*(*)(val* self))(var15->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce14 = var15;
 {
-nitc___nitc__AbstractCompilerVisitor___add(self, var31); /* Direct call abstract_compiler#AbstractCompilerVisitor#add on <self:SeparateErasureCompilerVisitor>*/
+nitc___nitc__AbstractCompilerVisitor___add(self, var31); /* Direct call abstract_compiler$AbstractCompilerVisitor$add on <self:SeparateErasureCompilerVisitor>*/
 }
 var = var_res;
 goto RET_LABEL;
 RET_LABEL:;
 return var;
-}
-/* method separate_erasure_compiler#SeparateErasureCompilerVisitor#calloc_array for (self: SeparateErasureCompilerVisitor, MType, Array[RuntimeVariable]) */
-void nitc___nitc__SeparateErasureCompilerVisitor___nitc__abstract_compiler__AbstractCompilerVisitor__calloc_array(val* self, val* p0, val* p1) {
-val* var_ret_type /* var ret_type: MType */;
-val* var_arguments /* var arguments: Array[RuntimeVariable] */;
-short int var /* : Bool */;
-int cltype;
-int idtype;
-const char* var_class_name;
-val* var_ret /* var ret: MClassType */;
-val* var1 /* : NativeArray[String] */;
-static val* varonce;
-static val* varonce2;
-val* var3 /* : String */;
-char* var4 /* : NativeString */;
-val* var5 /* : String */;
-val* var6 /* : MClass */;
-val* var8 /* : MClass */;
-val* var9 /* : String */;
-val* var10 /* : String */;
-val* var12 /* : NativeArray[String] */;
-static val* varonce11;
-static val* varonce13;
-val* var14 /* : String */;
-char* var15 /* : NativeString */;
-val* var16 /* : String */;
-static val* varonce17;
-val* var18 /* : String */;
-char* var19 /* : NativeString */;
-val* var20 /* : String */;
-static val* varonce21;
-val* var22 /* : String */;
-char* var23 /* : NativeString */;
-val* var24 /* : String */;
-val* var25 /* : MClass */;
-val* var27 /* : MClass */;
-val* var28 /* : String */;
-val* var29 /* : nullable Object */;
-val* var30 /* : String */;
-val* var31 /* : String */;
-val* var32 /* : RuntimeVariable */;
-var_ret_type = p0;
-var_arguments = p1;
-/* <var_ret_type:MType> isa MClassType */
-cltype = type_nitc__MClassType.color;
-idtype = type_nitc__MClassType.id;
-if(cltype >= var_ret_type->type->table_size) {
-var = 0;
-} else {
-var = var_ret_type->type->type_table[cltype] == idtype;
-}
-if (unlikely(!var)) {
-var_class_name = var_ret_type == NULL ? "null" : var_ret_type->type->name;
-PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "MClassType", var_class_name);
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__separate_erasure_compiler, 663);
-fatal_exit(1);
-}
-var_ret = var_ret_type;
-if (unlikely(varonce==NULL)) {
-var1 = NEW_core__NativeArray(2l, &type_core__NativeArray__core__String);
-if (likely(varonce2!=NULL)) {
-var3 = varonce2;
-} else {
-var4 = "NEW_";
-var5 = core__flat___NativeString___to_s_full(var4, 4l, 4l);
-var3 = var5;
-varonce2 = var3;
-}
-((struct instance_core__NativeArray*)var1)->values[0]=var3;
-} else {
-var1 = varonce;
-varonce = NULL;
-}
-{
-{ /* Inline model#MClassType#mclass (var_ret) on <var_ret:MClassType> */
-var8 = var_ret->attrs[COLOR_nitc__model__MClassType___mclass].val; /* _mclass on <var_ret:MClassType> */
-if (unlikely(var8 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclass");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1163);
-fatal_exit(1);
-}
-var6 = var8;
-RET_LABEL7:(void)0;
-}
-}
-{
-var9 = nitc___nitc__MClass___nitc__model_base__MEntity__c_name(var6);
-}
-((struct instance_core__NativeArray*)var1)->values[1]=var9;
-{
-var10 = ((val*(*)(val* self))(var1->class->vft[COLOR_core__abstract_text__NativeArray__native_to_s]))(var1); /* native_to_s on <var1:NativeArray[String]>*/
-}
-varonce = var1;
-{
-nitc___nitc__AbstractCompilerVisitor___require_declaration(self, var10); /* Direct call abstract_compiler#AbstractCompilerVisitor#require_declaration on <self:SeparateErasureCompilerVisitor>*/
-}
-if (unlikely(varonce11==NULL)) {
-var12 = NEW_core__NativeArray(5l, &type_core__NativeArray__core__String);
-if (likely(varonce13!=NULL)) {
-var14 = varonce13;
-} else {
-var15 = "NEW_";
-var16 = core__flat___NativeString___to_s_full(var15, 4l, 4l);
-var14 = var16;
-varonce13 = var14;
-}
-((struct instance_core__NativeArray*)var12)->values[0]=var14;
-if (likely(varonce17!=NULL)) {
-var18 = varonce17;
-} else {
-var19 = "(";
-var20 = core__flat___NativeString___to_s_full(var19, 1l, 1l);
-var18 = var20;
-varonce17 = var18;
-}
-((struct instance_core__NativeArray*)var12)->values[2]=var18;
-if (likely(varonce21!=NULL)) {
-var22 = varonce21;
-} else {
-var23 = ")";
-var24 = core__flat___NativeString___to_s_full(var23, 1l, 1l);
-var22 = var24;
-varonce21 = var22;
-}
-((struct instance_core__NativeArray*)var12)->values[4]=var22;
-} else {
-var12 = varonce11;
-varonce11 = NULL;
-}
-{
-{ /* Inline model#MClassType#mclass (var_ret) on <var_ret:MClassType> */
-var27 = var_ret->attrs[COLOR_nitc__model__MClassType___mclass].val; /* _mclass on <var_ret:MClassType> */
-if (unlikely(var27 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclass");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1163);
-fatal_exit(1);
-}
-var25 = var27;
-RET_LABEL26:(void)0;
-}
-}
-{
-var28 = nitc___nitc__MClass___nitc__model_base__MEntity__c_name(var25);
-}
-((struct instance_core__NativeArray*)var12)->values[1]=var28;
-{
-var29 = core___core__Array___core__abstract_collection__SequenceRead___91d_93d(var_arguments, 1l);
-}
-{
-var30 = ((val*(*)(val* self))(var29->class->vft[COLOR_core__abstract_text__Object__to_s]))(var29); /* to_s on <var29:nullable Object(RuntimeVariable)>*/
-}
-((struct instance_core__NativeArray*)var12)->values[3]=var30;
-{
-var31 = ((val*(*)(val* self))(var12->class->vft[COLOR_core__abstract_text__NativeArray__native_to_s]))(var12); /* native_to_s on <var12:NativeArray[String]>*/
-}
-varonce11 = var12;
-{
-var32 = nitc___nitc__AbstractCompilerVisitor___new_expr(self, var31, var_ret_type);
-}
-{
-nitc___nitc__AbstractCompilerVisitor___ret(self, var32); /* Direct call abstract_compiler#AbstractCompilerVisitor#ret on <self:SeparateErasureCompilerVisitor>*/
-}
-RET_LABEL:;
 }

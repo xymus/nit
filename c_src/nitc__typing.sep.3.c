@@ -1,5 +1,1300 @@
 #include "nitc__typing.sep.0.h"
-/* method typing#ASuperExpr#process_superinit for (self: ASuperExpr, TypeVisitor) */
+/* method typing$ASendReassignFormExpr$accept_typing for (self: ASendReassignFormExpr, TypeVisitor) */
+void nitc__typing___ASendReassignFormExpr___AExpr__accept_typing(val* self, val* p0) {
+val* var_v /* var v: TypeVisitor */;
+val* var /* : AExpr */;
+val* var2 /* : AExpr */;
+val* var3 /* : nullable MType */;
+val* var_recvtype /* var recvtype: nullable MType */;
+val* var4 /* : String */;
+val* var_name /* var name: String */;
+val* var5 /* : ANode */;
+val* var_node /* var node: ANode */;
+short int var6 /* : Bool */;
+short int var7 /* : Bool */;
+val* var_other /* var other: nullable Object */;
+short int var9 /* : Bool */;
+short int var11 /* : Bool */;
+val* var12 /* : AExpr */;
+val* var14 /* : AExpr */;
+short int var15 /* : Bool */;
+int cltype;
+int idtype;
+short int var_for_self /* var for_self: Bool */;
+val* var16 /* : nullable CallSite */;
+val* var_callsite /* var callsite: nullable CallSite */;
+short int var17 /* : Bool */;
+short int var18 /* : Bool */;
+short int var20 /* : Bool */;
+short int var22 /* : Bool */;
+val* var24 /* : Array[AExpr] */;
+val* var_args /* var args: Array[AExpr] */;
+short int var25 /* : Bool */;
+val* var26 /* : MSignature */;
+val* var28 /* : MSignature */;
+val* var29 /* : nullable MType */;
+val* var31 /* : nullable MType */;
+val* var_readtype /* var readtype: nullable MType */;
+short int var32 /* : Bool */;
+short int var33 /* : Bool */;
+short int var35 /* : Bool */;
+short int var37 /* : Bool */;
+val* var38 /* : NativeArray[String] */;
+static val* varonce;
+static val* varonce39;
+val* var40 /* : String */;
+char* var41 /* : NativeString */;
+val* var42 /* : String */;
+static val* varonce43;
+val* var44 /* : String */;
+char* var45 /* : NativeString */;
+val* var46 /* : String */;
+val* var47 /* : String */;
+static val* varonce48;
+val* var49 /* : String */;
+char* var50 /* : NativeString */;
+val* var51 /* : String */;
+val* var52 /* : Text */;
+val* var53 /* : AExpr */;
+val* var55 /* : AExpr */;
+short int var56 /* : Bool */;
+int cltype57;
+int idtype58;
+val* var59 /* : nullable CallSite */;
+val* var_wcallsite /* var wcallsite: nullable CallSite */;
+short int var60 /* : Bool */;
+short int var61 /* : Bool */;
+short int var63 /* : Bool */;
+short int var65 /* : Bool */;
+val* var67 /* : MSignature */;
+val* var69 /* : MSignature */;
+val* var70 /* : Array[MParameter] */;
+val* var72 /* : Array[MParameter] */;
+val* var73 /* : nullable Object */;
+val* var74 /* : MType */;
+val* var76 /* : MType */;
+val* var77 /* : nullable MType */;
+val* var_wtype /* var wtype: nullable MType */;
+short int var78 /* : Bool */;
+short int var79 /* : Bool */;
+short int var81 /* : Bool */;
+short int var83 /* : Bool */;
+val* var84 /* : Array[nullable Object] */;
+val* var85 /* : AExpr */;
+val* var87 /* : AExpr */;
+short int var88 /* : Bool */;
+var_v = p0;
+{
+{ /* Inline parser_nodes$ASendExpr$n_expr (self) on <self:ASendReassignFormExpr> */
+var2 = self->attrs[COLOR_nitc__parser_nodes__ASendExpr___n_expr].val; /* _n_expr on <self:ASendReassignFormExpr> */
+if (unlikely(var2 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_expr");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2046);
+fatal_exit(1);
+}
+var = var2;
+RET_LABEL1:(void)0;
+}
+}
+{
+var3 = nitc__typing___nitc__typing__TypeVisitor___visit_expr(var_v, var);
+}
+var_recvtype = var3;
+{
+var4 = ((val*(*)(val* self))(self->class->vft[COLOR_nitc__typing__ASendExpr__property_name]))(self); /* property_name on <self:ASendReassignFormExpr>*/
+}
+var_name = var4;
+{
+var5 = ((val*(*)(val* self))(self->class->vft[COLOR_nitc__typing__ASendExpr__property_node]))(self); /* property_node on <self:ASendReassignFormExpr>*/
+}
+var_node = var5;
+if (var_recvtype == NULL) {
+var6 = 1; /* is null */
+} else {
+var6 = 0; /* arg is null but recv is not */
+}
+if (0) {
+{ /* Inline kernel$Object$== (var_recvtype,((val*)NULL)) on <var_recvtype:nullable MType> */
+var_other = ((val*)NULL);
+{
+{ /* Inline kernel$Object$is_same_instance (var_recvtype,var_other) on <var_recvtype:nullable MType(MType)> */
+var11 = var_recvtype == var_other;
+var9 = var11;
+goto RET_LABEL10;
+RET_LABEL10:(void)0;
+}
+}
+var7 = var9;
+goto RET_LABEL8;
+RET_LABEL8:(void)0;
+}
+var6 = var7;
+}
+if (var6){
+goto RET_LABEL;
+} else {
+}
+{
+{ /* Inline parser_nodes$ASendExpr$n_expr (self) on <self:ASendReassignFormExpr> */
+var14 = self->attrs[COLOR_nitc__parser_nodes__ASendExpr___n_expr].val; /* _n_expr on <self:ASendReassignFormExpr> */
+if (unlikely(var14 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_expr");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2046);
+fatal_exit(1);
+}
+var12 = var14;
+RET_LABEL13:(void)0;
+}
+}
+/* <var12:AExpr> isa ASelfExpr */
+cltype = type_nitc__ASelfExpr.color;
+idtype = type_nitc__ASelfExpr.id;
+if(cltype >= var12->type->table_size) {
+var15 = 0;
+} else {
+var15 = var12->type->type_table[cltype] == idtype;
+}
+var_for_self = var15;
+{
+var16 = nitc__typing___nitc__typing__TypeVisitor___get_method(var_v, var_node, var_recvtype, var_name, var_for_self);
+}
+var_callsite = var16;
+if (var_callsite == NULL) {
+var17 = 1; /* is null */
+} else {
+var17 = 0; /* arg is null but recv is not */
+}
+if (0) {
+{ /* Inline kernel$Object$== (var_callsite,((val*)NULL)) on <var_callsite:nullable CallSite> */
+var_other = ((val*)NULL);
+{
+{ /* Inline kernel$Object$is_same_instance (var_callsite,var_other) on <var_callsite:nullable CallSite(CallSite)> */
+var22 = var_callsite == var_other;
+var20 = var22;
+goto RET_LABEL21;
+RET_LABEL21:(void)0;
+}
+}
+var18 = var20;
+goto RET_LABEL19;
+RET_LABEL19:(void)0;
+}
+var17 = var18;
+}
+if (var17){
+goto RET_LABEL;
+} else {
+}
+{
+{ /* Inline typing$ASendExpr$callsite= (self,var_callsite) on <self:ASendReassignFormExpr> */
+self->attrs[COLOR_nitc__typing__ASendExpr___callsite].val = var_callsite; /* _callsite on <self:ASendReassignFormExpr> */
+RET_LABEL23:(void)0;
+}
+}
+{
+var24 = ((val*(*)(val* self))(self->class->vft[COLOR_nitc__typing__ASendExpr__compute_raw_arguments]))(self); /* compute_raw_arguments on <self:ASendReassignFormExpr>*/
+}
+var_args = var24;
+{
+var25 = nitc___nitc__CallSite___check_signature(var_callsite, var_v, var_node, var_args);
+}
+{
+{ /* Inline typing$CallSite$msignature (var_callsite) on <var_callsite:nullable CallSite(CallSite)> */
+var28 = var_callsite->attrs[COLOR_nitc__typing__CallSite___msignature].val; /* _msignature on <var_callsite:nullable CallSite(CallSite)> */
+if (unlikely(var28 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _msignature");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 663);
+fatal_exit(1);
+}
+var26 = var28;
+RET_LABEL27:(void)0;
+}
+}
+{
+{ /* Inline model$MSignature$return_mtype (var26) on <var26:MSignature> */
+var31 = var26->attrs[COLOR_nitc__model__MSignature___return_mtype].val; /* _return_mtype on <var26:MSignature> */
+var29 = var31;
+RET_LABEL30:(void)0;
+}
+}
+var_readtype = var29;
+if (var_readtype == NULL) {
+var32 = 1; /* is null */
+} else {
+var32 = 0; /* arg is null but recv is not */
+}
+if (0) {
+{ /* Inline kernel$Object$== (var_readtype,((val*)NULL)) on <var_readtype:nullable MType> */
+var_other = ((val*)NULL);
+{
+{ /* Inline kernel$Object$is_same_instance (var_readtype,var_other) on <var_readtype:nullable MType(MType)> */
+var37 = var_readtype == var_other;
+var35 = var37;
+goto RET_LABEL36;
+RET_LABEL36:(void)0;
+}
+}
+var33 = var35;
+goto RET_LABEL34;
+RET_LABEL34:(void)0;
+}
+var32 = var33;
+}
+if (var32){
+if (unlikely(varonce==NULL)) {
+var38 = NEW_core__NativeArray(3l, &type_core__NativeArray__core__String);
+if (likely(varonce39!=NULL)) {
+var40 = varonce39;
+} else {
+var41 = "Error: `";
+var42 = core__flat___NativeString___to_s_full(var41, 8l, 8l);
+var40 = var42;
+varonce39 = var40;
+}
+((struct instance_core__NativeArray*)var38)->values[0]=var40;
+if (likely(varonce43!=NULL)) {
+var44 = varonce43;
+} else {
+var45 = "` is not a function.";
+var46 = core__flat___NativeString___to_s_full(var45, 20l, 20l);
+var44 = var46;
+varonce43 = var44;
+}
+((struct instance_core__NativeArray*)var38)->values[2]=var44;
+} else {
+var38 = varonce;
+varonce = NULL;
+}
+((struct instance_core__NativeArray*)var38)->values[1]=var_name;
+{
+var47 = ((val*(*)(val* self))(var38->class->vft[COLOR_core__abstract_text__NativeArray__native_to_s]))(var38); /* native_to_s on <var38:NativeArray[String]>*/
+}
+varonce = var38;
+{
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, var_node, var47); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
+}
+goto RET_LABEL;
+} else {
+}
+if (likely(varonce48!=NULL)) {
+var49 = varonce48;
+} else {
+var50 = "=";
+var51 = core__flat___NativeString___to_s_full(var50, 1l, 1l);
+var49 = var51;
+varonce48 = var49;
+}
+{
+var52 = ((val*(*)(val* self, val* p0))(var_name->class->vft[COLOR_core__abstract_text__Text___43d]))(var_name, var49); /* + on <var_name:String>*/
+}
+{
+{ /* Inline parser_nodes$ASendExpr$n_expr (self) on <self:ASendReassignFormExpr> */
+var55 = self->attrs[COLOR_nitc__parser_nodes__ASendExpr___n_expr].val; /* _n_expr on <self:ASendReassignFormExpr> */
+if (unlikely(var55 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_expr");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2046);
+fatal_exit(1);
+}
+var53 = var55;
+RET_LABEL54:(void)0;
+}
+}
+/* <var53:AExpr> isa ASelfExpr */
+cltype57 = type_nitc__ASelfExpr.color;
+idtype58 = type_nitc__ASelfExpr.id;
+if(cltype57 >= var53->type->table_size) {
+var56 = 0;
+} else {
+var56 = var53->type->type_table[cltype57] == idtype58;
+}
+{
+var59 = nitc__typing___nitc__typing__TypeVisitor___get_method(var_v, var_node, var_recvtype, var52, var56);
+}
+var_wcallsite = var59;
+if (var_wcallsite == NULL) {
+var60 = 1; /* is null */
+} else {
+var60 = 0; /* arg is null but recv is not */
+}
+if (0) {
+{ /* Inline kernel$Object$== (var_wcallsite,((val*)NULL)) on <var_wcallsite:nullable CallSite> */
+var_other = ((val*)NULL);
+{
+{ /* Inline kernel$Object$is_same_instance (var_wcallsite,var_other) on <var_wcallsite:nullable CallSite(CallSite)> */
+var65 = var_wcallsite == var_other;
+var63 = var65;
+goto RET_LABEL64;
+RET_LABEL64:(void)0;
+}
+}
+var61 = var63;
+goto RET_LABEL62;
+RET_LABEL62:(void)0;
+}
+var60 = var61;
+}
+if (var60){
+goto RET_LABEL;
+} else {
+}
+{
+{ /* Inline typing$ASendReassignFormExpr$write_callsite= (self,var_wcallsite) on <self:ASendReassignFormExpr> */
+self->attrs[COLOR_nitc__typing__ASendReassignFormExpr___write_callsite].val = var_wcallsite; /* _write_callsite on <self:ASendReassignFormExpr> */
+RET_LABEL66:(void)0;
+}
+}
+{
+{ /* Inline typing$CallSite$msignature (var_wcallsite) on <var_wcallsite:nullable CallSite(CallSite)> */
+var69 = var_wcallsite->attrs[COLOR_nitc__typing__CallSite___msignature].val; /* _msignature on <var_wcallsite:nullable CallSite(CallSite)> */
+if (unlikely(var69 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _msignature");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 663);
+fatal_exit(1);
+}
+var67 = var69;
+RET_LABEL68:(void)0;
+}
+}
+{
+{ /* Inline model$MSignature$mparameters (var67) on <var67:MSignature> */
+var72 = var67->attrs[COLOR_nitc__model__MSignature___mparameters].val; /* _mparameters on <var67:MSignature> */
+if (unlikely(var72 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mparameters");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1879);
+fatal_exit(1);
+}
+var70 = var72;
+RET_LABEL71:(void)0;
+}
+}
+{
+var73 = core___core__SequenceRead___last(var70);
+}
+{
+{ /* Inline model$MParameter$mtype (var73) on <var73:nullable Object(MParameter)> */
+var76 = var73->attrs[COLOR_nitc__model__MParameter___mtype].val; /* _mtype on <var73:nullable Object(MParameter)> */
+if (unlikely(var76 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1996);
+fatal_exit(1);
+}
+var74 = var76;
+RET_LABEL75:(void)0;
+}
+}
+{
+var77 = nitc__typing___AReassignFormExpr___resolve_reassignment(self, var_v, var_readtype, var74);
+}
+var_wtype = var77;
+if (var_wtype == NULL) {
+var78 = 1; /* is null */
+} else {
+var78 = 0; /* arg is null but recv is not */
+}
+if (0) {
+{ /* Inline kernel$Object$== (var_wtype,((val*)NULL)) on <var_wtype:nullable MType> */
+var_other = ((val*)NULL);
+{
+{ /* Inline kernel$Object$is_same_instance (var_wtype,var_other) on <var_wtype:nullable MType(MType)> */
+var83 = var_wtype == var_other;
+var81 = var83;
+goto RET_LABEL82;
+RET_LABEL82:(void)0;
+}
+}
+var79 = var81;
+goto RET_LABEL80;
+RET_LABEL80:(void)0;
+}
+var78 = var79;
+}
+if (var78){
+goto RET_LABEL;
+} else {
+}
+{
+var84 = core__array___Collection___to_a(var_args);
+}
+var_args = var84;
+{
+{ /* Inline parser_nodes$AReassignFormExpr$n_value (self) on <self:ASendReassignFormExpr> */
+var87 = self->attrs[COLOR_nitc__parser_nodes__AReassignFormExpr___n_value].val; /* _n_value on <self:ASendReassignFormExpr> */
+if (unlikely(var87 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_value");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2027);
+fatal_exit(1);
+}
+var85 = var87;
+RET_LABEL86:(void)0;
+}
+}
+{
+core___core__Array___core__abstract_collection__SimpleCollection__add(var_args, var85); /* Direct call array$Array$add on <var_args:Array[AExpr]>*/
+}
+{
+var88 = nitc___nitc__CallSite___check_signature(var_wcallsite, var_v, var_node, var_args);
+}
+{
+{ /* Inline typing$AExpr$is_typed= (self,1) on <self:ASendReassignFormExpr> */
+self->attrs[COLOR_nitc__typing__AExpr___is_typed].s = 1; /* _is_typed on <self:ASendReassignFormExpr> */
+RET_LABEL89:(void)0;
+}
+}
+RET_LABEL:;
+}
+/* method typing$ACallReassignExpr$property_name for (self: ACallReassignExpr): String */
+val* nitc__typing___ACallReassignExpr___ASendExpr__property_name(val* self) {
+val* var /* : String */;
+val* var1 /* : AQid */;
+val* var3 /* : AQid */;
+val* var4 /* : TId */;
+val* var6 /* : TId */;
+val* var7 /* : String */;
+{
+{ /* Inline parser_nodes$ACallFormExpr$n_qid (self) on <self:ACallReassignExpr> */
+var3 = self->attrs[COLOR_nitc__parser_nodes__ACallFormExpr___n_qid].val; /* _n_qid on <self:ACallReassignExpr> */
+if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_qid");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2320);
+fatal_exit(1);
+}
+var1 = var3;
+RET_LABEL2:(void)0;
+}
+}
+{
+{ /* Inline parser_nodes$AQid$n_id (var1) on <var1:AQid> */
+var6 = var1->attrs[COLOR_nitc__parser_nodes__AQid___n_id].val; /* _n_id on <var1:AQid> */
+if (unlikely(var6 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_id");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 1668);
+fatal_exit(1);
+}
+var4 = var6;
+RET_LABEL5:(void)0;
+}
+}
+{
+var7 = nitc__lexer_work___Token___text(var4);
+}
+var = var7;
+goto RET_LABEL;
+RET_LABEL:;
+return var;
+}
+/* method typing$ACallReassignExpr$property_node for (self: ACallReassignExpr): ANode */
+val* nitc__typing___ACallReassignExpr___ASendExpr__property_node(val* self) {
+val* var /* : ANode */;
+val* var1 /* : AQid */;
+val* var3 /* : AQid */;
+val* var4 /* : TId */;
+val* var6 /* : TId */;
+{
+{ /* Inline parser_nodes$ACallFormExpr$n_qid (self) on <self:ACallReassignExpr> */
+var3 = self->attrs[COLOR_nitc__parser_nodes__ACallFormExpr___n_qid].val; /* _n_qid on <self:ACallReassignExpr> */
+if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_qid");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2320);
+fatal_exit(1);
+}
+var1 = var3;
+RET_LABEL2:(void)0;
+}
+}
+{
+{ /* Inline parser_nodes$AQid$n_id (var1) on <var1:AQid> */
+var6 = var1->attrs[COLOR_nitc__parser_nodes__AQid___n_id].val; /* _n_id on <var1:AQid> */
+if (unlikely(var6 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_id");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 1668);
+fatal_exit(1);
+}
+var4 = var6;
+RET_LABEL5:(void)0;
+}
+}
+var = var4;
+goto RET_LABEL;
+RET_LABEL:;
+return var;
+}
+/* method typing$ACallReassignExpr$compute_raw_arguments for (self: ACallReassignExpr): Array[AExpr] */
+val* nitc__typing___ACallReassignExpr___ASendExpr__compute_raw_arguments(val* self) {
+val* var /* : Array[AExpr] */;
+val* var1 /* : AExprs */;
+val* var3 /* : AExprs */;
+val* var4 /* : Array[AExpr] */;
+{
+{ /* Inline parser_nodes$ACallFormExpr$n_args (self) on <self:ACallReassignExpr> */
+var3 = self->attrs[COLOR_nitc__parser_nodes__ACallFormExpr___n_args].val; /* _n_args on <self:ACallReassignExpr> */
+if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_args");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2323);
+fatal_exit(1);
+}
+var1 = var3;
+RET_LABEL2:(void)0;
+}
+}
+{
+var4 = nitc__typing___AExprs___to_a(var1);
+}
+var = var4;
+goto RET_LABEL;
+RET_LABEL:;
+return var;
+}
+/* method typing$ABraReassignExpr$property_name for (self: ABraReassignExpr): String */
+val* nitc__typing___ABraReassignExpr___ASendExpr__property_name(val* self) {
+val* var /* : String */;
+static val* varonce;
+val* var1 /* : String */;
+char* var2 /* : NativeString */;
+val* var3 /* : String */;
+if (likely(varonce!=NULL)) {
+var1 = varonce;
+} else {
+var2 = "[]";
+var3 = core__flat___NativeString___to_s_full(var2, 2l, 2l);
+var1 = var3;
+varonce = var1;
+}
+var = var1;
+goto RET_LABEL;
+RET_LABEL:;
+return var;
+}
+/* method typing$ABraReassignExpr$compute_raw_arguments for (self: ABraReassignExpr): Array[AExpr] */
+val* nitc__typing___ABraReassignExpr___ASendExpr__compute_raw_arguments(val* self) {
+val* var /* : Array[AExpr] */;
+val* var1 /* : AExprs */;
+val* var3 /* : AExprs */;
+val* var4 /* : Array[AExpr] */;
+{
+{ /* Inline parser_nodes$ABraFormExpr$n_args (self) on <self:ABraReassignExpr> */
+var3 = self->attrs[COLOR_nitc__parser_nodes__ABraFormExpr___n_args].val; /* _n_args on <self:ABraReassignExpr> */
+if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_args");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2392);
+fatal_exit(1);
+}
+var1 = var3;
+RET_LABEL2:(void)0;
+}
+}
+{
+var4 = nitc__typing___AExprs___to_a(var1);
+}
+var = var4;
+goto RET_LABEL;
+RET_LABEL:;
+return var;
+}
+/* method typing$AInitExpr$property_name for (self: AInitExpr): String */
+val* nitc__typing___AInitExpr___ASendExpr__property_name(val* self) {
+val* var /* : String */;
+static val* varonce;
+val* var1 /* : String */;
+char* var2 /* : NativeString */;
+val* var3 /* : String */;
+if (likely(varonce!=NULL)) {
+var1 = varonce;
+} else {
+var2 = "init";
+var3 = core__flat___NativeString___to_s_full(var2, 4l, 4l);
+var1 = var3;
+varonce = var1;
+}
+var = var1;
+goto RET_LABEL;
+RET_LABEL:;
+return var;
+}
+/* method typing$AInitExpr$property_node for (self: AInitExpr): ANode */
+val* nitc__typing___AInitExpr___ASendExpr__property_node(val* self) {
+val* var /* : ANode */;
+val* var1 /* : TKwinit */;
+val* var3 /* : TKwinit */;
+{
+{ /* Inline parser_nodes$AInitExpr$n_kwinit (self) on <self:AInitExpr> */
+var3 = self->attrs[COLOR_nitc__parser_nodes__AInitExpr___n_kwinit].val; /* _n_kwinit on <self:AInitExpr> */
+if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_kwinit");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2381);
+fatal_exit(1);
+}
+var1 = var3;
+RET_LABEL2:(void)0;
+}
+}
+var = var1;
+goto RET_LABEL;
+RET_LABEL:;
+return var;
+}
+/* method typing$AInitExpr$compute_raw_arguments for (self: AInitExpr): Array[AExpr] */
+val* nitc__typing___AInitExpr___ASendExpr__compute_raw_arguments(val* self) {
+val* var /* : Array[AExpr] */;
+val* var1 /* : AExprs */;
+val* var3 /* : AExprs */;
+val* var4 /* : Array[AExpr] */;
+{
+{ /* Inline parser_nodes$AInitExpr$n_args (self) on <self:AInitExpr> */
+var3 = self->attrs[COLOR_nitc__parser_nodes__AInitExpr___n_args].val; /* _n_args on <self:AInitExpr> */
+if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_args");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2384);
+fatal_exit(1);
+}
+var1 = var3;
+RET_LABEL2:(void)0;
+}
+}
+{
+var4 = nitc__typing___AExprs___to_a(var1);
+}
+var = var4;
+goto RET_LABEL;
+RET_LABEL:;
+return var;
+}
+/* method typing$AExprs$to_a for (self: AExprs): Array[AExpr] */
+val* nitc__typing___AExprs___to_a(val* self) {
+val* var /* : Array[AExpr] */;
+val* var1 /* : ANodes[AExpr] */;
+val* var3 /* : ANodes[AExpr] */;
+val* var4 /* : Array[nullable Object] */;
+{
+{ /* Inline parser_nodes$AExprs$n_exprs (self) on <self:AExprs> */
+var3 = self->attrs[COLOR_nitc__parser_nodes__AExprs___n_exprs].val; /* _n_exprs on <self:AExprs> */
+if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_exprs");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2733);
+fatal_exit(1);
+}
+var1 = var3;
+RET_LABEL2:(void)0;
+}
+}
+{
+var4 = core__array___Collection___to_a(var1);
+}
+var = var4;
+goto RET_LABEL;
+RET_LABEL:;
+return var;
+}
+/* method typing$ASuperExpr$callsite for (self: ASuperExpr): nullable CallSite */
+val* nitc__typing___ASuperExpr___callsite(val* self) {
+val* var /* : nullable CallSite */;
+val* var1 /* : nullable CallSite */;
+var1 = self->attrs[COLOR_nitc__typing__ASuperExpr___callsite].val; /* _callsite on <self:ASuperExpr> */
+var = var1;
+RET_LABEL:;
+return var;
+}
+/* method typing$ASuperExpr$callsite= for (self: ASuperExpr, nullable CallSite) */
+void nitc__typing___ASuperExpr___callsite_61d(val* self, val* p0) {
+self->attrs[COLOR_nitc__typing__ASuperExpr___callsite].val = p0; /* _callsite on <self:ASuperExpr> */
+RET_LABEL:;
+}
+/* method typing$ASuperExpr$mpropdef for (self: ASuperExpr): nullable MMethodDef */
+val* nitc__typing___ASuperExpr___mpropdef(val* self) {
+val* var /* : nullable MMethodDef */;
+val* var1 /* : nullable MMethodDef */;
+var1 = self->attrs[COLOR_nitc__typing__ASuperExpr___mpropdef].val; /* _mpropdef on <self:ASuperExpr> */
+var = var1;
+RET_LABEL:;
+return var;
+}
+/* method typing$ASuperExpr$mpropdef= for (self: ASuperExpr, nullable MMethodDef) */
+void nitc__typing___ASuperExpr___mpropdef_61d(val* self, val* p0) {
+self->attrs[COLOR_nitc__typing__ASuperExpr___mpropdef].val = p0; /* _mpropdef on <self:ASuperExpr> */
+RET_LABEL:;
+}
+/* method typing$ASuperExpr$accept_typing for (self: ASuperExpr, TypeVisitor) */
+void nitc__typing___ASuperExpr___AExpr__accept_typing(val* self, val* p0) {
+val* var_v /* var v: TypeVisitor */;
+val* var /* : nullable MClassType */;
+val* var2 /* : nullable MClassType */;
+val* var_anchor /* var anchor: nullable MClassType */;
+short int var3 /* : Bool */;
+short int var4 /* : Bool */;
+val* var_other /* var other: nullable Object */;
+short int var6 /* : Bool */;
+short int var7 /* : Bool */;
+val* var8 /* : Variable */;
+val* var10 /* : Variable */;
+val* var11 /* : nullable MType */;
+val* var_recvtype /* var recvtype: nullable MType */;
+short int var12 /* : Bool */;
+short int var13 /* : Bool */;
+short int var15 /* : Bool */;
+short int var16 /* : Bool */;
+val* var17 /* : nullable MPropDef */;
+val* var19 /* : nullable MPropDef */;
+val* var20 /* : MProperty */;
+val* var22 /* : MProperty */;
+val* var_mproperty /* var mproperty: MProperty */;
+short int var23 /* : Bool */;
+int cltype;
+int idtype;
+short int var24 /* : Bool */;
+static val* varonce;
+val* var25 /* : String */;
+char* var26 /* : NativeString */;
+val* var27 /* : String */;
+val* var28 /* : MModule */;
+val* var30 /* : MModule */;
+val* var31 /* : Array[MPropDef] */;
+val* var_superprops /* var superprops: Array[MMethodDef] */;
+int64_t var32 /* : Int */;
+int64_t var34 /* : Int */;
+short int var35 /* : Bool */;
+short int var37 /* : Bool */;
+short int var38 /* : Bool */;
+short int var39 /* : Bool */;
+short int var41 /* : Bool */;
+short int var_ /* var : Bool */;
+val* var42 /* : nullable MPropDef */;
+val* var44 /* : nullable MPropDef */;
+short int var45 /* : Bool */;
+val* var47 /* : NativeArray[String] */;
+static val* varonce46;
+static val* varonce48;
+val* var49 /* : String */;
+char* var50 /* : NativeString */;
+val* var51 /* : String */;
+static val* varonce52;
+val* var53 /* : String */;
+char* var54 /* : NativeString */;
+val* var55 /* : String */;
+val* var56 /* : String */;
+val* var57 /* : String */;
+val* var58 /* : nullable Object */;
+val* var_superprop /* var superprop: MMethodDef */;
+val* var59 /* : nullable MSignature */;
+val* var61 /* : nullable MSignature */;
+val* var_msignature /* var msignature: MSignature */;
+val* var62 /* : MType */;
+short int var63 /* : Bool */;
+int cltype64;
+int idtype65;
+const char* var_class_name;
+val* var66 /* : AExprs */;
+val* var68 /* : AExprs */;
+val* var69 /* : Array[AExpr] */;
+val* var_args /* var args: Array[AExpr] */;
+int64_t var70 /* : Int */;
+int64_t var72 /* : Int */;
+short int var73 /* : Bool */;
+short int var75 /* : Bool */;
+int cltype76;
+int idtype77;
+const char* var_class_name78;
+short int var79 /* : Bool */;
+val* var80 /* : nullable SignatureMap */;
+val* var82 /* : nullable MType */;
+val* var84 /* : nullable MType */;
+val* var87 /* : nullable MPropDef */;
+val* var89 /* : nullable MPropDef */;
+val* var91 /* : nullable MPropDef */;
+val* var93 /* : nullable MPropDef */;
+short int var94 /* : Bool */;
+int cltype95;
+int idtype96;
+const char* var_class_name97;
+var_v = p0;
+{
+{ /* Inline typing$TypeVisitor$anchor (var_v) on <var_v:TypeVisitor> */
+var2 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___anchor].val; /* _anchor on <var_v:TypeVisitor> */
+var = var2;
+RET_LABEL1:(void)0;
+}
+}
+var_anchor = var;
+if (var_anchor == NULL) {
+var3 = 0; /* is null */
+} else {
+var3 = 1; /* arg is null and recv is not */
+}
+if (0) {
+{ /* Inline kernel$Object$!= (var_anchor,((val*)NULL)) on <var_anchor:nullable MClassType> */
+var_other = ((val*)NULL);
+{
+var6 = ((short int(*)(val* self, val* p0))(var_anchor->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_anchor, var_other); /* == on <var_anchor:nullable MClassType(MClassType)>*/
+}
+var7 = !var6;
+var4 = var7;
+goto RET_LABEL5;
+RET_LABEL5:(void)0;
+}
+var3 = var4;
+}
+if (unlikely(!var3)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Assert failed");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 1996);
+fatal_exit(1);
+}
+{
+{ /* Inline typing$TypeVisitor$selfvariable (var_v) on <var_v:TypeVisitor> */
+var10 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___selfvariable].val; /* _selfvariable on <var_v:TypeVisitor> */
+if (unlikely(var10 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _selfvariable");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 51);
+fatal_exit(1);
+}
+var8 = var10;
+RET_LABEL9:(void)0;
+}
+}
+{
+var11 = nitc__typing___nitc__typing__TypeVisitor___get_variable(var_v, self, var8);
+}
+var_recvtype = var11;
+if (var_recvtype == NULL) {
+var12 = 0; /* is null */
+} else {
+var12 = 1; /* arg is null and recv is not */
+}
+if (0) {
+{ /* Inline kernel$Object$!= (var_recvtype,((val*)NULL)) on <var_recvtype:nullable MType> */
+var_other = ((val*)NULL);
+{
+var15 = ((short int(*)(val* self, val* p0))(var_recvtype->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_recvtype, var_other); /* == on <var_recvtype:nullable MType(MType)>*/
+}
+var16 = !var15;
+var13 = var16;
+goto RET_LABEL14;
+RET_LABEL14:(void)0;
+}
+var12 = var13;
+}
+if (unlikely(!var12)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Assert failed");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 1998);
+fatal_exit(1);
+}
+{
+{ /* Inline typing$TypeVisitor$mpropdef (var_v) on <var_v:TypeVisitor> */
+var19 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___mpropdef].val; /* _mpropdef on <var_v:TypeVisitor> */
+var17 = var19;
+RET_LABEL18:(void)0;
+}
+}
+if (var17 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Receiver is null");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 1999);
+fatal_exit(1);
+} else {
+{ /* Inline model$MPropDef$mproperty (var17) on <var17:nullable MPropDef> */
+if (unlikely(var17 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Receiver is null");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2357);
+fatal_exit(1);
+}
+var22 = var17->attrs[COLOR_nitc__model__MPropDef___mproperty].val; /* _mproperty on <var17:nullable MPropDef> */
+if (unlikely(var22 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mproperty");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2357);
+fatal_exit(1);
+}
+var20 = var22;
+RET_LABEL21:(void)0;
+}
+}
+var_mproperty = var20;
+/* <var_mproperty:MProperty> isa MMethod */
+cltype = type_nitc__MMethod.color;
+idtype = type_nitc__MMethod.id;
+if(cltype >= var_mproperty->type->table_size) {
+var23 = 0;
+} else {
+var23 = var_mproperty->type->type_table[cltype] == idtype;
+}
+var24 = !var23;
+if (var24){
+if (likely(varonce!=NULL)) {
+var25 = varonce;
+} else {
+var26 = "Error: `super` only usable in a `method`.";
+var27 = core__flat___NativeString___to_s_full(var26, 41l, 41l);
+var25 = var27;
+varonce = var25;
+}
+{
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var25); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
+}
+goto RET_LABEL;
+} else {
+}
+{
+{ /* Inline typing$TypeVisitor$mmodule (var_v) on <var_v:TypeVisitor> */
+var30 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___mmodule].val; /* _mmodule on <var_v:TypeVisitor> */
+if (unlikely(var30 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mmodule");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 37);
+fatal_exit(1);
+}
+var28 = var30;
+RET_LABEL29:(void)0;
+}
+}
+{
+var31 = nitc___nitc__MProperty___lookup_super_definitions(var_mproperty, var28, var_anchor);
+}
+var_superprops = var31;
+{
+{ /* Inline array$AbstractArrayRead$length (var_superprops) on <var_superprops:Array[MMethodDef]> */
+var34 = var_superprops->attrs[COLOR_core__array__AbstractArrayRead___length].l; /* _length on <var_superprops:Array[MMethodDef]> */
+var32 = var34;
+RET_LABEL33:(void)0;
+}
+}
+{
+{ /* Inline kernel$Int$== (var32,0l) on <var32:Int> */
+var37 = var32 == 0l;
+var35 = var37;
+goto RET_LABEL36;
+RET_LABEL36:(void)0;
+}
+}
+if (var35){
+{
+{ /* Inline model$MMethod$is_init (var_mproperty) on <var_mproperty:MProperty(MMethod)> */
+var41 = var_mproperty->attrs[COLOR_nitc__model__MMethod___is_init].s; /* _is_init on <var_mproperty:MProperty(MMethod)> */
+var39 = var41;
+RET_LABEL40:(void)0;
+}
+}
+var_ = var39;
+if (var39){
+{
+{ /* Inline typing$TypeVisitor$mpropdef (var_v) on <var_v:TypeVisitor> */
+var44 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___mpropdef].val; /* _mpropdef on <var_v:TypeVisitor> */
+var42 = var44;
+RET_LABEL43:(void)0;
+}
+}
+if (var42 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Receiver is null");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2006);
+fatal_exit(1);
+} else {
+var45 = nitc___nitc__MPropDef___is_intro(var42);
+}
+var38 = var45;
+} else {
+var38 = var_;
+}
+if (var38){
+{
+nitc__typing___ASuperExpr___process_superinit(self, var_v); /* Direct call typing$ASuperExpr$process_superinit on <self:ASuperExpr>*/
+}
+goto RET_LABEL;
+} else {
+}
+if (unlikely(varonce46==NULL)) {
+var47 = NEW_core__NativeArray(3l, &type_core__NativeArray__core__String);
+if (likely(varonce48!=NULL)) {
+var49 = varonce48;
+} else {
+var50 = "Error: no super method to call for `";
+var51 = core__flat___NativeString___to_s_full(var50, 36l, 36l);
+var49 = var51;
+varonce48 = var49;
+}
+((struct instance_core__NativeArray*)var47)->values[0]=var49;
+if (likely(varonce52!=NULL)) {
+var53 = varonce52;
+} else {
+var54 = "`.";
+var55 = core__flat___NativeString___to_s_full(var54, 2l, 2l);
+var53 = var55;
+varonce52 = var53;
+}
+((struct instance_core__NativeArray*)var47)->values[2]=var53;
+} else {
+var47 = varonce46;
+varonce46 = NULL;
+}
+{
+var56 = ((val*(*)(val* self))(var_mproperty->class->vft[COLOR_core__abstract_text__Object__to_s]))(var_mproperty); /* to_s on <var_mproperty:MProperty(MMethod)>*/
+}
+((struct instance_core__NativeArray*)var47)->values[1]=var56;
+{
+var57 = ((val*(*)(val* self))(var47->class->vft[COLOR_core__abstract_text__NativeArray__native_to_s]))(var47); /* native_to_s on <var47:NativeArray[String]>*/
+}
+varonce46 = var47;
+{
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var57); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
+}
+goto RET_LABEL;
+} else {
+}
+{
+var58 = core___core__SequenceRead___Collection__first(var_superprops);
+}
+var_superprop = var58;
+{
+{ /* Inline model$MMethodDef$msignature (var_superprop) on <var_superprop:MMethodDef> */
+var61 = var_superprop->attrs[COLOR_nitc__model__MMethodDef___msignature].val; /* _msignature on <var_superprop:MMethodDef> */
+var59 = var61;
+RET_LABEL60:(void)0;
+}
+}
+if (unlikely(var59 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Cast failed");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2016);
+fatal_exit(1);
+}
+var_msignature = var59;
+{
+var62 = nitc__typing___nitc__typing__TypeVisitor___resolve_for(var_v, var_msignature, var_recvtype, 1);
+}
+/* <var62:MType> isa MSignature */
+cltype64 = type_nitc__MSignature.color;
+idtype65 = type_nitc__MSignature.id;
+if(cltype64 >= var62->type->table_size) {
+var63 = 0;
+} else {
+var63 = var62->type->type_table[cltype64] == idtype65;
+}
+if (unlikely(!var63)) {
+var_class_name = var62 == NULL ? "null" : var62->type->name;
+PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "MSignature", var_class_name);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2017);
+fatal_exit(1);
+}
+var_msignature = var62;
+{
+{ /* Inline parser_nodes$ASuperExpr$n_args (self) on <self:ASuperExpr> */
+var68 = self->attrs[COLOR_nitc__parser_nodes__ASuperExpr___n_args].val; /* _n_args on <self:ASuperExpr> */
+if (unlikely(var68 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_args");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2372);
+fatal_exit(1);
+}
+var66 = var68;
+RET_LABEL67:(void)0;
+}
+}
+{
+var69 = nitc__typing___AExprs___to_a(var66);
+}
+var_args = var69;
+{
+{ /* Inline array$AbstractArrayRead$length (var_args) on <var_args:Array[AExpr]> */
+var72 = var_args->attrs[COLOR_core__array__AbstractArrayRead___length].l; /* _length on <var_args:Array[AExpr]> */
+var70 = var72;
+RET_LABEL71:(void)0;
+}
+}
+{
+{ /* Inline kernel$Int$> (var70,0l) on <var70:Int> */
+/* Covariant cast for argument 0 (i) <0l:Int> isa OTHER */
+/* <0l:Int> isa OTHER */
+var75 = 1; /* easy <0l:Int> isa OTHER*/
+if (unlikely(!var75)) {
+var_class_name78 = type_core__Int.name;
+PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name78);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 727);
+fatal_exit(1);
+}
+var79 = var70 > 0l;
+var73 = var79;
+goto RET_LABEL74;
+RET_LABEL74:(void)0;
+}
+}
+if (var73){
+{
+var80 = nitc__typing___nitc__typing__TypeVisitor___check_signature(var_v, self, var_args, var_mproperty, var_msignature);
+}
+{
+{ /* Inline typing$ASuperExpr$signaturemap= (self,var80) on <self:ASuperExpr> */
+self->attrs[COLOR_nitc__typing__ASuperExpr___signaturemap].val = var80; /* _signaturemap on <self:ASuperExpr> */
+RET_LABEL81:(void)0;
+}
+}
+} else {
+}
+{
+{ /* Inline model$MSignature$return_mtype (var_msignature) on <var_msignature:MSignature> */
+var84 = var_msignature->attrs[COLOR_nitc__model__MSignature___return_mtype].val; /* _return_mtype on <var_msignature:MSignature> */
+var82 = var84;
+RET_LABEL83:(void)0;
+}
+}
+{
+{ /* Inline typing$AExpr$mtype= (self,var82) on <self:ASuperExpr> */
+self->attrs[COLOR_nitc__typing__AExpr___mtype].val = var82; /* _mtype on <self:ASuperExpr> */
+RET_LABEL85:(void)0;
+}
+}
+{
+{ /* Inline typing$AExpr$is_typed= (self,1) on <self:ASuperExpr> */
+self->attrs[COLOR_nitc__typing__AExpr___is_typed].s = 1; /* _is_typed on <self:ASuperExpr> */
+RET_LABEL86:(void)0;
+}
+}
+{
+{ /* Inline typing$TypeVisitor$mpropdef (var_v) on <var_v:TypeVisitor> */
+var89 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___mpropdef].val; /* _mpropdef on <var_v:TypeVisitor> */
+var87 = var89;
+RET_LABEL88:(void)0;
+}
+}
+if (var87 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Receiver is null");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2024);
+fatal_exit(1);
+} else {
+{ /* Inline modelize_property$MPropDef$has_supercall= (var87,1) on <var87:nullable MPropDef> */
+if (unlikely(var87 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Receiver is null");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__modelize_property, 484);
+fatal_exit(1);
+}
+var87->attrs[COLOR_nitc__modelize_property__MPropDef___has_supercall].s = 1; /* _has_supercall on <var87:nullable MPropDef> */
+RET_LABEL90:(void)0;
+}
+}
+{
+{ /* Inline typing$TypeVisitor$mpropdef (var_v) on <var_v:TypeVisitor> */
+var93 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___mpropdef].val; /* _mpropdef on <var_v:TypeVisitor> */
+var91 = var93;
+RET_LABEL92:(void)0;
+}
+}
+/* <var91:nullable MPropDef> isa MMethodDef */
+cltype95 = type_nitc__MMethodDef.color;
+idtype96 = type_nitc__MMethodDef.id;
+if(var91 == NULL) {
+var94 = 0;
+} else {
+if(cltype95 >= var91->type->table_size) {
+var94 = 0;
+} else {
+var94 = var91->type->type_table[cltype95] == idtype96;
+}
+}
+if (unlikely(!var94)) {
+var_class_name97 = var91 == NULL ? "null" : var91->type->name;
+PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "MMethodDef", var_class_name97);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2025);
+fatal_exit(1);
+}
+{
+{ /* Inline typing$ASuperExpr$mpropdef= (self,var91) on <self:ASuperExpr> */
+self->attrs[COLOR_nitc__typing__ASuperExpr___mpropdef].val = var91; /* _mpropdef on <self:ASuperExpr> */
+RET_LABEL98:(void)0;
+}
+}
+RET_LABEL:;
+}
+/* method typing$ASuperExpr$signaturemap for (self: ASuperExpr): nullable SignatureMap */
+val* nitc__typing___ASuperExpr___signaturemap(val* self) {
+val* var /* : nullable SignatureMap */;
+val* var1 /* : nullable SignatureMap */;
+var1 = self->attrs[COLOR_nitc__typing__ASuperExpr___signaturemap].val; /* _signaturemap on <self:ASuperExpr> */
+var = var1;
+RET_LABEL:;
+return var;
+}
+/* method typing$ASuperExpr$signaturemap= for (self: ASuperExpr, nullable SignatureMap) */
+void nitc__typing___ASuperExpr___signaturemap_61d(val* self, val* p0) {
+self->attrs[COLOR_nitc__typing__ASuperExpr___signaturemap].val = p0; /* _signaturemap on <self:ASuperExpr> */
+RET_LABEL:;
+}
+/* method typing$ASuperExpr$process_superinit for (self: ASuperExpr, TypeVisitor) */
 void nitc__typing___ASuperExpr___process_superinit(val* self, val* p0) {
 val* var_v /* var v: TypeVisitor */;
 val* var /* : nullable MClassType */;
@@ -45,9 +1340,9 @@ val* var38 /* : ModelBuilder */;
 val* var40 /* : ModelBuilder */;
 val* var41 /* : ToolContext */;
 val* var43 /* : ToolContext */;
-long var44 /* : Int */;
-long var46 /* : Int */;
-long var_errcount /* var errcount: Int */;
+int64_t var44 /* : Int */;
+int64_t var46 /* : Int */;
+int64_t var_errcount /* var errcount: Int */;
 val* var47 /* : String */;
 val* var49 /* : String */;
 val* var50 /* : nullable MProperty */;
@@ -65,8 +1360,8 @@ val* var61 /* : ModelBuilder */;
 val* var63 /* : ModelBuilder */;
 val* var64 /* : ToolContext */;
 val* var66 /* : ToolContext */;
-long var67 /* : Int */;
-long var69 /* : Int */;
+int64_t var67 /* : Int */;
+int64_t var69 /* : Int */;
 short int var70 /* : Bool */;
 short int var72 /* : Bool */;
 int cltype73;
@@ -142,8 +1437,8 @@ val* var154 /* : nullable Object */;
 short int var155 /* : Bool */;
 short int var157 /* : Bool */;
 short int var159 /* : Bool */;
-long var160 /* : Int */;
-long var162 /* : Int */;
+int64_t var160 /* : Int */;
+int64_t var162 /* : Int */;
 short int var163 /* : Bool */;
 short int var165 /* : Bool */;
 int cltype166;
@@ -213,8 +1508,8 @@ val* var235 /* : AExprs */;
 val* var237 /* : AExprs */;
 val* var238 /* : Array[AExpr] */;
 val* var_args /* var args: Array[AExpr] */;
-long var239 /* : Int */;
-long var241 /* : Int */;
+int64_t var239 /* : Int */;
+int64_t var241 /* : Int */;
 short int var242 /* : Bool */;
 short int var244 /* : Bool */;
 int cltype245;
@@ -224,8 +1519,8 @@ short int var248 /* : Bool */;
 short int var249 /* : Bool */;
 val* var250 /* : nullable MSignature */;
 val* var252 /* : nullable MSignature */;
-long var253 /* : Int */;
-long var254 /* : Int */;
+int64_t var253 /* : Int */;
+int64_t var254 /* : Int */;
 short int var255 /* : Bool */;
 short int var257 /* : Bool */;
 int cltype258;
@@ -252,13 +1547,13 @@ char* var278 /* : NativeString */;
 val* var279 /* : String */;
 val* var280 /* : nullable MSignature */;
 val* var282 /* : nullable MSignature */;
-long var283 /* : Int */;
+int64_t var283 /* : Int */;
 val* var284 /* : String */;
-long var285 /* : Int */;
+int64_t var285 /* : Int */;
 val* var286 /* : String */;
 val* var287 /* : String */;
 val* var288 /* : String */;
-long var_i /* var i: Int */;
+int64_t var_i /* var i: Int */;
 val* var289 /* : Array[MParameter] */;
 val* var291 /* : Array[MParameter] */;
 val* var_292 /* var : Array[MParameter] */;
@@ -312,15 +1607,15 @@ val* var345 /* : MType */;
 val* var346 /* : String */;
 val* var347 /* : String */;
 val* var348 /* : String */;
-long var349 /* : Int */;
+int64_t var349 /* : Int */;
 short int var351 /* : Bool */;
 int cltype352;
 int idtype353;
 const char* var_class_name354;
-long var355 /* : Int */;
+int64_t var355 /* : Int */;
 var_v = p0;
 {
-{ /* Inline typing#TypeVisitor#anchor (var_v) on <var_v:TypeVisitor> */
+{ /* Inline typing$TypeVisitor$anchor (var_v) on <var_v:TypeVisitor> */
 var2 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___anchor].val; /* _anchor on <var_v:TypeVisitor> */
 var = var2;
 RET_LABEL1:(void)0;
@@ -333,7 +1628,7 @@ var3 = 0; /* is null */
 var3 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_anchor,((val*)NULL)) on <var_anchor:nullable MClassType> */
+{ /* Inline kernel$Object$!= (var_anchor,((val*)NULL)) on <var_anchor:nullable MClassType> */
 var_other = ((val*)NULL);
 {
 var6 = ((short int(*)(val* self, val* p0))(var_anchor->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_anchor, var_other); /* == on <var_anchor:nullable MClassType(MClassType)>*/
@@ -346,14 +1641,20 @@ RET_LABEL5:(void)0;
 var3 = var4;
 }
 if (unlikely(!var3)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Assert failed");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 1969);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2035);
 fatal_exit(1);
 }
 {
-{ /* Inline typing#TypeVisitor#selfvariable (var_v) on <var_v:TypeVisitor> */
+{ /* Inline typing$TypeVisitor$selfvariable (var_v) on <var_v:TypeVisitor> */
 var10 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___selfvariable].val; /* _selfvariable on <var_v:TypeVisitor> */
 if (unlikely(var10 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _selfvariable");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 51);
 fatal_exit(1);
@@ -372,7 +1673,7 @@ var12 = 0; /* is null */
 var12 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_recvtype,((val*)NULL)) on <var_recvtype:nullable MType> */
+{ /* Inline kernel$Object$!= (var_recvtype,((val*)NULL)) on <var_recvtype:nullable MType> */
 var_other = ((val*)NULL);
 {
 var15 = ((short int(*)(val* self, val* p0))(var_recvtype->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_recvtype, var_other); /* == on <var_recvtype:nullable MType(MType)>*/
@@ -385,12 +1686,15 @@ RET_LABEL14:(void)0;
 var12 = var13;
 }
 if (unlikely(!var12)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Assert failed");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 1971);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2037);
 fatal_exit(1);
 }
 {
-{ /* Inline typing#TypeVisitor#mpropdef (var_v) on <var_v:TypeVisitor> */
+{ /* Inline typing$TypeVisitor$mpropdef (var_v) on <var_v:TypeVisitor> */
 var19 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___mpropdef].val; /* _mpropdef on <var_v:TypeVisitor> */
 var17 = var19;
 RET_LABEL18:(void)0;
@@ -410,16 +1714,22 @@ var20 = var_mpropdef->type->type_table[cltype] == idtype;
 }
 }
 if (unlikely(!var20)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Assert failed");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 1973);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2039);
 fatal_exit(1);
 }
 {
-{ /* Inline model#MPropDef#mproperty (var_mpropdef) on <var_mpropdef:nullable MPropDef(MMethodDef)> */
+{ /* Inline model$MPropDef$mproperty (var_mpropdef) on <var_mpropdef:nullable MPropDef(MMethodDef)> */
 var23 = var_mpropdef->attrs[COLOR_nitc__model__MPropDef___mproperty].val; /* _mproperty on <var_mpropdef:nullable MPropDef(MMethodDef)> */
 if (unlikely(var23 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mproperty");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2230);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2357);
 fatal_exit(1);
 }
 var21 = var23;
@@ -429,11 +1739,14 @@ RET_LABEL22:(void)0;
 var_mproperty = var21;
 var_superprop = ((val*)NULL);
 {
-{ /* Inline model#MPropDef#mclassdef (var_mpropdef) on <var_mpropdef:nullable MPropDef(MMethodDef)> */
+{ /* Inline model$MPropDef$mclassdef (var_mpropdef) on <var_mpropdef:nullable MPropDef(MMethodDef)> */
 var26 = var_mpropdef->attrs[COLOR_nitc__model__MPropDef___mclassdef].val; /* _mclassdef on <var_mpropdef:nullable MPropDef(MMethodDef)> */
 if (unlikely(var26 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclassdef");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2227);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2354);
 fatal_exit(1);
 }
 var24 = var26;
@@ -441,11 +1754,14 @@ RET_LABEL25:(void)0;
 }
 }
 {
-{ /* Inline model#MClassDef#supertypes (var24) on <var24:MClassDef> */
+{ /* Inline model$MClassDef$supertypes (var24) on <var24:MClassDef> */
 var29 = var24->attrs[COLOR_nitc__model__MClassDef___supertypes].val; /* _supertypes on <var24:MClassDef> */
 if (unlikely(var29 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _supertypes");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 650);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 666);
 fatal_exit(1);
 }
 var27 = var29;
@@ -459,20 +1775,23 @@ var30 = core___core__AbstractArrayRead___core__abstract_collection__Collection__
 var_31 = var30;
 for(;;) {
 {
-var32 = ((short int(*)(val* self))((((long)var_31&3)?class_info[((long)var_31&3)]:var_31->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_31); /* is_ok on <var_31:IndexedIterator[MClassType]>*/
+var32 = ((short int(*)(val* self))((((int64_t)var_31&3)?class_info[((int64_t)var_31&3)]:var_31->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_31); /* is_ok on <var_31:IndexedIterator[MClassType]>*/
 }
 if (var32){
 } else {
 goto BREAK_label;
 }
 {
-var33 = ((val*(*)(val* self))((((long)var_31&3)?class_info[((long)var_31&3)]:var_31->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_31); /* item on <var_31:IndexedIterator[MClassType]>*/
+var33 = ((val*(*)(val* self))((((int64_t)var_31&3)?class_info[((int64_t)var_31&3)]:var_31->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_31); /* item on <var_31:IndexedIterator[MClassType]>*/
 }
 var_msupertype = var33;
 {
-{ /* Inline typing#TypeVisitor#mmodule (var_v) on <var_v:TypeVisitor> */
+{ /* Inline typing$TypeVisitor$mmodule (var_v) on <var_v:TypeVisitor> */
 var36 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___mmodule].val; /* _mmodule on <var_v:TypeVisitor> */
 if (unlikely(var36 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mmodule");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 37);
 fatal_exit(1);
@@ -486,9 +1805,12 @@ var37 = nitc___nitc__MClassType___MType__anchor_to(var_msupertype, var34, var_an
 }
 var_msupertype = var37;
 {
-{ /* Inline typing#TypeVisitor#modelbuilder (var_v) on <var_v:TypeVisitor> */
+{ /* Inline typing$TypeVisitor$modelbuilder (var_v) on <var_v:TypeVisitor> */
 var40 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___modelbuilder].val; /* _modelbuilder on <var_v:TypeVisitor> */
 if (unlikely(var40 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _modelbuilder");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 35);
 fatal_exit(1);
@@ -498,9 +1820,12 @@ RET_LABEL39:(void)0;
 }
 }
 {
-{ /* Inline modelbuilder_base#ModelBuilder#toolcontext (var38) on <var38:ModelBuilder> */
+{ /* Inline modelbuilder_base$ModelBuilder$toolcontext (var38) on <var38:ModelBuilder> */
 var43 = var38->attrs[COLOR_nitc__modelbuilder_base__ModelBuilder___toolcontext].val; /* _toolcontext on <var38:ModelBuilder> */
 if (unlikely(var43 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__modelbuilder_base, 47);
 fatal_exit(1);
@@ -510,7 +1835,7 @@ RET_LABEL42:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#error_count (var41) on <var41:ToolContext> */
+{ /* Inline toolcontext$ToolContext$error_count (var41) on <var41:ToolContext> */
 var46 = var41->attrs[COLOR_nitc__toolcontext__ToolContext___error_count].l; /* _error_count on <var41:ToolContext> */
 var44 = var46;
 RET_LABEL45:(void)0;
@@ -518,11 +1843,14 @@ RET_LABEL45:(void)0;
 }
 var_errcount = var44;
 {
-{ /* Inline model#MProperty#name (var_mproperty) on <var_mproperty:MMethod> */
+{ /* Inline model$MProperty$name (var_mproperty) on <var_mproperty:MMethod> */
 var49 = var_mproperty->attrs[COLOR_nitc__model__MProperty___name].val; /* _name on <var_mproperty:MMethod> */
 if (unlikely(var49 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _name");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1951);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2047);
 fatal_exit(1);
 }
 var47 = var49;
@@ -547,7 +1875,7 @@ var51 = var50->type->type_table[cltype52] == idtype53;
 if (unlikely(!var51)) {
 var_class_name = var50 == NULL ? "null" : var50->type->name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "nullable MMethod", var_class_name);
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 1979);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2045);
 fatal_exit(1);
 }
 var_candidate = var50;
@@ -557,10 +1885,10 @@ var54 = 1; /* is null */
 var54 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_candidate,((val*)NULL)) on <var_candidate:nullable MMethod> */
+{ /* Inline kernel$Object$== (var_candidate,((val*)NULL)) on <var_candidate:nullable MMethod> */
 var_other57 = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_candidate,var_other57) on <var_candidate:nullable MMethod(MMethod)> */
+{ /* Inline kernel$Object$is_same_instance (var_candidate,var_other57) on <var_candidate:nullable MMethod(MMethod)> */
 var60 = var_candidate == var_other57;
 var58 = var60;
 goto RET_LABEL59;
@@ -575,9 +1903,12 @@ var54 = var55;
 }
 if (var54){
 {
-{ /* Inline typing#TypeVisitor#modelbuilder (var_v) on <var_v:TypeVisitor> */
+{ /* Inline typing$TypeVisitor$modelbuilder (var_v) on <var_v:TypeVisitor> */
 var63 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___modelbuilder].val; /* _modelbuilder on <var_v:TypeVisitor> */
 if (unlikely(var63 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _modelbuilder");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 35);
 fatal_exit(1);
@@ -587,9 +1918,12 @@ RET_LABEL62:(void)0;
 }
 }
 {
-{ /* Inline modelbuilder_base#ModelBuilder#toolcontext (var61) on <var61:ModelBuilder> */
+{ /* Inline modelbuilder_base$ModelBuilder$toolcontext (var61) on <var61:ModelBuilder> */
 var66 = var61->attrs[COLOR_nitc__modelbuilder_base__ModelBuilder___toolcontext].val; /* _toolcontext on <var61:ModelBuilder> */
 if (unlikely(var66 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__modelbuilder_base, 47);
 fatal_exit(1);
@@ -599,21 +1933,21 @@ RET_LABEL65:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#error_count (var64) on <var64:ToolContext> */
+{ /* Inline toolcontext$ToolContext$error_count (var64) on <var64:ToolContext> */
 var69 = var64->attrs[COLOR_nitc__toolcontext__ToolContext___error_count].l; /* _error_count on <var64:ToolContext> */
 var67 = var69;
 RET_LABEL68:(void)0;
 }
 }
 {
-{ /* Inline kernel#Int#> (var67,var_errcount) on <var67:Int> */
+{ /* Inline kernel$Int$> (var67,var_errcount) on <var67:Int> */
 /* Covariant cast for argument 0 (i) <var_errcount:Int> isa OTHER */
 /* <var_errcount:Int> isa OTHER */
 var72 = 1; /* easy <var_errcount:Int> isa OTHER*/
 if (unlikely(!var72)) {
 var_class_name75 = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name75);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 730);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 727);
 fatal_exit(1);
 }
 var76 = var67 > var_errcount;
@@ -635,7 +1969,7 @@ var79 = 0; /* is null */
 var79 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_superprop,((val*)NULL)) on <var_superprop:nullable MMethodDef> */
+{ /* Inline kernel$Object$!= (var_superprop,((val*)NULL)) on <var_superprop:nullable MMethodDef> */
 var_other = ((val*)NULL);
 {
 var82 = ((short int(*)(val* self, val* p0))(var_superprop->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_superprop, var_other); /* == on <var_superprop:nullable MMethodDef(MMethodDef)>*/
@@ -650,7 +1984,7 @@ var79 = var80;
 var_84 = var79;
 if (var79){
 {
-{ /* Inline model#MMethod#is_root_init (var_candidate) on <var_candidate:nullable MMethod(MMethod)> */
+{ /* Inline model$MMethod$is_root_init (var_candidate) on <var_candidate:nullable MMethod(MMethod)> */
 var87 = var_candidate->attrs[COLOR_nitc__model__MMethod___is_root_init].s; /* _is_root_init on <var_candidate:nullable MMethod(MMethod)> */
 var85 = var87;
 RET_LABEL86:(void)0;
@@ -670,7 +2004,7 @@ var90 = 0; /* is null */
 var90 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_superprop,((val*)NULL)) on <var_superprop:nullable MMethodDef> */
+{ /* Inline kernel$Object$!= (var_superprop,((val*)NULL)) on <var_superprop:nullable MMethodDef> */
 var_other = ((val*)NULL);
 {
 var93 = ((short int(*)(val* self, val* p0))(var_superprop->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_superprop, var_other); /* == on <var_superprop:nullable MMethodDef(MMethodDef)>*/
@@ -685,11 +2019,14 @@ var90 = var91;
 var_95 = var90;
 if (var90){
 {
-{ /* Inline model#MPropDef#mproperty (var_superprop) on <var_superprop:nullable MMethodDef(MMethodDef)> */
+{ /* Inline model$MPropDef$mproperty (var_superprop) on <var_superprop:nullable MMethodDef(MMethodDef)> */
 var98 = var_superprop->attrs[COLOR_nitc__model__MPropDef___mproperty].val; /* _mproperty on <var_superprop:nullable MMethodDef(MMethodDef)> */
 if (unlikely(var98 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mproperty");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2230);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2357);
 fatal_exit(1);
 }
 var96 = var98;
@@ -697,7 +2034,7 @@ RET_LABEL97:(void)0;
 }
 }
 {
-{ /* Inline kernel#Object#!= (var96,var_candidate) on <var96:MProperty(MMethod)> */
+{ /* Inline kernel$Object$!= (var96,var_candidate) on <var96:MProperty(MMethod)> */
 var_other = var_candidate;
 {
 var101 = ((short int(*)(val* self, val* p0))(var96->class->vft[COLOR_core__kernel__Object___61d_61d]))(var96, var_other); /* == on <var96:MProperty(MMethod)>*/
@@ -715,11 +2052,14 @@ var89 = var_95;
 var_103 = var89;
 if (var89){
 {
-{ /* Inline model#MPropDef#mproperty (var_superprop) on <var_superprop:nullable MMethodDef(MMethodDef)> */
+{ /* Inline model$MPropDef$mproperty (var_superprop) on <var_superprop:nullable MMethodDef(MMethodDef)> */
 var106 = var_superprop->attrs[COLOR_nitc__model__MPropDef___mproperty].val; /* _mproperty on <var_superprop:nullable MMethodDef(MMethodDef)> */
 if (unlikely(var106 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mproperty");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2230);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2357);
 fatal_exit(1);
 }
 var104 = var106;
@@ -727,7 +2067,7 @@ RET_LABEL105:(void)0;
 }
 }
 {
-{ /* Inline model#MMethod#is_root_init (var104) on <var104:MProperty(MMethod)> */
+{ /* Inline model$MMethod$is_root_init (var104) on <var104:MProperty(MMethod)> */
 var109 = var104->attrs[COLOR_nitc__model__MMethod___is_root_init].s; /* _is_root_init on <var104:MProperty(MMethod)> */
 var107 = var109;
 RET_LABEL108:(void)0;
@@ -790,11 +2130,14 @@ var129 = nitc___nitc__MProperty___nitc__model_base__MEntity__full_name(var_candi
 }
 ((struct instance_core__NativeArray*)var111)->values[3]=var129;
 {
-{ /* Inline model#MPropDef#mproperty (var_superprop) on <var_superprop:nullable MMethodDef(MMethodDef)> */
+{ /* Inline model$MPropDef$mproperty (var_superprop) on <var_superprop:nullable MMethodDef(MMethodDef)> */
 var132 = var_superprop->attrs[COLOR_nitc__model__MPropDef___mproperty].val; /* _mproperty on <var_superprop:nullable MMethodDef(MMethodDef)> */
 if (unlikely(var132 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mproperty");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2230);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2357);
 fatal_exit(1);
 }
 var130 = var132;
@@ -810,15 +2153,18 @@ var134 = ((val*(*)(val* self))(var111->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce = var111;
 {
-nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var134); /* Direct call typing#TypeVisitor#error on <var_v:TypeVisitor>*/
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var134); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
 }
 goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline typing#TypeVisitor#mmodule (var_v) on <var_v:TypeVisitor> */
+{ /* Inline typing$TypeVisitor$mmodule (var_v) on <var_v:TypeVisitor> */
 var137 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___mmodule].val; /* _mmodule on <var_v:TypeVisitor> */
 if (unlikely(var137 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mmodule");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 37);
 fatal_exit(1);
@@ -837,7 +2183,7 @@ var140 = 0; /* is null */
 var140 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_superprop,((val*)NULL)) on <var_superprop:nullable MMethodDef> */
+{ /* Inline kernel$Object$!= (var_superprop,((val*)NULL)) on <var_superprop:nullable MMethodDef> */
 var_other = ((val*)NULL);
 {
 var143 = ((short int(*)(val* self, val* p0))(var_superprop->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_superprop, var_other); /* == on <var_superprop:nullable MMethodDef(MMethodDef)>*/
@@ -852,11 +2198,14 @@ var140 = var141;
 var_145 = var140;
 if (var140){
 {
-{ /* Inline model#MPropDef#mproperty (var_superprop) on <var_superprop:nullable MMethodDef(MMethodDef)> */
+{ /* Inline model$MPropDef$mproperty (var_superprop) on <var_superprop:nullable MMethodDef(MMethodDef)> */
 var148 = var_superprop->attrs[COLOR_nitc__model__MPropDef___mproperty].val; /* _mproperty on <var_superprop:nullable MMethodDef(MMethodDef)> */
 if (unlikely(var148 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mproperty");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2230);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2357);
 fatal_exit(1);
 }
 var146 = var148;
@@ -864,10 +2213,10 @@ RET_LABEL147:(void)0;
 }
 }
 {
-{ /* Inline kernel#Object#== (var146,var_candidate) on <var146:MProperty(MMethod)> */
+{ /* Inline kernel$Object$== (var146,var_candidate) on <var146:MProperty(MMethod)> */
 var_other57 = var_candidate;
 {
-{ /* Inline kernel#Object#is_same_instance (var146,var_other57) on <var146:MProperty(MMethod)> */
+{ /* Inline kernel$Object$is_same_instance (var146,var_other57) on <var146:MProperty(MMethod)> */
 var153 = var146 == var_other57;
 var151 = var153;
 goto RET_LABEL152;
@@ -888,10 +2237,10 @@ if (var139){
 var154 = core___core__SequenceRead___Collection__first(var_candidatedefs);
 }
 {
-{ /* Inline kernel#Object#== (var_superprop,var154) on <var_superprop:nullable MMethodDef(MMethodDef)> */
+{ /* Inline kernel$Object$== (var_superprop,var154) on <var_superprop:nullable MMethodDef(MMethodDef)> */
 var_other57 = var154;
 {
-{ /* Inline kernel#Object#is_same_instance (var_superprop,var_other57) on <var_superprop:nullable MMethodDef(MMethodDef)> */
+{ /* Inline kernel$Object$is_same_instance (var_superprop,var_other57) on <var_superprop:nullable MMethodDef(MMethodDef)> */
 var159 = var_superprop == var_other57;
 var157 = var159;
 goto RET_LABEL158;
@@ -908,26 +2257,26 @@ goto BREAK_label77;
 } else {
 }
 {
-core___core__Array___core__abstract_collection__SimpleCollection__add(var_candidatedefs, var_superprop); /* Direct call array#Array#add on <var_candidatedefs:Array[MMethodDef]>*/
+core___core__Array___core__abstract_collection__SimpleCollection__add(var_candidatedefs, var_superprop); /* Direct call array$Array$add on <var_candidatedefs:Array[MMethodDef]>*/
 }
 } else {
 }
 {
-{ /* Inline array#AbstractArrayRead#length (var_candidatedefs) on <var_candidatedefs:Array[MMethodDef]> */
+{ /* Inline array$AbstractArrayRead$length (var_candidatedefs) on <var_candidatedefs:Array[MMethodDef]> */
 var162 = var_candidatedefs->attrs[COLOR_core__array__AbstractArrayRead___length].l; /* _length on <var_candidatedefs:Array[MMethodDef]> */
 var160 = var162;
 RET_LABEL161:(void)0;
 }
 }
 {
-{ /* Inline kernel#Int#> (var160,1l) on <var160:Int> */
+{ /* Inline kernel$Int$> (var160,1l) on <var160:Int> */
 /* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
 /* <1l:Int> isa OTHER */
 var165 = 1; /* easy <1l:Int> isa OTHER*/
 if (unlikely(!var165)) {
 var_class_name168 = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name168);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 730);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 727);
 fatal_exit(1);
 }
 var169 = var160 > 1l;
@@ -987,7 +2336,7 @@ var187 = var189;
 varonce186 = var187;
 }
 {
-var190 = core__abstract_text___Collection___join(var_candidatedefs, var187);
+var190 = core__abstract_text___Collection___join(var_candidatedefs, var187, ((val*)NULL));
 }
 ((struct instance_core__NativeArray*)var171)->values[5]=var190;
 {
@@ -995,7 +2344,7 @@ var191 = ((val*(*)(val* self))(var171->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce170 = var171;
 {
-nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var191); /* Direct call typing#TypeVisitor#error on <var_v:TypeVisitor>*/
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var191); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
 }
 goto RET_LABEL;
 } else {
@@ -1006,12 +2355,12 @@ var192 = core___core__SequenceRead___Collection__first(var_candidatedefs);
 var_superprop = var192;
 BREAK_label77: (void)0;
 {
-((void(*)(val* self))((((long)var_31&3)?class_info[((long)var_31&3)]:var_31->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_31); /* next on <var_31:IndexedIterator[MClassType]>*/
+((void(*)(val* self))((((int64_t)var_31&3)?class_info[((int64_t)var_31&3)]:var_31->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_31); /* next on <var_31:IndexedIterator[MClassType]>*/
 }
 }
 BREAK_label: (void)0;
 {
-((void(*)(val* self))((((long)var_31&3)?class_info[((long)var_31&3)]:var_31->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_31); /* finish on <var_31:IndexedIterator[MClassType]>*/
+((void(*)(val* self))((((int64_t)var_31&3)?class_info[((int64_t)var_31&3)]:var_31->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_31); /* finish on <var_31:IndexedIterator[MClassType]>*/
 }
 if (var_superprop == NULL) {
 var193 = 1; /* is null */
@@ -1019,10 +2368,10 @@ var193 = 1; /* is null */
 var193 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_superprop,((val*)NULL)) on <var_superprop:nullable MMethodDef> */
+{ /* Inline kernel$Object$== (var_superprop,((val*)NULL)) on <var_superprop:nullable MMethodDef> */
 var_other57 = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_superprop,var_other57) on <var_superprop:nullable MMethodDef(MMethodDef)> */
+{ /* Inline kernel$Object$is_same_instance (var_superprop,var_other57) on <var_superprop:nullable MMethodDef(MMethodDef)> */
 var198 = var_superprop == var_other57;
 var196 = var198;
 goto RET_LABEL197;
@@ -1069,13 +2418,13 @@ var210 = ((val*(*)(val* self))(var200->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce199 = var200;
 {
-nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var210); /* Direct call typing#TypeVisitor#error on <var_v:TypeVisitor>*/
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var210); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
 }
 goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline model#MMethodDef#new_msignature (var_superprop) on <var_superprop:nullable MMethodDef(MMethodDef)> */
+{ /* Inline model$MMethodDef$new_msignature (var_superprop) on <var_superprop:nullable MMethodDef(MMethodDef)> */
 var214 = var_superprop->attrs[COLOR_nitc__model__MMethodDef___new_msignature].val; /* _new_msignature on <var_superprop:nullable MMethodDef(MMethodDef)> */
 var212 = var214;
 RET_LABEL213:(void)0;
@@ -1085,15 +2434,18 @@ if (var212!=NULL) {
 var211 = var212;
 } else {
 {
-{ /* Inline model#MMethodDef#msignature (var_superprop) on <var_superprop:nullable MMethodDef(MMethodDef)> */
+{ /* Inline model$MMethodDef$msignature (var_superprop) on <var_superprop:nullable MMethodDef(MMethodDef)> */
 var217 = var_superprop->attrs[COLOR_nitc__model__MMethodDef___msignature].val; /* _msignature on <var_superprop:nullable MMethodDef(MMethodDef)> */
 var215 = var217;
 RET_LABEL216:(void)0;
 }
 }
 if (unlikely(var215 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Cast failed");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2007);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2073);
 fatal_exit(1);
 }
 var211 = var215;
@@ -1113,7 +2465,7 @@ var219 = var218->type->type_table[cltype220] == idtype221;
 if (unlikely(!var219)) {
 var_class_name222 = var218 == NULL ? "null" : var218->type->name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "MSignature", var_class_name222);
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2008);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2074);
 fatal_exit(1);
 }
 var_msignature = var218;
@@ -1122,9 +2474,12 @@ var223 = NEW_nitc__CallSite(&type_nitc__CallSite);
 var224 = nitc___nitc__ANode___hot_location(self);
 }
 {
-{ /* Inline typing#TypeVisitor#mmodule (var_v) on <var_v:TypeVisitor> */
+{ /* Inline typing$TypeVisitor$mmodule (var_v) on <var_v:TypeVisitor> */
 var227 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___mmodule].val; /* _mmodule on <var_v:TypeVisitor> */
 if (unlikely(var227 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mmodule");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 37);
 fatal_exit(1);
@@ -1134,18 +2489,21 @@ RET_LABEL226:(void)0;
 }
 }
 {
-{ /* Inline typing#TypeVisitor#anchor (var_v) on <var_v:TypeVisitor> */
+{ /* Inline typing$TypeVisitor$anchor (var_v) on <var_v:TypeVisitor> */
 var230 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___anchor].val; /* _anchor on <var_v:TypeVisitor> */
 var228 = var230;
 RET_LABEL229:(void)0;
 }
 }
 {
-{ /* Inline model#MPropDef#mproperty (var_superprop) on <var_superprop:nullable MMethodDef(MMethodDef)> */
+{ /* Inline model$MPropDef$mproperty (var_superprop) on <var_superprop:nullable MMethodDef(MMethodDef)> */
 var233 = var_superprop->attrs[COLOR_nitc__model__MPropDef___mproperty].val; /* _mproperty on <var_superprop:nullable MMethodDef(MMethodDef)> */
 if (unlikely(var233 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mproperty");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2230);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2357);
 fatal_exit(1);
 }
 var231 = var233;
@@ -1184,17 +2542,20 @@ RET_LABEL232:(void)0;
 }
 var_callsite = var223;
 {
-{ /* Inline typing#ASuperExpr#callsite= (self,var_callsite) on <self:ASuperExpr> */
+{ /* Inline typing$ASuperExpr$callsite= (self,var_callsite) on <self:ASuperExpr> */
 self->attrs[COLOR_nitc__typing__ASuperExpr___callsite].val = var_callsite; /* _callsite on <self:ASuperExpr> */
 RET_LABEL234:(void)0;
 }
 }
 {
-{ /* Inline parser_nodes#ASuperExpr#n_args (self) on <self:ASuperExpr> */
+{ /* Inline parser_nodes$ASuperExpr$n_args (self) on <self:ASuperExpr> */
 var237 = self->attrs[COLOR_nitc__parser_nodes__ASuperExpr___n_args].val; /* _n_args on <self:ASuperExpr> */
 if (unlikely(var237 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_args");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2348);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2372);
 fatal_exit(1);
 }
 var235 = var237;
@@ -1206,21 +2567,21 @@ var238 = nitc__typing___AExprs___to_a(var235);
 }
 var_args = var238;
 {
-{ /* Inline array#AbstractArrayRead#length (var_args) on <var_args:Array[AExpr]> */
+{ /* Inline array$AbstractArrayRead$length (var_args) on <var_args:Array[AExpr]> */
 var241 = var_args->attrs[COLOR_core__array__AbstractArrayRead___length].l; /* _length on <var_args:Array[AExpr]> */
 var239 = var241;
 RET_LABEL240:(void)0;
 }
 }
 {
-{ /* Inline kernel#Int#> (var239,0l) on <var239:Int> */
+{ /* Inline kernel$Int$> (var239,0l) on <var239:Int> */
 /* Covariant cast for argument 0 (i) <0l:Int> isa OTHER */
 /* <0l:Int> isa OTHER */
 var244 = 1; /* easy <0l:Int> isa OTHER*/
 if (unlikely(!var244)) {
 var_class_name247 = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name247);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 730);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 727);
 fatal_exit(1);
 }
 var248 = var239 > 0l;
@@ -1235,15 +2596,18 @@ var249 = nitc___nitc__CallSite___check_signature(var_callsite, var_v, self, var_
 }
 } else {
 {
-{ /* Inline model#MMethodDef#msignature (var_mpropdef) on <var_mpropdef:nullable MPropDef(MMethodDef)> */
+{ /* Inline model$MMethodDef$msignature (var_mpropdef) on <var_mpropdef:nullable MPropDef(MMethodDef)> */
 var252 = var_mpropdef->attrs[COLOR_nitc__model__MMethodDef___msignature].val; /* _msignature on <var_mpropdef:nullable MPropDef(MMethodDef)> */
 var250 = var252;
 RET_LABEL251:(void)0;
 }
 }
 if (var250 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2018);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2084);
 fatal_exit(1);
 } else {
 var253 = nitc___nitc__MSignature___arity(var250);
@@ -1252,14 +2616,14 @@ var253 = nitc___nitc__MSignature___arity(var250);
 var254 = nitc___nitc__MSignature___arity(var_msignature);
 }
 {
-{ /* Inline kernel#Int#< (var253,var254) on <var253:Int> */
+{ /* Inline kernel$Int$< (var253,var254) on <var253:Int> */
 /* Covariant cast for argument 0 (i) <var254:Int> isa OTHER */
 /* <var254:Int> isa OTHER */
 var257 = 1; /* easy <var254:Int> isa OTHER*/
 if (unlikely(!var257)) {
 var_class_name260 = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name260);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 728);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 725);
 fatal_exit(1);
 }
 var261 = var253 < var254;
@@ -1312,15 +2676,18 @@ var263 = varonce262;
 varonce262 = NULL;
 }
 {
-{ /* Inline model#MMethodDef#msignature (var_mpropdef) on <var_mpropdef:nullable MPropDef(MMethodDef)> */
+{ /* Inline model$MMethodDef$msignature (var_mpropdef) on <var_mpropdef:nullable MPropDef(MMethodDef)> */
 var282 = var_mpropdef->attrs[COLOR_nitc__model__MMethodDef___msignature].val; /* _msignature on <var_mpropdef:nullable MPropDef(MMethodDef)> */
 var280 = var282;
 RET_LABEL281:(void)0;
 }
 }
 if (var280 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2019);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2085);
 fatal_exit(1);
 } else {
 var283 = nitc___nitc__MSignature___arity(var280);
@@ -1341,18 +2708,21 @@ var288 = ((val*(*)(val* self))(var263->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce262 = var263;
 {
-nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var288); /* Direct call typing#TypeVisitor#error on <var_v:TypeVisitor>*/
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var288); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
 }
 goto RET_LABEL;
 } else {
 }
 var_i = 0l;
 {
-{ /* Inline model#MSignature#mparameters (var_msignature) on <var_msignature:MSignature> */
+{ /* Inline model$MSignature$mparameters (var_msignature) on <var_msignature:MSignature> */
 var291 = var_msignature->attrs[COLOR_nitc__model__MSignature___mparameters].val; /* _mparameters on <var_msignature:MSignature> */
 if (unlikely(var291 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mparameters");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1783);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1879);
 fatal_exit(1);
 }
 var289 = var291;
@@ -1366,38 +2736,47 @@ var293 = core___core__AbstractArrayRead___core__abstract_collection__Collection_
 var_294 = var293;
 for(;;) {
 {
-var295 = ((short int(*)(val* self))((((long)var_294&3)?class_info[((long)var_294&3)]:var_294->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_294); /* is_ok on <var_294:IndexedIterator[MParameter]>*/
+var295 = ((short int(*)(val* self))((((int64_t)var_294&3)?class_info[((int64_t)var_294&3)]:var_294->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_294); /* is_ok on <var_294:IndexedIterator[MParameter]>*/
 }
 if (var295){
 } else {
 goto BREAK_label296;
 }
 {
-var297 = ((val*(*)(val* self))((((long)var_294&3)?class_info[((long)var_294&3)]:var_294->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_294); /* item on <var_294:IndexedIterator[MParameter]>*/
+var297 = ((val*(*)(val* self))((((int64_t)var_294&3)?class_info[((int64_t)var_294&3)]:var_294->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_294); /* item on <var_294:IndexedIterator[MParameter]>*/
 }
 var_sp = var297;
 {
-{ /* Inline model#MMethodDef#msignature (var_mpropdef) on <var_mpropdef:nullable MPropDef(MMethodDef)> */
+{ /* Inline model$MMethodDef$msignature (var_mpropdef) on <var_mpropdef:nullable MPropDef(MMethodDef)> */
 var300 = var_mpropdef->attrs[COLOR_nitc__model__MMethodDef___msignature].val; /* _msignature on <var_mpropdef:nullable MPropDef(MMethodDef)> */
 var298 = var300;
 RET_LABEL299:(void)0;
 }
 }
 if (var298 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2025);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2091);
 fatal_exit(1);
 } else {
-{ /* Inline model#MSignature#mparameters (var298) on <var298:nullable MSignature> */
+{ /* Inline model$MSignature$mparameters (var298) on <var298:nullable MSignature> */
 if (unlikely(var298 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1783);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1879);
 fatal_exit(1);
 }
 var303 = var298->attrs[COLOR_nitc__model__MSignature___mparameters].val; /* _mparameters on <var298:nullable MSignature> */
 if (unlikely(var303 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mparameters");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1783);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1879);
 fatal_exit(1);
 }
 var301 = var303;
@@ -1409,11 +2788,14 @@ var304 = core___core__Array___core__abstract_collection__SequenceRead___91d_93d(
 }
 var_p = var304;
 {
-{ /* Inline model#MParameter#mtype (var_p) on <var_p:MParameter> */
+{ /* Inline model$MParameter$mtype (var_p) on <var_p:MParameter> */
 var307 = var_p->attrs[COLOR_nitc__model__MParameter___mtype].val; /* _mtype on <var_p:MParameter> */
 if (unlikely(var307 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1900);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1996);
 fatal_exit(1);
 }
 var305 = var307;
@@ -1421,11 +2803,14 @@ RET_LABEL306:(void)0;
 }
 }
 {
-{ /* Inline model#MParameter#mtype (var_sp) on <var_sp:MParameter> */
+{ /* Inline model$MParameter$mtype (var_sp) on <var_sp:MParameter> */
 var310 = var_sp->attrs[COLOR_nitc__model__MParameter___mtype].val; /* _mtype on <var_sp:MParameter> */
 if (unlikely(var310 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1900);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1996);
 fatal_exit(1);
 }
 var308 = var310;
@@ -1491,11 +2876,14 @@ varonce313 = NULL;
 var335 = core__flat___Int___core__abstract_text__Object__to_s(var_i);
 ((struct instance_core__NativeArray*)var314)->values[1]=var335;
 {
-{ /* Inline model#MParameter#mtype (var_sp) on <var_sp:MParameter> */
+{ /* Inline model$MParameter$mtype (var_sp) on <var_sp:MParameter> */
 var338 = var_sp->attrs[COLOR_nitc__model__MParameter___mtype].val; /* _mtype on <var_sp:MParameter> */
 if (unlikely(var338 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1900);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1996);
 fatal_exit(1);
 }
 var336 = var338;
@@ -1507,11 +2895,14 @@ var339 = ((val*(*)(val* self))(var336->class->vft[COLOR_core__abstract_text__Obj
 }
 ((struct instance_core__NativeArray*)var314)->values[3]=var339;
 {
-{ /* Inline model#MParameter#name (var_p) on <var_p:MParameter> */
+{ /* Inline model$MParameter$name (var_p) on <var_p:MParameter> */
 var342 = var_p->attrs[COLOR_nitc__model__MParameter___name].val; /* _name on <var_p:MParameter> */
 if (unlikely(var342 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _name");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1897);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1993);
 fatal_exit(1);
 }
 var340 = var342;
@@ -1520,11 +2911,14 @@ RET_LABEL341:(void)0;
 }
 ((struct instance_core__NativeArray*)var314)->values[5]=var340;
 {
-{ /* Inline model#MParameter#mtype (var_p) on <var_p:MParameter> */
+{ /* Inline model$MParameter$mtype (var_p) on <var_p:MParameter> */
 var345 = var_p->attrs[COLOR_nitc__model__MParameter___mtype].val; /* _mtype on <var_p:MParameter> */
 if (unlikely(var345 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1900);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1996);
 fatal_exit(1);
 }
 var343 = var345;
@@ -1544,20 +2938,20 @@ var348 = ((val*(*)(val* self))(var314->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce313 = var314;
 {
-nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var348); /* Direct call typing#TypeVisitor#error on <var_v:TypeVisitor>*/
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var348); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
 }
 goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline kernel#Int#+ (var_i,1l) on <var_i:Int> */
+{ /* Inline kernel$Int$+ (var_i,1l) on <var_i:Int> */
 /* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
 /* <1l:Int> isa OTHER */
 var351 = 1; /* easy <1l:Int> isa OTHER*/
 if (unlikely(!var351)) {
 var_class_name354 = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name354);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 731);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 728);
 fatal_exit(1);
 }
 var355 = var_i + 1l;
@@ -1568,23 +2962,23 @@ RET_LABEL350:(void)0;
 }
 var_i = var349;
 {
-((void(*)(val* self))((((long)var_294&3)?class_info[((long)var_294&3)]:var_294->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_294); /* next on <var_294:IndexedIterator[MParameter]>*/
+((void(*)(val* self))((((int64_t)var_294&3)?class_info[((int64_t)var_294&3)]:var_294->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_294); /* next on <var_294:IndexedIterator[MParameter]>*/
 }
 }
 BREAK_label296: (void)0;
 {
-((void(*)(val* self))((((long)var_294&3)?class_info[((long)var_294&3)]:var_294->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_294); /* finish on <var_294:IndexedIterator[MParameter]>*/
+((void(*)(val* self))((((int64_t)var_294&3)?class_info[((int64_t)var_294&3)]:var_294->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_294); /* finish on <var_294:IndexedIterator[MParameter]>*/
 }
 }
 {
-{ /* Inline typing#AExpr#is_typed= (self,1) on <self:ASuperExpr> */
+{ /* Inline typing$AExpr$is_typed= (self,1) on <self:ASuperExpr> */
 self->attrs[COLOR_nitc__typing__AExpr___is_typed].s = 1; /* _is_typed on <self:ASuperExpr> */
 RET_LABEL356:(void)0;
 }
 }
 RET_LABEL:;
 }
-/* method typing#ANewExpr#callsite for (self: ANewExpr): nullable CallSite */
+/* method typing$ANewExpr$callsite for (self: ANewExpr): nullable CallSite */
 val* nitc__typing___ANewExpr___callsite(val* self) {
 val* var /* : nullable CallSite */;
 val* var1 /* : nullable CallSite */;
@@ -1593,12 +2987,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method typing#ANewExpr#callsite= for (self: ANewExpr, nullable CallSite) */
+/* method typing$ANewExpr$callsite= for (self: ANewExpr, nullable CallSite) */
 void nitc__typing___ANewExpr___callsite_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__typing__ANewExpr___callsite].val = p0; /* _callsite on <self:ANewExpr> */
 RET_LABEL:;
 }
-/* method typing#ANewExpr#recvtype for (self: ANewExpr): nullable MClassType */
+/* method typing$ANewExpr$recvtype for (self: ANewExpr): nullable MClassType */
 val* nitc__typing___ANewExpr___recvtype(val* self) {
 val* var /* : nullable MClassType */;
 val* var1 /* : nullable MClassType */;
@@ -1607,12 +3001,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method typing#ANewExpr#recvtype= for (self: ANewExpr, nullable MClassType) */
+/* method typing$ANewExpr$recvtype= for (self: ANewExpr, nullable MClassType) */
 void nitc__typing___ANewExpr___recvtype_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__typing__ANewExpr___recvtype].val = p0; /* _recvtype on <self:ANewExpr> */
 RET_LABEL:;
 }
-/* method typing#ANewExpr#accept_typing for (self: ANewExpr, TypeVisitor) */
+/* method typing$ANewExpr$accept_typing for (self: ANewExpr, TypeVisitor) */
 void nitc__typing___ANewExpr___AExpr__accept_typing(val* self, val* p0) {
 val* var_v /* var v: TypeVisitor */;
 val* var /* : AType */;
@@ -1799,11 +3193,14 @@ val* var_args /* var args: Array[AExpr] */;
 short int var200 /* : Bool */;
 var_v = p0;
 {
-{ /* Inline parser_nodes#ANewExpr#n_type (self) on <self:ANewExpr> */
+{ /* Inline parser_nodes$ANewExpr$n_type (self) on <self:ANewExpr> */
 var2 = self->attrs[COLOR_nitc__parser_nodes__ANewExpr___n_type].val; /* _n_type on <self:ANewExpr> */
 if (unlikely(var2 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_type");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2259);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2283);
 fatal_exit(1);
 }
 var = var2;
@@ -1820,10 +3217,10 @@ var4 = 1; /* is null */
 var4 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_recvtype,((val*)NULL)) on <var_recvtype:nullable MType> */
+{ /* Inline kernel$Object$== (var_recvtype,((val*)NULL)) on <var_recvtype:nullable MType> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_recvtype,var_other) on <var_recvtype:nullable MType(MType)> */
+{ /* Inline kernel$Object$is_same_instance (var_recvtype,var_other) on <var_recvtype:nullable MType(MType)> */
 var9 = var_recvtype == var_other;
 var7 = var9;
 goto RET_LABEL8;
@@ -1892,7 +3289,7 @@ var25 = ((val*(*)(val* self))(var15->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce = var15;
 {
-nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var25); /* Direct call typing#TypeVisitor#error on <var_v:TypeVisitor>*/
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var25); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
 }
 goto RET_LABEL;
 } else {
@@ -1938,7 +3335,7 @@ var40 = ((val*(*)(val* self))(var30->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce29 = var30;
 {
-nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var40); /* Direct call typing#TypeVisitor#error on <var_v:TypeVisitor>*/
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var40); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
 }
 goto RET_LABEL;
 } else {
@@ -1975,7 +3372,7 @@ var52 = ((val*(*)(val* self))(var42->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce41 = var42;
 {
-nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var52); /* Direct call typing#TypeVisitor#error on <var_v:TypeVisitor>*/
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var52); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
 }
 goto RET_LABEL;
 }
@@ -1983,17 +3380,20 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline typing#ANewExpr#recvtype= (self,var_recvtype) on <self:ANewExpr> */
+{ /* Inline typing$ANewExpr$recvtype= (self,var_recvtype) on <self:ANewExpr> */
 self->attrs[COLOR_nitc__typing__ANewExpr___recvtype].val = var_recvtype; /* _recvtype on <self:ANewExpr> */
 RET_LABEL53:(void)0;
 }
 }
 {
-{ /* Inline model#MClassType#mclass (var_recvtype) on <var_recvtype:nullable MType(MClassType)> */
+{ /* Inline model$MClassType$mclass (var_recvtype) on <var_recvtype:nullable MType(MClassType)> */
 var56 = var_recvtype->attrs[COLOR_nitc__model__MClassType___mclass].val; /* _mclass on <var_recvtype:nullable MType(MClassType)> */
 if (unlikely(var56 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclass");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1163);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1197);
 fatal_exit(1);
 }
 var54 = var56;
@@ -2001,11 +3401,14 @@ RET_LABEL55:(void)0;
 }
 }
 {
-{ /* Inline model#MClass#kind (var54) on <var54:MClass> */
+{ /* Inline model$MClass$kind (var54) on <var54:MClass> */
 var59 = var54->attrs[COLOR_nitc__model__MClass___kind].val; /* _kind on <var54:MClass> */
 if (unlikely(var59 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _kind");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 459);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 472);
 fatal_exit(1);
 }
 var57 = var59;
@@ -2014,7 +3417,7 @@ RET_LABEL58:(void)0;
 }
 var_kind = var57;
 {
-{ /* Inline parser_nodes#ANewExpr#n_qid (self) on <self:ANewExpr> */
+{ /* Inline parser_nodes$ANewExpr$n_qid (self) on <self:ANewExpr> */
 var62 = self->attrs[COLOR_nitc__parser_nodes__ANewExpr___n_qid].val; /* _n_qid on <self:ANewExpr> */
 var60 = var62;
 RET_LABEL61:(void)0;
@@ -2027,7 +3430,7 @@ var63 = 0; /* is null */
 var63 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_nqid,((val*)NULL)) on <var_nqid:nullable AQid> */
+{ /* Inline kernel$Object$!= (var_nqid,((val*)NULL)) on <var_nqid:nullable AQid> */
 var_other66 = ((val*)NULL);
 {
 var67 = ((short int(*)(val* self, val* p0))(var_nqid->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_nqid, var_other66); /* == on <var_nqid:nullable AQid(AQid)>*/
@@ -2041,11 +3444,14 @@ var63 = var64;
 }
 if (var63){
 {
-{ /* Inline parser_nodes#AQid#n_id (var_nqid) on <var_nqid:nullable AQid(AQid)> */
+{ /* Inline parser_nodes$AQid$n_id (var_nqid) on <var_nqid:nullable AQid(AQid)> */
 var71 = var_nqid->attrs[COLOR_nitc__parser_nodes__AQid___n_id].val; /* _n_id on <var_nqid:nullable AQid(AQid)> */
 if (unlikely(var71 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_id");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 1658);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 1668);
 fatal_exit(1);
 }
 var69 = var71;
@@ -2068,11 +3474,14 @@ varonce73 = var74;
 }
 var_name = var74;
 {
-{ /* Inline parser_nodes#ANewExpr#n_kwnew (self) on <self:ANewExpr> */
+{ /* Inline parser_nodes$ANewExpr$n_kwnew (self) on <self:ANewExpr> */
 var79 = self->attrs[COLOR_nitc__parser_nodes__ANewExpr___n_kwnew].val; /* _n_kwnew on <self:ANewExpr> */
 if (unlikely(var79 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_kwnew");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2256);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2280);
 fatal_exit(1);
 }
 var77 = var79;
@@ -2098,7 +3507,7 @@ var85 = glob_sys;
 var86 = nitc__model___core__Sys___concrete_kind(var85);
 }
 {
-{ /* Inline kernel#Object#!= (var_kind,var86) on <var_kind:MClassKind> */
+{ /* Inline kernel$Object$!= (var_kind,var86) on <var_kind:MClassKind> */
 var_other66 = var86;
 {
 var89 = ((short int(*)(val* self, val* p0))(var_kind->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_kind, var_other66); /* == on <var_kind:MClassKind>*/
@@ -2156,17 +3565,20 @@ var107 = ((val*(*)(val* self))(var92->class->vft[COLOR_core__abstract_text__Nati
 }
 varonce91 = var92;
 {
-nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var107); /* Direct call typing#TypeVisitor#error on <var_v:TypeVisitor>*/
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var107); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
 }
 goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline parser_nodes#ANewExpr#n_args (self) on <self:ANewExpr> */
+{ /* Inline parser_nodes$ANewExpr$n_args (self) on <self:ANewExpr> */
 var110 = self->attrs[COLOR_nitc__parser_nodes__ANewExpr___n_args].val; /* _n_args on <self:ANewExpr> */
 if (unlikely(var110 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_args");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2265);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2289);
 fatal_exit(1);
 }
 var108 = var110;
@@ -2174,11 +3586,14 @@ RET_LABEL109:(void)0;
 }
 }
 {
-{ /* Inline parser_nodes#AExprs#n_exprs (var108) on <var108:AExprs> */
+{ /* Inline parser_nodes$AExprs$n_exprs (var108) on <var108:AExprs> */
 var113 = var108->attrs[COLOR_nitc__parser_nodes__AExprs___n_exprs].val; /* _n_exprs on <var108:AExprs> */
 if (unlikely(var113 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_exprs");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2709);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2733);
 fatal_exit(1);
 }
 var111 = var113;
@@ -2190,11 +3605,14 @@ var114 = core___core__Collection___not_empty(var111);
 }
 if (var114){
 {
-{ /* Inline parser_nodes#ANewExpr#n_args (self) on <self:ANewExpr> */
+{ /* Inline parser_nodes$ANewExpr$n_args (self) on <self:ANewExpr> */
 var117 = self->attrs[COLOR_nitc__parser_nodes__ANewExpr___n_args].val; /* _n_args on <self:ANewExpr> */
 if (unlikely(var117 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_args");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2265);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2289);
 fatal_exit(1);
 }
 var115 = var117;
@@ -2210,13 +3628,13 @@ var119 = var121;
 varonce118 = var119;
 }
 {
-nitc__typing___nitc__typing__TypeVisitor___error(var_v, var115, var119); /* Direct call typing#TypeVisitor#error on <var_v:TypeVisitor>*/
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, var115, var119); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
 }
 goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline typing#AExpr#mtype= (self,var_recvtype) on <self:ANewExpr> */
+{ /* Inline typing$AExpr$mtype= (self,var_recvtype) on <self:ANewExpr> */
 self->attrs[COLOR_nitc__typing__AExpr___mtype].val = var_recvtype; /* _mtype on <self:ANewExpr> */
 RET_LABEL122:(void)0;
 }
@@ -2234,10 +3652,10 @@ var124 = 1; /* is null */
 var124 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_callsite,((val*)NULL)) on <var_callsite:nullable CallSite> */
+{ /* Inline kernel$Object$== (var_callsite,((val*)NULL)) on <var_callsite:nullable CallSite> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_callsite,var_other) on <var_callsite:nullable CallSite(CallSite)> */
+{ /* Inline kernel$Object$is_same_instance (var_callsite,var_other) on <var_callsite:nullable CallSite(CallSite)> */
 var129 = var_callsite == var_other;
 var127 = var129;
 goto RET_LABEL128;
@@ -2255,11 +3673,14 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline typing#CallSite#mproperty (var_callsite) on <var_callsite:nullable CallSite(CallSite)> */
+{ /* Inline typing$CallSite$mproperty (var_callsite) on <var_callsite:nullable CallSite(CallSite)> */
 var132 = var_callsite->attrs[COLOR_nitc__typing__CallSite___mproperty].val; /* _mproperty on <var_callsite:nullable CallSite(CallSite)> */
 if (unlikely(var132 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mproperty");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 653);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 656);
 fatal_exit(1);
 }
 var130 = var132;
@@ -2267,7 +3688,7 @@ RET_LABEL131:(void)0;
 }
 }
 {
-{ /* Inline model#MMethod#is_new (var130) on <var130:MMethod> */
+{ /* Inline model$MMethod$is_new (var130) on <var130:MMethod> */
 var135 = var130->attrs[COLOR_nitc__model__MMethod___is_new].s; /* _is_new on <var130:MMethod> */
 var133 = var135;
 RET_LABEL134:(void)0;
@@ -2280,7 +3701,7 @@ var137 = glob_sys;
 var138 = nitc__model___core__Sys___concrete_kind(var137);
 }
 {
-{ /* Inline kernel#Object#!= (var_kind,var138) on <var_kind:MClassKind> */
+{ /* Inline kernel$Object$!= (var_kind,var138) on <var_kind:MClassKind> */
 var_other66 = var138;
 {
 var141 = ((short int(*)(val* self, val* p0))(var_kind->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_kind, var_other66); /* == on <var_kind:MClassKind>*/
@@ -2338,24 +3759,27 @@ var159 = ((val*(*)(val* self))(var144->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce143 = var144;
 {
-nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var159); /* Direct call typing#TypeVisitor#error on <var_v:TypeVisitor>*/
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var159); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
 }
 goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline typing#AExpr#mtype= (self,var_recvtype) on <self:ANewExpr> */
+{ /* Inline typing$AExpr$mtype= (self,var_recvtype) on <self:ANewExpr> */
 self->attrs[COLOR_nitc__typing__AExpr___mtype].val = var_recvtype; /* _mtype on <self:ANewExpr> */
 RET_LABEL160:(void)0;
 }
 }
 } else {
 {
-{ /* Inline typing#CallSite#msignature (var_callsite) on <var_callsite:nullable CallSite(CallSite)> */
+{ /* Inline typing$CallSite$msignature (var_callsite) on <var_callsite:nullable CallSite(CallSite)> */
 var163 = var_callsite->attrs[COLOR_nitc__typing__CallSite___msignature].val; /* _msignature on <var_callsite:nullable CallSite(CallSite)> */
 if (unlikely(var163 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _msignature");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 660);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 663);
 fatal_exit(1);
 }
 var161 = var163;
@@ -2363,20 +3787,20 @@ RET_LABEL162:(void)0;
 }
 }
 {
-{ /* Inline model#MSignature#return_mtype (var161) on <var161:MSignature> */
+{ /* Inline model$MSignature$return_mtype (var161) on <var161:MSignature> */
 var166 = var161->attrs[COLOR_nitc__model__MSignature___return_mtype].val; /* _return_mtype on <var161:MSignature> */
 var164 = var166;
 RET_LABEL165:(void)0;
 }
 }
 {
-{ /* Inline typing#AExpr#mtype= (self,var164) on <self:ANewExpr> */
+{ /* Inline typing$AExpr$mtype= (self,var164) on <self:ANewExpr> */
 self->attrs[COLOR_nitc__typing__AExpr___mtype].val = var164; /* _mtype on <self:ANewExpr> */
 RET_LABEL167:(void)0;
 }
 }
 {
-{ /* Inline typing#AExpr#mtype (self) on <self:ANewExpr> */
+{ /* Inline typing$AExpr$mtype (self) on <self:ANewExpr> */
 var170 = self->attrs[COLOR_nitc__typing__AExpr___mtype].val; /* _mtype on <self:ANewExpr> */
 var168 = var170;
 RET_LABEL169:(void)0;
@@ -2388,7 +3812,7 @@ var171 = 0; /* is null */
 var171 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var168,((val*)NULL)) on <var168:nullable MType> */
+{ /* Inline kernel$Object$!= (var168,((val*)NULL)) on <var168:nullable MType> */
 var_other66 = ((val*)NULL);
 {
 var174 = ((short int(*)(val* self, val* p0))(var168->class->vft[COLOR_core__kernel__Object___61d_61d]))(var168, var_other66); /* == on <var168:nullable MType(MType)>*/
@@ -2401,23 +3825,29 @@ RET_LABEL173:(void)0;
 var171 = var172;
 }
 if (unlikely(!var171)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Assert failed");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2103);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2169);
 fatal_exit(1);
 }
 }
 {
-{ /* Inline typing#ANewExpr#callsite= (self,var_callsite) on <self:ANewExpr> */
+{ /* Inline typing$ANewExpr$callsite= (self,var_callsite) on <self:ANewExpr> */
 self->attrs[COLOR_nitc__typing__ANewExpr___callsite].val = var_callsite; /* _callsite on <self:ANewExpr> */
 RET_LABEL176:(void)0;
 }
 }
 {
-{ /* Inline typing#CallSite#mproperty (var_callsite) on <var_callsite:nullable CallSite(CallSite)> */
+{ /* Inline typing$CallSite$mproperty (var_callsite) on <var_callsite:nullable CallSite(CallSite)> */
 var179 = var_callsite->attrs[COLOR_nitc__typing__CallSite___mproperty].val; /* _mproperty on <var_callsite:nullable CallSite(CallSite)> */
 if (unlikely(var179 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mproperty");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 653);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 656);
 fatal_exit(1);
 }
 var177 = var179;
@@ -2425,11 +3855,14 @@ RET_LABEL178:(void)0;
 }
 }
 {
-{ /* Inline model#MClassType#mclass (var_recvtype) on <var_recvtype:nullable MType(MClassType)> */
+{ /* Inline model$MClassType$mclass (var_recvtype) on <var_recvtype:nullable MType(MClassType)> */
 var182 = var_recvtype->attrs[COLOR_nitc__model__MClassType___mclass].val; /* _mclass on <var_recvtype:nullable MType(MClassType)> */
 if (unlikely(var182 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclass");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1163);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 1197);
 fatal_exit(1);
 }
 var180 = var182;
@@ -2471,17 +3904,20 @@ var195 = ((val*(*)(val* self))(var186->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce185 = var186;
 {
-nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var195); /* Direct call typing#TypeVisitor#error on <var_v:TypeVisitor>*/
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var195); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
 }
 goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline parser_nodes#ANewExpr#n_args (self) on <self:ANewExpr> */
+{ /* Inline parser_nodes$ANewExpr$n_args (self) on <self:ANewExpr> */
 var198 = self->attrs[COLOR_nitc__parser_nodes__ANewExpr___n_args].val; /* _n_args on <self:ANewExpr> */
 if (unlikely(var198 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_args");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2265);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2289);
 fatal_exit(1);
 }
 var196 = var198;
@@ -2497,7 +3933,7 @@ var200 = nitc___nitc__CallSite___check_signature(var_callsite, var_v, var_node, 
 }
 RET_LABEL:;
 }
-/* method typing#AAttrFormExpr#mproperty for (self: AAttrFormExpr): nullable MAttribute */
+/* method typing$AAttrFormExpr$mproperty for (self: AAttrFormExpr): nullable MAttribute */
 val* nitc__typing___AAttrFormExpr___mproperty(val* self) {
 val* var /* : nullable MAttribute */;
 val* var1 /* : nullable MAttribute */;
@@ -2506,12 +3942,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method typing#AAttrFormExpr#mproperty= for (self: AAttrFormExpr, nullable MAttribute) */
+/* method typing$AAttrFormExpr$mproperty= for (self: AAttrFormExpr, nullable MAttribute) */
 void nitc__typing___AAttrFormExpr___mproperty_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__typing__AAttrFormExpr___mproperty].val = p0; /* _mproperty on <self:AAttrFormExpr> */
 RET_LABEL:;
 }
-/* method typing#AAttrFormExpr#attr_type for (self: AAttrFormExpr): nullable MType */
+/* method typing$AAttrFormExpr$attr_type for (self: AAttrFormExpr): nullable MType */
 val* nitc__typing___AAttrFormExpr___attr_type(val* self) {
 val* var /* : nullable MType */;
 val* var1 /* : nullable MType */;
@@ -2520,12 +3956,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method typing#AAttrFormExpr#attr_type= for (self: AAttrFormExpr, nullable MType) */
+/* method typing$AAttrFormExpr$attr_type= for (self: AAttrFormExpr, nullable MType) */
 void nitc__typing___AAttrFormExpr___attr_type_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__typing__AAttrFormExpr___attr_type].val = p0; /* _attr_type on <self:AAttrFormExpr> */
 RET_LABEL:;
 }
-/* method typing#AAttrFormExpr#resolve_property for (self: AAttrFormExpr, TypeVisitor) */
+/* method typing$AAttrFormExpr$resolve_property for (self: AAttrFormExpr, TypeVisitor) */
 void nitc__typing___AAttrFormExpr___resolve_property(val* self, val* p0) {
 val* var_v /* var v: TypeVisitor */;
 val* var /* : AExpr */;
@@ -2589,8 +4025,8 @@ val* var56 /* : MModule */;
 val* var58 /* : MModule */;
 val* var59 /* : Array[MPropDef] */;
 val* var_mpropdefs /* var mpropdefs: Array[MAttributeDef] */;
-long var60 /* : Int */;
-long var62 /* : Int */;
+int64_t var60 /* : Int */;
+int64_t var62 /* : Int */;
 short int var63 /* : Bool */;
 short int var65 /* : Bool */;
 val* var66 /* : nullable Object */;
@@ -2610,11 +4046,14 @@ int idtype81;
 val* var82 /* : MType */;
 var_v = p0;
 {
-{ /* Inline parser_nodes#AAttrFormExpr#n_expr (self) on <self:AAttrFormExpr> */
+{ /* Inline parser_nodes$AAttrFormExpr$n_expr (self) on <self:AAttrFormExpr> */
 var2 = self->attrs[COLOR_nitc__parser_nodes__AAttrFormExpr___n_expr].val; /* _n_expr on <self:AAttrFormExpr> */
 if (unlikely(var2 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_expr");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2273);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2297);
 fatal_exit(1);
 }
 var = var2;
@@ -2631,10 +4070,10 @@ var4 = 1; /* is null */
 var4 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_recvtype,((val*)NULL)) on <var_recvtype:nullable MType> */
+{ /* Inline kernel$Object$== (var_recvtype,((val*)NULL)) on <var_recvtype:nullable MType> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_recvtype,var_other) on <var_recvtype:nullable MType(MType)> */
+{ /* Inline kernel$Object$is_same_instance (var_recvtype,var_other) on <var_recvtype:nullable MType(MType)> */
 var9 = var_recvtype == var_other;
 var7 = var9;
 goto RET_LABEL8;
@@ -2652,11 +4091,14 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline parser_nodes#AAttrFormExpr#n_id (self) on <self:AAttrFormExpr> */
+{ /* Inline parser_nodes$AAttrFormExpr$n_id (self) on <self:AAttrFormExpr> */
 var12 = self->attrs[COLOR_nitc__parser_nodes__AAttrFormExpr___n_id].val; /* _n_id on <self:AAttrFormExpr> */
 if (unlikely(var12 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_id");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2276);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2300);
 fatal_exit(1);
 }
 var10 = var12;
@@ -2707,7 +4149,7 @@ var24 = ((val*(*)(val* self))(var15->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce = var15;
 {
-nitc__typing___nitc__typing__TypeVisitor___error(var_v, var_node, var24); /* Direct call typing#TypeVisitor#error on <var_v:TypeVisitor>*/
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, var_node, var24); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
 }
 goto RET_LABEL;
 } else {
@@ -2726,10 +4168,10 @@ var27 = 1; /* is null */
 var27 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_mproperty,((val*)NULL)) on <var_mproperty:nullable MProperty> */
+{ /* Inline kernel$Object$== (var_mproperty,((val*)NULL)) on <var_mproperty:nullable MProperty> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_mproperty,var_other) on <var_mproperty:nullable MProperty(MProperty)> */
+{ /* Inline kernel$Object$is_same_instance (var_mproperty,var_other) on <var_mproperty:nullable MProperty(MProperty)> */
 var32 = var_mproperty == var_other;
 var30 = var32;
 goto RET_LABEL31;
@@ -2744,9 +4186,12 @@ var27 = var28;
 }
 if (var27){
 {
-{ /* Inline typing#TypeVisitor#modelbuilder (var_v) on <var_v:TypeVisitor> */
+{ /* Inline typing$TypeVisitor$modelbuilder (var_v) on <var_v:TypeVisitor> */
 var35 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___modelbuilder].val; /* _modelbuilder on <var_v:TypeVisitor> */
 if (unlikely(var35 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _modelbuilder");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 35);
 fatal_exit(1);
@@ -2798,7 +4243,7 @@ var51 = ((val*(*)(val* self))(var37->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce36 = var37;
 {
-nitc___nitc__ModelBuilder___error(var33, var_node, var51); /* Direct call modelbuilder_base#ModelBuilder#error on <var33:ModelBuilder>*/
+nitc___nitc__ModelBuilder___error(var33, var_node, var51); /* Direct call modelbuilder_base$ModelBuilder$error on <var33:ModelBuilder>*/
 }
 goto RET_LABEL;
 } else {
@@ -2812,20 +4257,26 @@ var52 = 0;
 var52 = var_mproperty->type->type_table[cltype53] == idtype54;
 }
 if (unlikely(!var52)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Assert failed");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2145);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2211);
 fatal_exit(1);
 }
 {
-{ /* Inline typing#AAttrFormExpr#mproperty= (self,var_mproperty) on <self:AAttrFormExpr> */
+{ /* Inline typing$AAttrFormExpr$mproperty= (self,var_mproperty) on <self:AAttrFormExpr> */
 self->attrs[COLOR_nitc__typing__AAttrFormExpr___mproperty].val = var_mproperty; /* _mproperty on <self:AAttrFormExpr> */
 RET_LABEL55:(void)0;
 }
 }
 {
-{ /* Inline typing#TypeVisitor#mmodule (var_v) on <var_v:TypeVisitor> */
+{ /* Inline typing$TypeVisitor$mmodule (var_v) on <var_v:TypeVisitor> */
 var58 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___mmodule].val; /* _mmodule on <var_v:TypeVisitor> */
 if (unlikely(var58 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mmodule");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 37);
 fatal_exit(1);
@@ -2839,14 +4290,14 @@ var59 = nitc___nitc__MProperty___lookup_definitions(var_mproperty, var56, var_un
 }
 var_mpropdefs = var59;
 {
-{ /* Inline array#AbstractArrayRead#length (var_mpropdefs) on <var_mpropdefs:Array[MAttributeDef]> */
+{ /* Inline array$AbstractArrayRead$length (var_mpropdefs) on <var_mpropdefs:Array[MAttributeDef]> */
 var62 = var_mpropdefs->attrs[COLOR_core__array__AbstractArrayRead___length].l; /* _length on <var_mpropdefs:Array[MAttributeDef]> */
 var60 = var62;
 RET_LABEL61:(void)0;
 }
 }
 {
-{ /* Inline kernel#Int#== (var60,1l) on <var60:Int> */
+{ /* Inline kernel$Int$== (var60,1l) on <var60:Int> */
 var65 = var60 == 1l;
 var63 = var65;
 goto RET_LABEL64;
@@ -2854,8 +4305,11 @@ RET_LABEL64:(void)0;
 }
 }
 if (unlikely(!var63)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Assert failed");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2149);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2215);
 fatal_exit(1);
 }
 {
@@ -2863,7 +4317,7 @@ var66 = core___core__SequenceRead___Collection__first(var_mpropdefs);
 }
 var_mpropdef = var66;
 {
-{ /* Inline model#MAttributeDef#static_mtype (var_mpropdef) on <var_mpropdef:MAttributeDef> */
+{ /* Inline model$MAttributeDef$static_mtype (var_mpropdef) on <var_mpropdef:MAttributeDef> */
 var69 = var_mpropdef->attrs[COLOR_nitc__model__MAttributeDef___static_mtype].val; /* _static_mtype on <var_mpropdef:MAttributeDef> */
 var67 = var69;
 RET_LABEL68:(void)0;
@@ -2876,10 +4330,10 @@ var70 = 1; /* is null */
 var70 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_attr_type,((val*)NULL)) on <var_attr_type:nullable MType> */
+{ /* Inline kernel$Object$== (var_attr_type,((val*)NULL)) on <var_attr_type:nullable MType> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_attr_type,var_other) on <var_attr_type:nullable MType(MType)> */
+{ /* Inline kernel$Object$is_same_instance (var_attr_type,var_other) on <var_attr_type:nullable MType(MType)> */
 var75 = var_attr_type == var_other;
 var73 = var75;
 goto RET_LABEL74;
@@ -2897,11 +4351,14 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline parser_nodes#AAttrFormExpr#n_expr (self) on <self:AAttrFormExpr> */
+{ /* Inline parser_nodes$AAttrFormExpr$n_expr (self) on <self:AAttrFormExpr> */
 var78 = self->attrs[COLOR_nitc__parser_nodes__AAttrFormExpr___n_expr].val; /* _n_expr on <self:AAttrFormExpr> */
 if (unlikely(var78 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_expr");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2273);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2297);
 fatal_exit(1);
 }
 var76 = var78;
@@ -2921,38 +4378,38 @@ var82 = nitc__typing___nitc__typing__TypeVisitor___resolve_for(var_v, var_attr_t
 }
 var_attr_type = var82;
 {
-{ /* Inline typing#AAttrFormExpr#attr_type= (self,var_attr_type) on <self:AAttrFormExpr> */
+{ /* Inline typing$AAttrFormExpr$attr_type= (self,var_attr_type) on <self:AAttrFormExpr> */
 self->attrs[COLOR_nitc__typing__AAttrFormExpr___attr_type].val = var_attr_type; /* _attr_type on <self:AAttrFormExpr> */
 RET_LABEL83:(void)0;
 }
 }
 RET_LABEL:;
 }
-/* method typing#AAttrExpr#accept_typing for (self: AAttrExpr, TypeVisitor) */
+/* method typing$AAttrExpr$accept_typing for (self: AAttrExpr, TypeVisitor) */
 void nitc__typing___AAttrExpr___AExpr__accept_typing(val* self, val* p0) {
 val* var_v /* var v: TypeVisitor */;
 val* var /* : nullable MType */;
 val* var2 /* : nullable MType */;
 var_v = p0;
 {
-nitc__typing___AAttrFormExpr___resolve_property(self, var_v); /* Direct call typing#AAttrFormExpr#resolve_property on <self:AAttrExpr>*/
+nitc__typing___AAttrFormExpr___resolve_property(self, var_v); /* Direct call typing$AAttrFormExpr$resolve_property on <self:AAttrExpr>*/
 }
 {
-{ /* Inline typing#AAttrFormExpr#attr_type (self) on <self:AAttrExpr> */
+{ /* Inline typing$AAttrFormExpr$attr_type (self) on <self:AAttrExpr> */
 var2 = self->attrs[COLOR_nitc__typing__AAttrFormExpr___attr_type].val; /* _attr_type on <self:AAttrExpr> */
 var = var2;
 RET_LABEL1:(void)0;
 }
 }
 {
-{ /* Inline typing#AExpr#mtype= (self,var) on <self:AAttrExpr> */
+{ /* Inline typing$AExpr$mtype= (self,var) on <self:AAttrExpr> */
 self->attrs[COLOR_nitc__typing__AExpr___mtype].val = var; /* _mtype on <self:AAttrExpr> */
 RET_LABEL3:(void)0;
 }
 }
 RET_LABEL:;
 }
-/* method typing#AAttrAssignExpr#accept_typing for (self: AAttrAssignExpr, TypeVisitor) */
+/* method typing$AAttrAssignExpr$accept_typing for (self: AAttrAssignExpr, TypeVisitor) */
 void nitc__typing___AAttrAssignExpr___AExpr__accept_typing(val* self, val* p0) {
 val* var_v /* var v: TypeVisitor */;
 val* var /* : nullable MType */;
@@ -2968,10 +4425,10 @@ short int var10 /* : Bool */;
 short int var11 /* : Bool */;
 var_v = p0;
 {
-nitc__typing___AAttrFormExpr___resolve_property(self, var_v); /* Direct call typing#AAttrFormExpr#resolve_property on <self:AAttrAssignExpr>*/
+nitc__typing___AAttrFormExpr___resolve_property(self, var_v); /* Direct call typing$AAttrFormExpr$resolve_property on <self:AAttrAssignExpr>*/
 }
 {
-{ /* Inline typing#AAttrFormExpr#attr_type (self) on <self:AAttrAssignExpr> */
+{ /* Inline typing$AAttrFormExpr$attr_type (self) on <self:AAttrAssignExpr> */
 var2 = self->attrs[COLOR_nitc__typing__AAttrFormExpr___attr_type].val; /* _attr_type on <self:AAttrAssignExpr> */
 var = var2;
 RET_LABEL1:(void)0;
@@ -2979,11 +4436,14 @@ RET_LABEL1:(void)0;
 }
 var_mtype = var;
 {
-{ /* Inline parser_nodes#AAssignFormExpr#n_value (self) on <self:AAttrAssignExpr> */
+{ /* Inline parser_nodes$AAssignFormExpr$n_value (self) on <self:AAttrAssignExpr> */
 var5 = self->attrs[COLOR_nitc__parser_nodes__AAssignFormExpr___n_value].val; /* _n_value on <self:AAttrAssignExpr> */
 if (unlikely(var5 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_value");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 1992);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2016);
 fatal_exit(1);
 }
 var3 = var5;
@@ -2999,7 +4459,7 @@ var7 = 0; /* is null */
 var7 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_mtype,((val*)NULL)) on <var_mtype:nullable MType> */
+{ /* Inline kernel$Object$!= (var_mtype,((val*)NULL)) on <var_mtype:nullable MType> */
 var_other = ((val*)NULL);
 {
 var10 = ((short int(*)(val* self, val* p0))(var_mtype->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_mtype, var_other); /* == on <var_mtype:nullable MType(MType)>*/
@@ -3012,14 +4472,14 @@ RET_LABEL9:(void)0;
 var7 = var8;
 }
 {
-{ /* Inline typing#AExpr#is_typed= (self,var7) on <self:AAttrAssignExpr> */
+{ /* Inline typing$AExpr$is_typed= (self,var7) on <self:AAttrAssignExpr> */
 self->attrs[COLOR_nitc__typing__AExpr___is_typed].s = var7; /* _is_typed on <self:AAttrAssignExpr> */
 RET_LABEL12:(void)0;
 }
 }
 RET_LABEL:;
 }
-/* method typing#AAttrReassignExpr#accept_typing for (self: AAttrReassignExpr, TypeVisitor) */
+/* method typing$AAttrReassignExpr$accept_typing for (self: AAttrReassignExpr, TypeVisitor) */
 void nitc__typing___AAttrReassignExpr___AExpr__accept_typing(val* self, val* p0) {
 val* var_v /* var v: TypeVisitor */;
 val* var /* : nullable MType */;
@@ -3039,10 +4499,10 @@ short int var14 /* : Bool */;
 short int var15 /* : Bool */;
 var_v = p0;
 {
-nitc__typing___AAttrFormExpr___resolve_property(self, var_v); /* Direct call typing#AAttrFormExpr#resolve_property on <self:AAttrReassignExpr>*/
+nitc__typing___AAttrFormExpr___resolve_property(self, var_v); /* Direct call typing$AAttrFormExpr$resolve_property on <self:AAttrReassignExpr>*/
 }
 {
-{ /* Inline typing#AAttrFormExpr#attr_type (self) on <self:AAttrReassignExpr> */
+{ /* Inline typing$AAttrFormExpr$attr_type (self) on <self:AAttrReassignExpr> */
 var2 = self->attrs[COLOR_nitc__typing__AAttrFormExpr___attr_type].val; /* _attr_type on <self:AAttrReassignExpr> */
 var = var2;
 RET_LABEL1:(void)0;
@@ -3055,10 +4515,10 @@ var3 = 1; /* is null */
 var3 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_mtype,((val*)NULL)) on <var_mtype:nullable MType> */
+{ /* Inline kernel$Object$== (var_mtype,((val*)NULL)) on <var_mtype:nullable MType> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_mtype,var_other) on <var_mtype:nullable MType(MType)> */
+{ /* Inline kernel$Object$is_same_instance (var_mtype,var_other) on <var_mtype:nullable MType(MType)> */
 var8 = var_mtype == var_other;
 var6 = var8;
 goto RET_LABEL7;
@@ -3085,7 +4545,7 @@ var10 = 0; /* is null */
 var10 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_rettype,((val*)NULL)) on <var_rettype:nullable MType> */
+{ /* Inline kernel$Object$!= (var_rettype,((val*)NULL)) on <var_rettype:nullable MType> */
 var_other13 = ((val*)NULL);
 {
 var14 = ((short int(*)(val* self, val* p0))(var_rettype->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_rettype, var_other13); /* == on <var_rettype:nullable MType(MType)>*/
@@ -3098,14 +4558,14 @@ RET_LABEL12:(void)0;
 var10 = var11;
 }
 {
-{ /* Inline typing#AExpr#is_typed= (self,var10) on <self:AAttrReassignExpr> */
+{ /* Inline typing$AExpr$is_typed= (self,var10) on <self:AAttrReassignExpr> */
 self->attrs[COLOR_nitc__typing__AExpr___is_typed].s = var10; /* _is_typed on <self:AAttrReassignExpr> */
 RET_LABEL16:(void)0;
 }
 }
 RET_LABEL:;
 }
-/* method typing#AIssetAttrExpr#accept_typing for (self: AIssetAttrExpr, TypeVisitor) */
+/* method typing$AIssetAttrExpr$accept_typing for (self: AIssetAttrExpr, TypeVisitor) */
 void nitc__typing___AIssetAttrExpr___AExpr__accept_typing(val* self, val* p0) {
 val* var_v /* var v: TypeVisitor */;
 val* var /* : nullable MType */;
@@ -3134,10 +4594,10 @@ val* var20 /* : String */;
 val* var21 /* : nullable MType */;
 var_v = p0;
 {
-nitc__typing___AAttrFormExpr___resolve_property(self, var_v); /* Direct call typing#AAttrFormExpr#resolve_property on <self:AIssetAttrExpr>*/
+nitc__typing___AAttrFormExpr___resolve_property(self, var_v); /* Direct call typing$AAttrFormExpr$resolve_property on <self:AIssetAttrExpr>*/
 }
 {
-{ /* Inline typing#AAttrFormExpr#attr_type (self) on <self:AIssetAttrExpr> */
+{ /* Inline typing$AAttrFormExpr$attr_type (self) on <self:AIssetAttrExpr> */
 var2 = self->attrs[COLOR_nitc__typing__AAttrFormExpr___attr_type].val; /* _attr_type on <self:AIssetAttrExpr> */
 var = var2;
 RET_LABEL1:(void)0;
@@ -3150,10 +4610,10 @@ var3 = 1; /* is null */
 var3 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_mtype,((val*)NULL)) on <var_mtype:nullable MType> */
+{ /* Inline kernel$Object$== (var_mtype,((val*)NULL)) on <var_mtype:nullable MType> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_mtype,var_other) on <var_mtype:nullable MType(MType)> */
+{ /* Inline kernel$Object$is_same_instance (var_mtype,var_other) on <var_mtype:nullable MType(MType)> */
 var8 = var_mtype == var_other;
 var6 = var8;
 goto RET_LABEL7;
@@ -3171,11 +4631,14 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline parser_nodes#AAttrFormExpr#n_expr (self) on <self:AIssetAttrExpr> */
+{ /* Inline parser_nodes$AAttrFormExpr$n_expr (self) on <self:AIssetAttrExpr> */
 var11 = self->attrs[COLOR_nitc__parser_nodes__AAttrFormExpr___n_expr].val; /* _n_expr on <self:AIssetAttrExpr> */
 if (unlikely(var11 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_expr");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2273);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2297);
 fatal_exit(1);
 }
 var9 = var11;
@@ -3186,8 +4649,11 @@ RET_LABEL10:(void)0;
 var12 = ((val*(*)(val* self))(var9->class->vft[COLOR_nitc__typing__AExpr__mtype]))(var9); /* mtype on <var9:AExpr>*/
 }
 if (unlikely(var12 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Cast failed");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2198);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 2264);
 fatal_exit(1);
 }
 var_recvtype = var12;
@@ -3205,11 +4671,14 @@ var14 = var_bound->type->type_table[cltype] == idtype;
 }
 if (var14){
 {
-{ /* Inline parser_nodes#AAttrFormExpr#n_id (self) on <self:AIssetAttrExpr> */
+{ /* Inline parser_nodes$AAttrFormExpr$n_id (self) on <self:AIssetAttrExpr> */
 var17 = self->attrs[COLOR_nitc__parser_nodes__AAttrFormExpr___n_id].val; /* _n_id on <self:AIssetAttrExpr> */
 if (unlikely(var17 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_id");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2276);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2300);
 fatal_exit(1);
 }
 var15 = var17;
@@ -3225,7 +4694,7 @@ var18 = var20;
 varonce = var18;
 }
 {
-nitc__typing___nitc__typing__TypeVisitor___error(var_v, var15, var18); /* Direct call typing#TypeVisitor#error on <var_v:TypeVisitor>*/
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, var15, var18); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
 }
 } else {
 }
@@ -3233,14 +4702,14 @@ nitc__typing___nitc__typing__TypeVisitor___error(var_v, var15, var18); /* Direct
 var21 = nitc__typing___nitc__typing__TypeVisitor___type_bool(var_v, self);
 }
 {
-{ /* Inline typing#AExpr#mtype= (self,var21) on <self:AIssetAttrExpr> */
+{ /* Inline typing$AExpr$mtype= (self,var21) on <self:AIssetAttrExpr> */
 self->attrs[COLOR_nitc__typing__AExpr___mtype].val = var21; /* _mtype on <self:AIssetAttrExpr> */
 RET_LABEL22:(void)0;
 }
 }
 RET_LABEL:;
 }
-/* method typing#AVarargExpr#accept_typing for (self: AVarargExpr, TypeVisitor) */
+/* method typing$AVarargExpr$accept_typing for (self: AVarargExpr, TypeVisitor) */
 void nitc__typing___AVarargExpr___AExpr__accept_typing(val* self, val* p0) {
 val* var_v /* var v: TypeVisitor */;
 static val* varonce;
@@ -3257,11 +4726,11 @@ var = var2;
 varonce = var;
 }
 {
-nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var); /* Direct call typing#TypeVisitor#error on <var_v:TypeVisitor>*/
+nitc__typing___nitc__typing__TypeVisitor___error(var_v, self, var); /* Direct call typing$TypeVisitor$error on <var_v:TypeVisitor>*/
 }
 RET_LABEL:;
 }
-/* method typing#ADebugTypeExpr#accept_typing for (self: ADebugTypeExpr, TypeVisitor) */
+/* method typing$ADebugTypeExpr$accept_typing for (self: ADebugTypeExpr, TypeVisitor) */
 void nitc__typing___ADebugTypeExpr___AExpr__accept_typing(val* self, val* p0) {
 val* var_v /* var v: TypeVisitor */;
 val* var /* : AExpr */;
@@ -3327,11 +4796,14 @@ val* var58 /* : String */;
 val* var59 /* : String */;
 var_v = p0;
 {
-{ /* Inline parser_nodes#ADebugTypeExpr#n_expr (self) on <self:ADebugTypeExpr> */
+{ /* Inline parser_nodes$ADebugTypeExpr$n_expr (self) on <self:ADebugTypeExpr> */
 var2 = self->attrs[COLOR_nitc__parser_nodes__ADebugTypeExpr___n_expr].val; /* _n_expr on <self:ADebugTypeExpr> */
 if (unlikely(var2 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_expr");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2698);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2722);
 fatal_exit(1);
 }
 var = var2;
@@ -3348,10 +4820,10 @@ var4 = 1; /* is null */
 var4 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_expr,((val*)NULL)) on <var_expr:nullable MType> */
+{ /* Inline kernel$Object$== (var_expr,((val*)NULL)) on <var_expr:nullable MType> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_expr,var_other) on <var_expr:nullable MType(MType)> */
+{ /* Inline kernel$Object$is_same_instance (var_expr,var_other) on <var_expr:nullable MType(MType)> */
 var9 = var_expr == var_other;
 var7 = var9;
 goto RET_LABEL8;
@@ -3373,11 +4845,14 @@ var10 = nitc__typing___nitc__typing__TypeVisitor___anchor_to(var_v, var_expr);
 }
 var_unsafe = var10;
 {
-{ /* Inline parser_nodes#ADebugTypeExpr#n_type (self) on <self:ADebugTypeExpr> */
+{ /* Inline parser_nodes$ADebugTypeExpr$n_type (self) on <self:ADebugTypeExpr> */
 var13 = self->attrs[COLOR_nitc__parser_nodes__ADebugTypeExpr___n_type].val; /* _n_type on <self:ADebugTypeExpr> */
 if (unlikely(var13 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_type");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2701);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2725);
 fatal_exit(1);
 }
 var11 = var13;
@@ -3395,7 +4870,7 @@ var16 = 0; /* is null */
 var16 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_mtype,((val*)NULL)) on <var_mtype:nullable MType> */
+{ /* Inline kernel$Object$!= (var_mtype,((val*)NULL)) on <var_mtype:nullable MType> */
 var_other19 = ((val*)NULL);
 {
 var20 = ((short int(*)(val* self, val* p0))(var_mtype->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_mtype, var_other19); /* == on <var_mtype:nullable MType(MType)>*/
@@ -3410,7 +4885,7 @@ var16 = var17;
 var_ = var16;
 if (var16){
 {
-{ /* Inline kernel#Object#!= (var_mtype,var_expr) on <var_mtype:nullable MType(MType)> */
+{ /* Inline kernel$Object$!= (var_mtype,var_expr) on <var_mtype:nullable MType(MType)> */
 var_other19 = var_expr;
 {
 var24 = ((short int(*)(val* self, val* p0))(var_mtype->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_mtype, var_other19); /* == on <var_mtype:nullable MType(MType)>*/
@@ -3431,9 +4906,12 @@ var26 = nitc__typing___nitc__typing__TypeVisitor___anchor_to(var_v, var_mtype);
 }
 var_umtype = var26;
 {
-{ /* Inline typing#TypeVisitor#modelbuilder (var_v) on <var_v:TypeVisitor> */
+{ /* Inline typing$TypeVisitor$modelbuilder (var_v) on <var_v:TypeVisitor> */
 var29 = var_v->attrs[COLOR_nitc__typing__TypeVisitor___modelbuilder].val; /* _modelbuilder on <var_v:TypeVisitor> */
 if (unlikely(var29 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _modelbuilder");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 35);
 fatal_exit(1);
@@ -3522,12 +5000,12 @@ var59 = ((val*(*)(val* self))(var34->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce33 = var34;
 {
-nitc___nitc__ModelBuilder___warning(var27, self, var30, var59); /* Direct call modelbuilder_base#ModelBuilder#warning on <var27:ModelBuilder>*/
+nitc___nitc__ModelBuilder___warning(var27, self, var30, var59); /* Direct call modelbuilder_base$ModelBuilder$warning on <var27:ModelBuilder>*/
 }
 } else {
 }
 {
-{ /* Inline typing#AExpr#is_typed= (self,1) on <self:ADebugTypeExpr> */
+{ /* Inline typing$AExpr$is_typed= (self,1) on <self:ADebugTypeExpr> */
 self->attrs[COLOR_nitc__typing__AExpr___is_typed].s = 1; /* _is_typed on <self:ADebugTypeExpr> */
 RET_LABEL60:(void)0;
 }

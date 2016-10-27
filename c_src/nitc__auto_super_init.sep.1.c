@@ -1,10 +1,13 @@
 #include "nitc__auto_super_init.sep.0.h"
-/* method auto_super_init#ToolContext#auto_super_init_phase for (self: ToolContext): Phase */
+/* method auto_super_init$ToolContext$auto_super_init_phase for (self: ToolContext): Phase */
 val* nitc__auto_super_init___ToolContext___auto_super_init_phase(val* self) {
 val* var /* : Phase */;
 val* var1 /* : Phase */;
 var1 = self->attrs[COLOR_nitc__auto_super_init__ToolContext___auto_super_init_phase].val; /* _auto_super_init_phase on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _auto_super_init_phase");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__auto_super_init, 25);
 fatal_exit(1);
@@ -13,7 +16,7 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method auto_super_init#AutoSuperInitPhase#process_npropdef for (self: AutoSuperInitPhase, APropdef) */
+/* method auto_super_init$AutoSuperInitPhase$process_npropdef for (self: AutoSuperInitPhase, APropdef) */
 void nitc__auto_super_init___nitc__auto_super_init__AutoSuperInitPhase___nitc__phase__Phase__process_npropdef(val* self, val* p0) {
 val* var_npropdef /* var npropdef: APropdef */;
 short int var /* : Bool */;
@@ -33,9 +36,12 @@ var = var_npropdef->type->type_table[cltype] == idtype;
 }
 if (var){
 {
-{ /* Inline phase#Phase#toolcontext (self) on <self:AutoSuperInitPhase> */
+{ /* Inline phase$Phase$toolcontext (self) on <self:AutoSuperInitPhase> */
 var3 = self->attrs[COLOR_nitc__phase__Phase___toolcontext].val; /* _toolcontext on <self:AutoSuperInitPhase> */
 if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__phase, 200);
 fatal_exit(1);
@@ -48,13 +54,13 @@ RET_LABEL2:(void)0;
 var4 = nitc__modelbuilder_base___ToolContext___modelbuilder(var1);
 }
 {
-nitc__auto_super_init___AMethPropdef___do_auto_super_init(var_npropdef, var4); /* Direct call auto_super_init#AMethPropdef#do_auto_super_init on <var_npropdef:APropdef(AMethPropdef)>*/
+nitc__auto_super_init___AMethPropdef___do_auto_super_init(var_npropdef, var4); /* Direct call auto_super_init$AMethPropdef$do_auto_super_init on <var_npropdef:APropdef(AMethPropdef)>*/
 }
 } else {
 }
 RET_LABEL:;
 }
-/* method auto_super_init#AutoSuperInitVisitor#visit for (self: AutoSuperInitVisitor, ANode) */
+/* method auto_super_init$AutoSuperInitVisitor$visit for (self: AutoSuperInitVisitor, ANode) */
 void nitc__auto_super_init___nitc__auto_super_init__AutoSuperInitVisitor___nitc__parser_nodes__Visitor__visit(val* self, val* p0) {
 val* var_n /* var n: ANode */;
 var_n = p0;
@@ -66,7 +72,7 @@ var_n = p0;
 }
 RET_LABEL:;
 }
-/* method auto_super_init#AutoSuperInitVisitor#has_explicit_super_init for (self: AutoSuperInitVisitor): nullable ANode */
+/* method auto_super_init$AutoSuperInitVisitor$has_explicit_super_init for (self: AutoSuperInitVisitor): nullable ANode */
 val* nitc__auto_super_init___nitc__auto_super_init__AutoSuperInitVisitor___has_explicit_super_init(val* self) {
 val* var /* : nullable ANode */;
 val* var1 /* : nullable ANode */;
@@ -75,12 +81,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method auto_super_init#AutoSuperInitVisitor#has_explicit_super_init= for (self: AutoSuperInitVisitor, nullable ANode) */
+/* method auto_super_init$AutoSuperInitVisitor$has_explicit_super_init= for (self: AutoSuperInitVisitor, nullable ANode) */
 void nitc__auto_super_init___nitc__auto_super_init__AutoSuperInitVisitor___has_explicit_super_init_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__auto_super_init__AutoSuperInitVisitor___has_explicit_super_init].val = p0; /* _has_explicit_super_init on <self:AutoSuperInitVisitor> */
 RET_LABEL:;
 }
-/* method auto_super_init#AutoSuperInitVisitor#is_broken for (self: AutoSuperInitVisitor): Bool */
+/* method auto_super_init$AutoSuperInitVisitor$is_broken for (self: AutoSuperInitVisitor): Bool */
 short int nitc__auto_super_init___nitc__auto_super_init__AutoSuperInitVisitor___is_broken(val* self) {
 short int var /* : Bool */;
 short int var1 /* : Bool */;
@@ -89,12 +95,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method auto_super_init#AutoSuperInitVisitor#is_broken= for (self: AutoSuperInitVisitor, Bool) */
+/* method auto_super_init$AutoSuperInitVisitor$is_broken= for (self: AutoSuperInitVisitor, Bool) */
 void nitc__auto_super_init___nitc__auto_super_init__AutoSuperInitVisitor___is_broken_61d(val* self, short int p0) {
 self->attrs[COLOR_nitc__auto_super_init__AutoSuperInitVisitor___is_broken].s = p0; /* _is_broken on <self:AutoSuperInitVisitor> */
 RET_LABEL:;
 }
-/* method auto_super_init#AMethPropdef#auto_super_inits for (self: AMethPropdef): nullable Array[CallSite] */
+/* method auto_super_init$AMethPropdef$auto_super_inits for (self: AMethPropdef): nullable Array[CallSite] */
 val* nitc__auto_super_init___AMethPropdef___auto_super_inits(val* self) {
 val* var /* : nullable Array[CallSite] */;
 val* var1 /* : nullable Array[CallSite] */;
@@ -103,12 +109,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method auto_super_init#AMethPropdef#auto_super_inits= for (self: AMethPropdef, nullable Array[CallSite]) */
+/* method auto_super_init$AMethPropdef$auto_super_inits= for (self: AMethPropdef, nullable Array[CallSite]) */
 void nitc__auto_super_init___AMethPropdef___auto_super_inits_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__auto_super_init__AMethPropdef___auto_super_inits].val = p0; /* _auto_super_inits on <self:AMethPropdef> */
 RET_LABEL:;
 }
-/* method auto_super_init#AMethPropdef#auto_super_call for (self: AMethPropdef): Bool */
+/* method auto_super_init$AMethPropdef$auto_super_call for (self: AMethPropdef): Bool */
 short int nitc__auto_super_init___AMethPropdef___auto_super_call(val* self) {
 short int var /* : Bool */;
 short int var1 /* : Bool */;
@@ -117,12 +123,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method auto_super_init#AMethPropdef#auto_super_call= for (self: AMethPropdef, Bool) */
+/* method auto_super_init$AMethPropdef$auto_super_call= for (self: AMethPropdef, Bool) */
 void nitc__auto_super_init___AMethPropdef___auto_super_call_61d(val* self, short int p0) {
 self->attrs[COLOR_nitc__auto_super_init__AMethPropdef___auto_super_call].s = p0; /* _auto_super_call on <self:AMethPropdef> */
 RET_LABEL:;
 }
-/* method auto_super_init#AMethPropdef#do_auto_super_init for (self: AMethPropdef, ModelBuilder) */
+/* method auto_super_init$AMethPropdef$do_auto_super_init for (self: AMethPropdef, ModelBuilder) */
 void nitc__auto_super_init___AMethPropdef___do_auto_super_init(val* self, val* p0) {
 val* var_modelbuilder /* var modelbuilder: ModelBuilder */;
 val* var /* : nullable ANode */;
@@ -252,8 +258,8 @@ val* var_candidatedefs /* var candidatedefs: Array[MMethodDef] */;
 short int var138 /* : Bool */;
 val* var140 /* : nullable Object */;
 val* var_candidatedef /* var candidatedef: MMethodDef */;
-long var141 /* : Int */;
-long var143 /* : Int */;
+int64_t var141 /* : Int */;
+int64_t var143 /* : Int */;
 short int var144 /* : Bool */;
 short int var146 /* : Bool */;
 int cltype147;
@@ -308,7 +314,7 @@ val* var198 /* : nullable MSignature */;
 val* var200 /* : nullable MSignature */;
 val* var_msignature /* var msignature: nullable MSignature */;
 val* var201 /* : MSignature */;
-long var202 /* : Int */;
+int64_t var202 /* : Int */;
 short int var203 /* : Bool */;
 short int var205 /* : Bool */;
 int cltype206;
@@ -331,7 +337,7 @@ char* var222 /* : NativeString */;
 val* var223 /* : String */;
 val* var224 /* : String */;
 val* var225 /* : String */;
-long var226 /* : Int */;
+int64_t var226 /* : Int */;
 val* var227 /* : String */;
 val* var228 /* : String */;
 val* var230 /* : CallSite */;
@@ -367,7 +373,7 @@ val* var259 /* : String */;
 val* var260 /* : String */;
 var_modelbuilder = p0;
 {
-{ /* Inline parser_nodes#ANode#parent (self) on <self:AMethPropdef> */
+{ /* Inline parser_nodes$ANode$parent (self) on <self:AMethPropdef> */
 var2 = self->attrs[COLOR_nitc__parser_nodes__ANode___parent].val; /* _parent on <self:AMethPropdef> */
 var = var2;
 RET_LABEL1:(void)0;
@@ -392,7 +398,7 @@ PRINT_ERROR(" (%s:%d)\n", FILE_nitc__auto_super_init, 59);
 fatal_exit(1);
 }
 {
-{ /* Inline modelize_class#AClassdef#mclassdef (var) on <var:nullable ANode(AClassdef)> */
+{ /* Inline modelize_class$AClassdef$mclassdef (var) on <var:nullable ANode(AClassdef)> */
 var6 = var->attrs[COLOR_nitc__modelize_class__AClassdef___mclassdef].val; /* _mclassdef on <var:nullable ANode(AClassdef)> */
 var4 = var6;
 RET_LABEL5:(void)0;
@@ -405,10 +411,10 @@ var8 = 1; /* is null */
 var8 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_mclassdef,((val*)NULL)) on <var_mclassdef:nullable MClassDef> */
+{ /* Inline kernel$Object$== (var_mclassdef,((val*)NULL)) on <var_mclassdef:nullable MClassDef> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_mclassdef,var_other) on <var_mclassdef:nullable MClassDef(MClassDef)> */
+{ /* Inline kernel$Object$is_same_instance (var_mclassdef,var_other) on <var_mclassdef:nullable MClassDef(MClassDef)> */
 var13 = var_mclassdef == var_other;
 var11 = var13;
 goto RET_LABEL12;
@@ -426,7 +432,7 @@ if (var8){
 var7 = var_;
 } else {
 {
-{ /* Inline model_base#MEntity#is_broken (var_mclassdef) on <var_mclassdef:nullable MClassDef(MClassDef)> */
+{ /* Inline model_base$MEntity$is_broken (var_mclassdef) on <var_mclassdef:nullable MClassDef(MClassDef)> */
 var16 = var_mclassdef->attrs[COLOR_nitc__model_base__MEntity___is_broken].s; /* _is_broken on <var_mclassdef:nullable MClassDef(MClassDef)> */
 var14 = var16;
 RET_LABEL15:(void)0;
@@ -439,7 +445,7 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline modelize_property#APropdef#mpropdef (self) on <self:AMethPropdef> */
+{ /* Inline modelize_property$APropdef$mpropdef (self) on <self:AMethPropdef> */
 var19 = self->attrs[COLOR_nitc__modelize_property__APropdef___mpropdef].val; /* _mpropdef on <self:AMethPropdef> */
 var17 = var19;
 RET_LABEL18:(void)0;
@@ -452,10 +458,10 @@ var21 = 1; /* is null */
 var21 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_mpropdef,((val*)NULL)) on <var_mpropdef:nullable MMethodDef> */
+{ /* Inline kernel$Object$== (var_mpropdef,((val*)NULL)) on <var_mpropdef:nullable MMethodDef> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_mpropdef,var_other) on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
+{ /* Inline kernel$Object$is_same_instance (var_mpropdef,var_other) on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
 var26 = var_mpropdef == var_other;
 var24 = var26;
 goto RET_LABEL25;
@@ -473,7 +479,7 @@ if (var21){
 var20 = var_27;
 } else {
 {
-{ /* Inline model_base#MEntity#is_broken (var_mpropdef) on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
+{ /* Inline model_base$MEntity$is_broken (var_mpropdef) on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
 var30 = var_mpropdef->attrs[COLOR_nitc__model_base__MEntity___is_broken].s; /* _is_broken on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
 var28 = var30;
 RET_LABEL29:(void)0;
@@ -486,11 +492,14 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline model#MPropDef#mclassdef (var_mpropdef) on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
+{ /* Inline model$MPropDef$mclassdef (var_mpropdef) on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
 var33 = var_mpropdef->attrs[COLOR_nitc__model__MPropDef___mclassdef].val; /* _mclassdef on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
 if (unlikely(var33 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclassdef");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2227);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2354);
 fatal_exit(1);
 }
 var31 = var33;
@@ -498,11 +507,14 @@ RET_LABEL32:(void)0;
 }
 }
 {
-{ /* Inline model#MClassDef#mmodule (var31) on <var31:MClassDef> */
+{ /* Inline model$MClassDef$mmodule (var31) on <var31:MClassDef> */
 var36 = var31->attrs[COLOR_nitc__model__MClassDef___mmodule].val; /* _mmodule on <var31:MClassDef> */
 if (unlikely(var36 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mmodule");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 573);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 588);
 fatal_exit(1);
 }
 var34 = var36;
@@ -511,11 +523,14 @@ RET_LABEL35:(void)0;
 }
 var_mmodule = var34;
 {
-{ /* Inline model#MClassDef#bound_mtype (var_mclassdef) on <var_mclassdef:nullable MClassDef(MClassDef)> */
+{ /* Inline model$MClassDef$bound_mtype (var_mclassdef) on <var_mclassdef:nullable MClassDef(MClassDef)> */
 var39 = var_mclassdef->attrs[COLOR_nitc__model__MClassDef___bound_mtype].val; /* _bound_mtype on <var_mclassdef:nullable MClassDef(MClassDef)> */
 if (unlikely(var39 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _bound_mtype");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 579);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 594);
 fatal_exit(1);
 }
 var37 = var39;
@@ -524,11 +539,14 @@ RET_LABEL38:(void)0;
 }
 var_anchor = var37;
 {
-{ /* Inline model#MClassDef#mclass (var_mclassdef) on <var_mclassdef:nullable MClassDef(MClassDef)> */
+{ /* Inline model$MClassDef$mclass (var_mclassdef) on <var_mclassdef:nullable MClassDef(MClassDef)> */
 var42 = var_mclassdef->attrs[COLOR_nitc__model__MClassDef___mclass].val; /* _mclass on <var_mclassdef:nullable MClassDef(MClassDef)> */
 if (unlikely(var42 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclass");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 576);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 591);
 fatal_exit(1);
 }
 var40 = var42;
@@ -536,11 +554,14 @@ RET_LABEL41:(void)0;
 }
 }
 {
-{ /* Inline model#MClass#mclass_type (var40) on <var40:MClass> */
+{ /* Inline model$MClass$mclass_type (var40) on <var40:MClass> */
 var45 = var40->attrs[COLOR_nitc__model__MClass___mclass_type].val; /* _mclass_type on <var40:MClass> */
 if (unlikely(var45 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclass_type");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 507);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 520);
 fatal_exit(1);
 }
 var43 = var45;
@@ -561,11 +582,14 @@ var49 = nitc__annotation___Prod___get_single_annotation(self, var46, var_modelbu
 }
 var_nosuper = var49;
 {
-{ /* Inline model#MPropDef#mproperty (var_mpropdef) on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
+{ /* Inline model$MPropDef$mproperty (var_mpropdef) on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
 var53 = var_mpropdef->attrs[COLOR_nitc__model__MPropDef___mproperty].val; /* _mproperty on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
 if (unlikely(var53 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mproperty");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2230);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2357);
 fatal_exit(1);
 }
 var51 = var53;
@@ -573,7 +597,7 @@ RET_LABEL52:(void)0;
 }
 }
 {
-{ /* Inline model#MMethod#is_init (var51) on <var51:MProperty(MMethod)> */
+{ /* Inline model$MMethod$is_init (var51) on <var51:MProperty(MMethod)> */
 var56 = var51->attrs[COLOR_nitc__model__MMethod___is_init].s; /* _is_init on <var51:MProperty(MMethod)> */
 var54 = var56;
 RET_LABEL55:(void)0;
@@ -585,11 +609,14 @@ if (var57){
 var50 = var_58;
 } else {
 {
-{ /* Inline model#MPropDef#mproperty (var_mpropdef) on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
+{ /* Inline model$MPropDef$mproperty (var_mpropdef) on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
 var61 = var_mpropdef->attrs[COLOR_nitc__model__MPropDef___mproperty].val; /* _mproperty on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
 if (unlikely(var61 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mproperty");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2230);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2357);
 fatal_exit(1);
 }
 var59 = var61;
@@ -597,7 +624,7 @@ RET_LABEL60:(void)0;
 }
 }
 {
-{ /* Inline model#MMethod#is_new (var59) on <var59:MProperty(MMethod)> */
+{ /* Inline model$MMethod$is_new (var59) on <var59:MProperty(MMethod)> */
 var64 = var59->attrs[COLOR_nitc__model__MMethod___is_new].s; /* _is_new on <var59:MProperty(MMethod)> */
 var62 = var64;
 RET_LABEL63:(void)0;
@@ -612,7 +639,7 @@ var65 = 0; /* is null */
 var65 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_nosuper,((val*)NULL)) on <var_nosuper:nullable AAnnotation> */
+{ /* Inline kernel$Object$!= (var_nosuper,((val*)NULL)) on <var_nosuper:nullable AAnnotation> */
 var_other68 = ((val*)NULL);
 {
 var69 = ((short int(*)(val* self, val* p0))(var_nosuper->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_nosuper, var_other68); /* == on <var_nosuper:nullable AAnnotation(AAnnotation)>*/
@@ -634,7 +661,7 @@ var72 = var74;
 varonce71 = var72;
 }
 {
-nitc___nitc__ModelBuilder___error(var_modelbuilder, var_nosuper, var72); /* Direct call modelbuilder_base#ModelBuilder#error on <var_modelbuilder:ModelBuilder>*/
+nitc___nitc__ModelBuilder___error(var_modelbuilder, var_nosuper, var72); /* Direct call modelbuilder_base$ModelBuilder$error on <var_modelbuilder:ModelBuilder>*/
 }
 } else {
 }
@@ -642,7 +669,7 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline parser_nodes#AMethPropdef#n_block (self) on <self:AMethPropdef> */
+{ /* Inline parser_nodes$AMethPropdef$n_block (self) on <self:AMethPropdef> */
 var77 = self->attrs[COLOR_nitc__parser_nodes__AMethPropdef___n_block].val; /* _n_block on <self:AMethPropdef> */
 var75 = var77;
 RET_LABEL76:(void)0;
@@ -655,7 +682,7 @@ var78 = 0; /* is null */
 var78 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_nblock,((val*)NULL)) on <var_nblock:nullable AExpr> */
+{ /* Inline kernel$Object$!= (var_nblock,((val*)NULL)) on <var_nblock:nullable AExpr> */
 var_other68 = ((val*)NULL);
 {
 var81 = ((short int(*)(val* self, val* p0))(var_nblock->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_nblock, var_other68); /* == on <var_nblock:nullable AExpr(AExpr)>*/
@@ -670,16 +697,16 @@ var78 = var79;
 if (var78){
 var83 = NEW_nitc__auto_super_init__AutoSuperInitVisitor(&type_nitc__auto_super_init__AutoSuperInitVisitor);
 {
-{ /* Inline kernel#Object#init (var83) on <var83:AutoSuperInitVisitor> */
+{ /* Inline kernel$Object$init (var83) on <var83:AutoSuperInitVisitor> */
 RET_LABEL84:(void)0;
 }
 }
 var_v = var83;
 {
-nitc___nitc__Visitor___enter_visit(var_v, var_nblock); /* Direct call parser_nodes#Visitor#enter_visit on <var_v:AutoSuperInitVisitor>*/
+nitc___nitc__Visitor___enter_visit(var_v, var_nblock); /* Direct call parser_nodes$Visitor$enter_visit on <var_v:AutoSuperInitVisitor>*/
 }
 {
-{ /* Inline auto_super_init#AutoSuperInitVisitor#has_explicit_super_init (var_v) on <var_v:AutoSuperInitVisitor> */
+{ /* Inline auto_super_init$AutoSuperInitVisitor$has_explicit_super_init (var_v) on <var_v:AutoSuperInitVisitor> */
 var87 = var_v->attrs[COLOR_nitc__auto_super_init__AutoSuperInitVisitor___has_explicit_super_init].val; /* _has_explicit_super_init on <var_v:AutoSuperInitVisitor> */
 var85 = var87;
 RET_LABEL86:(void)0;
@@ -692,7 +719,7 @@ var88 = 0; /* is null */
 var88 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_anode,((val*)NULL)) on <var_anode:nullable ANode> */
+{ /* Inline kernel$Object$!= (var_anode,((val*)NULL)) on <var_anode:nullable ANode> */
 var_other68 = ((val*)NULL);
 {
 var91 = ((short int(*)(val* self, val* p0))(var_anode->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_anode, var_other68); /* == on <var_anode:nullable ANode(ANode)>*/
@@ -711,7 +738,7 @@ var93 = 0; /* is null */
 var93 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_nosuper,((val*)NULL)) on <var_nosuper:nullable AAnnotation> */
+{ /* Inline kernel$Object$!= (var_nosuper,((val*)NULL)) on <var_nosuper:nullable AAnnotation> */
 var_other68 = ((val*)NULL);
 {
 var96 = ((short int(*)(val* self, val* p0))(var_nosuper->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_nosuper, var_other68); /* == on <var_nosuper:nullable AAnnotation(AAnnotation)>*/
@@ -733,7 +760,7 @@ var99 = var101;
 varonce98 = var99;
 }
 {
-nitc___nitc__ModelBuilder___error(var_modelbuilder, var_anode, var99); /* Direct call modelbuilder_base#ModelBuilder#error on <var_modelbuilder:ModelBuilder>*/
+nitc___nitc__ModelBuilder___error(var_modelbuilder, var_anode, var99); /* Direct call modelbuilder_base$ModelBuilder$error on <var_modelbuilder:ModelBuilder>*/
 }
 } else {
 }
@@ -741,7 +768,7 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline auto_super_init#AutoSuperInitVisitor#is_broken (var_v) on <var_v:AutoSuperInitVisitor> */
+{ /* Inline auto_super_init$AutoSuperInitVisitor$is_broken (var_v) on <var_v:AutoSuperInitVisitor> */
 var104 = var_v->attrs[COLOR_nitc__auto_super_init__AutoSuperInitVisitor___is_broken].s; /* _is_broken on <var_v:AutoSuperInitVisitor> */
 var102 = var104;
 RET_LABEL103:(void)0;
@@ -759,7 +786,7 @@ var105 = 0; /* is null */
 var105 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_nosuper,((val*)NULL)) on <var_nosuper:nullable AAnnotation> */
+{ /* Inline kernel$Object$!= (var_nosuper,((val*)NULL)) on <var_nosuper:nullable AAnnotation> */
 var_other68 = ((val*)NULL);
 {
 var108 = ((short int(*)(val* self, val* p0))(var_nosuper->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_nosuper, var_other68); /* == on <var_nosuper:nullable AAnnotation(AAnnotation)>*/
@@ -781,21 +808,24 @@ var110 = nitc___nitc__MPropDef___is_intro(var_mpropdef);
 var111 = !var110;
 if (var111){
 {
-{ /* Inline auto_super_init#AMethPropdef#auto_super_call= (self,1) on <self:AMethPropdef> */
+{ /* Inline auto_super_init$AMethPropdef$auto_super_call= (self,1) on <self:AMethPropdef> */
 self->attrs[COLOR_nitc__auto_super_init__AMethPropdef___auto_super_call].s = 1; /* _auto_super_call on <self:AMethPropdef> */
 RET_LABEL112:(void)0;
 }
 }
 {
-{ /* Inline modelize_property#MPropDef#has_supercall= (var_mpropdef,1) on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
+{ /* Inline modelize_property$MPropDef$has_supercall= (var_mpropdef,1) on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
 var_mpropdef->attrs[COLOR_nitc__modelize_property__MPropDef___has_supercall].s = 1; /* _has_supercall on <var_mpropdef:nullable MMethodDef(MMethodDef)> */
 RET_LABEL113:(void)0;
 }
 }
 {
-{ /* Inline modelbuilder_base#ModelBuilder#toolcontext (var_modelbuilder) on <var_modelbuilder:ModelBuilder> */
+{ /* Inline modelbuilder_base$ModelBuilder$toolcontext (var_modelbuilder) on <var_modelbuilder:ModelBuilder> */
 var116 = var_modelbuilder->attrs[COLOR_nitc__modelbuilder_base__ModelBuilder___toolcontext].val; /* _toolcontext on <var_modelbuilder:ModelBuilder> */
 if (unlikely(var116 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__modelbuilder_base, 47);
 fatal_exit(1);
@@ -828,18 +858,18 @@ var124 = ((val*(*)(val* self))(var118->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce117 = var118;
 {
-nitc___nitc__ToolContext___info(var114, var124, 4l); /* Direct call toolcontext#ToolContext#info on <var114:ToolContext>*/
+nitc___nitc__ToolContext___info(var114, var124, 4l); /* Direct call toolcontext$ToolContext$info on <var114:ToolContext>*/
 }
 goto RET_LABEL;
 } else {
 }
 var125 = NEW_core__Array(&type_core__Array__nitc__CallSite);
 {
-core___core__Array___core__kernel__Object__init(var125); /* Direct call array#Array#init on <var125:Array[CallSite]>*/
+core___core__Array___core__kernel__Object__init(var125); /* Direct call array$Array$init on <var125:Array[CallSite]>*/
 }
 var_auto_super_inits = var125;
 {
-{ /* Inline modelize_property#ModelBuilder#the_root_init_mmethod (var_modelbuilder) on <var_modelbuilder:ModelBuilder> */
+{ /* Inline modelize_property$ModelBuilder$the_root_init_mmethod (var_modelbuilder) on <var_modelbuilder:ModelBuilder> */
 var128 = var_modelbuilder->attrs[COLOR_nitc__modelize_property__ModelBuilder___the_root_init_mmethod].val; /* _the_root_init_mmethod on <var_modelbuilder:ModelBuilder> */
 var126 = var128;
 RET_LABEL127:(void)0;
@@ -852,7 +882,7 @@ var130 = 0; /* is null */
 var130 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_the_root_init_mmethod,((val*)NULL)) on <var_the_root_init_mmethod:nullable MMethod> */
+{ /* Inline kernel$Object$!= (var_the_root_init_mmethod,((val*)NULL)) on <var_the_root_init_mmethod:nullable MMethod> */
 var_other68 = ((val*)NULL);
 {
 var133 = ((short int(*)(val* self, val* p0))(var_the_root_init_mmethod->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_the_root_init_mmethod, var_other68); /* == on <var_the_root_init_mmethod:nullable MMethod(MMethod)>*/
@@ -883,7 +913,7 @@ var138 = core___core__AbstractArrayRead___core__abstract_collection__Collection_
 }
 if (var138){
 {
-{ /* Inline modelbuilder_base#ANode#is_broken= (self,1) on <self:AMethPropdef> */
+{ /* Inline modelbuilder_base$ANode$is_broken= (self,1) on <self:AMethPropdef> */
 self->attrs[COLOR_nitc__modelbuilder_base__ANode___is_broken].s = 1; /* _is_broken on <self:AMethPropdef> */
 RET_LABEL139:(void)0;
 }
@@ -896,21 +926,21 @@ var140 = core___core__SequenceRead___Collection__first(var_candidatedefs);
 }
 var_candidatedef = var140;
 {
-{ /* Inline array#AbstractArrayRead#length (var_candidatedefs) on <var_candidatedefs:Array[MMethodDef]> */
+{ /* Inline array$AbstractArrayRead$length (var_candidatedefs) on <var_candidatedefs:Array[MMethodDef]> */
 var143 = var_candidatedefs->attrs[COLOR_core__array__AbstractArrayRead___length].l; /* _length on <var_candidatedefs:Array[MMethodDef]> */
 var141 = var143;
 RET_LABEL142:(void)0;
 }
 }
 {
-{ /* Inline kernel#Int#> (var141,1l) on <var141:Int> */
+{ /* Inline kernel$Int$> (var141,1l) on <var141:Int> */
 /* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
 /* <1l:Int> isa OTHER */
 var146 = 1; /* easy <1l:Int> isa OTHER*/
 if (unlikely(!var146)) {
 var_class_name149 = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name149);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 730);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 727);
 fatal_exit(1);
 }
 var150 = var141 > 1l;
@@ -980,11 +1010,14 @@ var174 = ((val*(*)(val* self))(var_cd2->class->vft[COLOR_core__abstract_text__Ob
 }
 ((struct instance_core__NativeArray*)var153)->values[1]=var174;
 {
-{ /* Inline model#MMethodDef#initializers (var_cd2) on <var_cd2:MMethodDef> */
+{ /* Inline model$MMethodDef$initializers (var_cd2) on <var_cd2:MMethodDef> */
 var177 = var_cd2->attrs[COLOR_nitc__model__MMethodDef___initializers].val; /* _initializers on <var_cd2:MMethodDef> */
 if (unlikely(var177 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _initializers");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2363);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2492);
 fatal_exit(1);
 }
 var175 = var177;
@@ -1000,7 +1033,7 @@ var179 = var181;
 varonce178 = var179;
 }
 {
-var182 = core__abstract_text___Collection___join(var175, var179);
+var182 = core__abstract_text___Collection___join(var175, var179, ((val*)NULL));
 }
 ((struct instance_core__NativeArray*)var153)->values[3]=var182;
 {
@@ -1008,11 +1041,14 @@ var183 = ((val*(*)(val* self))(var_candidatedef->class->vft[COLOR_core__abstract
 }
 ((struct instance_core__NativeArray*)var153)->values[5]=var183;
 {
-{ /* Inline model#MMethodDef#initializers (var_candidatedef) on <var_candidatedef:MMethodDef> */
+{ /* Inline model$MMethodDef$initializers (var_candidatedef) on <var_candidatedef:MMethodDef> */
 var186 = var_candidatedef->attrs[COLOR_nitc__model__MMethodDef___initializers].val; /* _initializers on <var_candidatedef:MMethodDef> */
 if (unlikely(var186 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _initializers");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2363);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 2492);
 fatal_exit(1);
 }
 var184 = var186;
@@ -1028,7 +1064,7 @@ var188 = var190;
 varonce187 = var188;
 }
 {
-var191 = core__abstract_text___Collection___join(var184, var188);
+var191 = core__abstract_text___Collection___join(var184, var188, ((val*)NULL));
 }
 ((struct instance_core__NativeArray*)var153)->values[7]=var191;
 {
@@ -1036,10 +1072,10 @@ var192 = ((val*(*)(val* self))(var153->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce152 = var153;
 {
-nitc___nitc__ModelBuilder___error(var_modelbuilder, self, var192); /* Direct call modelbuilder_base#ModelBuilder#error on <var_modelbuilder:ModelBuilder>*/
+nitc___nitc__ModelBuilder___error(var_modelbuilder, self, var192); /* Direct call modelbuilder_base$ModelBuilder$error on <var_modelbuilder:ModelBuilder>*/
 }
 {
-{ /* Inline modelbuilder_base#ANode#is_broken= (self,1) on <self:AMethPropdef> */
+{ /* Inline modelbuilder_base$ANode$is_broken= (self,1) on <self:AMethPropdef> */
 self->attrs[COLOR_nitc__modelbuilder_base__ANode___is_broken].s = 1; /* _is_broken on <self:AMethPropdef> */
 RET_LABEL193:(void)0;
 }
@@ -1048,7 +1084,7 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline model#MMethodDef#new_msignature (var_candidatedef) on <var_candidatedef:MMethodDef> */
+{ /* Inline model$MMethodDef$new_msignature (var_candidatedef) on <var_candidatedef:MMethodDef> */
 var197 = var_candidatedef->attrs[COLOR_nitc__model__MMethodDef___new_msignature].val; /* _new_msignature on <var_candidatedef:MMethodDef> */
 var195 = var197;
 RET_LABEL196:(void)0;
@@ -1058,7 +1094,7 @@ if (var195!=NULL) {
 var194 = var195;
 } else {
 {
-{ /* Inline model#MMethodDef#msignature (var_candidatedef) on <var_candidatedef:MMethodDef> */
+{ /* Inline model$MMethodDef$msignature (var_candidatedef) on <var_candidatedef:MMethodDef> */
 var200 = var_candidatedef->attrs[COLOR_nitc__model__MMethodDef___msignature].val; /* _msignature on <var_candidatedef:MMethodDef> */
 var198 = var200;
 RET_LABEL199:(void)0;
@@ -1068,6 +1104,9 @@ var194 = var198;
 }
 var_msignature = var194;
 if (var_msignature == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__auto_super_init, 125);
 fatal_exit(1);
@@ -1079,14 +1118,14 @@ var_msignature = var201;
 var202 = nitc___nitc__MSignature___arity(var_msignature);
 }
 {
-{ /* Inline kernel#Int#> (var202,0l) on <var202:Int> */
+{ /* Inline kernel$Int$> (var202,0l) on <var202:Int> */
 /* Covariant cast for argument 0 (i) <0l:Int> isa OTHER */
 /* <0l:Int> isa OTHER */
 var205 = 1; /* easy <0l:Int> isa OTHER*/
 if (unlikely(!var205)) {
 var_class_name208 = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name208);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 730);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 727);
 fatal_exit(1);
 }
 var209 = var202 > 0l;
@@ -1147,10 +1186,10 @@ var228 = ((val*(*)(val* self))(var211->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce210 = var211;
 {
-nitc___nitc__ModelBuilder___error(var_modelbuilder, self, var228); /* Direct call modelbuilder_base#ModelBuilder#error on <var_modelbuilder:ModelBuilder>*/
+nitc___nitc__ModelBuilder___error(var_modelbuilder, self, var228); /* Direct call modelbuilder_base$ModelBuilder$error on <var_modelbuilder:ModelBuilder>*/
 }
 {
-{ /* Inline modelbuilder_base#ANode#is_broken= (self,1) on <self:AMethPropdef> */
+{ /* Inline modelbuilder_base$ANode$is_broken= (self,1) on <self:AMethPropdef> */
 self->attrs[COLOR_nitc__modelbuilder_base__ANode___is_broken].s = 1; /* _is_broken on <self:AMethPropdef> */
 RET_LABEL229:(void)0;
 }
@@ -1194,12 +1233,15 @@ var231 = nitc___nitc__AMethPropdef___ANode__hot_location(self);
 }
 var_callsite = var230;
 {
-core___core__Array___core__abstract_collection__SimpleCollection__add(var_auto_super_inits, var_callsite); /* Direct call array#Array#add on <var_auto_super_inits:Array[CallSite]>*/
+core___core__Array___core__abstract_collection__SimpleCollection__add(var_auto_super_inits, var_callsite); /* Direct call array$Array$add on <var_auto_super_inits:Array[CallSite]>*/
 }
 {
-{ /* Inline modelbuilder_base#ModelBuilder#toolcontext (var_modelbuilder) on <var_modelbuilder:ModelBuilder> */
+{ /* Inline modelbuilder_base$ModelBuilder$toolcontext (var_modelbuilder) on <var_modelbuilder:ModelBuilder> */
 var234 = var_modelbuilder->attrs[COLOR_nitc__modelbuilder_base__ModelBuilder___toolcontext].val; /* _toolcontext on <var_modelbuilder:ModelBuilder> */
 if (unlikely(var234 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__modelbuilder_base, 47);
 fatal_exit(1);
@@ -1245,7 +1287,7 @@ var247 = ((val*(*)(val* self))(var236->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce235 = var236;
 {
-nitc___nitc__ToolContext___info(var232, var247, 4l); /* Direct call toolcontext#ToolContext#info on <var232:ToolContext>*/
+nitc___nitc__ToolContext___info(var232, var247, 4l); /* Direct call toolcontext$ToolContext$info on <var232:ToolContext>*/
 }
 } else {
 }
@@ -1286,26 +1328,26 @@ var260 = ((val*(*)(val* self))(var250->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce249 = var250;
 {
-nitc___nitc__ModelBuilder___error(var_modelbuilder, self, var260); /* Direct call modelbuilder_base#ModelBuilder#error on <var_modelbuilder:ModelBuilder>*/
+nitc___nitc__ModelBuilder___error(var_modelbuilder, self, var260); /* Direct call modelbuilder_base$ModelBuilder$error on <var_modelbuilder:ModelBuilder>*/
 }
 goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline auto_super_init#AMethPropdef#auto_super_inits= (self,var_auto_super_inits) on <self:AMethPropdef> */
+{ /* Inline auto_super_init$AMethPropdef$auto_super_inits= (self,var_auto_super_inits) on <self:AMethPropdef> */
 self->attrs[COLOR_nitc__auto_super_init__AMethPropdef___auto_super_inits].val = var_auto_super_inits; /* _auto_super_inits on <self:AMethPropdef> */
 RET_LABEL261:(void)0;
 }
 }
 RET_LABEL:;
 }
-/* method auto_super_init#ANode#accept_auto_super_init for (self: ANode, AutoSuperInitVisitor) */
+/* method auto_super_init$ANode$accept_auto_super_init for (self: ANode, AutoSuperInitVisitor) */
 void nitc__auto_super_init___ANode___accept_auto_super_init(val* self, val* p0) {
 val* var_v /* var v: AutoSuperInitVisitor */;
 var_v = p0;
 RET_LABEL:;
 }
-/* method auto_super_init#ASendExpr#accept_auto_super_init for (self: ASendExpr, AutoSuperInitVisitor) */
+/* method auto_super_init$ASendExpr$accept_auto_super_init for (self: ASendExpr, AutoSuperInitVisitor) */
 void nitc__auto_super_init___ASendExpr___ANode__accept_auto_super_init(val* self, val* p0) {
 val* var_v /* var v: AutoSuperInitVisitor */;
 val* var /* : nullable CallSite */;
@@ -1322,7 +1364,7 @@ short int var13 /* : Bool */;
 short int var15 /* : Bool */;
 var_v = p0;
 {
-{ /* Inline typing#ASendExpr#callsite (self) on <self:ASendExpr> */
+{ /* Inline typing$ASendExpr$callsite (self) on <self:ASendExpr> */
 var2 = self->attrs[COLOR_nitc__typing__ASendExpr___callsite].val; /* _callsite on <self:ASendExpr> */
 var = var2;
 RET_LABEL1:(void)0;
@@ -1335,10 +1377,10 @@ var3 = 1; /* is null */
 var3 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_callsite,((val*)NULL)) on <var_callsite:nullable CallSite> */
+{ /* Inline kernel$Object$== (var_callsite,((val*)NULL)) on <var_callsite:nullable CallSite> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_callsite,var_other) on <var_callsite:nullable CallSite(CallSite)> */
+{ /* Inline kernel$Object$is_same_instance (var_callsite,var_other) on <var_callsite:nullable CallSite(CallSite)> */
 var8 = var_callsite == var_other;
 var6 = var8;
 goto RET_LABEL7;
@@ -1353,7 +1395,7 @@ var3 = var4;
 }
 if (var3){
 {
-{ /* Inline auto_super_init#AutoSuperInitVisitor#is_broken= (var_v,1) on <var_v:AutoSuperInitVisitor> */
+{ /* Inline auto_super_init$AutoSuperInitVisitor$is_broken= (var_v,1) on <var_v:AutoSuperInitVisitor> */
 var_v->attrs[COLOR_nitc__auto_super_init__AutoSuperInitVisitor___is_broken].s = 1; /* _is_broken on <var_v:AutoSuperInitVisitor> */
 RET_LABEL9:(void)0;
 }
@@ -1362,11 +1404,14 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline typing#CallSite#mproperty (var_callsite) on <var_callsite:nullable CallSite(CallSite)> */
+{ /* Inline typing$CallSite$mproperty (var_callsite) on <var_callsite:nullable CallSite(CallSite)> */
 var12 = var_callsite->attrs[COLOR_nitc__typing__CallSite___mproperty].val; /* _mproperty on <var_callsite:nullable CallSite(CallSite)> */
 if (unlikely(var12 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mproperty");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 653);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__typing, 656);
 fatal_exit(1);
 }
 var10 = var12;
@@ -1374,7 +1419,7 @@ RET_LABEL11:(void)0;
 }
 }
 {
-{ /* Inline model#MMethod#is_init (var10) on <var10:MMethod> */
+{ /* Inline model$MMethod$is_init (var10) on <var10:MMethod> */
 var15 = var10->attrs[COLOR_nitc__model__MMethod___is_init].s; /* _is_init on <var10:MMethod> */
 var13 = var15;
 RET_LABEL14:(void)0;
@@ -1382,7 +1427,7 @@ RET_LABEL14:(void)0;
 }
 if (var13){
 {
-{ /* Inline auto_super_init#AutoSuperInitVisitor#has_explicit_super_init= (var_v,self) on <var_v:AutoSuperInitVisitor> */
+{ /* Inline auto_super_init$AutoSuperInitVisitor$has_explicit_super_init= (var_v,self) on <var_v:AutoSuperInitVisitor> */
 var_v->attrs[COLOR_nitc__auto_super_init__AutoSuperInitVisitor___has_explicit_super_init].val = self; /* _has_explicit_super_init on <var_v:AutoSuperInitVisitor> */
 RET_LABEL16:(void)0;
 }
@@ -1391,12 +1436,12 @@ RET_LABEL16:(void)0;
 }
 RET_LABEL:;
 }
-/* method auto_super_init#ASuperExpr#accept_auto_super_init for (self: ASuperExpr, AutoSuperInitVisitor) */
+/* method auto_super_init$ASuperExpr$accept_auto_super_init for (self: ASuperExpr, AutoSuperInitVisitor) */
 void nitc__auto_super_init___ASuperExpr___ANode__accept_auto_super_init(val* self, val* p0) {
 val* var_v /* var v: AutoSuperInitVisitor */;
 var_v = p0;
 {
-{ /* Inline auto_super_init#AutoSuperInitVisitor#has_explicit_super_init= (var_v,self) on <var_v:AutoSuperInitVisitor> */
+{ /* Inline auto_super_init$AutoSuperInitVisitor$has_explicit_super_init= (var_v,self) on <var_v:AutoSuperInitVisitor> */
 var_v->attrs[COLOR_nitc__auto_super_init__AutoSuperInitVisitor___has_explicit_super_init].val = self; /* _has_explicit_super_init on <var_v:AutoSuperInitVisitor> */
 RET_LABEL1:(void)0;
 }

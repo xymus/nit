@@ -1,5 +1,5 @@
 #include "nitc__platform.sep.0.h"
-/* method platform#ToolContext#platform_from_name for (self: ToolContext, String): nullable Platform */
+/* method platform$ToolContext$platform_from_name for (self: ToolContext, String): nullable Platform */
 val* nitc__platform___ToolContext___platform_from_name(val* self, val* p0) {
 val* var /* : nullable Platform */;
 val* var_name /* var name: String */;
@@ -9,7 +9,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method platform#PlatformPhase#process_annotated_node for (self: PlatformPhase, ANode, AAnnotation) */
+/* method platform$PlatformPhase$process_annotated_node for (self: PlatformPhase, ANode, AAnnotation) */
 void nitc__platform___nitc__platform__PlatformPhase___nitc__phase__Phase__process_annotated_node(val* self, val* p0, val* p1) {
 val* var_nmoduledecl /* var nmoduledecl: ANode */;
 val* var_nat /* var nat: AAnnotation */;
@@ -45,7 +45,7 @@ val* var24 /* : String */;
 val* var25 /* : ANodes[AExpr] */;
 val* var27 /* : ANodes[AExpr] */;
 val* var_args /* var args: ANodes[AExpr] */;
-long var28 /* : Int */;
+int64_t var28 /* : Int */;
 short int var29 /* : Bool */;
 short int var31 /* : Bool */;
 int cltype32;
@@ -157,7 +157,7 @@ var_annotation_name = var;
 var3 = nitc___nitc__AAnnotation___name(var_nat);
 }
 {
-{ /* Inline kernel#Object#!= (var3,var_annotation_name) on <var3:String> */
+{ /* Inline kernel$Object$!= (var3,var_annotation_name) on <var3:String> */
 var_other = var_annotation_name;
 {
 var6 = ((short int(*)(val* self, val* p0))(var3->class->vft[COLOR_core__kernel__Object___61d_61d]))(var3, var_other); /* == on <var3:String>*/
@@ -173,9 +173,12 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline phase#Phase#toolcontext (self) on <self:PlatformPhase> */
+{ /* Inline phase$Phase$toolcontext (self) on <self:PlatformPhase> */
 var10 = self->attrs[COLOR_nitc__phase__Phase___toolcontext].val; /* _toolcontext on <self:PlatformPhase> */
 if (unlikely(var10 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__phase, 200);
 fatal_exit(1);
@@ -228,17 +231,20 @@ var24 = ((val*(*)(val* self))(var15->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce14 = var15;
 {
-nitc___nitc__ModelBuilder___error(var_modelbuilder, var_nat, var24); /* Direct call modelbuilder_base#ModelBuilder#error on <var_modelbuilder:ModelBuilder>*/
+nitc___nitc__ModelBuilder___error(var_modelbuilder, var_nat, var24); /* Direct call modelbuilder_base$ModelBuilder$error on <var_modelbuilder:ModelBuilder>*/
 }
 goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline parser_nodes#AAnnotation#n_args (var_nat) on <var_nat:AAnnotation> */
+{ /* Inline parser_nodes$AAnnotation$n_args (var_nat) on <var_nat:AAnnotation> */
 var27 = var_nat->attrs[COLOR_nitc__parser_nodes__AAnnotation___n_args].val; /* _n_args on <var_nat:AAnnotation> */
 if (unlikely(var27 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_args");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2926);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 2950);
 fatal_exit(1);
 }
 var25 = var27;
@@ -250,14 +256,14 @@ var_args = var25;
 var28 = nitc___nitc__ANodes___core__abstract_collection__Collection__length(var_args);
 }
 {
-{ /* Inline kernel#Int#> (var28,1l) on <var28:Int> */
+{ /* Inline kernel$Int$> (var28,1l) on <var28:Int> */
 /* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
 /* <1l:Int> isa OTHER */
 var31 = 1; /* easy <1l:Int> isa OTHER*/
 if (unlikely(!var31)) {
 var_class_name = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 730);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 727);
 fatal_exit(1);
 }
 var34 = var28 > 1l;
@@ -297,7 +303,7 @@ var45 = ((val*(*)(val* self))(var36->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce35 = var36;
 {
-nitc___nitc__ModelBuilder___error(var_modelbuilder, var_nat, var45); /* Direct call modelbuilder_base#ModelBuilder#error on <var_modelbuilder:ModelBuilder>*/
+nitc___nitc__ModelBuilder___error(var_modelbuilder, var_nat, var45); /* Direct call modelbuilder_base$ModelBuilder$error on <var_modelbuilder:ModelBuilder>*/
 }
 goto RET_LABEL;
 } else {
@@ -306,11 +312,14 @@ var46 = nitc___nitc__ANodes___core__abstract_collection__Collection__is_empty(va
 }
 if (var46){
 {
-{ /* Inline parser_nodes#AModuledecl#n_name (var_nmoduledecl) on <var_nmoduledecl:ANode(AModuledecl)> */
+{ /* Inline parser_nodes$AModuledecl$n_name (var_nmoduledecl) on <var_nmoduledecl:ANode(AModuledecl)> */
 var49 = var_nmoduledecl->attrs[COLOR_nitc__parser_nodes__AModuledecl___n_name].val; /* _n_name on <var_nmoduledecl:ANode(AModuledecl)> */
 if (unlikely(var49 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_name");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 1086);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 1096);
 fatal_exit(1);
 }
 var47 = var49;
@@ -370,7 +379,7 @@ var65 = ((val*(*)(val* self))(var56->class->vft[COLOR_core__abstract_text__Nativ
 varonce55 = var56;
 var_format_error = var65;
 {
-nitc___nitc__ModelBuilder___error(var_modelbuilder, var_nat, var_format_error); /* Direct call modelbuilder_base#ModelBuilder#error on <var_modelbuilder:ModelBuilder>*/
+nitc___nitc__ModelBuilder___error(var_modelbuilder, var_nat, var_format_error); /* Direct call modelbuilder_base$ModelBuilder$error on <var_modelbuilder:ModelBuilder>*/
 }
 goto RET_LABEL;
 } else {
@@ -378,7 +387,7 @@ goto RET_LABEL;
 }
 }
 {
-{ /* Inline parser_nodes#ANode#parent (var_nmoduledecl) on <var_nmoduledecl:ANode(AModuledecl)> */
+{ /* Inline parser_nodes$ANode$parent (var_nmoduledecl) on <var_nmoduledecl:ANode(AModuledecl)> */
 var68 = var_nmoduledecl->attrs[COLOR_nitc__parser_nodes__ANode___parent].val; /* _parent on <var_nmoduledecl:ANode(AModuledecl)> */
 var66 = var68;
 RET_LABEL67:(void)0;
@@ -404,7 +413,7 @@ fatal_exit(1);
 }
 var_nmodule = var66;
 {
-{ /* Inline loader#AModule#mmodule (var_nmodule) on <var_nmodule:AModule> */
+{ /* Inline loader$AModule$mmodule (var_nmodule) on <var_nmodule:AModule> */
 var75 = var_nmodule->attrs[COLOR_nitc__loader__AModule___mmodule].val; /* _mmodule on <var_nmodule:AModule> */
 var73 = var75;
 RET_LABEL74:(void)0;
@@ -412,9 +421,12 @@ RET_LABEL74:(void)0;
 }
 var_mmodule = var73;
 {
-{ /* Inline phase#Phase#toolcontext (self) on <self:PlatformPhase> */
+{ /* Inline phase$Phase$toolcontext (self) on <self:PlatformPhase> */
 var78 = self->attrs[COLOR_nitc__phase__Phase___toolcontext].val; /* _toolcontext on <self:PlatformPhase> */
 if (unlikely(var78 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__phase, 200);
 fatal_exit(1);
@@ -433,10 +445,10 @@ var80 = 1; /* is null */
 var80 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_platform,((val*)NULL)) on <var_platform:nullable Platform> */
+{ /* Inline kernel$Object$== (var_platform,((val*)NULL)) on <var_platform:nullable Platform> */
 var_other83 = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_platform,var_other83) on <var_platform:nullable Platform(Platform)> */
+{ /* Inline kernel$Object$is_same_instance (var_platform,var_other83) on <var_platform:nullable Platform(Platform)> */
 var86 = var_platform == var_other83;
 var84 = var86;
 goto RET_LABEL85;
@@ -451,9 +463,12 @@ var80 = var81;
 }
 if (var80){
 {
-{ /* Inline phase#Phase#toolcontext (self) on <self:PlatformPhase> */
+{ /* Inline phase$Phase$toolcontext (self) on <self:PlatformPhase> */
 var89 = self->attrs[COLOR_nitc__phase__Phase___toolcontext].val; /* _toolcontext on <self:PlatformPhase> */
 if (unlikely(var89 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__phase, 200);
 fatal_exit(1);
@@ -463,9 +478,12 @@ RET_LABEL88:(void)0;
 }
 }
 {
-{ /* Inline parser_nodes#ANode#location (var_nat) on <var_nat:AAnnotation> */
+{ /* Inline parser_nodes$ANode$location (var_nat) on <var_nat:AAnnotation> */
 var92 = var_nat->attrs[COLOR_nitc__parser_nodes__ANode___location].val; /* _location on <var_nat:AAnnotation> */
 if (unlikely(var92 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _location");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 24);
 fatal_exit(1);
@@ -510,6 +528,9 @@ goto RET_LABEL;
 } else {
 }
 if (var_mmodule == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__platform, 76);
 fatal_exit(1);
@@ -523,7 +544,7 @@ var107 = 0; /* is null */
 var107 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_previous_target_platform,((val*)NULL)) on <var_previous_target_platform:nullable Platform> */
+{ /* Inline kernel$Object$!= (var_previous_target_platform,((val*)NULL)) on <var_previous_target_platform:nullable Platform> */
 var_other = ((val*)NULL);
 {
 var110 = ((short int(*)(val* self, val* p0))(var_previous_target_platform->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_previous_target_platform, var_other); /* == on <var_previous_target_platform:nullable Platform(Platform)>*/
@@ -538,7 +559,7 @@ var107 = var108;
 var_ = var107;
 if (var107){
 {
-{ /* Inline kernel#Object#!= (var_previous_target_platform,var_platform) on <var_previous_target_platform:nullable Platform(Platform)> */
+{ /* Inline kernel$Object$!= (var_previous_target_platform,var_platform) on <var_previous_target_platform:nullable Platform(Platform)> */
 var_other = var_platform;
 {
 var114 = ((short int(*)(val* self, val* p0))(var_previous_target_platform->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_previous_target_platform, var_other); /* == on <var_previous_target_platform:nullable Platform(Platform)>*/
@@ -587,17 +608,23 @@ var127 = ((val*(*)(val* self))(var117->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce116 = var117;
 {
-nitc___nitc__ModelBuilder___error(var_modelbuilder, var_nat, var127); /* Direct call modelbuilder_base#ModelBuilder#error on <var_modelbuilder:ModelBuilder>*/
+nitc___nitc__ModelBuilder___error(var_modelbuilder, var_nat, var127); /* Direct call modelbuilder_base$ModelBuilder$error on <var_modelbuilder:ModelBuilder>*/
 }
 } else {
 }
 if (var_mmodule == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__platform, 81);
 fatal_exit(1);
 } else {
-{ /* Inline platform#MModule#local_target_platform= (var_mmodule,var_platform) on <var_mmodule:nullable MModule> */
+{ /* Inline platform$MModule$local_target_platform= (var_mmodule,var_platform) on <var_mmodule:nullable MModule> */
 if (unlikely(var_mmodule == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__platform, 86);
 fatal_exit(1);
@@ -608,7 +635,7 @@ RET_LABEL128:(void)0;
 }
 RET_LABEL:;
 }
-/* method platform#MModule#local_target_platform for (self: MModule): nullable Platform */
+/* method platform$MModule$local_target_platform for (self: MModule): nullable Platform */
 val* nitc__platform___MModule___local_target_platform(val* self) {
 val* var /* : nullable Platform */;
 val* var1 /* : nullable Platform */;
@@ -617,12 +644,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method platform#MModule#local_target_platform= for (self: MModule, nullable Platform) */
+/* method platform$MModule$local_target_platform= for (self: MModule, nullable Platform) */
 void nitc__platform___MModule___local_target_platform_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__platform__MModule___local_target_platform].val = p0; /* _local_target_platform on <self:MModule> */
 RET_LABEL:;
 }
-/* method platform#MModule#target_platform for (self: MModule): nullable Platform */
+/* method platform$MModule$target_platform for (self: MModule): nullable Platform */
 val* nitc__platform___MModule___target_platform(val* self) {
 val* var /* : nullable Platform */;
 val* var1 /* : nullable Platform */;
@@ -649,7 +676,7 @@ short int var21 /* : Bool */;
 short int var23 /* : Bool */;
 short int var24 /* : Bool */;
 {
-{ /* Inline platform#MModule#local_target_platform (self) on <self:MModule> */
+{ /* Inline platform$MModule$local_target_platform (self) on <self:MModule> */
 var3 = self->attrs[COLOR_nitc__platform__MModule___local_target_platform].val; /* _local_target_platform on <self:MModule> */
 var1 = var3;
 RET_LABEL2:(void)0;
@@ -662,7 +689,7 @@ var4 = 0; /* is null */
 var4 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_ltp,((val*)NULL)) on <var_ltp:nullable Platform> */
+{ /* Inline kernel$Object$!= (var_ltp,((val*)NULL)) on <var_ltp:nullable Platform> */
 var_other = ((val*)NULL);
 {
 var7 = ((short int(*)(val* self, val* p0))(var_ltp->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_ltp, var_other); /* == on <var_ltp:nullable Platform(Platform)>*/
@@ -680,11 +707,14 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline mmodule#MModule#in_importation (self) on <self:MModule> */
+{ /* Inline mmodule$MModule$in_importation (self) on <self:MModule> */
 var11 = self->attrs[COLOR_nitc__mmodule__MModule___in_importation].val; /* _in_importation on <self:MModule> */
 if (unlikely(var11 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _in_importation");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__mmodule, 104);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__mmodule, 108);
 fatal_exit(1);
 }
 var9 = var11;
@@ -696,23 +726,23 @@ var12 = poset___poset__POSetElement___greaters(var9);
 }
 var_ = var12;
 {
-var13 = ((val*(*)(val* self))((((long)var_&3)?class_info[((long)var_&3)]:var_->class)->vft[COLOR_core__abstract_collection__Collection__iterator]))(var_); /* iterator on <var_:Collection[MModule]>*/
+var13 = ((val*(*)(val* self))((((int64_t)var_&3)?class_info[((int64_t)var_&3)]:var_->class)->vft[COLOR_core__abstract_collection__Collection__iterator]))(var_); /* iterator on <var_:Collection[MModule]>*/
 }
 var_14 = var13;
 for(;;) {
 {
-var15 = ((short int(*)(val* self))((((long)var_14&3)?class_info[((long)var_14&3)]:var_14->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_14); /* is_ok on <var_14:Iterator[MModule]>*/
+var15 = ((short int(*)(val* self))((((int64_t)var_14&3)?class_info[((int64_t)var_14&3)]:var_14->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_14); /* is_ok on <var_14:Iterator[MModule]>*/
 }
 if (var15){
 } else {
 goto BREAK_label;
 }
 {
-var16 = ((val*(*)(val* self))((((long)var_14&3)?class_info[((long)var_14&3)]:var_14->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_14); /* item on <var_14:Iterator[MModule]>*/
+var16 = ((val*(*)(val* self))((((int64_t)var_14&3)?class_info[((int64_t)var_14&3)]:var_14->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_14); /* item on <var_14:Iterator[MModule]>*/
 }
 var_mmodule = var16;
 {
-{ /* Inline platform#MModule#local_target_platform (var_mmodule) on <var_mmodule:MModule> */
+{ /* Inline platform$MModule$local_target_platform (var_mmodule) on <var_mmodule:MModule> */
 var19 = var_mmodule->attrs[COLOR_nitc__platform__MModule___local_target_platform].val; /* _local_target_platform on <var_mmodule:MModule> */
 var17 = var19;
 RET_LABEL18:(void)0;
@@ -725,7 +755,7 @@ var20 = 0; /* is null */
 var20 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_ltp,((val*)NULL)) on <var_ltp:nullable Platform> */
+{ /* Inline kernel$Object$!= (var_ltp,((val*)NULL)) on <var_ltp:nullable Platform> */
 var_other = ((val*)NULL);
 {
 var23 = ((short int(*)(val* self, val* p0))(var_ltp->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_ltp, var_other); /* == on <var_ltp:nullable Platform(Platform)>*/
@@ -743,19 +773,19 @@ goto RET_LABEL;
 } else {
 }
 {
-((void(*)(val* self))((((long)var_14&3)?class_info[((long)var_14&3)]:var_14->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_14); /* next on <var_14:Iterator[MModule]>*/
+((void(*)(val* self))((((int64_t)var_14&3)?class_info[((int64_t)var_14&3)]:var_14->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_14); /* next on <var_14:Iterator[MModule]>*/
 }
 }
 BREAK_label: (void)0;
 {
-((void(*)(val* self))((((long)var_14&3)?class_info[((long)var_14&3)]:var_14->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_14); /* finish on <var_14:Iterator[MModule]>*/
+((void(*)(val* self))((((int64_t)var_14&3)?class_info[((int64_t)var_14&3)]:var_14->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_14); /* finish on <var_14:Iterator[MModule]>*/
 }
 var = ((val*)NULL);
 goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method platform#Platform#supports_libunwind for (self: Platform): Bool */
+/* method platform$Platform$supports_libunwind for (self: Platform): Bool */
 short int nitc___nitc__Platform___supports_libunwind(val* self) {
 short int var /* : Bool */;
 var = 1;
@@ -763,7 +793,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method platform#Platform#supports_libgc for (self: Platform): Bool */
+/* method platform$Platform$supports_libgc for (self: Platform): Bool */
 short int nitc___nitc__Platform___supports_libgc(val* self) {
 short int var /* : Bool */;
 var = 1;
@@ -771,7 +801,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method platform#Platform#no_main for (self: Platform): Bool */
+/* method platform$Platform$no_main for (self: Platform): Bool */
 short int nitc___nitc__Platform___no_main(val* self) {
 short int var /* : Bool */;
 var = 0;
@@ -779,7 +809,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method platform#Platform#supports_linker_script for (self: Platform): Bool */
+/* method platform$Platform$supports_linker_script for (self: Platform): Bool */
 short int nitc___nitc__Platform___supports_linker_script(val* self) {
 short int var /* : Bool */;
 var = 1;

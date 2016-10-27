@@ -1,10 +1,13 @@
 #include "nitc__c_tools.sep.0.h"
-/* method c_tools#CCompilationUnit#header_c_base for (self: CCompilationUnit): Template */
+/* method c_tools$CCompilationUnit$header_c_base for (self: CCompilationUnit): Template */
 val* nitc___nitc__CCompilationUnit___header_c_base(val* self) {
 val* var /* : Template */;
 val* var1 /* : Template */;
 var1 = self->attrs[COLOR_nitc__c_tools__CCompilationUnit___header_c_base].val; /* _header_c_base on <self:CCompilationUnit> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _header_c_base");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 24);
 fatal_exit(1);
@@ -13,12 +16,15 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#CCompilationUnit#header_custom for (self: CCompilationUnit): Template */
+/* method c_tools$CCompilationUnit$header_custom for (self: CCompilationUnit): Template */
 val* nitc___nitc__CCompilationUnit___header_custom(val* self) {
 val* var /* : Template */;
 val* var1 /* : Template */;
 var1 = self->attrs[COLOR_nitc__c_tools__CCompilationUnit___header_custom].val; /* _header_custom on <self:CCompilationUnit> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _header_custom");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 28);
 fatal_exit(1);
@@ -27,12 +33,15 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#CCompilationUnit#header_c_types for (self: CCompilationUnit): Template */
+/* method c_tools$CCompilationUnit$header_c_types for (self: CCompilationUnit): Template */
 val* nitc___nitc__CCompilationUnit___header_c_types(val* self) {
 val* var /* : Template */;
 val* var1 /* : Template */;
 var1 = self->attrs[COLOR_nitc__c_tools__CCompilationUnit___header_c_types].val; /* _header_c_types on <self:CCompilationUnit> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _header_c_types");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 31);
 fatal_exit(1);
@@ -41,12 +50,15 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#CCompilationUnit#header_decl for (self: CCompilationUnit): Template */
+/* method c_tools$CCompilationUnit$header_decl for (self: CCompilationUnit): Template */
 val* nitc___nitc__CCompilationUnit___header_decl(val* self) {
 val* var /* : Template */;
 val* var1 /* : Template */;
 var1 = self->attrs[COLOR_nitc__c_tools__CCompilationUnit___header_decl].val; /* _header_decl on <self:CCompilationUnit> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _header_decl");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 34);
 fatal_exit(1);
@@ -55,12 +67,15 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#CCompilationUnit#body_decl for (self: CCompilationUnit): Template */
+/* method c_tools$CCompilationUnit$body_decl for (self: CCompilationUnit): Template */
 val* nitc___nitc__CCompilationUnit___body_decl(val* self) {
 val* var /* : Template */;
 val* var1 /* : Template */;
 var1 = self->attrs[COLOR_nitc__c_tools__CCompilationUnit___body_decl].val; /* _body_decl on <self:CCompilationUnit> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _body_decl");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 37);
 fatal_exit(1);
@@ -69,12 +84,15 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#CCompilationUnit#body_custom for (self: CCompilationUnit): Template */
+/* method c_tools$CCompilationUnit$body_custom for (self: CCompilationUnit): Template */
 val* nitc___nitc__CCompilationUnit___body_custom(val* self) {
 val* var /* : Template */;
 val* var1 /* : Template */;
 var1 = self->attrs[COLOR_nitc__c_tools__CCompilationUnit___body_custom].val; /* _body_custom on <self:CCompilationUnit> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _body_custom");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 41);
 fatal_exit(1);
@@ -83,12 +101,15 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#CCompilationUnit#body_impl for (self: CCompilationUnit): Template */
+/* method c_tools$CCompilationUnit$body_impl for (self: CCompilationUnit): Template */
 val* nitc___nitc__CCompilationUnit___body_impl(val* self) {
 val* var /* : Template */;
 val* var1 /* : Template */;
 var1 = self->attrs[COLOR_nitc__c_tools__CCompilationUnit___body_impl].val; /* _body_impl on <self:CCompilationUnit> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _body_impl");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 44);
 fatal_exit(1);
@@ -97,12 +118,15 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#CCompilationUnit#files for (self: CCompilationUnit): Array[String] */
+/* method c_tools$CCompilationUnit$files for (self: CCompilationUnit): Array[String] */
 val* nitc___nitc__CCompilationUnit___files(val* self) {
 val* var /* : Array[String] */;
 val* var1 /* : Array[String] */;
 var1 = self->attrs[COLOR_nitc__c_tools__CCompilationUnit___files].val; /* _files on <self:CCompilationUnit> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _files");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 47);
 fatal_exit(1);
@@ -111,7 +135,7 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#CCompilationUnit#compile_header_core for (self: CCompilationUnit, Writer) */
+/* method c_tools$CCompilationUnit$compile_header_core for (self: CCompilationUnit, Writer) */
 void nitc___nitc__CCompilationUnit___compile_header_core(val* self, val* p0) {
 val* var_stream /* var stream: Writer */;
 val* var /* : Template */;
@@ -124,9 +148,12 @@ val* var9 /* : Template */;
 val* var11 /* : Template */;
 var_stream = p0;
 {
-{ /* Inline c_tools#CCompilationUnit#header_c_base (self) on <self:CCompilationUnit> */
+{ /* Inline c_tools$CCompilationUnit$header_c_base (self) on <self:CCompilationUnit> */
 var2 = self->attrs[COLOR_nitc__c_tools__CCompilationUnit___header_c_base].val; /* _header_c_base on <self:CCompilationUnit> */
 if (unlikely(var2 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _header_c_base");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 24);
 fatal_exit(1);
@@ -136,12 +163,15 @@ RET_LABEL1:(void)0;
 }
 }
 {
-template___template__Template___core__stream__Writable__write_to(var, var_stream); /* Direct call template#Template#write_to on <var:Template>*/
+template___template__Template___core__stream__Writable__write_to(var, var_stream); /* Direct call template$Template$write_to on <var:Template>*/
 }
 {
-{ /* Inline c_tools#CCompilationUnit#header_custom (self) on <self:CCompilationUnit> */
+{ /* Inline c_tools$CCompilationUnit$header_custom (self) on <self:CCompilationUnit> */
 var5 = self->attrs[COLOR_nitc__c_tools__CCompilationUnit___header_custom].val; /* _header_custom on <self:CCompilationUnit> */
 if (unlikely(var5 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _header_custom");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 28);
 fatal_exit(1);
@@ -151,12 +181,15 @@ RET_LABEL4:(void)0;
 }
 }
 {
-template___template__Template___core__stream__Writable__write_to(var3, var_stream); /* Direct call template#Template#write_to on <var3:Template>*/
+template___template__Template___core__stream__Writable__write_to(var3, var_stream); /* Direct call template$Template$write_to on <var3:Template>*/
 }
 {
-{ /* Inline c_tools#CCompilationUnit#header_c_types (self) on <self:CCompilationUnit> */
+{ /* Inline c_tools$CCompilationUnit$header_c_types (self) on <self:CCompilationUnit> */
 var8 = self->attrs[COLOR_nitc__c_tools__CCompilationUnit___header_c_types].val; /* _header_c_types on <self:CCompilationUnit> */
 if (unlikely(var8 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _header_c_types");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 31);
 fatal_exit(1);
@@ -166,12 +199,15 @@ RET_LABEL7:(void)0;
 }
 }
 {
-template___template__Template___core__stream__Writable__write_to(var6, var_stream); /* Direct call template#Template#write_to on <var6:Template>*/
+template___template__Template___core__stream__Writable__write_to(var6, var_stream); /* Direct call template$Template$write_to on <var6:Template>*/
 }
 {
-{ /* Inline c_tools#CCompilationUnit#header_decl (self) on <self:CCompilationUnit> */
+{ /* Inline c_tools$CCompilationUnit$header_decl (self) on <self:CCompilationUnit> */
 var11 = self->attrs[COLOR_nitc__c_tools__CCompilationUnit___header_decl].val; /* _header_decl on <self:CCompilationUnit> */
 if (unlikely(var11 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _header_decl");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 34);
 fatal_exit(1);
@@ -181,11 +217,11 @@ RET_LABEL10:(void)0;
 }
 }
 {
-template___template__Template___core__stream__Writable__write_to(var9, var_stream); /* Direct call template#Template#write_to on <var9:Template>*/
+template___template__Template___core__stream__Writable__write_to(var9, var_stream); /* Direct call template$Template$write_to on <var9:Template>*/
 }
 RET_LABEL:;
 }
-/* method c_tools#CCompilationUnit#compile_body_core for (self: CCompilationUnit, Writer) */
+/* method c_tools$CCompilationUnit$compile_body_core for (self: CCompilationUnit, Writer) */
 void nitc___nitc__CCompilationUnit___compile_body_core(val* self, val* p0) {
 val* var_stream /* var stream: Writer */;
 val* var /* : Template */;
@@ -196,9 +232,12 @@ val* var6 /* : Template */;
 val* var8 /* : Template */;
 var_stream = p0;
 {
-{ /* Inline c_tools#CCompilationUnit#body_decl (self) on <self:CCompilationUnit> */
+{ /* Inline c_tools$CCompilationUnit$body_decl (self) on <self:CCompilationUnit> */
 var2 = self->attrs[COLOR_nitc__c_tools__CCompilationUnit___body_decl].val; /* _body_decl on <self:CCompilationUnit> */
 if (unlikely(var2 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _body_decl");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 37);
 fatal_exit(1);
@@ -208,12 +247,15 @@ RET_LABEL1:(void)0;
 }
 }
 {
-template___template__Template___core__stream__Writable__write_to(var, var_stream); /* Direct call template#Template#write_to on <var:Template>*/
+template___template__Template___core__stream__Writable__write_to(var, var_stream); /* Direct call template$Template$write_to on <var:Template>*/
 }
 {
-{ /* Inline c_tools#CCompilationUnit#body_custom (self) on <self:CCompilationUnit> */
+{ /* Inline c_tools$CCompilationUnit$body_custom (self) on <self:CCompilationUnit> */
 var5 = self->attrs[COLOR_nitc__c_tools__CCompilationUnit___body_custom].val; /* _body_custom on <self:CCompilationUnit> */
 if (unlikely(var5 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _body_custom");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 41);
 fatal_exit(1);
@@ -223,12 +265,15 @@ RET_LABEL4:(void)0;
 }
 }
 {
-template___template__Template___core__stream__Writable__write_to(var3, var_stream); /* Direct call template#Template#write_to on <var3:Template>*/
+template___template__Template___core__stream__Writable__write_to(var3, var_stream); /* Direct call template$Template$write_to on <var3:Template>*/
 }
 {
-{ /* Inline c_tools#CCompilationUnit#body_impl (self) on <self:CCompilationUnit> */
+{ /* Inline c_tools$CCompilationUnit$body_impl (self) on <self:CCompilationUnit> */
 var8 = self->attrs[COLOR_nitc__c_tools__CCompilationUnit___body_impl].val; /* _body_impl on <self:CCompilationUnit> */
 if (unlikely(var8 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _body_impl");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 44);
 fatal_exit(1);
@@ -238,16 +283,19 @@ RET_LABEL7:(void)0;
 }
 }
 {
-template___template__Template___core__stream__Writable__write_to(var6, var_stream); /* Direct call template#Template#write_to on <var6:Template>*/
+template___template__Template___core__stream__Writable__write_to(var6, var_stream); /* Direct call template$Template$write_to on <var6:Template>*/
 }
 RET_LABEL:;
 }
-/* method c_tools#CFunction#signature for (self: CFunction): String */
+/* method c_tools$CFunction$signature for (self: CFunction): String */
 val* nitc___nitc__CFunction___signature(val* self) {
 val* var /* : String */;
 val* var1 /* : String */;
 var1 = self->attrs[COLOR_nitc__c_tools__CFunction___signature].val; /* _signature on <self:CFunction> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _signature");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 86);
 fatal_exit(1);
@@ -256,17 +304,20 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#CFunction#signature= for (self: CFunction, String) */
+/* method c_tools$CFunction$signature= for (self: CFunction, String) */
 void nitc___nitc__CFunction___signature_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__c_tools__CFunction___signature].val = p0; /* _signature on <self:CFunction> */
 RET_LABEL:;
 }
-/* method c_tools#CFunction#decls for (self: CFunction): Template */
+/* method c_tools$CFunction$decls for (self: CFunction): Template */
 val* nitc___nitc__CFunction___decls(val* self) {
 val* var /* : Template */;
 val* var1 /* : Template */;
 var1 = self->attrs[COLOR_nitc__c_tools__CFunction___decls].val; /* _decls on <self:CFunction> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _decls");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 88);
 fatal_exit(1);
@@ -275,12 +326,15 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#CFunction#exprs for (self: CFunction): Template */
+/* method c_tools$CFunction$exprs for (self: CFunction): Template */
 val* nitc___nitc__CFunction___exprs(val* self) {
 val* var /* : Template */;
 val* var1 /* : Template */;
 var1 = self->attrs[COLOR_nitc__c_tools__CFunction___exprs].val; /* _exprs on <self:CFunction> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _exprs");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 89);
 fatal_exit(1);
@@ -289,7 +343,7 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#CFunction#to_writer for (self: CFunction): Template */
+/* method c_tools$CFunction$to_writer for (self: CFunction): Template */
 val* nitc___nitc__CFunction___to_writer(val* self) {
 val* var /* : Template */;
 val* var1 /* : Template */;
@@ -318,9 +372,12 @@ var1 = NEW_template__Template(&type_template__Template);
 }
 var_w = var1;
 {
-{ /* Inline c_tools#CFunction#signature (self) on <self:CFunction> */
+{ /* Inline c_tools$CFunction$signature (self) on <self:CFunction> */
 var4 = self->attrs[COLOR_nitc__c_tools__CFunction___signature].val; /* _signature on <self:CFunction> */
 if (unlikely(var4 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _signature");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 86);
 fatal_exit(1);
@@ -330,7 +387,7 @@ RET_LABEL3:(void)0;
 }
 }
 {
-template___template__Template___add(var_w, var2); /* Direct call template#Template#add on <var_w:Template>*/
+template___template__Template___add(var_w, var2); /* Direct call template$Template$add on <var_w:Template>*/
 }
 if (likely(varonce!=NULL)) {
 var5 = varonce;
@@ -341,12 +398,15 @@ var5 = var7;
 varonce = var5;
 }
 {
-template___template__Template___add(var_w, var5); /* Direct call template#Template#add on <var_w:Template>*/
+template___template__Template___add(var_w, var5); /* Direct call template$Template$add on <var_w:Template>*/
 }
 {
-{ /* Inline c_tools#CFunction#decls (self) on <self:CFunction> */
+{ /* Inline c_tools$CFunction$decls (self) on <self:CFunction> */
 var10 = self->attrs[COLOR_nitc__c_tools__CFunction___decls].val; /* _decls on <self:CFunction> */
 if (unlikely(var10 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _decls");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 88);
 fatal_exit(1);
@@ -356,7 +416,7 @@ RET_LABEL9:(void)0;
 }
 }
 {
-template___template__Template___add(var_w, var8); /* Direct call template#Template#add on <var_w:Template>*/
+template___template__Template___add(var_w, var8); /* Direct call template$Template$add on <var_w:Template>*/
 }
 if (likely(varonce11!=NULL)) {
 var12 = varonce11;
@@ -367,12 +427,15 @@ var12 = var14;
 varonce11 = var12;
 }
 {
-template___template__Template___add(var_w, var12); /* Direct call template#Template#add on <var_w:Template>*/
+template___template__Template___add(var_w, var12); /* Direct call template$Template$add on <var_w:Template>*/
 }
 {
-{ /* Inline c_tools#CFunction#exprs (self) on <self:CFunction> */
+{ /* Inline c_tools$CFunction$exprs (self) on <self:CFunction> */
 var17 = self->attrs[COLOR_nitc__c_tools__CFunction___exprs].val; /* _exprs on <self:CFunction> */
 if (unlikely(var17 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _exprs");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 89);
 fatal_exit(1);
@@ -382,7 +445,7 @@ RET_LABEL16:(void)0;
 }
 }
 {
-template___template__Template___add(var_w, var15); /* Direct call template#Template#add on <var_w:Template>*/
+template___template__Template___add(var_w, var15); /* Direct call template$Template$add on <var_w:Template>*/
 }
 if (likely(varonce18!=NULL)) {
 var19 = varonce18;
@@ -393,26 +456,29 @@ var19 = var21;
 varonce18 = var19;
 }
 {
-template___template__Template___add(var_w, var19); /* Direct call template#Template#add on <var_w:Template>*/
+template___template__Template___add(var_w, var19); /* Direct call template$Template$add on <var_w:Template>*/
 }
 var = var_w;
 goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#CFunction#init for (self: CFunction) */
+/* method c_tools$CFunction$init for (self: CFunction) */
 void nitc___nitc__CFunction___core__kernel__Object__init(val* self) {
 {
 ((void(*)(val* self))(self->class->vft[COLOR_nitc___nitc__CFunction___core__kernel__Object__init]))(self); /* init on <self:CFunction>*/
 }
 RET_LABEL:;
 }
-/* method c_tools#ExternFile#filename for (self: ExternFile): String */
+/* method c_tools$ExternFile$filename for (self: ExternFile): String */
 val* nitc___nitc__ExternFile___filename(val* self) {
 val* var /* : String */;
 val* var1 /* : String */;
 var1 = self->attrs[COLOR_nitc__c_tools__ExternFile___filename].val; /* _filename on <self:ExternFile> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _filename");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 108);
 fatal_exit(1);
@@ -421,12 +487,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#ExternFile#filename= for (self: ExternFile, String) */
+/* method c_tools$ExternFile$filename= for (self: ExternFile, String) */
 void nitc___nitc__ExternFile___filename_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__c_tools__ExternFile___filename].val = p0; /* _filename on <self:ExternFile> */
 RET_LABEL:;
 }
-/* method c_tools#ExternFile#add_to_jar for (self: ExternFile): Bool */
+/* method c_tools$ExternFile$add_to_jar for (self: ExternFile): Bool */
 short int nitc___nitc__ExternFile___add_to_jar(val* self) {
 short int var /* : Bool */;
 var = 0;
@@ -434,12 +500,15 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#ExternFile#pkgconfigs for (self: ExternFile): Array[String] */
+/* method c_tools$ExternFile$pkgconfigs for (self: ExternFile): Array[String] */
 val* nitc___nitc__ExternFile___pkgconfigs(val* self) {
 val* var /* : Array[String] */;
 val* var1 /* : Array[String] */;
 var1 = self->attrs[COLOR_nitc__c_tools__ExternFile___pkgconfigs].val; /* _pkgconfigs on <self:ExternFile> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _pkgconfigs");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 123);
 fatal_exit(1);
@@ -448,19 +517,22 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#ExternFile#init for (self: ExternFile) */
+/* method c_tools$ExternFile$init for (self: ExternFile) */
 void nitc___nitc__ExternFile___core__kernel__Object__init(val* self) {
 {
 ((void(*)(val* self))(self->class->vft[COLOR_nitc___nitc__ExternFile___core__kernel__Object__init]))(self); /* init on <self:ExternFile>*/
 }
 RET_LABEL:;
 }
-/* method c_tools#ExternCFile#cflags for (self: ExternCFile): String */
+/* method c_tools$ExternCFile$cflags for (self: ExternCFile): String */
 val* nitc___nitc__ExternCFile___cflags(val* self) {
 val* var /* : String */;
 val* var1 /* : String */;
 var1 = self->attrs[COLOR_nitc__c_tools__ExternCFile___cflags].val; /* _cflags on <self:ExternCFile> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _cflags");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 132);
 fatal_exit(1);
@@ -469,21 +541,24 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#ExternCFile#cflags= for (self: ExternCFile, String) */
+/* method c_tools$ExternCFile$cflags= for (self: ExternCFile, String) */
 void nitc___nitc__ExternCFile___cflags_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__c_tools__ExternCFile___cflags].val = p0; /* _cflags on <self:ExternCFile> */
 RET_LABEL:;
 }
-/* method c_tools#ExternCFile#hash for (self: ExternCFile): Int */
-long nitc___nitc__ExternCFile___core__kernel__Object__hash(val* self) {
-long var /* : Int */;
+/* method c_tools$ExternCFile$hash for (self: ExternCFile): Int */
+int64_t nitc___nitc__ExternCFile___core__kernel__Object__hash(val* self) {
+int64_t var /* : Int */;
 val* var1 /* : String */;
 val* var3 /* : String */;
-long var4 /* : Int */;
+int64_t var4 /* : Int */;
 {
-{ /* Inline c_tools#ExternFile#filename (self) on <self:ExternCFile> */
+{ /* Inline c_tools$ExternFile$filename (self) on <self:ExternCFile> */
 var3 = self->attrs[COLOR_nitc__c_tools__ExternFile___filename].val; /* _filename on <self:ExternCFile> */
 if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _filename");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 108);
 fatal_exit(1);
@@ -493,14 +568,14 @@ RET_LABEL2:(void)0;
 }
 }
 {
-var4 = ((long(*)(val* self))(var1->class->vft[COLOR_core__kernel__Object__hash]))(var1); /* hash on <var1:String>*/
+var4 = ((int64_t(*)(val* self))(var1->class->vft[COLOR_core__kernel__Object__hash]))(var1); /* hash on <var1:String>*/
 }
 var = var4;
 goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#ExternCFile#== for (self: ExternCFile, nullable Object): Bool */
+/* method c_tools$ExternCFile$== for (self: ExternCFile, nullable Object): Bool */
 short int nitc___nitc__ExternCFile___core__kernel__Object___61d_61d(val* self, val* p0) {
 short int var /* : Bool */;
 val* var_o /* var o: nullable Object */;
@@ -521,18 +596,21 @@ idtype = type_nitc__ExternCFile.id;
 if(var_o == NULL) {
 var2 = 0;
 } else {
-if(cltype >= (((long)var_o&3)?type_info[((long)var_o&3)]:var_o->type)->table_size) {
+if(cltype >= (((int64_t)var_o&3)?type_info[((int64_t)var_o&3)]:var_o->type)->table_size) {
 var2 = 0;
 } else {
-var2 = (((long)var_o&3)?type_info[((long)var_o&3)]:var_o->type)->type_table[cltype] == idtype;
+var2 = (((int64_t)var_o&3)?type_info[((int64_t)var_o&3)]:var_o->type)->type_table[cltype] == idtype;
 }
 }
 var_ = var2;
 if (var2){
 {
-{ /* Inline c_tools#ExternFile#filename (self) on <self:ExternCFile> */
+{ /* Inline c_tools$ExternFile$filename (self) on <self:ExternCFile> */
 var5 = self->attrs[COLOR_nitc__c_tools__ExternFile___filename].val; /* _filename on <self:ExternCFile> */
 if (unlikely(var5 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _filename");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 108);
 fatal_exit(1);
@@ -542,9 +620,12 @@ RET_LABEL4:(void)0;
 }
 }
 {
-{ /* Inline c_tools#ExternFile#filename (var_o) on <var_o:nullable Object(ExternCFile)> */
+{ /* Inline c_tools$ExternFile$filename (var_o) on <var_o:nullable Object(ExternCFile)> */
 var8 = var_o->attrs[COLOR_nitc__c_tools__ExternFile___filename].val; /* _filename on <var_o:nullable Object(ExternCFile)> */
 if (unlikely(var8 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _filename");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 108);
 fatal_exit(1);
@@ -565,7 +646,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#ExternCFile#makefile_rule_name for (self: ExternCFile): String */
+/* method c_tools$ExternCFile$makefile_rule_name for (self: ExternCFile): String */
 val* nitc___nitc__ExternCFile___ExternFile__makefile_rule_name(val* self) {
 val* var /* : String */;
 val* var1 /* : String */;
@@ -585,9 +666,12 @@ val* var13 /* : String */;
 val* var14 /* : String */;
 val* var_res /* var res: String */;
 {
-{ /* Inline c_tools#ExternFile#filename (self) on <self:ExternCFile> */
+{ /* Inline c_tools$ExternFile$filename (self) on <self:ExternCFile> */
 var3 = self->attrs[COLOR_nitc__c_tools__ExternFile___filename].val; /* _filename on <self:ExternCFile> */
 if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _filename");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 108);
 fatal_exit(1);
@@ -634,7 +718,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#ExternCFile#makefile_rule_content for (self: ExternCFile): String */
+/* method c_tools$ExternCFile$makefile_rule_content for (self: ExternCFile): String */
 val* nitc___nitc__ExternCFile___ExternFile__makefile_rule_content(val* self) {
 val* var /* : String */;
 val* var1 /* : String */;
@@ -692,9 +776,12 @@ val* var51 /* : String */;
 val* var53 /* : String */;
 val* var54 /* : String */;
 {
-{ /* Inline c_tools#ExternFile#filename (self) on <self:ExternCFile> */
+{ /* Inline c_tools$ExternFile$filename (self) on <self:ExternCFile> */
 var3 = self->attrs[COLOR_nitc__c_tools__ExternFile___filename].val; /* _filename on <self:ExternCFile> */
 if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _filename");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 108);
 fatal_exit(1);
@@ -721,9 +808,12 @@ varonce = var6;
 }
 var_pkg = var6;
 {
-{ /* Inline c_tools#ExternFile#pkgconfigs (self) on <self:ExternCFile> */
+{ /* Inline c_tools$ExternFile$pkgconfigs (self) on <self:ExternCFile> */
 var11 = self->attrs[COLOR_nitc__c_tools__ExternFile___pkgconfigs].val; /* _pkgconfigs on <self:ExternCFile> */
 if (unlikely(var11 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _pkgconfigs");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 123);
 fatal_exit(1);
@@ -762,9 +852,12 @@ var15 = varonce14;
 varonce14 = NULL;
 }
 {
-{ /* Inline c_tools#ExternFile#pkgconfigs (self) on <self:ExternCFile> */
+{ /* Inline c_tools$ExternFile$pkgconfigs (self) on <self:ExternCFile> */
 var26 = self->attrs[COLOR_nitc__c_tools__ExternFile___pkgconfigs].val; /* _pkgconfigs on <self:ExternCFile> */
 if (unlikely(var26 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _pkgconfigs");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 123);
 fatal_exit(1);
@@ -782,7 +875,7 @@ var28 = var30;
 varonce27 = var28;
 }
 {
-var31 = core__abstract_text___Collection___join(var24, var28);
+var31 = core__abstract_text___Collection___join(var24, var28, ((val*)NULL));
 }
 ((struct instance_core__NativeArray*)var15)->values[1]=var31;
 {
@@ -835,9 +928,12 @@ var34 = varonce33;
 varonce33 = NULL;
 }
 {
-{ /* Inline c_tools#ExternCFile#cflags (self) on <self:ExternCFile> */
+{ /* Inline c_tools$ExternCFile$cflags (self) on <self:ExternCFile> */
 var53 = self->attrs[COLOR_nitc__c_tools__ExternCFile___cflags].val; /* _cflags on <self:ExternCFile> */
 if (unlikely(var53 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _cflags");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 132);
 fatal_exit(1);
@@ -859,7 +955,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#ExternCFile#compiles_to_o_file for (self: ExternCFile): Bool */
+/* method c_tools$ExternCFile$compiles_to_o_file for (self: ExternCFile): Bool */
 short int nitc___nitc__ExternCFile___ExternFile__compiles_to_o_file(val* self) {
 short int var /* : Bool */;
 var = 1;
@@ -867,7 +963,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method c_tools#ExternCFile#init for (self: ExternCFile) */
+/* method c_tools$ExternCFile$init for (self: ExternCFile) */
 void nitc___nitc__ExternCFile___core__kernel__Object__init(val* self) {
 {
 ((void(*)(val* self))(self->class->vft[COLOR_nitc___nitc__ExternCFile___core__kernel__Object__init]))(self); /* init on <self:ExternCFile>*/

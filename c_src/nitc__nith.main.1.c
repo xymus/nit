@@ -62,6 +62,7 @@ extern void nitni_global_ref_decr( struct nitni_ref *ref ) {
 int glob_argc;
 char **glob_argv;
 val *glob_sys;
+struct catch_stack_t catchStack;
 static void show_backtrace(void) {
 #ifndef NO_STACKTRACE
 char* opt = getenv("NIT_NO_STACK");
@@ -90,10 +91,16 @@ free(procname);
 #endif /* NO_STACKTRACE */
 }
 void sig_handler(int signo){
+#ifdef _WIN32
+PRINT_ERROR("Caught signal : %s\n", signo);
+#else
 PRINT_ERROR("Caught signal : %s\n", strsignal(signo));
+#endif
 show_backtrace();
 signal(signo, SIG_DFL);
+#ifndef _WIN32
 kill(getpid(), signo);
+#endif
 }
 void fatal_exit(int status) {
 show_backtrace();
@@ -101,7 +108,7 @@ exit(status);
 }
 int main(int argc, char** argv) {
 val* var /* : Sys */;
-#ifndef ANDROID
+#if !defined(__ANDROID__) && !defined(TARGET_OS_IPHONE)
 signal(SIGABRT, sig_handler);
 signal(SIGFPE, sig_handler);
 signal(SIGILL, sig_handler);
@@ -109,8 +116,11 @@ signal(SIGINT, sig_handler);
 signal(SIGTERM, sig_handler);
 signal(SIGSEGV, sig_handler);
 #endif
+#ifndef _WIN32
 signal(SIGPIPE, SIG_IGN);
+#endif
 glob_argc = argc; glob_argv = argv;
+catchStack.cursor = -1;
 initialize_gc_option();
 initialize_nitni_global_refs();
 var = NEW_core__Sys(&type_core__Sys);
@@ -132,6 +142,8 @@ const char FILE_nitc__loader[] = "./loader.nit";
 const char FILE_nitc__modelbuilder_base[] = "./modelbuilder_base.nit";
 const char FILE_nitc__model[] = "./model/model.nit";
 const char FILE_nitc__mmodule[] = "./model/mmodule.nit";
+const char FILE_nitc__mpackage[] = "./model/mpackage.nit";
+const char FILE_nitc__model_base[] = "./model/model_base.nit";
 const char FILE_nitc__location[] = "./location.nit";
 const char FILE_core[] = "../lib/core/core.nit";
 const char FILE_core__posix[] = "../lib/core/posix.nit";
@@ -160,6 +172,7 @@ const char FILE_core__bytes[] = "../lib/core/bytes.nit";
 const char FILE_core__codecs[] = "../lib/core/codecs/codecs.nit";
 const char FILE_core__codec_base[] = "../lib/core/codecs/codec_base.nit";
 const char FILE_core__utf8[] = "../lib/core/codecs/utf8.nit";
+const char FILE_core__iso8859_95d1[] = "../lib/core/codecs/iso8859_1.nit";
 const char FILE_core__time[] = "../lib/core/time.nit";
 const char FILE_core__gc[] = "../lib/core/gc.nit";
 const char FILE_core__exec[] = "../lib/core/exec.nit";
@@ -168,8 +181,6 @@ const char FILE_core__queue[] = "../lib/core/queue.nit";
 const char FILE_core__numeric[] = "../lib/core/numeric.nit";
 const char FILE_core__re[] = "../lib/core/re.nit";
 const char FILE_core__fixed_ints[] = "../lib/core/fixed_ints.nit";
-const char FILE_nitc__mpackage[] = "./model/mpackage.nit";
-const char FILE_nitc__model_base[] = "./model/model_base.nit";
 const char FILE_more_collections[] = "../lib/more_collections.nit";
 const char FILE_serialization[] = "../lib/serialization/serialization.nit";
 const char FILE_poset[] = "../lib/poset.nit";

@@ -1,5 +1,5 @@
 #include "nitc__light_ffi.sep.0.h"
-/* method light_ffi#MModule#uses_ffi for (self: MModule): Bool */
+/* method light_ffi$MModule$uses_ffi for (self: MModule): Bool */
 short int nitc__light_ffi___MModule___uses_ffi(val* self) {
 short int var /* : Bool */;
 short int var1 /* : Bool */;
@@ -8,12 +8,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method light_ffi#MModule#uses_ffi= for (self: MModule, Bool) */
+/* method light_ffi$MModule$uses_ffi= for (self: MModule, Bool) */
 void nitc__light_ffi___MModule___uses_ffi_61d(val* self, short int p0) {
 self->attrs[COLOR_nitc__light_ffi__MModule___uses_ffi].s = p0; /* _uses_ffi on <self:MModule> */
 RET_LABEL:;
 }
-/* method light_ffi#MModule#ffi_ccu for (self: MModule): nullable CCompilationUnit */
+/* method light_ffi$MModule$ffi_ccu for (self: MModule): nullable CCompilationUnit */
 val* nitc__light_ffi___MModule___ffi_ccu(val* self) {
 val* var /* : nullable CCompilationUnit */;
 val* var1 /* : nullable CCompilationUnit */;
@@ -22,17 +22,20 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method light_ffi#MModule#ffi_ccu= for (self: MModule, nullable CCompilationUnit) */
+/* method light_ffi$MModule$ffi_ccu= for (self: MModule, nullable CCompilationUnit) */
 void nitc__light_ffi___MModule___ffi_ccu_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__light_ffi__MModule___ffi_ccu].val = p0; /* _ffi_ccu on <self:MModule> */
 RET_LABEL:;
 }
-/* method light_ffi#MModule#present_languages for (self: MModule): HashSet[FFILanguage] */
+/* method light_ffi$MModule$present_languages for (self: MModule): HashSet[FFILanguage] */
 val* nitc__light_ffi___MModule___present_languages(val* self) {
 val* var /* : HashSet[FFILanguage] */;
 val* var1 /* : HashSet[FFILanguage] */;
 var1 = self->attrs[COLOR_nitc__light_ffi__MModule___present_languages].val; /* _present_languages on <self:MModule> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _present_languages");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 50);
 fatal_exit(1);
@@ -41,7 +44,7 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method light_ffi#MModule#finalize_ffi_wrapper for (self: MModule, String, MModule) */
+/* method light_ffi$MModule$finalize_ffi_wrapper for (self: MModule, String, MModule) */
 void nitc__light_ffi___MModule___finalize_ffi_wrapper(val* self, val* p0, val* p1) {
 val* var_compdir /* var compdir: String */;
 val* var_mainmodule /* var mainmodule: MModule */;
@@ -81,9 +84,12 @@ val* var34 /* : Array[ExternFile] */;
 var_compdir = p0;
 var_mainmodule = p1;
 {
-{ /* Inline light_c#MModule#cflags (self) on <self:MModule> */
+{ /* Inline light_c$MModule$cflags (self) on <self:MModule> */
 var2 = self->attrs[COLOR_nitc__light_c__MModule___cflags].val; /* _cflags on <self:MModule> */
 if (unlikely(var2 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _cflags");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_c, 77);
 fatal_exit(1);
@@ -112,43 +118,55 @@ var8 = var10;
 varonce7 = var8;
 }
 {
-var11 = core__abstract_text___Collection___join(var6, var8);
+var11 = core__abstract_text___Collection___join(var6, var8, ((val*)NULL));
 }
 var_cflags = var11;
 {
-{ /* Inline light_ffi#MModule#ffi_ccu (self) on <self:MModule> */
+{ /* Inline light_ffi$MModule$ffi_ccu (self) on <self:MModule> */
 var14 = self->attrs[COLOR_nitc__light_ffi__MModule___ffi_ccu].val; /* _ffi_ccu on <self:MModule> */
 var12 = var14;
 RET_LABEL13:(void)0;
 }
 }
 if (var12 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 58);
 fatal_exit(1);
 } else {
-nitc__light_ffi_base___CCompilationUnit___write_as_impl(var12, self, var_compdir); /* Direct call light_ffi_base#CCompilationUnit#write_as_impl on <var12:nullable CCompilationUnit>*/
+nitc__light_ffi_base___CCompilationUnit___write_as_impl(var12, self, var_compdir); /* Direct call light_ffi_base$CCompilationUnit$write_as_impl on <var12:nullable CCompilationUnit>*/
 }
 {
-{ /* Inline light_ffi#MModule#ffi_ccu (self) on <self:MModule> */
+{ /* Inline light_ffi$MModule$ffi_ccu (self) on <self:MModule> */
 var17 = self->attrs[COLOR_nitc__light_ffi__MModule___ffi_ccu].val; /* _ffi_ccu on <self:MModule> */
 var15 = var17;
 RET_LABEL16:(void)0;
 }
 }
 if (var15 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 59);
 fatal_exit(1);
 } else {
-{ /* Inline c_tools#CCompilationUnit#files (var15) on <var15:nullable CCompilationUnit> */
+{ /* Inline c_tools$CCompilationUnit$files (var15) on <var15:nullable CCompilationUnit> */
 if (unlikely(var15 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 47);
 fatal_exit(1);
 }
 var20 = var15->attrs[COLOR_nitc__c_tools__CCompilationUnit___files].val; /* _files on <var15:nullable CCompilationUnit> */
 if (unlikely(var20 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _files");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 47);
 fatal_exit(1);
@@ -164,14 +182,14 @@ var21 = core___core__AbstractArrayRead___core__abstract_collection__Collection__
 var_22 = var21;
 for(;;) {
 {
-var23 = ((short int(*)(val* self))((((long)var_22&3)?class_info[((long)var_22&3)]:var_22->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_22); /* is_ok on <var_22:IndexedIterator[String]>*/
+var23 = ((short int(*)(val* self))((((int64_t)var_22&3)?class_info[((int64_t)var_22&3)]:var_22->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_22); /* is_ok on <var_22:IndexedIterator[String]>*/
 }
 if (var23){
 } else {
 goto BREAK_label;
 }
 {
-var24 = ((val*(*)(val* self))((((long)var_22&3)?class_info[((long)var_22&3)]:var_22->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_22); /* item on <var_22:IndexedIterator[String]>*/
+var24 = ((val*(*)(val* self))((((int64_t)var_22&3)?class_info[((int64_t)var_22&3)]:var_22->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_22); /* item on <var_22:IndexedIterator[String]>*/
 }
 var_filename = var24;
 var25 = NEW_nitc__ExternCFile(&type_nitc__ExternCFile);
@@ -186,9 +204,12 @@ var25 = NEW_nitc__ExternCFile(&type_nitc__ExternCFile);
 }
 var_f = var25;
 {
-{ /* Inline c_tools#ExternFile#pkgconfigs (var_f) on <var_f:ExternCFile> */
+{ /* Inline c_tools$ExternFile$pkgconfigs (var_f) on <var_f:ExternCFile> */
 var28 = var_f->attrs[COLOR_nitc__c_tools__ExternFile___pkgconfigs].val; /* _pkgconfigs on <var_f:ExternCFile> */
 if (unlikely(var28 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _pkgconfigs");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 123);
 fatal_exit(1);
@@ -198,9 +219,12 @@ RET_LABEL27:(void)0;
 }
 }
 {
-{ /* Inline light_c#MModule#pkgconfigs (self) on <self:MModule> */
+{ /* Inline light_c$MModule$pkgconfigs (self) on <self:MModule> */
 var31 = self->attrs[COLOR_nitc__light_c__MModule___pkgconfigs].val; /* _pkgconfigs on <self:MModule> */
 if (unlikely(var31 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _pkgconfigs");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_c, 83);
 fatal_exit(1);
@@ -210,12 +234,15 @@ RET_LABEL30:(void)0;
 }
 }
 {
-core___core__Array___core__abstract_collection__SimpleCollection__add_all(var26, var29); /* Direct call array#Array#add_all on <var26:Array[String]>*/
+core___core__Array___core__abstract_collection__SimpleCollection__add_all(var26, var29); /* Direct call array$Array$add_all on <var26:Array[String]>*/
 }
 {
-{ /* Inline light_ffi_base#MModule#ffi_files (self) on <self:MModule> */
+{ /* Inline light_ffi_base$MModule$ffi_files (self) on <self:MModule> */
 var34 = self->attrs[COLOR_nitc__light_ffi_base__MModule___ffi_files].val; /* _ffi_files on <self:MModule> */
 if (unlikely(var34 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _ffi_files");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi_base, 82);
 fatal_exit(1);
@@ -225,24 +252,27 @@ RET_LABEL33:(void)0;
 }
 }
 {
-core___core__Array___core__abstract_collection__SimpleCollection__add(var32, var_f); /* Direct call array#Array#add on <var32:Array[ExternFile]>*/
+core___core__Array___core__abstract_collection__SimpleCollection__add(var32, var_f); /* Direct call array$Array$add on <var32:Array[ExternFile]>*/
 }
 {
-((void(*)(val* self))((((long)var_22&3)?class_info[((long)var_22&3)]:var_22->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_22); /* next on <var_22:IndexedIterator[String]>*/
+((void(*)(val* self))((((int64_t)var_22&3)?class_info[((int64_t)var_22&3)]:var_22->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_22); /* next on <var_22:IndexedIterator[String]>*/
 }
 }
 BREAK_label: (void)0;
 {
-((void(*)(val* self))((((long)var_22&3)?class_info[((long)var_22&3)]:var_22->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_22); /* finish on <var_22:IndexedIterator[String]>*/
+((void(*)(val* self))((((int64_t)var_22&3)?class_info[((int64_t)var_22&3)]:var_22->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_22); /* finish on <var_22:IndexedIterator[String]>*/
 }
 RET_LABEL:;
 }
-/* method light_ffi#MModule#compiled_ffi_methods for (self: MModule): HashSet[AMethPropdef] */
+/* method light_ffi$MModule$compiled_ffi_methods for (self: MModule): HashSet[AMethPropdef] */
 val* nitc__light_ffi___MModule___compiled_ffi_methods(val* self) {
 val* var /* : HashSet[AMethPropdef] */;
 val* var1 /* : HashSet[AMethPropdef] */;
 var1 = self->attrs[COLOR_nitc__light_ffi__MModule___compiled_ffi_methods].val; /* _compiled_ffi_methods on <self:MModule> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _compiled_ffi_methods");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 66);
 fatal_exit(1);
@@ -251,7 +281,7 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method light_ffi#AModule#ensure_compile_ffi_wrapper for (self: AModule) */
+/* method light_ffi$AModule$ensure_compile_ffi_wrapper for (self: AModule) */
 void nitc__light_ffi___AModule___ensure_compile_ffi_wrapper(val* self) {
 val* var /* : nullable MModule */;
 val* var2 /* : nullable MModule */;
@@ -380,7 +410,7 @@ val* var_m /* var m: AClassdef */;
 val* var_ecc /* var ecc: CCompilationUnit */;
 val* var_mmodule144 /* var mmodule: MModule */;
 {
-{ /* Inline loader#AModule#mmodule (self) on <self:AModule> */
+{ /* Inline loader$AModule$mmodule (self) on <self:AModule> */
 var2 = self->attrs[COLOR_nitc__loader__AModule___mmodule].val; /* _mmodule on <self:AModule> */
 var = var2;
 RET_LABEL1:(void)0;
@@ -393,10 +423,10 @@ var4 = 1; /* is null */
 var4 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_mmodule,((val*)NULL)) on <var_mmodule:nullable MModule> */
+{ /* Inline kernel$Object$== (var_mmodule,((val*)NULL)) on <var_mmodule:nullable MModule> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_mmodule,var_other) on <var_mmodule:nullable MModule(MModule)> */
+{ /* Inline kernel$Object$is_same_instance (var_mmodule,var_other) on <var_mmodule:nullable MModule(MModule)> */
 var9 = var_mmodule == var_other;
 var7 = var9;
 goto RET_LABEL8;
@@ -414,7 +444,7 @@ if (var4){
 var3 = var_;
 } else {
 {
-{ /* Inline light_ffi#MModule#ffi_ccu (var_mmodule) on <var_mmodule:nullable MModule(MModule)> */
+{ /* Inline light_ffi$MModule$ffi_ccu (var_mmodule) on <var_mmodule:nullable MModule(MModule)> */
 var12 = var_mmodule->attrs[COLOR_nitc__light_ffi__MModule___ffi_ccu].val; /* _ffi_ccu on <var_mmodule:nullable MModule(MModule)> */
 var10 = var12;
 RET_LABEL11:(void)0;
@@ -426,7 +456,7 @@ var13 = 0; /* is null */
 var13 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var10,((val*)NULL)) on <var10:nullable CCompilationUnit> */
+{ /* Inline kernel$Object$!= (var10,((val*)NULL)) on <var10:nullable CCompilationUnit> */
 var_other16 = ((val*)NULL);
 {
 var17 = ((short int(*)(val* self, val* p0))(var10->class->vft[COLOR_core__kernel__Object___61d_61d]))(var10, var_other16); /* == on <var10:nullable CCompilationUnit(CCompilationUnit)>*/
@@ -446,23 +476,26 @@ goto RET_LABEL;
 }
 var19 = NEW_nitc__CCompilationUnit(&type_nitc__CCompilationUnit);
 {
-{ /* Inline kernel#Object#init (var19) on <var19:CCompilationUnit> */
+{ /* Inline kernel$Object$init (var19) on <var19:CCompilationUnit> */
 RET_LABEL20:(void)0;
 }
 }
 var_ffi_ccu = var19;
 {
-{ /* Inline light_ffi#MModule#ffi_ccu= (var_mmodule,var_ffi_ccu) on <var_mmodule:nullable MModule(MModule)> */
+{ /* Inline light_ffi$MModule$ffi_ccu= (var_mmodule,var_ffi_ccu) on <var_mmodule:nullable MModule(MModule)> */
 var_mmodule->attrs[COLOR_nitc__light_ffi__MModule___ffi_ccu].val = var_ffi_ccu; /* _ffi_ccu on <var_mmodule:nullable MModule(MModule)> */
 RET_LABEL21:(void)0;
 }
 }
 {
-{ /* Inline parser_nodes#AModule#n_extern_code_blocks (self) on <self:AModule> */
+{ /* Inline parser_nodes$AModule$n_extern_code_blocks (self) on <self:AModule> */
 var24 = self->attrs[COLOR_nitc__parser_nodes__AModule___n_extern_code_blocks].val; /* _n_extern_code_blocks on <self:AModule> */
 if (unlikely(var24 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_extern_code_blocks");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 1059);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 1069);
 fatal_exit(1);
 }
 var22 = var24;
@@ -476,18 +509,18 @@ var26 = nitc___nitc__ANodes___core__abstract_collection__Collection__iterator(va
 var_27 = var26;
 for(;;) {
 {
-var28 = ((short int(*)(val* self))((((long)var_27&3)?class_info[((long)var_27&3)]:var_27->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_27); /* is_ok on <var_27:Iterator[AExternCodeBlock]>*/
+var28 = ((short int(*)(val* self))((((int64_t)var_27&3)?class_info[((int64_t)var_27&3)]:var_27->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_27); /* is_ok on <var_27:Iterator[AExternCodeBlock]>*/
 }
 if (var28){
 } else {
 goto BREAK_label;
 }
 {
-var29 = ((val*(*)(val* self))((((long)var_27&3)?class_info[((long)var_27&3)]:var_27->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_27); /* item on <var_27:Iterator[AExternCodeBlock]>*/
+var29 = ((val*(*)(val* self))((((int64_t)var_27&3)?class_info[((int64_t)var_27&3)]:var_27->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_27); /* item on <var_27:Iterator[AExternCodeBlock]>*/
 }
 var_block = var29;
 {
-{ /* Inline light_ffi_base#AExternCodeBlock#language (var_block) on <var_block:AExternCodeBlock> */
+{ /* Inline light_ffi_base$AExternCodeBlock$language (var_block) on <var_block:AExternCodeBlock> */
 var32 = var_block->attrs[COLOR_nitc__light_ffi_base__AExternCodeBlock___language].val; /* _language on <var_block:AExternCodeBlock> */
 var30 = var32;
 RET_LABEL31:(void)0;
@@ -500,7 +533,7 @@ var33 = 0; /* is null */
 var33 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_language,((val*)NULL)) on <var_language:nullable FFILanguage> */
+{ /* Inline kernel$Object$!= (var_language,((val*)NULL)) on <var_language:nullable FFILanguage> */
 var_other16 = ((val*)NULL);
 {
 var36 = ((short int(*)(val* self, val* p0))(var_language->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_language, var_other16); /* == on <var_language:nullable FFILanguage(FFILanguage)>*/
@@ -513,14 +546,20 @@ RET_LABEL35:(void)0;
 var33 = var34;
 }
 if (unlikely(!var33)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Assert failed");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 88);
 fatal_exit(1);
 }
 {
-{ /* Inline light_ffi#MModule#present_languages (var_mmodule) on <var_mmodule:nullable MModule(MModule)> */
+{ /* Inline light_ffi$MModule$present_languages (var_mmodule) on <var_mmodule:nullable MModule(MModule)> */
 var40 = var_mmodule->attrs[COLOR_nitc__light_ffi__MModule___present_languages].val; /* _present_languages on <var_mmodule:nullable MModule(MModule)> */
 if (unlikely(var40 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _present_languages");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 50);
 fatal_exit(1);
@@ -530,23 +569,26 @@ RET_LABEL39:(void)0;
 }
 }
 {
-core___core__HashSet___core__abstract_collection__SimpleCollection__add(var38, var_language); /* Direct call hash_collection#HashSet#add on <var38:HashSet[FFILanguage]>*/
+core___core__HashSet___core__abstract_collection__SimpleCollection__add(var38, var_language); /* Direct call hash_collection$HashSet$add on <var38:HashSet[FFILanguage]>*/
 }
 {
-nitc___nitc__CLanguage___nitc__light_ffi_base__FFILanguage__compile_module_block(var_language, var_block, var_ffi_ccu, var_mmodule); /* Direct call light_c#CLanguage#compile_module_block on <var_language:nullable FFILanguage(FFILanguage)>*/
+nitc___nitc__CLanguage___nitc__light_ffi_base__FFILanguage__compile_module_block(var_language, var_block, var_ffi_ccu, var_mmodule); /* Direct call light_c$CLanguage$compile_module_block on <var_language:nullable FFILanguage(FFILanguage)>*/
 }
 {
-((void(*)(val* self))((((long)var_27&3)?class_info[((long)var_27&3)]:var_27->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_27); /* next on <var_27:Iterator[AExternCodeBlock]>*/
+((void(*)(val* self))((((int64_t)var_27&3)?class_info[((int64_t)var_27&3)]:var_27->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_27); /* next on <var_27:Iterator[AExternCodeBlock]>*/
 }
 }
 BREAK_label: (void)0;
 {
-((void(*)(val* self))((((long)var_27&3)?class_info[((long)var_27&3)]:var_27->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_27); /* finish on <var_27:Iterator[AExternCodeBlock]>*/
+((void(*)(val* self))((((int64_t)var_27&3)?class_info[((int64_t)var_27&3)]:var_27->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_27); /* finish on <var_27:Iterator[AExternCodeBlock]>*/
 }
 {
-{ /* Inline c_tools#CCompilationUnit#header_c_base (var_ffi_ccu) on <var_ffi_ccu:CCompilationUnit> */
+{ /* Inline c_tools$CCompilationUnit$header_c_base (var_ffi_ccu) on <var_ffi_ccu:CCompilationUnit> */
 var43 = var_ffi_ccu->attrs[COLOR_nitc__c_tools__CCompilationUnit___header_c_base].val; /* _header_c_base on <var_ffi_ccu:CCompilationUnit> */
 if (unlikely(var43 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _header_c_base");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 24);
 fatal_exit(1);
@@ -588,12 +630,15 @@ var54 = ((val*(*)(val* self))(var44->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce = var44;
 {
-template___template__Template___add(var41, var54); /* Direct call template#Template#add on <var41:Template>*/
+template___template__Template___add(var41, var54); /* Direct call template$Template$add on <var41:Template>*/
 }
 {
-{ /* Inline c_tools#CCompilationUnit#body_decl (var_ffi_ccu) on <var_ffi_ccu:CCompilationUnit> */
+{ /* Inline c_tools$CCompilationUnit$body_decl (var_ffi_ccu) on <var_ffi_ccu:CCompilationUnit> */
 var57 = var_ffi_ccu->attrs[COLOR_nitc__c_tools__CCompilationUnit___body_decl].val; /* _body_decl on <var_ffi_ccu:CCompilationUnit> */
 if (unlikely(var57 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _body_decl");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 37);
 fatal_exit(1);
@@ -611,12 +656,15 @@ var59 = var61;
 varonce58 = var59;
 }
 {
-template___template__Template___add(var55, var59); /* Direct call template#Template#add on <var55:Template>*/
+template___template__Template___add(var55, var59); /* Direct call template$Template$add on <var55:Template>*/
 }
 {
-{ /* Inline c_tools#CCompilationUnit#body_decl (var_ffi_ccu) on <var_ffi_ccu:CCompilationUnit> */
+{ /* Inline c_tools$CCompilationUnit$body_decl (var_ffi_ccu) on <var_ffi_ccu:CCompilationUnit> */
 var64 = var_ffi_ccu->attrs[COLOR_nitc__c_tools__CCompilationUnit___body_decl].val; /* _body_decl on <var_ffi_ccu:CCompilationUnit> */
 if (unlikely(var64 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _body_decl");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 37);
 fatal_exit(1);
@@ -634,12 +682,15 @@ var66 = var68;
 varonce65 = var66;
 }
 {
-template___template__Template___add(var62, var66); /* Direct call template#Template#add on <var62:Template>*/
+template___template__Template___add(var62, var66); /* Direct call template$Template$add on <var62:Template>*/
 }
 {
-{ /* Inline c_tools#CCompilationUnit#body_decl (var_ffi_ccu) on <var_ffi_ccu:CCompilationUnit> */
+{ /* Inline c_tools$CCompilationUnit$body_decl (var_ffi_ccu) on <var_ffi_ccu:CCompilationUnit> */
 var71 = var_ffi_ccu->attrs[COLOR_nitc__c_tools__CCompilationUnit___body_decl].val; /* _body_decl on <var_ffi_ccu:CCompilationUnit> */
 if (unlikely(var71 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _body_decl");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 37);
 fatal_exit(1);
@@ -657,12 +708,15 @@ var73 = var75;
 varonce72 = var73;
 }
 {
-template___template__Template___add(var69, var73); /* Direct call template#Template#add on <var69:Template>*/
+template___template__Template___add(var69, var73); /* Direct call template$Template$add on <var69:Template>*/
 }
 {
-{ /* Inline c_tools#CCompilationUnit#body_decl (var_ffi_ccu) on <var_ffi_ccu:CCompilationUnit> */
+{ /* Inline c_tools$CCompilationUnit$body_decl (var_ffi_ccu) on <var_ffi_ccu:CCompilationUnit> */
 var78 = var_ffi_ccu->attrs[COLOR_nitc__c_tools__CCompilationUnit___body_decl].val; /* _body_decl on <var_ffi_ccu:CCompilationUnit> */
 if (unlikely(var78 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _body_decl");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 37);
 fatal_exit(1);
@@ -680,12 +734,15 @@ var80 = var82;
 varonce79 = var80;
 }
 {
-template___template__Template___add(var76, var80); /* Direct call template#Template#add on <var76:Template>*/
+template___template__Template___add(var76, var80); /* Direct call template$Template$add on <var76:Template>*/
 }
 {
-{ /* Inline c_tools#CCompilationUnit#body_decl (var_ffi_ccu) on <var_ffi_ccu:CCompilationUnit> */
+{ /* Inline c_tools$CCompilationUnit$body_decl (var_ffi_ccu) on <var_ffi_ccu:CCompilationUnit> */
 var85 = var_ffi_ccu->attrs[COLOR_nitc__c_tools__CCompilationUnit___body_decl].val; /* _body_decl on <var_ffi_ccu:CCompilationUnit> */
 if (unlikely(var85 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _body_decl");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 37);
 fatal_exit(1);
@@ -703,12 +760,15 @@ var87 = var89;
 varonce86 = var87;
 }
 {
-template___template__Template___add(var83, var87); /* Direct call template#Template#add on <var83:Template>*/
+template___template__Template___add(var83, var87); /* Direct call template$Template$add on <var83:Template>*/
 }
 {
-{ /* Inline c_tools#CCompilationUnit#body_decl (var_ffi_ccu) on <var_ffi_ccu:CCompilationUnit> */
+{ /* Inline c_tools$CCompilationUnit$body_decl (var_ffi_ccu) on <var_ffi_ccu:CCompilationUnit> */
 var92 = var_ffi_ccu->attrs[COLOR_nitc__c_tools__CCompilationUnit___body_decl].val; /* _body_decl on <var_ffi_ccu:CCompilationUnit> */
 if (unlikely(var92 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _body_decl");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__c_tools, 37);
 fatal_exit(1);
@@ -726,14 +786,17 @@ var94 = var96;
 varonce93 = var94;
 }
 {
-template___template__Template___add(var90, var94); /* Direct call template#Template#add on <var90:Template>*/
+template___template__Template___add(var90, var94); /* Direct call template$Template$add on <var90:Template>*/
 }
 {
-{ /* Inline parser_nodes#AModule#n_classdefs (self) on <self:AModule> */
+{ /* Inline parser_nodes$AModule$n_classdefs (self) on <self:AModule> */
 var99 = self->attrs[COLOR_nitc__parser_nodes__AModule___n_classdefs].val; /* _n_classdefs on <self:AModule> */
 if (unlikely(var99 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _n_classdefs");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 1062);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 1072);
 fatal_exit(1);
 }
 var97 = var99;
@@ -747,14 +810,14 @@ var101 = nitc___nitc__ANodes___core__abstract_collection__Collection__iterator(v
 var_102 = var101;
 for(;;) {
 {
-var103 = ((short int(*)(val* self))((((long)var_102&3)?class_info[((long)var_102&3)]:var_102->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_102); /* is_ok on <var_102:Iterator[AClassdef]>*/
+var103 = ((short int(*)(val* self))((((int64_t)var_102&3)?class_info[((int64_t)var_102&3)]:var_102->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_102); /* is_ok on <var_102:Iterator[AClassdef]>*/
 }
 if (var103){
 } else {
 goto BREAK_label104;
 }
 {
-var105 = ((val*(*)(val* self))((((long)var_102&3)?class_info[((long)var_102&3)]:var_102->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_102); /* item on <var_102:Iterator[AClassdef]>*/
+var105 = ((val*(*)(val* self))((((int64_t)var_102&3)?class_info[((int64_t)var_102&3)]:var_102->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_102); /* item on <var_102:Iterator[AClassdef]>*/
 }
 var_nclassdef = var105;
 /* <var_nclassdef:AClassdef> isa AStdClassdef */
@@ -768,7 +831,7 @@ var107 = var_nclassdef->type->type_table[cltype] == idtype;
 var_108 = var107;
 if (var107){
 {
-{ /* Inline parser_nodes#AStdClassdef#n_extern_code_block (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
+{ /* Inline parser_nodes$AStdClassdef$n_extern_code_block (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
 var111 = var_nclassdef->attrs[COLOR_nitc__parser_nodes__AStdClassdef___n_extern_code_block].val; /* _n_extern_code_block on <var_nclassdef:AClassdef(AStdClassdef)> */
 var109 = var111;
 RET_LABEL110:(void)0;
@@ -780,7 +843,7 @@ var112 = 0; /* is null */
 var112 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var109,((val*)NULL)) on <var109:nullable AExternCodeBlock> */
+{ /* Inline kernel$Object$!= (var109,((val*)NULL)) on <var109:nullable AExternCodeBlock> */
 var_other16 = ((val*)NULL);
 {
 var115 = ((short int(*)(val* self, val* p0))(var109->class->vft[COLOR_core__kernel__Object___61d_61d]))(var109, var_other16); /* == on <var109:nullable AExternCodeBlock(AExternCodeBlock)>*/
@@ -798,25 +861,31 @@ var106 = var_108;
 }
 if (var106){
 {
-{ /* Inline light_ffi#MModule#uses_ffi= (var_mmodule,1) on <var_mmodule:nullable MModule(MModule)> */
+{ /* Inline light_ffi$MModule$uses_ffi= (var_mmodule,1) on <var_mmodule:nullable MModule(MModule)> */
 var_mmodule->attrs[COLOR_nitc__light_ffi__MModule___uses_ffi].s = 1; /* _uses_ffi on <var_mmodule:nullable MModule(MModule)> */
 RET_LABEL117:(void)0;
 }
 }
 {
-{ /* Inline parser_nodes#AStdClassdef#n_extern_code_block (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
+{ /* Inline parser_nodes$AStdClassdef$n_extern_code_block (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
 var120 = var_nclassdef->attrs[COLOR_nitc__parser_nodes__AStdClassdef___n_extern_code_block].val; /* _n_extern_code_block on <var_nclassdef:AClassdef(AStdClassdef)> */
 var118 = var120;
 RET_LABEL119:(void)0;
 }
 }
 if (var118 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 106);
 fatal_exit(1);
 } else {
-{ /* Inline light_ffi_base#AExternCodeBlock#language (var118) on <var118:nullable AExternCodeBlock> */
+{ /* Inline light_ffi_base$AExternCodeBlock$language (var118) on <var118:nullable AExternCodeBlock> */
 if (unlikely(var118 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi_base, 102);
 fatal_exit(1);
@@ -833,7 +902,7 @@ var125 = 0; /* is null */
 var125 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_language124,((val*)NULL)) on <var_language124:nullable FFILanguage> */
+{ /* Inline kernel$Object$!= (var_language124,((val*)NULL)) on <var_language124:nullable FFILanguage> */
 var_other16 = ((val*)NULL);
 {
 var128 = ((short int(*)(val* self, val* p0))(var_language124->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_language124, var_other16); /* == on <var_language124:nullable FFILanguage(FFILanguage)>*/
@@ -846,14 +915,20 @@ RET_LABEL127:(void)0;
 var125 = var126;
 }
 if (unlikely(!var125)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Assert failed");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 107);
 fatal_exit(1);
 }
 {
-{ /* Inline light_ffi#MModule#present_languages (var_mmodule) on <var_mmodule:nullable MModule(MModule)> */
+{ /* Inline light_ffi$MModule$present_languages (var_mmodule) on <var_mmodule:nullable MModule(MModule)> */
 var132 = var_mmodule->attrs[COLOR_nitc__light_ffi__MModule___present_languages].val; /* _present_languages on <var_mmodule:nullable MModule(MModule)> */
 if (unlikely(var132 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _present_languages");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 50);
 fatal_exit(1);
@@ -863,22 +938,28 @@ RET_LABEL131:(void)0;
 }
 }
 {
-core___core__HashSet___core__abstract_collection__SimpleCollection__add(var130, var_language124); /* Direct call hash_collection#HashSet#add on <var130:HashSet[FFILanguage]>*/
+core___core__HashSet___core__abstract_collection__SimpleCollection__add(var130, var_language124); /* Direct call hash_collection$HashSet$add on <var130:HashSet[FFILanguage]>*/
 }
 {
-{ /* Inline parser_nodes#AStdClassdef#n_extern_code_block (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
+{ /* Inline parser_nodes$AStdClassdef$n_extern_code_block (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
 var135 = var_nclassdef->attrs[COLOR_nitc__parser_nodes__AStdClassdef___n_extern_code_block].val; /* _n_extern_code_block on <var_nclassdef:AClassdef(AStdClassdef)> */
 var133 = var135;
 RET_LABEL134:(void)0;
 }
 }
 if (var133 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 109);
 fatal_exit(1);
 } else {
-{ /* Inline light_ffi_base#AExternCodeBlock#language (var133) on <var133:nullable AExternCodeBlock> */
+{ /* Inline light_ffi_base$AExternCodeBlock$language (var133) on <var133:nullable AExternCodeBlock> */
 if (unlikely(var133 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi_base, 102);
 fatal_exit(1);
@@ -889,23 +970,29 @@ RET_LABEL137:(void)0;
 }
 }
 {
-{ /* Inline parser_nodes#AStdClassdef#n_extern_code_block (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
+{ /* Inline parser_nodes$AStdClassdef$n_extern_code_block (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
 var141 = var_nclassdef->attrs[COLOR_nitc__parser_nodes__AStdClassdef___n_extern_code_block].val; /* _n_extern_code_block on <var_nclassdef:AClassdef(AStdClassdef)> */
 var139 = var141;
 RET_LABEL140:(void)0;
 }
 }
 if (unlikely(var139 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Cast failed");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 110);
 fatal_exit(1);
 }
 if (var136 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 109);
 fatal_exit(1);
 } else {
-{ /* Inline light_c#CLanguage#compile_extern_class (var136,var139,var_nclassdef,var_ffi_ccu,var_mmodule) on <var136:nullable FFILanguage> */
+{ /* Inline light_c$CLanguage$compile_extern_class (var136,var139,var_nclassdef,var_ffi_ccu,var_mmodule) on <var136:nullable FFILanguage> */
 var_block143 = var139;
 var_m = var_nclassdef;
 var_ecc = var_ffi_ccu;
@@ -916,16 +1003,16 @@ RET_LABEL142:(void)0;
 } else {
 }
 {
-((void(*)(val* self))((((long)var_102&3)?class_info[((long)var_102&3)]:var_102->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_102); /* next on <var_102:Iterator[AClassdef]>*/
+((void(*)(val* self))((((int64_t)var_102&3)?class_info[((int64_t)var_102&3)]:var_102->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_102); /* next on <var_102:Iterator[AClassdef]>*/
 }
 }
 BREAK_label104: (void)0;
 {
-((void(*)(val* self))((((long)var_102&3)?class_info[((long)var_102&3)]:var_102->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_102); /* finish on <var_102:Iterator[AClassdef]>*/
+((void(*)(val* self))((((int64_t)var_102&3)?class_info[((int64_t)var_102&3)]:var_102->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_102); /* finish on <var_102:Iterator[AClassdef]>*/
 }
 RET_LABEL:;
 }
-/* method light_ffi#AMethPropdef#compile_ffi_method for (self: AMethPropdef, MModule) */
+/* method light_ffi$AMethPropdef$compile_ffi_method for (self: AMethPropdef, MModule) */
 void nitc__light_ffi___AMethPropdef___compile_ffi_method(val* self, val* p0) {
 val* var_mmodule /* var mmodule: MModule */;
 val* var /* : nullable AExternCodeBlock */;
@@ -961,7 +1048,7 @@ val* var38 /* : nullable CCompilationUnit */;
 val* var40 /* : nullable CCompilationUnit */;
 var_mmodule = p0;
 {
-{ /* Inline parser_nodes#AMethPropdef#n_extern_code_block (self) on <self:AMethPropdef> */
+{ /* Inline parser_nodes$AMethPropdef$n_extern_code_block (self) on <self:AMethPropdef> */
 var2 = self->attrs[COLOR_nitc__parser_nodes__AMethPropdef___n_extern_code_block].val; /* _n_extern_code_block on <self:AMethPropdef> */
 var = var2;
 RET_LABEL1:(void)0;
@@ -973,7 +1060,7 @@ var3 = 0; /* is null */
 var3 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var,((val*)NULL)) on <var:nullable AExternCodeBlock> */
+{ /* Inline kernel$Object$!= (var,((val*)NULL)) on <var:nullable AExternCodeBlock> */
 var_other = ((val*)NULL);
 {
 var6 = ((short int(*)(val* self, val* p0))(var->class->vft[COLOR_core__kernel__Object___61d_61d]))(var, var_other); /* == on <var:nullable AExternCodeBlock(AExternCodeBlock)>*/
@@ -986,14 +1073,20 @@ RET_LABEL5:(void)0;
 var3 = var4;
 }
 if (unlikely(!var3)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Assert failed");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 120);
 fatal_exit(1);
 }
 {
-{ /* Inline light_ffi#MModule#compiled_ffi_methods (var_mmodule) on <var_mmodule:MModule> */
+{ /* Inline light_ffi$MModule$compiled_ffi_methods (var_mmodule) on <var_mmodule:MModule> */
 var10 = var_mmodule->attrs[COLOR_nitc__light_ffi__MModule___compiled_ffi_methods].val; /* _compiled_ffi_methods on <var_mmodule:MModule> */
 if (unlikely(var10 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _compiled_ffi_methods");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 66);
 fatal_exit(1);
@@ -1010,9 +1103,12 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline light_ffi#MModule#compiled_ffi_methods (var_mmodule) on <var_mmodule:MModule> */
+{ /* Inline light_ffi$MModule$compiled_ffi_methods (var_mmodule) on <var_mmodule:MModule> */
 var14 = var_mmodule->attrs[COLOR_nitc__light_ffi__MModule___compiled_ffi_methods].val; /* _compiled_ffi_methods on <var_mmodule:MModule> */
 if (unlikely(var14 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _compiled_ffi_methods");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 66);
 fatal_exit(1);
@@ -1022,22 +1118,28 @@ RET_LABEL13:(void)0;
 }
 }
 {
-core___core__HashSet___core__abstract_collection__SimpleCollection__add(var12, self); /* Direct call hash_collection#HashSet#add on <var12:HashSet[AMethPropdef]>*/
+core___core__HashSet___core__abstract_collection__SimpleCollection__add(var12, self); /* Direct call hash_collection$HashSet$add on <var12:HashSet[AMethPropdef]>*/
 }
 {
-{ /* Inline parser_nodes#AMethPropdef#n_extern_code_block (self) on <self:AMethPropdef> */
+{ /* Inline parser_nodes$AMethPropdef$n_extern_code_block (self) on <self:AMethPropdef> */
 var17 = self->attrs[COLOR_nitc__parser_nodes__AMethPropdef___n_extern_code_block].val; /* _n_extern_code_block on <self:AMethPropdef> */
 var15 = var17;
 RET_LABEL16:(void)0;
 }
 }
 if (var15 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 125);
 fatal_exit(1);
 } else {
-{ /* Inline light_ffi_base#AExternCodeBlock#language (var15) on <var15:nullable AExternCodeBlock> */
+{ /* Inline light_ffi_base$AExternCodeBlock$language (var15) on <var15:nullable AExternCodeBlock> */
 if (unlikely(var15 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi_base, 102);
 fatal_exit(1);
@@ -1054,7 +1156,7 @@ var21 = 0; /* is null */
 var21 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_language,((val*)NULL)) on <var_language:nullable FFILanguage> */
+{ /* Inline kernel$Object$!= (var_language,((val*)NULL)) on <var_language:nullable FFILanguage> */
 var_other = ((val*)NULL);
 {
 var24 = ((short int(*)(val* self, val* p0))(var_language->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_language, var_other); /* == on <var_language:nullable FFILanguage(FFILanguage)>*/
@@ -1067,14 +1169,20 @@ RET_LABEL23:(void)0;
 var21 = var22;
 }
 if (unlikely(!var21)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Assert failed");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 126);
 fatal_exit(1);
 }
 {
-{ /* Inline light_ffi#MModule#present_languages (var_mmodule) on <var_mmodule:MModule> */
+{ /* Inline light_ffi$MModule$present_languages (var_mmodule) on <var_mmodule:MModule> */
 var28 = var_mmodule->attrs[COLOR_nitc__light_ffi__MModule___present_languages].val; /* _present_languages on <var_mmodule:MModule> */
 if (unlikely(var28 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _present_languages");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 50);
 fatal_exit(1);
@@ -1084,22 +1192,28 @@ RET_LABEL27:(void)0;
 }
 }
 {
-core___core__HashSet___core__abstract_collection__SimpleCollection__add(var26, var_language); /* Direct call hash_collection#HashSet#add on <var26:HashSet[FFILanguage]>*/
+core___core__HashSet___core__abstract_collection__SimpleCollection__add(var26, var_language); /* Direct call hash_collection$HashSet$add on <var26:HashSet[FFILanguage]>*/
 }
 {
-{ /* Inline parser_nodes#AMethPropdef#n_extern_code_block (self) on <self:AMethPropdef> */
+{ /* Inline parser_nodes$AMethPropdef$n_extern_code_block (self) on <self:AMethPropdef> */
 var31 = self->attrs[COLOR_nitc__parser_nodes__AMethPropdef___n_extern_code_block].val; /* _n_extern_code_block on <self:AMethPropdef> */
 var29 = var31;
 RET_LABEL30:(void)0;
 }
 }
 if (var29 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 128);
 fatal_exit(1);
 } else {
-{ /* Inline light_ffi_base#AExternCodeBlock#language (var29) on <var29:nullable AExternCodeBlock> */
+{ /* Inline light_ffi_base$AExternCodeBlock$language (var29) on <var29:nullable AExternCodeBlock> */
 if (unlikely(var29 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi_base, 102);
 fatal_exit(1);
@@ -1110,35 +1224,44 @@ RET_LABEL33:(void)0;
 }
 }
 {
-{ /* Inline parser_nodes#AMethPropdef#n_extern_code_block (self) on <self:AMethPropdef> */
+{ /* Inline parser_nodes$AMethPropdef$n_extern_code_block (self) on <self:AMethPropdef> */
 var37 = self->attrs[COLOR_nitc__parser_nodes__AMethPropdef___n_extern_code_block].val; /* _n_extern_code_block on <self:AMethPropdef> */
 var35 = var37;
 RET_LABEL36:(void)0;
 }
 }
 if (unlikely(var35 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Cast failed");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 129);
 fatal_exit(1);
 }
 {
-{ /* Inline light_ffi#MModule#ffi_ccu (var_mmodule) on <var_mmodule:MModule> */
+{ /* Inline light_ffi$MModule$ffi_ccu (var_mmodule) on <var_mmodule:MModule> */
 var40 = var_mmodule->attrs[COLOR_nitc__light_ffi__MModule___ffi_ccu].val; /* _ffi_ccu on <var_mmodule:MModule> */
 var38 = var40;
 RET_LABEL39:(void)0;
 }
 }
 if (unlikely(var38 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Cast failed");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 129);
 fatal_exit(1);
 }
 if (var32 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__light_ffi, 128);
 fatal_exit(1);
 } else {
-nitc___nitc__CLanguage___nitc__light_ffi_base__FFILanguage__compile_extern_method(var32, var35, self, var38, var_mmodule); /* Direct call light_c#CLanguage#compile_extern_method on <var32:nullable FFILanguage>*/
+nitc___nitc__CLanguage___nitc__light_ffi_base__FFILanguage__compile_extern_method(var32, var35, self, var38, var_mmodule); /* Direct call light_c$CLanguage$compile_extern_method on <var32:nullable FFILanguage>*/
 }
 RET_LABEL:;
 }

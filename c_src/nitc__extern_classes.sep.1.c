@@ -1,10 +1,13 @@
 #include "nitc__extern_classes.sep.0.h"
-/* method extern_classes#ToolContext#extern_classes_typing_phase_ast for (self: ToolContext): Phase */
+/* method extern_classes$ToolContext$extern_classes_typing_phase_ast for (self: ToolContext): Phase */
 val* nitc__extern_classes___ToolContext___extern_classes_typing_phase_ast(val* self) {
 val* var /* : Phase */;
 val* var1 /* : Phase */;
 var1 = self->attrs[COLOR_nitc__extern_classes__ToolContext___extern_classes_typing_phase_ast].val; /* _extern_classes_typing_phase_ast on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _extern_classes_typing_phase_ast");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__extern_classes, 24);
 fatal_exit(1);
@@ -13,7 +16,7 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method extern_classes#ExternClassesTypingPhaseAst#process_nclassdef for (self: ExternClassesTypingPhaseAst, AClassdef) */
+/* method extern_classes$ExternClassesTypingPhaseAst$process_nclassdef for (self: ExternClassesTypingPhaseAst, AClassdef) */
 void nitc__extern_classes___nitc__extern_classes__ExternClassesTypingPhaseAst___nitc__phase__Phase__process_nclassdef(val* self, val* p0) {
 val* var_nclassdef /* var nclassdef: AClassdef */;
 short int var /* : Bool */;
@@ -67,7 +70,7 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline parser_nodes#AStdClassdef#n_extern_code_block (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
+{ /* Inline parser_nodes$AStdClassdef$n_extern_code_block (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
 var4 = var_nclassdef->attrs[COLOR_nitc__parser_nodes__AStdClassdef___n_extern_code_block].val; /* _n_extern_code_block on <var_nclassdef:AClassdef(AStdClassdef)> */
 var2 = var4;
 RET_LABEL3:(void)0;
@@ -80,10 +83,10 @@ var5 = 1; /* is null */
 var5 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_code_block,((val*)NULL)) on <var_code_block:nullable AExternCodeBlock> */
+{ /* Inline kernel$Object$== (var_code_block,((val*)NULL)) on <var_code_block:nullable AExternCodeBlock> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_code_block,var_other) on <var_code_block:nullable AExternCodeBlock(AExternCodeBlock)> */
+{ /* Inline kernel$Object$is_same_instance (var_code_block,var_other) on <var_code_block:nullable AExternCodeBlock(AExternCodeBlock)> */
 var10 = var_code_block == var_other;
 var8 = var10;
 goto RET_LABEL9;
@@ -101,7 +104,7 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline parser_nodes#ADefinition#n_kwredef (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
+{ /* Inline parser_nodes$ADefinition$n_kwredef (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
 var13 = var_nclassdef->attrs[COLOR_nitc__parser_nodes__ADefinition___n_kwredef].val; /* _n_kwredef on <var_nclassdef:AClassdef(AStdClassdef)> */
 var11 = var13;
 RET_LABEL12:(void)0;
@@ -113,7 +116,7 @@ var14 = 0; /* is null */
 var14 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var11,((val*)NULL)) on <var11:nullable TKwredef> */
+{ /* Inline kernel$Object$!= (var11,((val*)NULL)) on <var11:nullable TKwredef> */
 var_other17 = ((val*)NULL);
 {
 var18 = ((short int(*)(val* self, val* p0))(var11->class->vft[COLOR_core__kernel__Object___61d_61d]))(var11, var_other17); /* == on <var11:nullable TKwredef(TKwredef)>*/
@@ -127,9 +130,12 @@ var14 = var15;
 }
 if (var14){
 {
-{ /* Inline phase#Phase#toolcontext (self) on <self:ExternClassesTypingPhaseAst> */
+{ /* Inline phase$Phase$toolcontext (self) on <self:ExternClassesTypingPhaseAst> */
 var22 = self->attrs[COLOR_nitc__phase__Phase___toolcontext].val; /* _toolcontext on <self:ExternClassesTypingPhaseAst> */
 if (unlikely(var22 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__phase, 200);
 fatal_exit(1);
@@ -139,9 +145,12 @@ RET_LABEL21:(void)0;
 }
 }
 {
-{ /* Inline parser_nodes#ANode#location (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
+{ /* Inline parser_nodes$ANode$location (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
 var25 = var_nclassdef->attrs[COLOR_nitc__parser_nodes__ANode___location].val; /* _location on <var_nclassdef:AClassdef(AStdClassdef)> */
 if (unlikely(var25 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _location");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__parser_nodes, 24);
 fatal_exit(1);
@@ -165,13 +174,16 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline light_ffi_base#AExternCodeBlock#language (var_code_block) on <var_code_block:nullable AExternCodeBlock(AExternCodeBlock)> */
+{ /* Inline light_ffi_base$AExternCodeBlock$language (var_code_block) on <var_code_block:nullable AExternCodeBlock(AExternCodeBlock)> */
 var32 = var_code_block->attrs[COLOR_nitc__light_ffi_base__AExternCodeBlock___language].val; /* _language on <var_code_block:nullable AExternCodeBlock(AExternCodeBlock)> */
 var30 = var32;
 RET_LABEL31:(void)0;
 }
 }
 if (var30 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__extern_classes, 47);
 fatal_exit(1);
@@ -180,19 +192,25 @@ var33 = nitc___nitc__CLanguage___nitc__light_ffi_base__FFILanguage__get_ftype(va
 }
 var_ftype = var33;
 {
-{ /* Inline modelize_class#AClassdef#mclassdef (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
+{ /* Inline modelize_class$AClassdef$mclassdef (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
 var36 = var_nclassdef->attrs[COLOR_nitc__modelize_class__AClassdef___mclassdef].val; /* _mclassdef on <var_nclassdef:AClassdef(AStdClassdef)> */
 var34 = var36;
 RET_LABEL35:(void)0;
 }
 }
 if (var34 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__extern_classes, 48);
 fatal_exit(1);
 } else {
-{ /* Inline extern_classes#MClassDef#ftype_cache= (var34,var_ftype) on <var34:nullable MClassDef> */
+{ /* Inline extern_classes$MClassDef$ftype_cache= (var34,var_ftype) on <var34:nullable MClassDef> */
 if (unlikely(var34 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__extern_classes, 54);
 fatal_exit(1);
@@ -202,19 +220,25 @@ RET_LABEL37:(void)0;
 }
 }
 {
-{ /* Inline modelize_class#AClassdef#mclassdef (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
+{ /* Inline modelize_class$AClassdef$mclassdef (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
 var40 = var_nclassdef->attrs[COLOR_nitc__modelize_class__AClassdef___mclassdef].val; /* _mclassdef on <var_nclassdef:AClassdef(AStdClassdef)> */
 var38 = var40;
 RET_LABEL39:(void)0;
 }
 }
 if (var38 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__extern_classes, 49);
 fatal_exit(1);
 } else {
-{ /* Inline extern_classes#MClassDef#ftype_computed= (var38,1) on <var38:nullable MClassDef> */
+{ /* Inline extern_classes$MClassDef$ftype_computed= (var38,1) on <var38:nullable MClassDef> */
 if (unlikely(var38 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__extern_classes, 55);
 fatal_exit(1);
@@ -225,7 +249,7 @@ RET_LABEL41:(void)0;
 }
 RET_LABEL:;
 }
-/* method extern_classes#MClassDef#ftype_cache for (self: MClassDef): nullable ForeignType */
+/* method extern_classes$MClassDef$ftype_cache for (self: MClassDef): nullable ForeignType */
 val* nitc__extern_classes___MClassDef___ftype_cache(val* self) {
 val* var /* : nullable ForeignType */;
 val* var1 /* : nullable ForeignType */;
@@ -234,23 +258,23 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method extern_classes#MClassDef#ftype_cache= for (self: MClassDef, nullable ForeignType) */
+/* method extern_classes$MClassDef$ftype_cache= for (self: MClassDef, nullable ForeignType) */
 void nitc__extern_classes___MClassDef___ftype_cache_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__extern_classes__MClassDef___ftype_cache].val = p0; /* _ftype_cache on <self:MClassDef> */
 RET_LABEL:;
 }
-/* method extern_classes#MClassDef#ftype_computed= for (self: MClassDef, Bool) */
+/* method extern_classes$MClassDef$ftype_computed= for (self: MClassDef, Bool) */
 void nitc__extern_classes___MClassDef___ftype_computed_61d(val* self, short int p0) {
 self->attrs[COLOR_nitc__extern_classes__MClassDef___ftype_computed].s = p0; /* _ftype_computed on <self:MClassDef> */
 RET_LABEL:;
 }
-/* method extern_classes#MClassDef#ftype for (self: MClassDef): nullable ForeignType */
+/* method extern_classes$MClassDef$ftype for (self: MClassDef): nullable ForeignType */
 val* nitc__extern_classes___MClassDef___ftype(val* self) {
 val* var /* : nullable ForeignType */;
 val* var1 /* : nullable ForeignType */;
 val* var3 /* : nullable ForeignType */;
 {
-{ /* Inline extern_classes#MClassDef#ftype_cache (self) on <self:MClassDef> */
+{ /* Inline extern_classes$MClassDef$ftype_cache (self) on <self:MClassDef> */
 var3 = self->attrs[COLOR_nitc__extern_classes__MClassDef___ftype_cache].val; /* _ftype_cache on <self:MClassDef> */
 var1 = var3;
 RET_LABEL2:(void)0;
@@ -261,7 +285,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method extern_classes#ExternClassesTypingPhaseModel#process_nclassdef for (self: ExternClassesTypingPhaseModel, AClassdef) */
+/* method extern_classes$ExternClassesTypingPhaseModel$process_nclassdef for (self: ExternClassesTypingPhaseModel, AClassdef) */
 void nitc__extern_classes___nitc__extern_classes__ExternClassesTypingPhaseModel___nitc__phase__Phase__process_nclassdef(val* self, val* p0) {
 val* var_nclassdef /* var nclassdef: AClassdef */;
 short int var /* : Bool */;
@@ -305,7 +329,7 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline modelize_class#AClassdef#mclassdef (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
+{ /* Inline modelize_class$AClassdef$mclassdef (var_nclassdef) on <var_nclassdef:AClassdef(AStdClassdef)> */
 var4 = var_nclassdef->attrs[COLOR_nitc__modelize_class__AClassdef___mclassdef].val; /* _mclassdef on <var_nclassdef:AClassdef(AStdClassdef)> */
 var2 = var4;
 RET_LABEL3:(void)0;
@@ -318,10 +342,10 @@ var5 = 1; /* is null */
 var5 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_mclassdef,((val*)NULL)) on <var_mclassdef:nullable MClassDef> */
+{ /* Inline kernel$Object$== (var_mclassdef,((val*)NULL)) on <var_mclassdef:nullable MClassDef> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_mclassdef,var_other) on <var_mclassdef:nullable MClassDef(MClassDef)> */
+{ /* Inline kernel$Object$is_same_instance (var_mclassdef,var_other) on <var_mclassdef:nullable MClassDef(MClassDef)> */
 var10 = var_mclassdef == var_other;
 var8 = var10;
 goto RET_LABEL9;
@@ -339,11 +363,14 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline model#MClassDef#mclass (var_mclassdef) on <var_mclassdef:nullable MClassDef(MClassDef)> */
+{ /* Inline model$MClassDef$mclass (var_mclassdef) on <var_mclassdef:nullable MClassDef(MClassDef)> */
 var13 = var_mclassdef->attrs[COLOR_nitc__model__MClassDef___mclass].val; /* _mclass on <var_mclassdef:nullable MClassDef(MClassDef)> */
 if (unlikely(var13 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _mclass");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 576);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 591);
 fatal_exit(1);
 }
 var11 = var13;
@@ -360,11 +387,14 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline model#MClass#kind (var_mclass) on <var_mclass:MClass> */
+{ /* Inline model$MClass$kind (var_mclass) on <var_mclass:MClass> */
 var18 = var_mclass->attrs[COLOR_nitc__model__MClass___kind].val; /* _kind on <var_mclass:MClass> */
 if (unlikely(var18 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _kind");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 459);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 472);
 fatal_exit(1);
 }
 var16 = var18;
@@ -376,7 +406,7 @@ var19 = glob_sys;
 var20 = nitc__model___core__Sys___extern_kind(var19);
 }
 {
-{ /* Inline kernel#Object#!= (var16,var20) on <var16:MClassKind> */
+{ /* Inline kernel$Object$!= (var16,var20) on <var16:MClassKind> */
 var_other23 = var20;
 {
 var24 = ((short int(*)(val* self, val* p0))(var16->class->vft[COLOR_core__kernel__Object___61d_61d]))(var16, var_other23); /* == on <var16:MClassKind>*/
@@ -396,7 +426,7 @@ var26 = nitc__extern_classes___MClass___compute_ftype(var_mclass, self);
 }
 RET_LABEL:;
 }
-/* method extern_classes#MClass#ftype_cache for (self: MClass): nullable ForeignType */
+/* method extern_classes$MClass$ftype_cache for (self: MClass): nullable ForeignType */
 val* nitc__extern_classes___MClass___ftype_cache(val* self) {
 val* var /* : nullable ForeignType */;
 val* var1 /* : nullable ForeignType */;
@@ -405,12 +435,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method extern_classes#MClass#ftype_cache= for (self: MClass, nullable ForeignType) */
+/* method extern_classes$MClass$ftype_cache= for (self: MClass, nullable ForeignType) */
 void nitc__extern_classes___MClass___ftype_cache_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__extern_classes__MClass___ftype_cache].val = p0; /* _ftype_cache on <self:MClass> */
 RET_LABEL:;
 }
-/* method extern_classes#MClass#ftype_computed for (self: MClass): Bool */
+/* method extern_classes$MClass$ftype_computed for (self: MClass): Bool */
 short int nitc__extern_classes___MClass___ftype_computed(val* self) {
 short int var /* : Bool */;
 short int var1 /* : Bool */;
@@ -419,25 +449,28 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method extern_classes#MClass#ftype_computed= for (self: MClass, Bool) */
+/* method extern_classes$MClass$ftype_computed= for (self: MClass, Bool) */
 void nitc__extern_classes___MClass___ftype_computed_61d(val* self, short int p0) {
 self->attrs[COLOR_nitc__extern_classes__MClass___ftype_computed].s = p0; /* _ftype_computed on <self:MClass> */
 RET_LABEL:;
 }
-/* method extern_classes#MClass#ctype for (self: MClass): nullable String */
+/* method extern_classes$MClass$ctype for (self: MClass): nullable String */
 val* nitc__extern_classes___MClass___ctype(val* self) {
 val* var /* : nullable String */;
 val* var1 /* : nullable ForeignType */;
 val* var3 /* : nullable ForeignType */;
 val* var4 /* : String */;
 {
-{ /* Inline extern_classes#MClass#ftype_cache (self) on <self:MClass> */
+{ /* Inline extern_classes$MClass$ftype_cache (self) on <self:MClass> */
 var3 = self->attrs[COLOR_nitc__extern_classes__MClass___ftype_cache].val; /* _ftype_cache on <self:MClass> */
 var1 = var3;
 RET_LABEL2:(void)0;
 }
 }
 if (var1 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__extern_classes, 91);
 fatal_exit(1);
@@ -449,7 +482,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method extern_classes#MClass#compute_ftype for (self: MClass, ExternClassesTypingPhaseModel): nullable ForeignType */
+/* method extern_classes$MClass$compute_ftype for (self: MClass, ExternClassesTypingPhaseModel): nullable ForeignType */
 val* nitc__extern_classes___MClass___compute_ftype(val* self, val* p0) {
 val* var /* : nullable ForeignType */;
 val* var_v /* var v: ExternClassesTypingPhaseModel */;
@@ -525,7 +558,7 @@ val* var80 /* : String */;
 val* var81 /* : Message */;
 var_v = p0;
 {
-{ /* Inline extern_classes#MClass#ftype_computed (self) on <self:MClass> */
+{ /* Inline extern_classes$MClass$ftype_computed (self) on <self:MClass> */
 var3 = self->attrs[COLOR_nitc__extern_classes__MClass___ftype_computed].s; /* _ftype_computed on <self:MClass> */
 var1 = var3;
 RET_LABEL2:(void)0;
@@ -533,7 +566,7 @@ RET_LABEL2:(void)0;
 }
 if (var1){
 {
-{ /* Inline extern_classes#MClass#ftype_cache (self) on <self:MClass> */
+{ /* Inline extern_classes$MClass$ftype_cache (self) on <self:MClass> */
 var6 = self->attrs[COLOR_nitc__extern_classes__MClass___ftype_cache].val; /* _ftype_cache on <self:MClass> */
 var4 = var6;
 RET_LABEL5:(void)0;
@@ -544,11 +577,14 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline model#MClass#kind (self) on <self:MClass> */
+{ /* Inline model$MClass$kind (self) on <self:MClass> */
 var9 = self->attrs[COLOR_nitc__model__MClass___kind].val; /* _kind on <self:MClass> */
 if (unlikely(var9 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _kind");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 459);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 472);
 fatal_exit(1);
 }
 var7 = var9;
@@ -560,7 +596,7 @@ var10 = glob_sys;
 var11 = nitc__model___core__Sys___extern_kind(var10);
 }
 {
-{ /* Inline kernel#Object#!= (var7,var11) on <var7:MClassKind> */
+{ /* Inline kernel$Object$!= (var7,var11) on <var7:MClassKind> */
 var_other = var11;
 {
 var14 = ((short int(*)(val* self, val* p0))(var7->class->vft[COLOR_core__kernel__Object___61d_61d]))(var7, var_other); /* == on <var7:MClassKind>*/
@@ -577,11 +613,14 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline model#MClass#name (self) on <self:MClass> */
+{ /* Inline model$MClass$name (self) on <self:MClass> */
 var18 = self->attrs[COLOR_nitc__model__MClass___name].val; /* _name on <self:MClass> */
 if (unlikely(var18 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _name");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 385);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 396);
 fatal_exit(1);
 }
 var16 = var18;
@@ -605,19 +644,19 @@ var23 = NEW_nitc__ForeignType(&type_nitc__ForeignType);
 ((void(*)(val* self))(var23->class->vft[COLOR_core__kernel__Object__init]))(var23); /* init on <var23:ForeignType>*/
 }
 {
-{ /* Inline extern_classes#MClass#ftype_cache= (self,var23) on <self:MClass> */
+{ /* Inline extern_classes$MClass$ftype_cache= (self,var23) on <self:MClass> */
 self->attrs[COLOR_nitc__extern_classes__MClass___ftype_cache].val = var23; /* _ftype_cache on <self:MClass> */
 RET_LABEL24:(void)0;
 }
 }
 {
-{ /* Inline extern_classes#MClass#ftype_computed= (self,1) on <self:MClass> */
+{ /* Inline extern_classes$MClass$ftype_computed= (self,1) on <self:MClass> */
 self->attrs[COLOR_nitc__extern_classes__MClass___ftype_computed].s = 1; /* _ftype_computed on <self:MClass> */
 RET_LABEL25:(void)0;
 }
 }
 {
-{ /* Inline extern_classes#MClass#ftype_cache (self) on <self:MClass> */
+{ /* Inline extern_classes$MClass$ftype_cache (self) on <self:MClass> */
 var28 = self->attrs[COLOR_nitc__extern_classes__MClass___ftype_cache].val; /* _ftype_cache on <self:MClass> */
 var26 = var28;
 RET_LABEL27:(void)0;
@@ -628,11 +667,14 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline model#MClass#intro (self) on <self:MClass> */
+{ /* Inline model$MClass$intro (self) on <self:MClass> */
 var31 = self->attrs[COLOR_nitc__model__MClass___intro].val; /* _intro on <self:MClass> */
 if (unlikely(var31 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _intro");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 483);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 496);
 fatal_exit(1);
 }
 var29 = var31;
@@ -649,10 +691,10 @@ var33 = 1; /* is null */
 var33 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_ftype,((val*)NULL)) on <var_ftype:nullable ForeignType> */
+{ /* Inline kernel$Object$== (var_ftype,((val*)NULL)) on <var_ftype:nullable ForeignType> */
 var_other36 = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_ftype,var_other36) on <var_ftype:nullable ForeignType(ForeignType)> */
+{ /* Inline kernel$Object$is_same_instance (var_ftype,var_other36) on <var_ftype:nullable ForeignType(ForeignType)> */
 var39 = var_ftype == var_other36;
 var37 = var39;
 goto RET_LABEL38;
@@ -668,11 +710,14 @@ var33 = var34;
 if (var33){
 var_ftype_b = ((val*)NULL);
 {
-{ /* Inline model#MClass#intro_mmodule (self) on <self:MClass> */
+{ /* Inline model$MClass$intro_mmodule (self) on <self:MClass> */
 var42 = self->attrs[COLOR_nitc__model__MClass___intro_mmodule].val; /* _intro_mmodule on <self:MClass> */
 if (unlikely(var42 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _intro_mmodule");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 380);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__model, 390);
 fatal_exit(1);
 }
 var40 = var42;
@@ -687,19 +732,19 @@ var44 = poset___poset__POSetElement___direct_greaters(var43);
 }
 var_ = var44;
 {
-var45 = ((val*(*)(val* self))((((long)var_&3)?class_info[((long)var_&3)]:var_->class)->vft[COLOR_core__abstract_collection__Collection__iterator]))(var_); /* iterator on <var_:Collection[MClass]>*/
+var45 = ((val*(*)(val* self))((((int64_t)var_&3)?class_info[((int64_t)var_&3)]:var_->class)->vft[COLOR_core__abstract_collection__Collection__iterator]))(var_); /* iterator on <var_:Collection[MClass]>*/
 }
 var_46 = var45;
 for(;;) {
 {
-var47 = ((short int(*)(val* self))((((long)var_46&3)?class_info[((long)var_46&3)]:var_46->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_46); /* is_ok on <var_46:Iterator[MClass]>*/
+var47 = ((short int(*)(val* self))((((int64_t)var_46&3)?class_info[((int64_t)var_46&3)]:var_46->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_46); /* is_ok on <var_46:Iterator[MClass]>*/
 }
 if (var47){
 } else {
 goto BREAK_label;
 }
 {
-var48 = ((val*(*)(val* self))((((long)var_46&3)?class_info[((long)var_46&3)]:var_46->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_46); /* item on <var_46:Iterator[MClass]>*/
+var48 = ((val*(*)(val* self))((((int64_t)var_46&3)?class_info[((int64_t)var_46&3)]:var_46->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_46); /* item on <var_46:Iterator[MClass]>*/
 }
 var_s = var48;
 {
@@ -712,7 +757,7 @@ var50 = 0; /* is null */
 var50 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_super_ftype,((val*)NULL)) on <var_super_ftype:nullable ForeignType> */
+{ /* Inline kernel$Object$!= (var_super_ftype,((val*)NULL)) on <var_super_ftype:nullable ForeignType> */
 var_other = ((val*)NULL);
 {
 var53 = ((short int(*)(val* self, val* p0))(var_super_ftype->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_super_ftype, var_other); /* == on <var_super_ftype:nullable ForeignType(ForeignType)>*/
@@ -731,10 +776,10 @@ var55 = 1; /* is null */
 var55 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_ftype_b,((val*)NULL)) on <var_ftype_b:nullable ForeignType> */
+{ /* Inline kernel$Object$== (var_ftype_b,((val*)NULL)) on <var_ftype_b:nullable ForeignType> */
 var_other36 = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_ftype_b,var_other36) on <var_ftype_b:nullable ForeignType(ForeignType)> */
+{ /* Inline kernel$Object$is_same_instance (var_ftype_b,var_other36) on <var_ftype_b:nullable ForeignType(ForeignType)> */
 var60 = var_ftype_b == var_other36;
 var58 = var60;
 goto RET_LABEL59;
@@ -752,7 +797,7 @@ var_ftype_b = var_super_ftype;
 goto BREAK_label61;
 } else {
 {
-{ /* Inline kernel#Object#!= (var_super_ftype,var_ftype_b) on <var_super_ftype:nullable ForeignType(ForeignType)> */
+{ /* Inline kernel$Object$!= (var_super_ftype,var_ftype_b) on <var_super_ftype:nullable ForeignType(ForeignType)> */
 var_other = var_ftype_b;
 {
 var64 = ((short int(*)(val* self, val* p0))(var_super_ftype->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_super_ftype, var_other); /* == on <var_super_ftype:nullable ForeignType(ForeignType)>*/
@@ -765,9 +810,12 @@ RET_LABEL63:(void)0;
 }
 if (var62){
 {
-{ /* Inline phase#Phase#toolcontext (var_v) on <var_v:ExternClassesTypingPhaseModel> */
+{ /* Inline phase$Phase$toolcontext (var_v) on <var_v:ExternClassesTypingPhaseModel> */
 var68 = var_v->attrs[COLOR_nitc__phase__Phase___toolcontext].val; /* _toolcontext on <var_v:ExternClassesTypingPhaseModel> */
 if (unlikely(var68 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__phase, 200);
 fatal_exit(1);
@@ -820,24 +868,24 @@ goto RET_LABEL;
 }
 BREAK_label61: (void)0;
 {
-((void(*)(val* self))((((long)var_46&3)?class_info[((long)var_46&3)]:var_46->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_46); /* next on <var_46:Iterator[MClass]>*/
+((void(*)(val* self))((((int64_t)var_46&3)?class_info[((int64_t)var_46&3)]:var_46->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_46); /* next on <var_46:Iterator[MClass]>*/
 }
 }
 BREAK_label: (void)0;
 {
-((void(*)(val* self))((((long)var_46&3)?class_info[((long)var_46&3)]:var_46->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_46); /* finish on <var_46:Iterator[MClass]>*/
+((void(*)(val* self))((((int64_t)var_46&3)?class_info[((int64_t)var_46&3)]:var_46->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_46); /* finish on <var_46:Iterator[MClass]>*/
 }
 var_ftype = var_ftype_b;
 } else {
 }
 {
-{ /* Inline extern_classes#MClass#ftype_cache= (self,var_ftype) on <self:MClass> */
+{ /* Inline extern_classes$MClass$ftype_cache= (self,var_ftype) on <self:MClass> */
 self->attrs[COLOR_nitc__extern_classes__MClass___ftype_cache].val = var_ftype; /* _ftype_cache on <self:MClass> */
 RET_LABEL82:(void)0;
 }
 }
 {
-{ /* Inline extern_classes#MClass#ftype_computed= (self,1) on <self:MClass> */
+{ /* Inline extern_classes$MClass$ftype_computed= (self,1) on <self:MClass> */
 self->attrs[COLOR_nitc__extern_classes__MClass___ftype_computed].s = 1; /* _ftype_computed on <self:MClass> */
 RET_LABEL83:(void)0;
 }

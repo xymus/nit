@@ -19,17 +19,21 @@
 	#include <errno.h>
 	#include <stdio.h>
 	#include <unistd.h>
-	#include <sys/wait.h>
 	#include <signal.h>
-long exec___NativeString_system___impl( char* self )
+#ifndef _WIN32
+	#include <sys/wait.h>
+#endif
+int64_t core__exec___NativeString_system___impl( char* self )
 {
-#line 332 "../lib/core/exec.nit"
+#line 344 "../lib/core/exec.nit"
 
 
 		int status = system(self);
+#ifndef _WIN32
 		if (WIFSIGNALED(status) && WTERMSIG(status) == SIGINT) {
 			// system exited on SIGINT: in my opinion the user wants the main to be discontinued
 			kill(getpid(), SIGINT);
 		}
+#endif
 		return status;
 	}

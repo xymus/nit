@@ -1,5 +1,5 @@
 #include "nitc__toolcontext.sep.0.h"
-/* method toolcontext#Message#location for (self: Message): nullable Location */
+/* method toolcontext$Message$location for (self: Message): nullable Location */
 val* nitc___nitc__Message___location(val* self) {
 val* var /* : nullable Location */;
 val* var1 /* : nullable Location */;
@@ -8,12 +8,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#Message#location= for (self: Message, nullable Location) */
+/* method toolcontext$Message$location= for (self: Message, nullable Location) */
 void nitc___nitc__Message___location_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__toolcontext__Message___location].val = p0; /* _location on <self:Message> */
 RET_LABEL:;
 }
-/* method toolcontext#Message#tag for (self: Message): nullable String */
+/* method toolcontext$Message$tag for (self: Message): nullable String */
 val* nitc___nitc__Message___tag(val* self) {
 val* var /* : nullable String */;
 val* var1 /* : nullable String */;
@@ -22,17 +22,20 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#Message#tag= for (self: Message, nullable String) */
+/* method toolcontext$Message$tag= for (self: Message, nullable String) */
 void nitc___nitc__Message___tag_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__toolcontext__Message___tag].val = p0; /* _tag on <self:Message> */
 RET_LABEL:;
 }
-/* method toolcontext#Message#text for (self: Message): String */
+/* method toolcontext$Message$text for (self: Message): String */
 val* nitc___nitc__Message___text(val* self) {
 val* var /* : String */;
 val* var1 /* : String */;
 var1 = self->attrs[COLOR_nitc__toolcontext__Message___text].val; /* _text on <self:Message> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _text");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 42);
 fatal_exit(1);
@@ -41,12 +44,17 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#Message#text= for (self: Message, String) */
+/* method toolcontext$Message$text= for (self: Message, String) */
 void nitc___nitc__Message___text_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__toolcontext__Message___text].val = p0; /* _text on <self:Message> */
 RET_LABEL:;
 }
-/* method toolcontext#Message#< for (self: Message, Message): Bool */
+/* method toolcontext$Message$level= for (self: Message, Int) */
+void nitc___nitc__Message___level_61d(val* self, int64_t p0) {
+self->attrs[COLOR_nitc__toolcontext__Message___level].l = p0; /* _level on <self:Message> */
+RET_LABEL:;
+}
+/* method toolcontext$Message$< for (self: Message, Message): Bool */
 short int nitc___nitc__Message___core__kernel__Comparable___60d(val* self, val* p0) {
 short int var /* : Bool */;
 short int var1 /* : Bool */;
@@ -81,12 +89,12 @@ var1 = p0->type->type_table[cltype] == idtype;
 if (unlikely(!var1)) {
 var_class_name = p0 == NULL ? "null" : p0->type->name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name);
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 61);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 68);
 fatal_exit(1);
 }
 var_other = p0;
 {
-{ /* Inline toolcontext#Message#location (self) on <self:Message> */
+{ /* Inline toolcontext$Message$location (self) on <self:Message> */
 var4 = self->attrs[COLOR_nitc__toolcontext__Message___location].val; /* _location on <self:Message> */
 var2 = var4;
 RET_LABEL3:(void)0;
@@ -107,7 +115,7 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline toolcontext#Message#location (var_other) on <var_other:Message> */
+{ /* Inline toolcontext$Message$location (var_other) on <var_other:Message> */
 var9 = var_other->attrs[COLOR_nitc__toolcontext__Message___location].val; /* _location on <var_other:Message> */
 var7 = var9;
 RET_LABEL8:(void)0;
@@ -128,27 +136,33 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline toolcontext#Message#location (self) on <self:Message> */
+{ /* Inline toolcontext$Message$location (self) on <self:Message> */
 var14 = self->attrs[COLOR_nitc__toolcontext__Message___location].val; /* _location on <self:Message> */
 var12 = var14;
 RET_LABEL13:(void)0;
 }
 }
 if (unlikely(var12 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Cast failed");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 66);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 73);
 fatal_exit(1);
 }
 {
-{ /* Inline toolcontext#Message#location (var_other) on <var_other:Message> */
+{ /* Inline toolcontext$Message$location (var_other) on <var_other:Message> */
 var17 = var_other->attrs[COLOR_nitc__toolcontext__Message___location].val; /* _location on <var_other:Message> */
 var15 = var17;
 RET_LABEL16:(void)0;
 }
 }
 if (unlikely(var15 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Cast failed");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 66);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 73);
 fatal_exit(1);
 }
 {
@@ -159,7 +173,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#Message#== for (self: Message, nullable Object): Bool */
+/* method toolcontext$Message$== for (self: Message, nullable Object): Bool */
 short int nitc___nitc__Message___core__kernel__Object___61d_61d(val* self, val* p0) {
 short int var /* : Bool */;
 val* var_other /* var other: nullable Object */;
@@ -195,10 +209,10 @@ idtype = type_nitc__Message.id;
 if(var_other == NULL) {
 var1 = 0;
 } else {
-if(cltype >= (((long)var_other&3)?type_info[((long)var_other&3)]:var_other->type)->table_size) {
+if(cltype >= (((int64_t)var_other&3)?type_info[((int64_t)var_other&3)]:var_other->type)->table_size) {
 var1 = 0;
 } else {
-var1 = (((long)var_other&3)?type_info[((long)var_other&3)]:var_other->type)->type_table[cltype] == idtype;
+var1 = (((int64_t)var_other&3)?type_info[((int64_t)var_other&3)]:var_other->type)->type_table[cltype] == idtype;
 }
 }
 var2 = !var1;
@@ -208,14 +222,14 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline toolcontext#Message#location (self) on <self:Message> */
+{ /* Inline toolcontext$Message$location (self) on <self:Message> */
 var7 = self->attrs[COLOR_nitc__toolcontext__Message___location].val; /* _location on <self:Message> */
 var5 = var7;
 RET_LABEL6:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#Message#location (var_other) on <var_other:nullable Object(Message)> */
+{ /* Inline toolcontext$Message$location (var_other) on <var_other:nullable Object(Message)> */
 var10 = var_other->attrs[COLOR_nitc__toolcontext__Message___location].val; /* _location on <var_other:nullable Object(Message)> */
 var8 = var10;
 RET_LABEL9:(void)0;
@@ -230,14 +244,14 @@ var11 = var12;
 var_ = var11;
 if (var11){
 {
-{ /* Inline toolcontext#Message#tag (self) on <self:Message> */
+{ /* Inline toolcontext$Message$tag (self) on <self:Message> */
 var15 = self->attrs[COLOR_nitc__toolcontext__Message___tag].val; /* _tag on <self:Message> */
 var13 = var15;
 RET_LABEL14:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#Message#tag (var_other) on <var_other:nullable Object(Message)> */
+{ /* Inline toolcontext$Message$tag (var_other) on <var_other:nullable Object(Message)> */
 var18 = var_other->attrs[COLOR_nitc__toolcontext__Message___tag].val; /* _tag on <var_other:nullable Object(Message)> */
 var16 = var18;
 RET_LABEL17:(void)0;
@@ -256,9 +270,12 @@ var4 = var_;
 var_21 = var4;
 if (var4){
 {
-{ /* Inline toolcontext#Message#text (self) on <self:Message> */
+{ /* Inline toolcontext$Message$text (self) on <self:Message> */
 var24 = self->attrs[COLOR_nitc__toolcontext__Message___text].val; /* _text on <self:Message> */
 if (unlikely(var24 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _text");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 42);
 fatal_exit(1);
@@ -268,9 +285,12 @@ RET_LABEL23:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#Message#text (var_other) on <var_other:nullable Object(Message)> */
+{ /* Inline toolcontext$Message$text (var_other) on <var_other:nullable Object(Message)> */
 var27 = var_other->attrs[COLOR_nitc__toolcontext__Message___text].val; /* _text on <var_other:nullable Object(Message)> */
 if (unlikely(var27 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _text");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 42);
 fatal_exit(1);
@@ -291,7 +311,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#Message#to_s for (self: Message): String */
+/* method toolcontext$Message$to_s for (self: Message): String */
 val* nitc___nitc__Message___core__abstract_text__Object__to_s(val* self) {
 val* var /* : String */;
 val* var1 /* : nullable Location */;
@@ -312,7 +332,7 @@ val* var15 /* : String */;
 val* var17 /* : String */;
 val* var18 /* : String */;
 {
-{ /* Inline toolcontext#Message#location (self) on <self:Message> */
+{ /* Inline toolcontext$Message$location (self) on <self:Message> */
 var3 = self->attrs[COLOR_nitc__toolcontext__Message___location].val; /* _location on <self:Message> */
 var1 = var3;
 RET_LABEL2:(void)0;
@@ -330,9 +350,12 @@ var4 = var5;
 }
 if (var4){
 {
-{ /* Inline toolcontext#Message#text (self) on <self:Message> */
+{ /* Inline toolcontext$Message$text (self) on <self:Message> */
 var8 = self->attrs[COLOR_nitc__toolcontext__Message___text].val; /* _text on <self:Message> */
 if (unlikely(var8 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _text");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 42);
 fatal_exit(1);
@@ -364,9 +387,12 @@ var14 = ((val*(*)(val* self))(var_l->class->vft[COLOR_core__abstract_text__Objec
 }
 ((struct instance_core__NativeArray*)var9)->values[0]=var14;
 {
-{ /* Inline toolcontext#Message#text (self) on <self:Message> */
+{ /* Inline toolcontext$Message$text (self) on <self:Message> */
 var17 = self->attrs[COLOR_nitc__toolcontext__Message___text].val; /* _text on <self:Message> */
 if (unlikely(var17 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _text");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 42);
 fatal_exit(1);
@@ -386,7 +412,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#Message#to_color_string for (self: Message): String */
+/* method toolcontext$Message$to_color_string for (self: Message): String */
 val* nitc___nitc__Message___to_color_string(val* self) {
 val* var /* : String */;
 uint32_t var1 /* : Char */;
@@ -480,7 +506,7 @@ val* var91 /* : String */;
 val* var92 /* : String */;
 val* var93 /* : String */;
 {
-{ /* Inline kernel#Int#code_point (27l) on <27l:Int> */
+{ /* Inline kernel$Int$code_point (27l) on <27l:Int> */
 var3 = (uint32_t)27l;
 var1 = var3;
 goto RET_LABEL2;
@@ -533,7 +559,7 @@ var18 = ((val*(*)(val* self))(var12->class->vft[COLOR_core__abstract_text__Nativ
 varonce11 = var12;
 var_def = var18;
 {
-{ /* Inline toolcontext#Message#tag (self) on <self:Message> */
+{ /* Inline toolcontext$Message$tag (self) on <self:Message> */
 var21 = self->attrs[COLOR_nitc__toolcontext__Message___tag].val; /* _tag on <self:Message> */
 var19 = var21;
 RET_LABEL20:(void)0;
@@ -546,7 +572,7 @@ var22 = 0; /* is null */
 var22 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_tag,((val*)NULL)) on <var_tag:nullable String> */
+{ /* Inline kernel$Object$!= (var_tag,((val*)NULL)) on <var_tag:nullable String> */
 var_other = ((val*)NULL);
 {
 var25 = ((short int(*)(val* self, val* p0))(var_tag->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_tag, var_other); /* == on <var_tag:nullable String(String)>*/
@@ -601,7 +627,7 @@ varonce38 = var39;
 var_tag = var39;
 }
 {
-{ /* Inline toolcontext#Message#location (self) on <self:Message> */
+{ /* Inline toolcontext$Message$location (self) on <self:Message> */
 var44 = self->attrs[COLOR_nitc__toolcontext__Message___location].val; /* _location on <self:Message> */
 var42 = var44;
 RET_LABEL43:(void)0;
@@ -625,9 +651,12 @@ var48 = varonce47;
 varonce47 = NULL;
 }
 {
-{ /* Inline toolcontext#Message#text (self) on <self:Message> */
+{ /* Inline toolcontext$Message$text (self) on <self:Message> */
 var51 = self->attrs[COLOR_nitc__toolcontext__Message___text].val; /* _text on <self:Message> */
 if (unlikely(var51 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _text");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 42);
 fatal_exit(1);
@@ -646,7 +675,7 @@ var = var52;
 goto RET_LABEL;
 } else {
 {
-{ /* Inline location#Location#file (var_l) on <var_l:nullable Location(Location)> */
+{ /* Inline location$Location$file (var_l) on <var_l:nullable Location(Location)> */
 var55 = var_l->attrs[COLOR_nitc__location__Location___file].val; /* _file on <var_l:nullable Location(Location)> */
 var53 = var55;
 RET_LABEL54:(void)0;
@@ -658,10 +687,10 @@ var56 = 1; /* is null */
 var56 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var53,((val*)NULL)) on <var53:nullable SourceFile> */
+{ /* Inline kernel$Object$== (var53,((val*)NULL)) on <var53:nullable SourceFile> */
 var_other59 = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var53,var_other59) on <var53:nullable SourceFile(SourceFile)> */
+{ /* Inline kernel$Object$is_same_instance (var53,var_other59) on <var53:nullable SourceFile(SourceFile)> */
 var62 = var53 == var_other59;
 var60 = var62;
 goto RET_LABEL61;
@@ -697,9 +726,12 @@ var69 = ((val*(*)(val* self))(var_l->class->vft[COLOR_core__abstract_text__Objec
 ((struct instance_core__NativeArray*)var64)->values[1]=var69;
 ((struct instance_core__NativeArray*)var64)->values[2]=var_def;
 {
-{ /* Inline toolcontext#Message#text (self) on <self:Message> */
+{ /* Inline toolcontext$Message$text (self) on <self:Message> */
 var72 = self->attrs[COLOR_nitc__toolcontext__Message___text].val; /* _text on <self:Message> */
 if (unlikely(var72 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _text");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 42);
 fatal_exit(1);
@@ -748,9 +780,12 @@ var84 = ((val*(*)(val* self))(var_l->class->vft[COLOR_core__abstract_text__Objec
 ((struct instance_core__NativeArray*)var75)->values[1]=var84;
 ((struct instance_core__NativeArray*)var75)->values[2]=var_def;
 {
-{ /* Inline toolcontext#Message#text (self) on <self:Message> */
+{ /* Inline toolcontext$Message$text (self) on <self:Message> */
 var87 = self->attrs[COLOR_nitc__toolcontext__Message___text].val; /* _text on <self:Message> */
 if (unlikely(var87 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _text");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 42);
 fatal_exit(1);
@@ -784,14 +819,14 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#Message#init for (self: Message) */
+/* method toolcontext$Message$init for (self: Message) */
 void nitc___nitc__Message___core__kernel__Object__init(val* self) {
 {
 ((void(*)(val* self))(self->class->vft[COLOR_nitc___nitc__Message___core__kernel__Object__init]))(self); /* init on <self:Message>*/
 }
 RET_LABEL:;
 }
-/* method toolcontext#Location#messages for (self: Location): nullable Array[Message] */
+/* method toolcontext$Location$messages for (self: Location): nullable Array[Message] */
 val* nitc__toolcontext___Location___messages(val* self) {
 val* var /* : nullable Array[Message] */;
 val* var1 /* : nullable Array[Message] */;
@@ -800,12 +835,12 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#Location#messages= for (self: Location, nullable Array[Message]) */
+/* method toolcontext$Location$messages= for (self: Location, nullable Array[Message]) */
 void nitc__toolcontext___Location___messages_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__toolcontext__Location___messages].val = p0; /* _messages on <self:Location> */
 RET_LABEL:;
 }
-/* method toolcontext#Location#add_message for (self: Location, Message) */
+/* method toolcontext$Location$add_message for (self: Location, Message) */
 void nitc__toolcontext___Location___add_message(val* self, val* p0) {
 val* var_m /* var m: Message */;
 val* var /* : nullable Array[Message] */;
@@ -814,9 +849,19 @@ val* var_ms /* var ms: nullable Array[Message] */;
 short int var3 /* : Bool */;
 short int var4 /* : Bool */;
 val* var5 /* : Array[Message] */;
+val* var7 /* : nullable SourceFile */;
+val* var9 /* : nullable SourceFile */;
+val* var_s /* var s: nullable SourceFile */;
+short int var10 /* : Bool */;
+short int var11 /* : Bool */;
+val* var_other /* var other: nullable Object */;
+short int var13 /* : Bool */;
+short int var14 /* : Bool */;
+val* var15 /* : Array[Message] */;
+val* var17 /* : Array[Message] */;
 var_m = p0;
 {
-{ /* Inline toolcontext#Location#messages (self) on <self:Location> */
+{ /* Inline toolcontext$Location$messages (self) on <self:Location> */
 var2 = self->attrs[COLOR_nitc__toolcontext__Location___messages].val; /* _messages on <self:Location> */
 var = var2;
 RET_LABEL1:(void)0;
@@ -835,11 +880,11 @@ var3 = var4;
 if (var3){
 var5 = NEW_core__Array(&type_core__Array__nitc__Message);
 {
-core___core__Array___core__kernel__Object__init(var5); /* Direct call array#Array#init on <var5:Array[Message]>*/
+core___core__Array___core__kernel__Object__init(var5); /* Direct call array$Array$init on <var5:Array[Message]>*/
 }
 var_ms = var5;
 {
-{ /* Inline toolcontext#Location#messages= (self,var_ms) on <self:Location> */
+{ /* Inline toolcontext$Location$messages= (self,var_ms) on <self:Location> */
 self->attrs[COLOR_nitc__toolcontext__Location___messages].val = var_ms; /* _messages on <self:Location> */
 RET_LABEL6:(void)0;
 }
@@ -847,58 +892,125 @@ RET_LABEL6:(void)0;
 } else {
 }
 {
-core___core__Array___core__abstract_collection__SimpleCollection__add(var_ms, var_m); /* Direct call array#Array#add on <var_ms:nullable Array[Message](Array[Message])>*/
+core___core__Array___core__abstract_collection__SimpleCollection__add(var_ms, var_m); /* Direct call array$Array$add on <var_ms:nullable Array[Message](Array[Message])>*/
+}
+{
+{ /* Inline location$Location$file (self) on <self:Location> */
+var9 = self->attrs[COLOR_nitc__location__Location___file].val; /* _file on <self:Location> */
+var7 = var9;
+RET_LABEL8:(void)0;
+}
+}
+var_s = var7;
+if (var_s == NULL) {
+var10 = 0; /* is null */
+} else {
+var10 = 1; /* arg is null and recv is not */
+}
+if (0) {
+{ /* Inline kernel$Object$!= (var_s,((val*)NULL)) on <var_s:nullable SourceFile> */
+var_other = ((val*)NULL);
+{
+var13 = ((short int(*)(val* self, val* p0))(var_s->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_s, var_other); /* == on <var_s:nullable SourceFile(SourceFile)>*/
+}
+var14 = !var13;
+var11 = var14;
+goto RET_LABEL12;
+RET_LABEL12:(void)0;
+}
+var10 = var11;
+}
+if (var10){
+{
+{ /* Inline toolcontext$SourceFile$messages (var_s) on <var_s:nullable SourceFile(SourceFile)> */
+var17 = var_s->attrs[COLOR_nitc__toolcontext__SourceFile___messages].val; /* _messages on <var_s:nullable SourceFile(SourceFile)> */
+if (unlikely(var17 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _messages");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 139);
+fatal_exit(1);
+}
+var15 = var17;
+RET_LABEL16:(void)0;
+}
+}
+{
+core___core__Array___core__abstract_collection__SimpleCollection__add(var15, var_m); /* Direct call array$Array$add on <var15:Array[Message]>*/
+}
+} else {
 }
 RET_LABEL:;
 }
-/* method toolcontext#ToolContext#error_count for (self: ToolContext): Int */
-long nitc___nitc__ToolContext___error_count(val* self) {
-long var /* : Int */;
-long var1 /* : Int */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___error_count].l; /* _error_count on <self:ToolContext> */
-var = var1;
-RET_LABEL:;
-return var;
-}
-/* method toolcontext#ToolContext#error_count= for (self: ToolContext, Int) */
-void nitc___nitc__ToolContext___error_count_61d(val* self, long p0) {
-self->attrs[COLOR_nitc__toolcontext__ToolContext___error_count].l = p0; /* _error_count on <self:ToolContext> */
-RET_LABEL:;
-}
-/* method toolcontext#ToolContext#warning_count for (self: ToolContext): Int */
-long nitc___nitc__ToolContext___warning_count(val* self) {
-long var /* : Int */;
-long var1 /* : Int */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___warning_count].l; /* _warning_count on <self:ToolContext> */
-var = var1;
-RET_LABEL:;
-return var;
-}
-/* method toolcontext#ToolContext#warning_count= for (self: ToolContext, Int) */
-void nitc___nitc__ToolContext___warning_count_61d(val* self, long p0) {
-self->attrs[COLOR_nitc__toolcontext__ToolContext___warning_count].l = p0; /* _warning_count on <self:ToolContext> */
-RET_LABEL:;
-}
-/* method toolcontext#ToolContext#log_directory for (self: ToolContext): String */
-val* nitc___nitc__ToolContext___log_directory(val* self) {
-val* var /* : String */;
-val* var1 /* : String */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___log_directory].val; /* _log_directory on <self:ToolContext> */
+/* method toolcontext$SourceFile$messages for (self: SourceFile): Array[Message] */
+val* nitc__toolcontext___SourceFile___messages(val* self) {
+val* var /* : Array[Message] */;
+val* var1 /* : Array[Message] */;
+var1 = self->attrs[COLOR_nitc__toolcontext__SourceFile___messages].val; /* _messages on <self:SourceFile> */
 if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _log_directory");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 137);
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _messages");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 139);
 fatal_exit(1);
 }
 var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#log_directory= for (self: ToolContext, String) */
+/* method toolcontext$ToolContext$error_count for (self: ToolContext): Int */
+int64_t nitc___nitc__ToolContext___error_count(val* self) {
+int64_t var /* : Int */;
+int64_t var1 /* : Int */;
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___error_count].l; /* _error_count on <self:ToolContext> */
+var = var1;
+RET_LABEL:;
+return var;
+}
+/* method toolcontext$ToolContext$error_count= for (self: ToolContext, Int) */
+void nitc___nitc__ToolContext___error_count_61d(val* self, int64_t p0) {
+self->attrs[COLOR_nitc__toolcontext__ToolContext___error_count].l = p0; /* _error_count on <self:ToolContext> */
+RET_LABEL:;
+}
+/* method toolcontext$ToolContext$warning_count for (self: ToolContext): Int */
+int64_t nitc___nitc__ToolContext___warning_count(val* self) {
+int64_t var /* : Int */;
+int64_t var1 /* : Int */;
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___warning_count].l; /* _warning_count on <self:ToolContext> */
+var = var1;
+RET_LABEL:;
+return var;
+}
+/* method toolcontext$ToolContext$warning_count= for (self: ToolContext, Int) */
+void nitc___nitc__ToolContext___warning_count_61d(val* self, int64_t p0) {
+self->attrs[COLOR_nitc__toolcontext__ToolContext___warning_count].l = p0; /* _warning_count on <self:ToolContext> */
+RET_LABEL:;
+}
+/* method toolcontext$ToolContext$log_directory for (self: ToolContext): String */
+val* nitc___nitc__ToolContext___log_directory(val* self) {
+val* var /* : String */;
+val* var1 /* : String */;
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___log_directory].val; /* _log_directory on <self:ToolContext> */
+if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _log_directory");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 151);
+fatal_exit(1);
+}
+var = var1;
+RET_LABEL:;
+return var;
+}
+/* method toolcontext$ToolContext$log_directory= for (self: ToolContext, String) */
 void nitc___nitc__ToolContext___log_directory_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__toolcontext__ToolContext___log_directory].val = p0; /* _log_directory on <self:ToolContext> */
 RET_LABEL:;
 }
-/* method toolcontext#ToolContext#log_info for (self: ToolContext): nullable Writer */
+/* method toolcontext$ToolContext$log_info for (self: ToolContext): nullable Writer */
 val* nitc___nitc__ToolContext___log_info(val* self) {
 val* var /* : nullable Writer */;
 val* var1 /* : nullable Writer */;
@@ -907,40 +1019,46 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#log_info= for (self: ToolContext, nullable Writer) */
+/* method toolcontext$ToolContext$log_info= for (self: ToolContext, nullable Writer) */
 void nitc___nitc__ToolContext___log_info_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__toolcontext__ToolContext___log_info].val = p0; /* _log_info on <self:ToolContext> */
 RET_LABEL:;
 }
-/* method toolcontext#ToolContext#messages for (self: ToolContext): Array[Message] */
+/* method toolcontext$ToolContext$messages for (self: ToolContext): Array[Message] */
 val* nitc___nitc__ToolContext___messages(val* self) {
 val* var /* : Array[Message] */;
 val* var1 /* : Array[Message] */;
 var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___messages].val; /* _messages on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _messages");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 143);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 157);
 fatal_exit(1);
 }
 var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#message_sorter for (self: ToolContext): Comparator */
+/* method toolcontext$ToolContext$message_sorter for (self: ToolContext): Comparator */
 val* nitc___nitc__ToolContext___message_sorter(val* self) {
 val* var /* : Comparator */;
 val* var1 /* : Comparator */;
 var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___message_sorter].val; /* _message_sorter on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _message_sorter");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 145);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 159);
 fatal_exit(1);
 }
 var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#keep_going for (self: ToolContext): Bool */
+/* method toolcontext$ToolContext$keep_going for (self: ToolContext): Bool */
 short int nitc___nitc__ToolContext___keep_going(val* self) {
 short int var /* : Bool */;
 short int var1 /* : Bool */;
@@ -949,26 +1067,29 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#keep_going= for (self: ToolContext, Bool) */
+/* method toolcontext$ToolContext$keep_going= for (self: ToolContext, Bool) */
 void nitc___nitc__ToolContext___keep_going_61d(val* self, short int p0) {
 self->attrs[COLOR_nitc__toolcontext__ToolContext___keep_going].s = p0; /* _keep_going on <self:ToolContext> */
 RET_LABEL:;
 }
-/* method toolcontext#ToolContext#warning_blacklist for (self: ToolContext): MultiHashMap[SourceFile, String] */
+/* method toolcontext$ToolContext$warning_blacklist for (self: ToolContext): MultiHashMap[SourceFile, String] */
 val* nitc___nitc__ToolContext___warning_blacklist(val* self) {
 val* var /* : MultiHashMap[SourceFile, String] */;
 val* var1 /* : MultiHashMap[SourceFile, String] */;
 var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___warning_blacklist].val; /* _warning_blacklist on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _warning_blacklist");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 153);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 167);
 fatal_exit(1);
 }
 var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#is_warning_blacklisted for (self: ToolContext, nullable Location, String): Bool */
+/* method toolcontext$ToolContext$is_warning_blacklisted for (self: ToolContext, nullable Location, String): Bool */
 short int nitc___nitc__ToolContext___is_warning_blacklisted(val* self, val* p0, val* p1) {
 short int var /* : Bool */;
 val* var_l /* var l: nullable Location */;
@@ -1014,7 +1135,7 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline location#Location#file (var_l) on <var_l:nullable Location(Location)> */
+{ /* Inline location$Location$file (var_l) on <var_l:nullable Location(Location)> */
 var5 = var_l->attrs[COLOR_nitc__location__Location___file].val; /* _file on <var_l:nullable Location(Location)> */
 var3 = var5;
 RET_LABEL4:(void)0;
@@ -1027,10 +1148,10 @@ var6 = 1; /* is null */
 var6 = 0; /* arg is null but recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#== (var_f,((val*)NULL)) on <var_f:nullable SourceFile> */
+{ /* Inline kernel$Object$== (var_f,((val*)NULL)) on <var_f:nullable SourceFile> */
 var_other = ((val*)NULL);
 {
-{ /* Inline kernel#Object#is_same_instance (var_f,var_other) on <var_f:nullable SourceFile(SourceFile)> */
+{ /* Inline kernel$Object$is_same_instance (var_f,var_other) on <var_f:nullable SourceFile(SourceFile)> */
 var11 = var_f == var_other;
 var9 = var11;
 goto RET_LABEL10;
@@ -1049,11 +1170,14 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline toolcontext#ToolContext#warning_blacklist (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$warning_blacklist (self) on <self:ToolContext> */
 var14 = self->attrs[COLOR_nitc__toolcontext__ToolContext___warning_blacklist].val; /* _warning_blacklist on <self:ToolContext> */
 if (unlikely(var14 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _warning_blacklist");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 153);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 167);
 fatal_exit(1);
 }
 var12 = var14;
@@ -1103,11 +1227,11 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#quit for (self: ToolContext) */
+/* method toolcontext$ToolContext$quit for (self: ToolContext) */
 void nitc___nitc__ToolContext___quit(val* self) {
 short int var /* : Bool */;
-long var1 /* : Int */;
-long var3 /* : Int */;
+int64_t var1 /* : Int */;
+int64_t var3 /* : Int */;
 short int var4 /* : Bool */;
 short int var6 /* : Bool */;
 int cltype;
@@ -1120,24 +1244,24 @@ val* var10 /* : Sys */;
 var = nitc___nitc__ToolContext___check_errors(self);
 }
 {
-nitc___nitc__ToolContext___errors_info(self); /* Direct call toolcontext#ToolContext#errors_info on <self:ToolContext>*/
+nitc___nitc__ToolContext___errors_info(self); /* Direct call toolcontext$ToolContext$errors_info on <self:ToolContext>*/
 }
 {
-{ /* Inline toolcontext#ToolContext#error_count (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$error_count (self) on <self:ToolContext> */
 var3 = self->attrs[COLOR_nitc__toolcontext__ToolContext___error_count].l; /* _error_count on <self:ToolContext> */
 var1 = var3;
 RET_LABEL2:(void)0;
 }
 }
 {
-{ /* Inline kernel#Int#> (var1,0l) on <var1:Int> */
+{ /* Inline kernel$Int$> (var1,0l) on <var1:Int> */
 /* Covariant cast for argument 0 (i) <0l:Int> isa OTHER */
 /* <0l:Int> isa OTHER */
 var6 = 1; /* easy <0l:Int> isa OTHER*/
 if (unlikely(!var6)) {
 var_class_name = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 730);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 727);
 fatal_exit(1);
 }
 var7 = var1 > 0l;
@@ -1149,7 +1273,7 @@ RET_LABEL5:(void)0;
 if (var4){
 var8 = glob_sys;
 {
-{ /* Inline kernel#Sys#exit (var8,1l) on <var8:Sys> */
+{ /* Inline kernel$Sys$exit (var8,1l) on <var8:Sys> */
 exit(1l);
 RET_LABEL9:(void)0;
 }
@@ -1157,7 +1281,7 @@ RET_LABEL9:(void)0;
 } else {
 var10 = glob_sys;
 {
-{ /* Inline kernel#Sys#exit (var10,0l) on <var10:Sys> */
+{ /* Inline kernel$Sys$exit (var10,0l) on <var10:Sys> */
 exit(0l);
 RET_LABEL11:(void)0;
 }
@@ -1165,13 +1289,13 @@ RET_LABEL11:(void)0;
 }
 RET_LABEL:;
 }
-/* method toolcontext#ToolContext#check_errors for (self: ToolContext): Bool */
+/* method toolcontext$ToolContext$check_errors for (self: ToolContext): Bool */
 short int nitc___nitc__ToolContext___check_errors(val* self) {
 short int var /* : Bool */;
 val* var1 /* : Array[Message] */;
 val* var3 /* : Array[Message] */;
-long var4 /* : Int */;
-long var6 /* : Int */;
+int64_t var4 /* : Int */;
+int64_t var6 /* : Int */;
 short int var7 /* : Bool */;
 short int var9 /* : Bool */;
 int cltype;
@@ -1219,8 +1343,8 @@ val* var52 /* : String */;
 val* var53 /* : String */;
 val* var54 /* : Array[Message] */;
 val* var56 /* : Array[Message] */;
-long var57 /* : Int */;
-long var59 /* : Int */;
+int64_t var57 /* : Int */;
+int64_t var59 /* : Int */;
 short int var60 /* : Bool */;
 short int var62 /* : Bool */;
 int cltype63;
@@ -1232,11 +1356,14 @@ short int var69 /* : Bool */;
 short int var70 /* : Bool */;
 val* var71 /* : Sys */;
 {
-{ /* Inline toolcontext#ToolContext#messages (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$messages (self) on <self:ToolContext> */
 var3 = self->attrs[COLOR_nitc__toolcontext__ToolContext___messages].val; /* _messages on <self:ToolContext> */
 if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _messages");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 143);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 157);
 fatal_exit(1);
 }
 var1 = var3;
@@ -1244,21 +1371,21 @@ RET_LABEL2:(void)0;
 }
 }
 {
-{ /* Inline array#AbstractArrayRead#length (var1) on <var1:Array[Message]> */
+{ /* Inline array$AbstractArrayRead$length (var1) on <var1:Array[Message]> */
 var6 = var1->attrs[COLOR_core__array__AbstractArrayRead___length].l; /* _length on <var1:Array[Message]> */
 var4 = var6;
 RET_LABEL5:(void)0;
 }
 }
 {
-{ /* Inline kernel#Int#> (var4,0l) on <var4:Int> */
+{ /* Inline kernel$Int$> (var4,0l) on <var4:Int> */
 /* Covariant cast for argument 0 (i) <0l:Int> isa OTHER */
 /* <0l:Int> isa OTHER */
 var9 = 1; /* easy <0l:Int> isa OTHER*/
 if (unlikely(!var9)) {
 var_class_name = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 730);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 727);
 fatal_exit(1);
 }
 var10 = var4 > 0l;
@@ -1269,11 +1396,14 @@ RET_LABEL8:(void)0;
 }
 if (var7){
 {
-{ /* Inline toolcontext#ToolContext#message_sorter (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$message_sorter (self) on <self:ToolContext> */
 var13 = self->attrs[COLOR_nitc__toolcontext__ToolContext___message_sorter].val; /* _message_sorter on <self:ToolContext> */
 if (unlikely(var13 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _message_sorter");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 145);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 159);
 fatal_exit(1);
 }
 var11 = var13;
@@ -1281,11 +1411,14 @@ RET_LABEL12:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#messages (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$messages (self) on <self:ToolContext> */
 var16 = self->attrs[COLOR_nitc__toolcontext__ToolContext___messages].val; /* _messages on <self:ToolContext> */
 if (unlikely(var16 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _messages");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 143);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 157);
 fatal_exit(1);
 }
 var14 = var16;
@@ -1293,14 +1426,17 @@ RET_LABEL15:(void)0;
 }
 }
 {
-core___core__Comparator___sort(var11, var14); /* Direct call sorter#Comparator#sort on <var11:Comparator>*/
+core___core__Comparator___sort(var11, var14); /* Direct call sorter$Comparator$sort on <var11:Comparator>*/
 }
 {
-{ /* Inline toolcontext#ToolContext#messages (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$messages (self) on <self:ToolContext> */
 var19 = self->attrs[COLOR_nitc__toolcontext__ToolContext___messages].val; /* _messages on <self:ToolContext> */
 if (unlikely(var19 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _messages");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 143);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 157);
 fatal_exit(1);
 }
 var17 = var19;
@@ -1314,22 +1450,25 @@ var20 = core___core__AbstractArrayRead___core__abstract_collection__Collection__
 var_21 = var20;
 for(;;) {
 {
-var22 = ((short int(*)(val* self))((((long)var_21&3)?class_info[((long)var_21&3)]:var_21->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_21); /* is_ok on <var_21:IndexedIterator[Message]>*/
+var22 = ((short int(*)(val* self))((((int64_t)var_21&3)?class_info[((int64_t)var_21&3)]:var_21->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_21); /* is_ok on <var_21:IndexedIterator[Message]>*/
 }
 if (var22){
 } else {
 goto BREAK_label;
 }
 {
-var23 = ((val*(*)(val* self))((((long)var_21&3)?class_info[((long)var_21&3)]:var_21->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_21); /* item on <var_21:IndexedIterator[Message]>*/
+var23 = ((val*(*)(val* self))((((int64_t)var_21&3)?class_info[((int64_t)var_21&3)]:var_21->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_21); /* item on <var_21:IndexedIterator[Message]>*/
 }
 var_m = var23;
 {
-{ /* Inline toolcontext#ToolContext#opt_no_color (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_no_color (self) on <self:ToolContext> */
 var26 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_no_color].val; /* _opt_no_color on <self:ToolContext> */
 if (unlikely(var26 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_no_color");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 381);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 399);
 fatal_exit(1);
 }
 var24 = var26;
@@ -1337,16 +1476,16 @@ RET_LABEL25:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var24) on <var24:OptionBool> */
+{ /* Inline opts$Option$value (var24) on <var24:OptionBool> */
 var29 = var24->attrs[COLOR_opts__Option___value].val; /* _value on <var24:OptionBool> */
 var27 = var29;
 RET_LABEL28:(void)0;
 }
 }
-var30 = (short int)((long)(var27)>>2);
+var30 = (short int)((int64_t)(var27)>>2);
 if (var30){
 {
-{ /* Inline kernel#Object#sys (self) on <self:ToolContext> */
+{ /* Inline kernel$Object$sys (self) on <self:ToolContext> */
 var33 = glob_sys;
 var31 = var33;
 goto RET_LABEL32;
@@ -1380,11 +1519,11 @@ var41 = ((val*(*)(val* self))(var35->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce = var35;
 {
-core___core__FileWriter___core__stream__Writer__write(var34, var41); /* Direct call file#FileWriter#write on <var34:Writer>*/
+core___core__FileWriter___core__stream__Writer__write(var34, var41); /* Direct call file$FileWriter$write on <var34:Writer>*/
 }
 } else {
 {
-{ /* Inline kernel#Object#sys (self) on <self:ToolContext> */
+{ /* Inline kernel$Object$sys (self) on <self:ToolContext> */
 var44 = glob_sys;
 var42 = var44;
 goto RET_LABEL43;
@@ -1418,23 +1557,26 @@ var53 = ((val*(*)(val* self))(var47->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce46 = var47;
 {
-core___core__FileWriter___core__stream__Writer__write(var45, var53); /* Direct call file#FileWriter#write on <var45:Writer>*/
+core___core__FileWriter___core__stream__Writer__write(var45, var53); /* Direct call file$FileWriter$write on <var45:Writer>*/
 }
 }
 {
-((void(*)(val* self))((((long)var_21&3)?class_info[((long)var_21&3)]:var_21->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_21); /* next on <var_21:IndexedIterator[Message]>*/
+((void(*)(val* self))((((int64_t)var_21&3)?class_info[((int64_t)var_21&3)]:var_21->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_21); /* next on <var_21:IndexedIterator[Message]>*/
 }
 }
 BREAK_label: (void)0;
 {
-((void(*)(val* self))((((long)var_21&3)?class_info[((long)var_21&3)]:var_21->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_21); /* finish on <var_21:IndexedIterator[Message]>*/
+((void(*)(val* self))((((int64_t)var_21&3)?class_info[((int64_t)var_21&3)]:var_21->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_21); /* finish on <var_21:IndexedIterator[Message]>*/
 }
 {
-{ /* Inline toolcontext#ToolContext#messages (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$messages (self) on <self:ToolContext> */
 var56 = self->attrs[COLOR_nitc__toolcontext__ToolContext___messages].val; /* _messages on <self:ToolContext> */
 if (unlikely(var56 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _messages");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 143);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 157);
 fatal_exit(1);
 }
 var54 = var56;
@@ -1442,26 +1584,26 @@ RET_LABEL55:(void)0;
 }
 }
 {
-core___core__AbstractArray___core__abstract_collection__RemovableCollection__clear(var54); /* Direct call array#AbstractArray#clear on <var54:Array[Message]>*/
+core___core__AbstractArray___core__abstract_collection__RemovableCollection__clear(var54); /* Direct call array$AbstractArray$clear on <var54:Array[Message]>*/
 }
 } else {
 }
 {
-{ /* Inline toolcontext#ToolContext#error_count (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$error_count (self) on <self:ToolContext> */
 var59 = self->attrs[COLOR_nitc__toolcontext__ToolContext___error_count].l; /* _error_count on <self:ToolContext> */
 var57 = var59;
 RET_LABEL58:(void)0;
 }
 }
 {
-{ /* Inline kernel#Int#> (var57,0l) on <var57:Int> */
+{ /* Inline kernel$Int$> (var57,0l) on <var57:Int> */
 /* Covariant cast for argument 0 (i) <0l:Int> isa OTHER */
 /* <0l:Int> isa OTHER */
 var62 = 1; /* easy <0l:Int> isa OTHER*/
 if (unlikely(!var62)) {
 var_class_name65 = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name65);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 730);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 727);
 fatal_exit(1);
 }
 var66 = var57 > 0l;
@@ -1472,7 +1614,7 @@ RET_LABEL61:(void)0;
 }
 if (var60){
 {
-{ /* Inline toolcontext#ToolContext#keep_going (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$keep_going (self) on <self:ToolContext> */
 var69 = self->attrs[COLOR_nitc__toolcontext__ToolContext___keep_going].s; /* _keep_going on <self:ToolContext> */
 var67 = var69;
 RET_LABEL68:(void)0;
@@ -1481,11 +1623,11 @@ RET_LABEL68:(void)0;
 var70 = !var67;
 if (var70){
 {
-nitc___nitc__ToolContext___errors_info(self); /* Direct call toolcontext#ToolContext#errors_info on <self:ToolContext>*/
+nitc___nitc__ToolContext___errors_info(self); /* Direct call toolcontext$ToolContext$errors_info on <self:ToolContext>*/
 }
 var71 = glob_sys;
 {
-{ /* Inline kernel#Sys#exit (var71,1l) on <var71:Sys> */
+{ /* Inline kernel$Sys$exit (var71,1l) on <var71:Sys> */
 exit(1l);
 RET_LABEL72:(void)0;
 }
@@ -1501,16 +1643,16 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#errors_info for (self: ToolContext) */
+/* method toolcontext$ToolContext$errors_info for (self: ToolContext) */
 void nitc___nitc__ToolContext___errors_info(val* self) {
 short int var /* : Bool */;
-long var1 /* : Int */;
-long var3 /* : Int */;
+int64_t var1 /* : Int */;
+int64_t var3 /* : Int */;
 short int var4 /* : Bool */;
 short int var6 /* : Bool */;
 short int var_ /* var : Bool */;
-long var7 /* : Int */;
-long var9 /* : Int */;
+int64_t var7 /* : Int */;
+int64_t var9 /* : Int */;
 short int var10 /* : Bool */;
 short int var12 /* : Bool */;
 val* var13 /* : OptionBool */;
@@ -1535,22 +1677,22 @@ static val* varonce33;
 val* var34 /* : String */;
 char* var35 /* : NativeString */;
 val* var36 /* : String */;
-long var37 /* : Int */;
-long var39 /* : Int */;
+int64_t var37 /* : Int */;
+int64_t var39 /* : Int */;
 val* var40 /* : String */;
-long var41 /* : Int */;
-long var43 /* : Int */;
+int64_t var41 /* : Int */;
+int64_t var43 /* : Int */;
 val* var44 /* : String */;
 val* var45 /* : String */;
 {
-{ /* Inline toolcontext#ToolContext#error_count (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$error_count (self) on <self:ToolContext> */
 var3 = self->attrs[COLOR_nitc__toolcontext__ToolContext___error_count].l; /* _error_count on <self:ToolContext> */
 var1 = var3;
 RET_LABEL2:(void)0;
 }
 }
 {
-{ /* Inline kernel#Int#== (var1,0l) on <var1:Int> */
+{ /* Inline kernel$Int$== (var1,0l) on <var1:Int> */
 var6 = var1 == 0l;
 var4 = var6;
 goto RET_LABEL5;
@@ -1560,14 +1702,14 @@ RET_LABEL5:(void)0;
 var_ = var4;
 if (var4){
 {
-{ /* Inline toolcontext#ToolContext#warning_count (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$warning_count (self) on <self:ToolContext> */
 var9 = self->attrs[COLOR_nitc__toolcontext__ToolContext___warning_count].l; /* _warning_count on <self:ToolContext> */
 var7 = var9;
 RET_LABEL8:(void)0;
 }
 }
 {
-{ /* Inline kernel#Int#== (var7,0l) on <var7:Int> */
+{ /* Inline kernel$Int$== (var7,0l) on <var7:Int> */
 var12 = var7 == 0l;
 var10 = var12;
 goto RET_LABEL11;
@@ -1583,11 +1725,14 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_no_color (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_no_color (self) on <self:ToolContext> */
 var15 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_no_color].val; /* _opt_no_color on <self:ToolContext> */
 if (unlikely(var15 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_no_color");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 381);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 399);
 fatal_exit(1);
 }
 var13 = var15;
@@ -1595,19 +1740,19 @@ RET_LABEL14:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var13) on <var13:OptionBool> */
+{ /* Inline opts$Option$value (var13) on <var13:OptionBool> */
 var18 = var13->attrs[COLOR_opts__Option___value].val; /* _value on <var13:OptionBool> */
 var16 = var18;
 RET_LABEL17:(void)0;
 }
 }
-var19 = (short int)((long)(var16)>>2);
+var19 = (short int)((int64_t)(var16)>>2);
 if (var19){
 goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline kernel#Object#sys (self) on <self:ToolContext> */
+{ /* Inline kernel$Object$sys (self) on <self:ToolContext> */
 var22 = glob_sys;
 var20 = var22;
 goto RET_LABEL21;
@@ -1651,7 +1796,7 @@ var24 = varonce;
 varonce = NULL;
 }
 {
-{ /* Inline toolcontext#ToolContext#error_count (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$error_count (self) on <self:ToolContext> */
 var39 = self->attrs[COLOR_nitc__toolcontext__ToolContext___error_count].l; /* _error_count on <self:ToolContext> */
 var37 = var39;
 RET_LABEL38:(void)0;
@@ -1660,7 +1805,7 @@ RET_LABEL38:(void)0;
 var40 = core__flat___Int___core__abstract_text__Object__to_s(var37);
 ((struct instance_core__NativeArray*)var24)->values[1]=var40;
 {
-{ /* Inline toolcontext#ToolContext#warning_count (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$warning_count (self) on <self:ToolContext> */
 var43 = self->attrs[COLOR_nitc__toolcontext__ToolContext___warning_count].l; /* _warning_count on <self:ToolContext> */
 var41 = var43;
 RET_LABEL42:(void)0;
@@ -1673,11 +1818,11 @@ var45 = ((val*(*)(val* self))(var24->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce = var24;
 {
-core___core__FileWriter___core__stream__Writer__write(var23, var45); /* Direct call file#FileWriter#write on <var23:Writer>*/
+core___core__FileWriter___core__stream__Writer__write(var23, var45); /* Direct call file$FileWriter$write on <var23:Writer>*/
 }
 RET_LABEL:;
 }
-/* method toolcontext#ToolContext#error for (self: ToolContext, nullable Location, String): Message */
+/* method toolcontext$ToolContext$error for (self: ToolContext, nullable Location, String): Message */
 val* nitc___nitc__ToolContext___error(val* self, val* p0, val* p1) {
 val* var /* : Message */;
 val* var_l /* var l: nullable Location */;
@@ -1692,22 +1837,35 @@ short int var7 /* : Bool */;
 val* var_other /* var other: nullable Object */;
 short int var9 /* : Bool */;
 short int var10 /* : Bool */;
-val* var11 /* : Array[Message] */;
-val* var13 /* : Array[Message] */;
-long var14 /* : Int */;
-long var16 /* : Int */;
-long var17 /* : Int */;
-short int var19 /* : Bool */;
+val* var11 /* : OptionCount */;
+val* var13 /* : OptionCount */;
+val* var14 /* : nullable Object */;
+val* var16 /* : nullable Object */;
+int64_t var17 /* : Int */;
+int64_t var19 /* : Int */;
+short int var20 /* : Bool */;
+short int var22 /* : Bool */;
 int cltype;
 int idtype;
 const char* var_class_name;
-long var20 /* : Int */;
-val* var22 /* : OptionBool */;
-val* var24 /* : OptionBool */;
-val* var25 /* : nullable Object */;
-val* var27 /* : nullable Object */;
-short int var28 /* : Bool */;
-short int var29 /* : Bool */;
+int64_t var23 /* : Int */;
+short int var24 /* : Bool */;
+val* var25 /* : Array[Message] */;
+val* var27 /* : Array[Message] */;
+int64_t var28 /* : Int */;
+int64_t var30 /* : Int */;
+int64_t var31 /* : Int */;
+short int var33 /* : Bool */;
+int cltype34;
+int idtype35;
+const char* var_class_name36;
+int64_t var37 /* : Int */;
+val* var39 /* : OptionBool */;
+val* var41 /* : OptionBool */;
+val* var42 /* : nullable Object */;
+val* var44 /* : nullable Object */;
+short int var45 /* : Bool */;
+short int var46 /* : Bool */;
 var_l = p0;
 var_s = p1;
 var1 = NEW_nitc__Message(&type_nitc__Message);
@@ -1721,15 +1879,21 @@ var1 = NEW_nitc__Message(&type_nitc__Message);
 ((void(*)(val* self, val* p0))(var1->class->vft[COLOR_nitc__toolcontext__Message__text_61d]))(var1, var_s); /* text= on <var1:Message>*/
 }
 {
+((void(*)(val* self, int64_t p0))(var1->class->vft[COLOR_nitc__toolcontext__Message__level_61d]))(var1, 2l); /* level= on <var1:Message>*/
+}
+{
 ((void(*)(val* self))(var1->class->vft[COLOR_core__kernel__Object__init]))(var1); /* init on <var1:Message>*/
 }
 var_m = var1;
 {
-{ /* Inline toolcontext#ToolContext#messages (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$messages (self) on <self:ToolContext> */
 var4 = self->attrs[COLOR_nitc__toolcontext__ToolContext___messages].val; /* _messages on <self:ToolContext> */
 if (unlikely(var4 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _messages");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 143);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 157);
 fatal_exit(1);
 }
 var2 = var4;
@@ -1750,7 +1914,7 @@ var6 = 0; /* is null */
 var6 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_l,((val*)NULL)) on <var_l:nullable Location> */
+{ /* Inline kernel$Object$!= (var_l,((val*)NULL)) on <var_l:nullable Location> */
 var_other = ((val*)NULL);
 {
 var9 = ((short int(*)(val* self, val* p0))(var_l->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_l, var_other); /* == on <var_l:nullable Location(Location)>*/
@@ -1764,16 +1928,19 @@ var6 = var7;
 }
 if (var6){
 {
-nitc__toolcontext___Location___add_message(var_l, var_m); /* Direct call toolcontext#Location#add_message on <var_l:nullable Location(Location)>*/
+nitc__toolcontext___Location___add_message(var_l, var_m); /* Direct call toolcontext$Location$add_message on <var_l:nullable Location(Location)>*/
 }
 } else {
 }
 {
-{ /* Inline toolcontext#ToolContext#messages (self) on <self:ToolContext> */
-var13 = self->attrs[COLOR_nitc__toolcontext__ToolContext___messages].val; /* _messages on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_warn (self) on <self:ToolContext> */
+var13 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warn].val; /* _opt_warn on <self:ToolContext> */
 if (unlikely(var13 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _messages");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 143);
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warn");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 360);
 fatal_exit(1);
 }
 var11 = var13;
@@ -1781,61 +1948,117 @@ RET_LABEL12:(void)0;
 }
 }
 {
-core___core__Array___core__abstract_collection__SimpleCollection__add(var11, var_m); /* Direct call array#Array#add on <var11:Array[Message]>*/
-}
-{
-{ /* Inline toolcontext#ToolContext#error_count (self) on <self:ToolContext> */
-var16 = self->attrs[COLOR_nitc__toolcontext__ToolContext___error_count].l; /* _error_count on <self:ToolContext> */
+{ /* Inline opts$Option$value (var11) on <var11:OptionCount> */
+var16 = var11->attrs[COLOR_opts__Option___value].val; /* _value on <var11:OptionCount> */
 var14 = var16;
 RET_LABEL15:(void)0;
 }
 }
 {
-{ /* Inline kernel#Int#+ (var14,1l) on <var14:Int> */
-/* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
-/* <1l:Int> isa OTHER */
-var19 = 1; /* easy <1l:Int> isa OTHER*/
-if (unlikely(!var19)) {
-var_class_name = type_core__Int.name;
-PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 731);
-fatal_exit(1);
-}
-var20 = var14 + 1l;
-var17 = var20;
+{ /* Inline kernel$Int$unary - (1l) on <1l:Int> */
+var19 = -1l;
+var17 = var19;
 goto RET_LABEL18;
 RET_LABEL18:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#error_count= (self,var17) on <self:ToolContext> */
-self->attrs[COLOR_nitc__toolcontext__ToolContext___error_count].l = var17; /* _error_count on <self:ToolContext> */
+{ /* Inline kernel$Int$<= (var14,var17) on <var14:nullable Object(Int)> */
+/* Covariant cast for argument 0 (i) <var17:Int> isa OTHER */
+/* <var17:Int> isa OTHER */
+var22 = 1; /* easy <var17:Int> isa OTHER*/
+if (unlikely(!var22)) {
+var_class_name = type_core__Int.name;
+PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 724);
+fatal_exit(1);
+}
+var23 = (int64_t)(var14)>>2;
+var24 = var23 <= var17;
+var20 = var24;
+goto RET_LABEL21;
 RET_LABEL21:(void)0;
 }
 }
+if (var20){
+var = var_m;
+goto RET_LABEL;
+} else {
+}
 {
-{ /* Inline toolcontext#ToolContext#opt_stop_on_first_error (self) on <self:ToolContext> */
-var24 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_stop_on_first_error].val; /* _opt_stop_on_first_error on <self:ToolContext> */
-if (unlikely(var24 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_stop_on_first_error");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 375);
+{ /* Inline toolcontext$ToolContext$messages (self) on <self:ToolContext> */
+var27 = self->attrs[COLOR_nitc__toolcontext__ToolContext___messages].val; /* _messages on <self:ToolContext> */
+if (unlikely(var27 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _messages");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 157);
 fatal_exit(1);
 }
-var22 = var24;
-RET_LABEL23:(void)0;
-}
-}
-{
-{ /* Inline opts#Option#value (var22) on <var22:OptionBool> */
-var27 = var22->attrs[COLOR_opts__Option___value].val; /* _value on <var22:OptionBool> */
 var25 = var27;
 RET_LABEL26:(void)0;
 }
 }
-var28 = (short int)((long)(var25)>>2);
-if (var28){
 {
-var29 = nitc___nitc__ToolContext___check_errors(self);
+core___core__Array___core__abstract_collection__SimpleCollection__add(var25, var_m); /* Direct call array$Array$add on <var25:Array[Message]>*/
+}
+{
+{ /* Inline toolcontext$ToolContext$error_count (self) on <self:ToolContext> */
+var30 = self->attrs[COLOR_nitc__toolcontext__ToolContext___error_count].l; /* _error_count on <self:ToolContext> */
+var28 = var30;
+RET_LABEL29:(void)0;
+}
+}
+{
+{ /* Inline kernel$Int$+ (var28,1l) on <var28:Int> */
+/* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
+/* <1l:Int> isa OTHER */
+var33 = 1; /* easy <1l:Int> isa OTHER*/
+if (unlikely(!var33)) {
+var_class_name36 = type_core__Int.name;
+PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name36);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 728);
+fatal_exit(1);
+}
+var37 = var28 + 1l;
+var31 = var37;
+goto RET_LABEL32;
+RET_LABEL32:(void)0;
+}
+}
+{
+{ /* Inline toolcontext$ToolContext$error_count= (self,var31) on <self:ToolContext> */
+self->attrs[COLOR_nitc__toolcontext__ToolContext___error_count].l = var31; /* _error_count on <self:ToolContext> */
+RET_LABEL38:(void)0;
+}
+}
+{
+{ /* Inline toolcontext$ToolContext$opt_stop_on_first_error (self) on <self:ToolContext> */
+var41 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_stop_on_first_error].val; /* _opt_stop_on_first_error on <self:ToolContext> */
+if (unlikely(var41 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_stop_on_first_error");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 393);
+fatal_exit(1);
+}
+var39 = var41;
+RET_LABEL40:(void)0;
+}
+}
+{
+{ /* Inline opts$Option$value (var39) on <var39:OptionBool> */
+var44 = var39->attrs[COLOR_opts__Option___value].val; /* _value on <var39:OptionBool> */
+var42 = var44;
+RET_LABEL43:(void)0;
+}
+}
+var45 = (short int)((int64_t)(var42)>>2);
+if (var45){
+{
+var46 = nitc___nitc__ToolContext___check_errors(self);
 }
 } else {
 }
@@ -1844,7 +2067,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#fatal_error for (self: ToolContext, nullable Location, String) */
+/* method toolcontext$ToolContext$fatal_error for (self: ToolContext, nullable Location, String) */
 void nitc___nitc__ToolContext___fatal_error(val* self, val* p0, val* p1) {
 val* var_l /* var l: nullable Location */;
 val* var_s /* var s: String */;
@@ -1860,378 +2083,64 @@ var1 = nitc___nitc__ToolContext___check_errors(self);
 }
 RET_LABEL:;
 }
-/* method toolcontext#ToolContext#warning for (self: ToolContext, nullable Location, String, String): nullable Message */
+/* method toolcontext$ToolContext$warning for (self: ToolContext, nullable Location, String, String): nullable Message */
 val* nitc___nitc__ToolContext___warning(val* self, val* p0, val* p1, val* p2) {
 val* var /* : nullable Message */;
 val* var_l /* var l: nullable Location */;
 val* var_tag /* var tag: String */;
 val* var_text /* var text: String */;
-val* var1 /* : OptionArray */;
-val* var3 /* : OptionArray */;
-val* var4 /* : nullable Object */;
-val* var6 /* : nullable Object */;
-val* var7 /* : NativeArray[String] */;
-static val* varonce;
-static val* varonce8;
-val* var9 /* : String */;
-char* var10 /* : NativeString */;
-val* var11 /* : String */;
-val* var12 /* : String */;
-short int var13 /* : Bool */;
-short int var14 /* : Bool */;
-val* var15 /* : OptionArray */;
-val* var17 /* : OptionArray */;
-val* var18 /* : nullable Object */;
-val* var20 /* : nullable Object */;
-short int var21 /* : Bool */;
-short int var22 /* : Bool */;
-short int var_ /* var : Bool */;
-val* var23 /* : OptionCount */;
-val* var25 /* : OptionCount */;
-val* var26 /* : nullable Object */;
-val* var28 /* : nullable Object */;
-short int var29 /* : Bool */;
-short int var31 /* : Bool */;
-long var32 /* : Int */;
-short int var33 /* : Bool */;
-val* var34 /* : Message */;
+short int var1 /* : Bool */;
+val* var2 /* : Message */;
 val* var_m /* var m: Message */;
-val* var35 /* : Array[Message] */;
-val* var37 /* : Array[Message] */;
-short int var38 /* : Bool */;
-short int var39 /* : Bool */;
-short int var40 /* : Bool */;
+val* var3 /* : Array[Message] */;
+val* var5 /* : Array[Message] */;
+short int var6 /* : Bool */;
+short int var7 /* : Bool */;
+short int var8 /* : Bool */;
 val* var_other /* var other: nullable Object */;
+short int var10 /* : Bool */;
+short int var11 /* : Bool */;
+val* var12 /* : OptionArray */;
+val* var14 /* : OptionArray */;
+val* var15 /* : nullable Object */;
+val* var17 /* : nullable Object */;
+val* var18 /* : NativeArray[String] */;
+static val* varonce;
+static val* varonce19;
+val* var20 /* : String */;
+char* var21 /* : NativeString */;
+val* var22 /* : String */;
+val* var23 /* : String */;
+short int var24 /* : Bool */;
+short int var25 /* : Bool */;
+val* var26 /* : OptionArray */;
+val* var28 /* : OptionArray */;
+val* var29 /* : nullable Object */;
+val* var31 /* : nullable Object */;
+short int var32 /* : Bool */;
+short int var33 /* : Bool */;
+short int var_ /* var : Bool */;
+val* var34 /* : OptionCount */;
+val* var36 /* : OptionCount */;
+val* var37 /* : nullable Object */;
+val* var39 /* : nullable Object */;
+short int var40 /* : Bool */;
 short int var42 /* : Bool */;
-short int var43 /* : Bool */;
-val* var44 /* : Array[Message] */;
-val* var46 /* : Array[Message] */;
-long var47 /* : Int */;
-long var49 /* : Int */;
-long var50 /* : Int */;
-short int var52 /* : Bool */;
 int cltype;
 int idtype;
 const char* var_class_name;
-long var53 /* : Int */;
-val* var55 /* : OptionBool */;
-val* var57 /* : OptionBool */;
-val* var58 /* : nullable Object */;
-val* var60 /* : nullable Object */;
-short int var61 /* : Bool */;
-short int var62 /* : Bool */;
-var_l = p0;
-var_tag = p1;
-var_text = p2;
-{
-{ /* Inline toolcontext#ToolContext#opt_warning (self) on <self:ToolContext> */
-var3 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warning].val; /* _opt_warning on <self:ToolContext> */
-if (unlikely(var3 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warning");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 348);
-fatal_exit(1);
-}
-var1 = var3;
-RET_LABEL2:(void)0;
-}
-}
-{
-{ /* Inline opts#Option#value (var1) on <var1:OptionArray> */
-var6 = var1->attrs[COLOR_opts__Option___value].val; /* _value on <var1:OptionArray> */
-var4 = var6;
-RET_LABEL5:(void)0;
-}
-}
-if (unlikely(varonce==NULL)) {
-var7 = NEW_core__NativeArray(2l, &type_core__NativeArray__core__String);
-if (likely(varonce8!=NULL)) {
-var9 = varonce8;
-} else {
-var10 = "no-";
-var11 = core__flat___NativeString___to_s_full(var10, 3l, 3l);
-var9 = var11;
-varonce8 = var9;
-}
-((struct instance_core__NativeArray*)var7)->values[0]=var9;
-} else {
-var7 = varonce;
-varonce = NULL;
-}
-((struct instance_core__NativeArray*)var7)->values[1]=var_tag;
-{
-var12 = ((val*(*)(val* self))(var7->class->vft[COLOR_core__abstract_text__NativeArray__native_to_s]))(var7); /* native_to_s on <var7:NativeArray[String]>*/
-}
-varonce = var7;
-{
-var13 = core___core__AbstractArrayRead___core__abstract_collection__Collection__has(var4, var12);
-}
-if (var13){
-var = ((val*)NULL);
-goto RET_LABEL;
-} else {
-}
-{
-{ /* Inline toolcontext#ToolContext#opt_warning (self) on <self:ToolContext> */
-var17 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warning].val; /* _opt_warning on <self:ToolContext> */
-if (unlikely(var17 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warning");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 348);
-fatal_exit(1);
-}
-var15 = var17;
-RET_LABEL16:(void)0;
-}
-}
-{
-{ /* Inline opts#Option#value (var15) on <var15:OptionArray> */
-var20 = var15->attrs[COLOR_opts__Option___value].val; /* _value on <var15:OptionArray> */
-var18 = var20;
-RET_LABEL19:(void)0;
-}
-}
-{
-var21 = core___core__AbstractArrayRead___core__abstract_collection__Collection__has(var18, var_tag);
-}
-var22 = !var21;
-var_ = var22;
-if (var22){
-{
-{ /* Inline toolcontext#ToolContext#opt_warn (self) on <self:ToolContext> */
-var25 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warn].val; /* _opt_warn on <self:ToolContext> */
-if (unlikely(var25 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warn");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 345);
-fatal_exit(1);
-}
-var23 = var25;
-RET_LABEL24:(void)0;
-}
-}
-{
-{ /* Inline opts#Option#value (var23) on <var23:OptionCount> */
-var28 = var23->attrs[COLOR_opts__Option___value].val; /* _value on <var23:OptionCount> */
-var26 = var28;
-RET_LABEL27:(void)0;
-}
-}
-{
-{ /* Inline kernel#Int#== (var26,0l) on <var26:nullable Object(Int)> */
-var32 = (long)(var26)>>2;
-var31 = var32 == 0l;
-var29 = var31;
-goto RET_LABEL30;
-RET_LABEL30:(void)0;
-}
-}
-var14 = var29;
-} else {
-var14 = var_;
-}
-if (var14){
-var = ((val*)NULL);
-goto RET_LABEL;
-} else {
-}
-{
-var33 = nitc___nitc__ToolContext___is_warning_blacklisted(self, var_l, var_tag);
-}
-if (var33){
-var = ((val*)NULL);
-goto RET_LABEL;
-} else {
-}
-var34 = NEW_nitc__Message(&type_nitc__Message);
-{
-((void(*)(val* self, val* p0))(var34->class->vft[COLOR_nitc__toolcontext__Message__location_61d]))(var34, var_l); /* location= on <var34:Message>*/
-}
-{
-((void(*)(val* self, val* p0))(var34->class->vft[COLOR_nitc__toolcontext__Message__tag_61d]))(var34, var_tag); /* tag= on <var34:Message>*/
-}
-{
-((void(*)(val* self, val* p0))(var34->class->vft[COLOR_nitc__toolcontext__Message__text_61d]))(var34, var_text); /* text= on <var34:Message>*/
-}
-{
-((void(*)(val* self))(var34->class->vft[COLOR_core__kernel__Object__init]))(var34); /* init on <var34:Message>*/
-}
-var_m = var34;
-{
-{ /* Inline toolcontext#ToolContext#messages (self) on <self:ToolContext> */
-var37 = self->attrs[COLOR_nitc__toolcontext__ToolContext___messages].val; /* _messages on <self:ToolContext> */
-if (unlikely(var37 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _messages");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 143);
-fatal_exit(1);
-}
-var35 = var37;
-RET_LABEL36:(void)0;
-}
-}
-{
-var38 = core___core__AbstractArrayRead___core__abstract_collection__Collection__has(var35, var_m);
-}
-if (var38){
-var = ((val*)NULL);
-goto RET_LABEL;
-} else {
-}
-if (var_l == NULL) {
-var39 = 0; /* is null */
-} else {
-var39 = 1; /* arg is null and recv is not */
-}
-if (0) {
-{ /* Inline kernel#Object#!= (var_l,((val*)NULL)) on <var_l:nullable Location> */
-var_other = ((val*)NULL);
-{
-var42 = ((short int(*)(val* self, val* p0))(var_l->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_l, var_other); /* == on <var_l:nullable Location(Location)>*/
-}
-var43 = !var42;
-var40 = var43;
-goto RET_LABEL41;
-RET_LABEL41:(void)0;
-}
-var39 = var40;
-}
-if (var39){
-{
-nitc__toolcontext___Location___add_message(var_l, var_m); /* Direct call toolcontext#Location#add_message on <var_l:nullable Location(Location)>*/
-}
-} else {
-}
-{
-{ /* Inline toolcontext#ToolContext#messages (self) on <self:ToolContext> */
-var46 = self->attrs[COLOR_nitc__toolcontext__ToolContext___messages].val; /* _messages on <self:ToolContext> */
-if (unlikely(var46 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _messages");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 143);
-fatal_exit(1);
-}
-var44 = var46;
-RET_LABEL45:(void)0;
-}
-}
-{
-core___core__Array___core__abstract_collection__SimpleCollection__add(var44, var_m); /* Direct call array#Array#add on <var44:Array[Message]>*/
-}
-{
-{ /* Inline toolcontext#ToolContext#warning_count (self) on <self:ToolContext> */
-var49 = self->attrs[COLOR_nitc__toolcontext__ToolContext___warning_count].l; /* _warning_count on <self:ToolContext> */
-var47 = var49;
-RET_LABEL48:(void)0;
-}
-}
-{
-{ /* Inline kernel#Int#+ (var47,1l) on <var47:Int> */
-/* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
-/* <1l:Int> isa OTHER */
-var52 = 1; /* easy <1l:Int> isa OTHER*/
-if (unlikely(!var52)) {
-var_class_name = type_core__Int.name;
-PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 731);
-fatal_exit(1);
-}
-var53 = var47 + 1l;
-var50 = var53;
-goto RET_LABEL51;
-RET_LABEL51:(void)0;
-}
-}
-{
-{ /* Inline toolcontext#ToolContext#warning_count= (self,var50) on <self:ToolContext> */
-self->attrs[COLOR_nitc__toolcontext__ToolContext___warning_count].l = var50; /* _warning_count on <self:ToolContext> */
-RET_LABEL54:(void)0;
-}
-}
-{
-{ /* Inline toolcontext#ToolContext#opt_stop_on_first_error (self) on <self:ToolContext> */
-var57 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_stop_on_first_error].val; /* _opt_stop_on_first_error on <self:ToolContext> */
-if (unlikely(var57 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_stop_on_first_error");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 375);
-fatal_exit(1);
-}
-var55 = var57;
-RET_LABEL56:(void)0;
-}
-}
-{
-{ /* Inline opts#Option#value (var55) on <var55:OptionBool> */
-var60 = var55->attrs[COLOR_opts__Option___value].val; /* _value on <var55:OptionBool> */
-var58 = var60;
-RET_LABEL59:(void)0;
-}
-}
-var61 = (short int)((long)(var58)>>2);
-if (var61){
-{
-var62 = nitc___nitc__ToolContext___check_errors(self);
-}
-} else {
-}
-var = var_m;
-goto RET_LABEL;
-RET_LABEL:;
-return var;
-}
-/* method toolcontext#ToolContext#advice for (self: ToolContext, nullable Location, String, String): nullable Message */
-val* nitc___nitc__ToolContext___advice(val* self, val* p0, val* p1, val* p2) {
-val* var /* : nullable Message */;
-val* var_l /* var l: nullable Location */;
-val* var_tag /* var tag: String */;
-val* var_text /* var text: String */;
-val* var1 /* : OptionArray */;
-val* var3 /* : OptionArray */;
-val* var4 /* : nullable Object */;
-val* var6 /* : nullable Object */;
-val* var7 /* : NativeArray[String] */;
-static val* varonce;
-static val* varonce8;
-val* var9 /* : String */;
-char* var10 /* : NativeString */;
-val* var11 /* : String */;
-val* var12 /* : String */;
-short int var13 /* : Bool */;
-short int var14 /* : Bool */;
-val* var15 /* : OptionArray */;
-val* var17 /* : OptionArray */;
-val* var18 /* : nullable Object */;
-val* var20 /* : nullable Object */;
-short int var21 /* : Bool */;
-short int var22 /* : Bool */;
-short int var_ /* var : Bool */;
-val* var23 /* : OptionCount */;
-val* var25 /* : OptionCount */;
-val* var26 /* : nullable Object */;
-val* var28 /* : nullable Object */;
-short int var29 /* : Bool */;
-short int var31 /* : Bool */;
-int cltype;
-int idtype;
-const char* var_class_name;
-long var32 /* : Int */;
-short int var33 /* : Bool */;
-short int var34 /* : Bool */;
-val* var35 /* : Message */;
-val* var_m /* var m: Message */;
-val* var36 /* : Array[Message] */;
-val* var38 /* : Array[Message] */;
-short int var39 /* : Bool */;
-short int var40 /* : Bool */;
-short int var41 /* : Bool */;
-val* var_other /* var other: nullable Object */;
-short int var43 /* : Bool */;
+int64_t var43 /* : Int */;
 short int var44 /* : Bool */;
 val* var45 /* : Array[Message] */;
 val* var47 /* : Array[Message] */;
-long var48 /* : Int */;
-long var50 /* : Int */;
-long var51 /* : Int */;
+int64_t var48 /* : Int */;
+int64_t var50 /* : Int */;
+int64_t var51 /* : Int */;
 short int var53 /* : Bool */;
 int cltype54;
 int idtype55;
 const char* var_class_name56;
-long var57 /* : Int */;
+int64_t var57 /* : Int */;
 val* var59 /* : OptionBool */;
 val* var61 /* : OptionBool */;
 val* var62 /* : nullable Object */;
@@ -2242,195 +2151,213 @@ var_l = p0;
 var_tag = p1;
 var_text = p2;
 {
-{ /* Inline toolcontext#ToolContext#opt_warning (self) on <self:ToolContext> */
-var3 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warning].val; /* _opt_warning on <self:ToolContext> */
-if (unlikely(var3 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warning");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 348);
-fatal_exit(1);
+var1 = nitc___nitc__ToolContext___is_warning_blacklisted(self, var_l, var_tag);
 }
-var1 = var3;
-RET_LABEL2:(void)0;
-}
-}
-{
-{ /* Inline opts#Option#value (var1) on <var1:OptionArray> */
-var6 = var1->attrs[COLOR_opts__Option___value].val; /* _value on <var1:OptionArray> */
-var4 = var6;
-RET_LABEL5:(void)0;
-}
-}
-if (unlikely(varonce==NULL)) {
-var7 = NEW_core__NativeArray(2l, &type_core__NativeArray__core__String);
-if (likely(varonce8!=NULL)) {
-var9 = varonce8;
-} else {
-var10 = "no-";
-var11 = core__flat___NativeString___to_s_full(var10, 3l, 3l);
-var9 = var11;
-varonce8 = var9;
-}
-((struct instance_core__NativeArray*)var7)->values[0]=var9;
-} else {
-var7 = varonce;
-varonce = NULL;
-}
-((struct instance_core__NativeArray*)var7)->values[1]=var_tag;
-{
-var12 = ((val*(*)(val* self))(var7->class->vft[COLOR_core__abstract_text__NativeArray__native_to_s]))(var7); /* native_to_s on <var7:NativeArray[String]>*/
-}
-varonce = var7;
-{
-var13 = core___core__AbstractArrayRead___core__abstract_collection__Collection__has(var4, var12);
-}
-if (var13){
+if (var1){
 var = ((val*)NULL);
 goto RET_LABEL;
 } else {
 }
+var2 = NEW_nitc__Message(&type_nitc__Message);
 {
-{ /* Inline toolcontext#ToolContext#opt_warning (self) on <self:ToolContext> */
-var17 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warning].val; /* _opt_warning on <self:ToolContext> */
-if (unlikely(var17 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warning");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 348);
-fatal_exit(1);
-}
-var15 = var17;
-RET_LABEL16:(void)0;
-}
+((void(*)(val* self, val* p0))(var2->class->vft[COLOR_nitc__toolcontext__Message__location_61d]))(var2, var_l); /* location= on <var2:Message>*/
 }
 {
-{ /* Inline opts#Option#value (var15) on <var15:OptionArray> */
-var20 = var15->attrs[COLOR_opts__Option___value].val; /* _value on <var15:OptionArray> */
-var18 = var20;
-RET_LABEL19:(void)0;
-}
+((void(*)(val* self, val* p0))(var2->class->vft[COLOR_nitc__toolcontext__Message__tag_61d]))(var2, var_tag); /* tag= on <var2:Message>*/
 }
 {
-var21 = core___core__AbstractArrayRead___core__abstract_collection__Collection__has(var18, var_tag);
-}
-var22 = !var21;
-var_ = var22;
-if (var22){
-{
-{ /* Inline toolcontext#ToolContext#opt_warn (self) on <self:ToolContext> */
-var25 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warn].val; /* _opt_warn on <self:ToolContext> */
-if (unlikely(var25 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warn");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 345);
-fatal_exit(1);
-}
-var23 = var25;
-RET_LABEL24:(void)0;
-}
+((void(*)(val* self, val* p0))(var2->class->vft[COLOR_nitc__toolcontext__Message__text_61d]))(var2, var_text); /* text= on <var2:Message>*/
 }
 {
-{ /* Inline opts#Option#value (var23) on <var23:OptionCount> */
-var28 = var23->attrs[COLOR_opts__Option___value].val; /* _value on <var23:OptionCount> */
-var26 = var28;
-RET_LABEL27:(void)0;
-}
+((void(*)(val* self, int64_t p0))(var2->class->vft[COLOR_nitc__toolcontext__Message__level_61d]))(var2, 1l); /* level= on <var2:Message>*/
 }
 {
-{ /* Inline kernel#Int#<= (var26,1l) on <var26:nullable Object(Int)> */
-/* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
-/* <1l:Int> isa OTHER */
-var31 = 1; /* easy <1l:Int> isa OTHER*/
-if (unlikely(!var31)) {
-var_class_name = type_core__Int.name;
-PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 727);
-fatal_exit(1);
+((void(*)(val* self))(var2->class->vft[COLOR_core__kernel__Object__init]))(var2); /* init on <var2:Message>*/
 }
-var32 = (long)(var26)>>2;
-var33 = var32 <= 1l;
-var29 = var33;
-goto RET_LABEL30;
-RET_LABEL30:(void)0;
-}
-}
-var14 = var29;
-} else {
-var14 = var_;
-}
-if (var14){
-var = ((val*)NULL);
-goto RET_LABEL;
-} else {
-}
+var_m = var2;
 {
-var34 = nitc___nitc__ToolContext___is_warning_blacklisted(self, var_l, var_tag);
+{ /* Inline toolcontext$ToolContext$messages (self) on <self:ToolContext> */
+var5 = self->attrs[COLOR_nitc__toolcontext__ToolContext___messages].val; /* _messages on <self:ToolContext> */
+if (unlikely(var5 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
 }
-if (var34){
-var = ((val*)NULL);
-goto RET_LABEL;
-} else {
-}
-var35 = NEW_nitc__Message(&type_nitc__Message);
-{
-((void(*)(val* self, val* p0))(var35->class->vft[COLOR_nitc__toolcontext__Message__location_61d]))(var35, var_l); /* location= on <var35:Message>*/
-}
-{
-((void(*)(val* self, val* p0))(var35->class->vft[COLOR_nitc__toolcontext__Message__tag_61d]))(var35, var_tag); /* tag= on <var35:Message>*/
-}
-{
-((void(*)(val* self, val* p0))(var35->class->vft[COLOR_nitc__toolcontext__Message__text_61d]))(var35, var_text); /* text= on <var35:Message>*/
-}
-{
-((void(*)(val* self))(var35->class->vft[COLOR_core__kernel__Object__init]))(var35); /* init on <var35:Message>*/
-}
-var_m = var35;
-{
-{ /* Inline toolcontext#ToolContext#messages (self) on <self:ToolContext> */
-var38 = self->attrs[COLOR_nitc__toolcontext__ToolContext___messages].val; /* _messages on <self:ToolContext> */
-if (unlikely(var38 == NULL)) {
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _messages");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 143);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 157);
 fatal_exit(1);
 }
-var36 = var38;
-RET_LABEL37:(void)0;
+var3 = var5;
+RET_LABEL4:(void)0;
 }
 }
 {
-var39 = core___core__AbstractArrayRead___core__abstract_collection__Collection__has(var36, var_m);
+var6 = core___core__AbstractArrayRead___core__abstract_collection__Collection__has(var3, var_m);
 }
-if (var39){
+if (var6){
 var = ((val*)NULL);
 goto RET_LABEL;
 } else {
 }
 if (var_l == NULL) {
-var40 = 0; /* is null */
+var7 = 0; /* is null */
 } else {
-var40 = 1; /* arg is null and recv is not */
+var7 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_l,((val*)NULL)) on <var_l:nullable Location> */
+{ /* Inline kernel$Object$!= (var_l,((val*)NULL)) on <var_l:nullable Location> */
 var_other = ((val*)NULL);
 {
-var43 = ((short int(*)(val* self, val* p0))(var_l->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_l, var_other); /* == on <var_l:nullable Location(Location)>*/
+var10 = ((short int(*)(val* self, val* p0))(var_l->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_l, var_other); /* == on <var_l:nullable Location(Location)>*/
 }
-var44 = !var43;
-var41 = var44;
-goto RET_LABEL42;
-RET_LABEL42:(void)0;
+var11 = !var10;
+var8 = var11;
+goto RET_LABEL9;
+RET_LABEL9:(void)0;
 }
-var40 = var41;
+var7 = var8;
 }
-if (var40){
+if (var7){
 {
-nitc__toolcontext___Location___add_message(var_l, var_m); /* Direct call toolcontext#Location#add_message on <var_l:nullable Location(Location)>*/
+nitc__toolcontext___Location___add_message(var_l, var_m); /* Direct call toolcontext$Location$add_message on <var_l:nullable Location(Location)>*/
 }
 } else {
 }
 {
-{ /* Inline toolcontext#ToolContext#messages (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_warning (self) on <self:ToolContext> */
+var14 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warning].val; /* _opt_warning on <self:ToolContext> */
+if (unlikely(var14 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warning");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 363);
+fatal_exit(1);
+}
+var12 = var14;
+RET_LABEL13:(void)0;
+}
+}
+{
+{ /* Inline opts$Option$value (var12) on <var12:OptionArray> */
+var17 = var12->attrs[COLOR_opts__Option___value].val; /* _value on <var12:OptionArray> */
+var15 = var17;
+RET_LABEL16:(void)0;
+}
+}
+if (unlikely(varonce==NULL)) {
+var18 = NEW_core__NativeArray(2l, &type_core__NativeArray__core__String);
+if (likely(varonce19!=NULL)) {
+var20 = varonce19;
+} else {
+var21 = "no-";
+var22 = core__flat___NativeString___to_s_full(var21, 3l, 3l);
+var20 = var22;
+varonce19 = var20;
+}
+((struct instance_core__NativeArray*)var18)->values[0]=var20;
+} else {
+var18 = varonce;
+varonce = NULL;
+}
+((struct instance_core__NativeArray*)var18)->values[1]=var_tag;
+{
+var23 = ((val*(*)(val* self))(var18->class->vft[COLOR_core__abstract_text__NativeArray__native_to_s]))(var18); /* native_to_s on <var18:NativeArray[String]>*/
+}
+varonce = var18;
+{
+var24 = core___core__AbstractArrayRead___core__abstract_collection__Collection__has(var15, var23);
+}
+if (var24){
+var = ((val*)NULL);
+goto RET_LABEL;
+} else {
+}
+{
+{ /* Inline toolcontext$ToolContext$opt_warning (self) on <self:ToolContext> */
+var28 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warning].val; /* _opt_warning on <self:ToolContext> */
+if (unlikely(var28 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warning");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 363);
+fatal_exit(1);
+}
+var26 = var28;
+RET_LABEL27:(void)0;
+}
+}
+{
+{ /* Inline opts$Option$value (var26) on <var26:OptionArray> */
+var31 = var26->attrs[COLOR_opts__Option___value].val; /* _value on <var26:OptionArray> */
+var29 = var31;
+RET_LABEL30:(void)0;
+}
+}
+{
+var32 = core___core__AbstractArrayRead___core__abstract_collection__Collection__has(var29, var_tag);
+}
+var33 = !var32;
+var_ = var33;
+if (var33){
+{
+{ /* Inline toolcontext$ToolContext$opt_warn (self) on <self:ToolContext> */
+var36 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warn].val; /* _opt_warn on <self:ToolContext> */
+if (unlikely(var36 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warn");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 360);
+fatal_exit(1);
+}
+var34 = var36;
+RET_LABEL35:(void)0;
+}
+}
+{
+{ /* Inline opts$Option$value (var34) on <var34:OptionCount> */
+var39 = var34->attrs[COLOR_opts__Option___value].val; /* _value on <var34:OptionCount> */
+var37 = var39;
+RET_LABEL38:(void)0;
+}
+}
+{
+{ /* Inline kernel$Int$<= (var37,0l) on <var37:nullable Object(Int)> */
+/* Covariant cast for argument 0 (i) <0l:Int> isa OTHER */
+/* <0l:Int> isa OTHER */
+var42 = 1; /* easy <0l:Int> isa OTHER*/
+if (unlikely(!var42)) {
+var_class_name = type_core__Int.name;
+PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 724);
+fatal_exit(1);
+}
+var43 = (int64_t)(var37)>>2;
+var44 = var43 <= 0l;
+var40 = var44;
+goto RET_LABEL41;
+RET_LABEL41:(void)0;
+}
+}
+var25 = var40;
+} else {
+var25 = var_;
+}
+if (var25){
+var = ((val*)NULL);
+goto RET_LABEL;
+} else {
+}
+{
+{ /* Inline toolcontext$ToolContext$messages (self) on <self:ToolContext> */
 var47 = self->attrs[COLOR_nitc__toolcontext__ToolContext___messages].val; /* _messages on <self:ToolContext> */
 if (unlikely(var47 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _messages");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 143);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 157);
 fatal_exit(1);
 }
 var45 = var47;
@@ -2438,24 +2365,24 @@ RET_LABEL46:(void)0;
 }
 }
 {
-core___core__Array___core__abstract_collection__SimpleCollection__add(var45, var_m); /* Direct call array#Array#add on <var45:Array[Message]>*/
+core___core__Array___core__abstract_collection__SimpleCollection__add(var45, var_m); /* Direct call array$Array$add on <var45:Array[Message]>*/
 }
 {
-{ /* Inline toolcontext#ToolContext#warning_count (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$warning_count (self) on <self:ToolContext> */
 var50 = self->attrs[COLOR_nitc__toolcontext__ToolContext___warning_count].l; /* _warning_count on <self:ToolContext> */
 var48 = var50;
 RET_LABEL49:(void)0;
 }
 }
 {
-{ /* Inline kernel#Int#+ (var48,1l) on <var48:Int> */
+{ /* Inline kernel$Int$+ (var48,1l) on <var48:Int> */
 /* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
 /* <1l:Int> isa OTHER */
 var53 = 1; /* easy <1l:Int> isa OTHER*/
 if (unlikely(!var53)) {
 var_class_name56 = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name56);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 731);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 728);
 fatal_exit(1);
 }
 var57 = var48 + 1l;
@@ -2465,17 +2392,20 @@ RET_LABEL52:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#warning_count= (self,var51) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$warning_count= (self,var51) on <self:ToolContext> */
 self->attrs[COLOR_nitc__toolcontext__ToolContext___warning_count].l = var51; /* _warning_count on <self:ToolContext> */
 RET_LABEL58:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_stop_on_first_error (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_stop_on_first_error (self) on <self:ToolContext> */
 var61 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_stop_on_first_error].val; /* _opt_stop_on_first_error on <self:ToolContext> */
 if (unlikely(var61 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_stop_on_first_error");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 375);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 393);
 fatal_exit(1);
 }
 var59 = var61;
@@ -2483,13 +2413,13 @@ RET_LABEL60:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var59) on <var59:OptionBool> */
+{ /* Inline opts$Option$value (var59) on <var59:OptionBool> */
 var64 = var59->attrs[COLOR_opts__Option___value].val; /* _value on <var59:OptionBool> */
 var62 = var64;
 RET_LABEL63:(void)0;
 }
 }
-var65 = (short int)((long)(var62)>>2);
+var65 = (short int)((int64_t)(var62)>>2);
 if (var65){
 {
 var66 = nitc___nitc__ToolContext___check_errors(self);
@@ -2501,12 +2431,360 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#info for (self: ToolContext, String, Int) */
-void nitc___nitc__ToolContext___info(val* self, val* p0, long p1) {
+/* method toolcontext$ToolContext$advice for (self: ToolContext, nullable Location, String, String): nullable Message */
+val* nitc___nitc__ToolContext___advice(val* self, val* p0, val* p1, val* p2) {
+val* var /* : nullable Message */;
+val* var_l /* var l: nullable Location */;
+val* var_tag /* var tag: String */;
+val* var_text /* var text: String */;
+short int var1 /* : Bool */;
+val* var2 /* : Message */;
+val* var_m /* var m: Message */;
+val* var3 /* : Array[Message] */;
+val* var5 /* : Array[Message] */;
+short int var6 /* : Bool */;
+short int var7 /* : Bool */;
+short int var8 /* : Bool */;
+val* var_other /* var other: nullable Object */;
+short int var10 /* : Bool */;
+short int var11 /* : Bool */;
+val* var12 /* : OptionArray */;
+val* var14 /* : OptionArray */;
+val* var15 /* : nullable Object */;
+val* var17 /* : nullable Object */;
+val* var18 /* : NativeArray[String] */;
+static val* varonce;
+static val* varonce19;
+val* var20 /* : String */;
+char* var21 /* : NativeString */;
+val* var22 /* : String */;
+val* var23 /* : String */;
+short int var24 /* : Bool */;
+short int var25 /* : Bool */;
+val* var26 /* : OptionArray */;
+val* var28 /* : OptionArray */;
+val* var29 /* : nullable Object */;
+val* var31 /* : nullable Object */;
+short int var32 /* : Bool */;
+short int var33 /* : Bool */;
+short int var_ /* var : Bool */;
+val* var34 /* : OptionCount */;
+val* var36 /* : OptionCount */;
+val* var37 /* : nullable Object */;
+val* var39 /* : nullable Object */;
+short int var40 /* : Bool */;
+short int var42 /* : Bool */;
+int cltype;
+int idtype;
+const char* var_class_name;
+int64_t var43 /* : Int */;
+short int var44 /* : Bool */;
+val* var45 /* : Array[Message] */;
+val* var47 /* : Array[Message] */;
+int64_t var48 /* : Int */;
+int64_t var50 /* : Int */;
+int64_t var51 /* : Int */;
+short int var53 /* : Bool */;
+int cltype54;
+int idtype55;
+const char* var_class_name56;
+int64_t var57 /* : Int */;
+val* var59 /* : OptionBool */;
+val* var61 /* : OptionBool */;
+val* var62 /* : nullable Object */;
+val* var64 /* : nullable Object */;
+short int var65 /* : Bool */;
+short int var66 /* : Bool */;
+var_l = p0;
+var_tag = p1;
+var_text = p2;
+{
+var1 = nitc___nitc__ToolContext___is_warning_blacklisted(self, var_l, var_tag);
+}
+if (var1){
+var = ((val*)NULL);
+goto RET_LABEL;
+} else {
+}
+var2 = NEW_nitc__Message(&type_nitc__Message);
+{
+((void(*)(val* self, val* p0))(var2->class->vft[COLOR_nitc__toolcontext__Message__location_61d]))(var2, var_l); /* location= on <var2:Message>*/
+}
+{
+((void(*)(val* self, val* p0))(var2->class->vft[COLOR_nitc__toolcontext__Message__tag_61d]))(var2, var_tag); /* tag= on <var2:Message>*/
+}
+{
+((void(*)(val* self, val* p0))(var2->class->vft[COLOR_nitc__toolcontext__Message__text_61d]))(var2, var_text); /* text= on <var2:Message>*/
+}
+{
+((void(*)(val* self, int64_t p0))(var2->class->vft[COLOR_nitc__toolcontext__Message__level_61d]))(var2, 0l); /* level= on <var2:Message>*/
+}
+{
+((void(*)(val* self))(var2->class->vft[COLOR_core__kernel__Object__init]))(var2); /* init on <var2:Message>*/
+}
+var_m = var2;
+{
+{ /* Inline toolcontext$ToolContext$messages (self) on <self:ToolContext> */
+var5 = self->attrs[COLOR_nitc__toolcontext__ToolContext___messages].val; /* _messages on <self:ToolContext> */
+if (unlikely(var5 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _messages");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 157);
+fatal_exit(1);
+}
+var3 = var5;
+RET_LABEL4:(void)0;
+}
+}
+{
+var6 = core___core__AbstractArrayRead___core__abstract_collection__Collection__has(var3, var_m);
+}
+if (var6){
+var = ((val*)NULL);
+goto RET_LABEL;
+} else {
+}
+if (var_l == NULL) {
+var7 = 0; /* is null */
+} else {
+var7 = 1; /* arg is null and recv is not */
+}
+if (0) {
+{ /* Inline kernel$Object$!= (var_l,((val*)NULL)) on <var_l:nullable Location> */
+var_other = ((val*)NULL);
+{
+var10 = ((short int(*)(val* self, val* p0))(var_l->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_l, var_other); /* == on <var_l:nullable Location(Location)>*/
+}
+var11 = !var10;
+var8 = var11;
+goto RET_LABEL9;
+RET_LABEL9:(void)0;
+}
+var7 = var8;
+}
+if (var7){
+{
+nitc__toolcontext___Location___add_message(var_l, var_m); /* Direct call toolcontext$Location$add_message on <var_l:nullable Location(Location)>*/
+}
+} else {
+}
+{
+{ /* Inline toolcontext$ToolContext$opt_warning (self) on <self:ToolContext> */
+var14 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warning].val; /* _opt_warning on <self:ToolContext> */
+if (unlikely(var14 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warning");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 363);
+fatal_exit(1);
+}
+var12 = var14;
+RET_LABEL13:(void)0;
+}
+}
+{
+{ /* Inline opts$Option$value (var12) on <var12:OptionArray> */
+var17 = var12->attrs[COLOR_opts__Option___value].val; /* _value on <var12:OptionArray> */
+var15 = var17;
+RET_LABEL16:(void)0;
+}
+}
+if (unlikely(varonce==NULL)) {
+var18 = NEW_core__NativeArray(2l, &type_core__NativeArray__core__String);
+if (likely(varonce19!=NULL)) {
+var20 = varonce19;
+} else {
+var21 = "no-";
+var22 = core__flat___NativeString___to_s_full(var21, 3l, 3l);
+var20 = var22;
+varonce19 = var20;
+}
+((struct instance_core__NativeArray*)var18)->values[0]=var20;
+} else {
+var18 = varonce;
+varonce = NULL;
+}
+((struct instance_core__NativeArray*)var18)->values[1]=var_tag;
+{
+var23 = ((val*(*)(val* self))(var18->class->vft[COLOR_core__abstract_text__NativeArray__native_to_s]))(var18); /* native_to_s on <var18:NativeArray[String]>*/
+}
+varonce = var18;
+{
+var24 = core___core__AbstractArrayRead___core__abstract_collection__Collection__has(var15, var23);
+}
+if (var24){
+var = ((val*)NULL);
+goto RET_LABEL;
+} else {
+}
+{
+{ /* Inline toolcontext$ToolContext$opt_warning (self) on <self:ToolContext> */
+var28 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warning].val; /* _opt_warning on <self:ToolContext> */
+if (unlikely(var28 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warning");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 363);
+fatal_exit(1);
+}
+var26 = var28;
+RET_LABEL27:(void)0;
+}
+}
+{
+{ /* Inline opts$Option$value (var26) on <var26:OptionArray> */
+var31 = var26->attrs[COLOR_opts__Option___value].val; /* _value on <var26:OptionArray> */
+var29 = var31;
+RET_LABEL30:(void)0;
+}
+}
+{
+var32 = core___core__AbstractArrayRead___core__abstract_collection__Collection__has(var29, var_tag);
+}
+var33 = !var32;
+var_ = var33;
+if (var33){
+{
+{ /* Inline toolcontext$ToolContext$opt_warn (self) on <self:ToolContext> */
+var36 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warn].val; /* _opt_warn on <self:ToolContext> */
+if (unlikely(var36 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warn");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 360);
+fatal_exit(1);
+}
+var34 = var36;
+RET_LABEL35:(void)0;
+}
+}
+{
+{ /* Inline opts$Option$value (var34) on <var34:OptionCount> */
+var39 = var34->attrs[COLOR_opts__Option___value].val; /* _value on <var34:OptionCount> */
+var37 = var39;
+RET_LABEL38:(void)0;
+}
+}
+{
+{ /* Inline kernel$Int$<= (var37,1l) on <var37:nullable Object(Int)> */
+/* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
+/* <1l:Int> isa OTHER */
+var42 = 1; /* easy <1l:Int> isa OTHER*/
+if (unlikely(!var42)) {
+var_class_name = type_core__Int.name;
+PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 724);
+fatal_exit(1);
+}
+var43 = (int64_t)(var37)>>2;
+var44 = var43 <= 1l;
+var40 = var44;
+goto RET_LABEL41;
+RET_LABEL41:(void)0;
+}
+}
+var25 = var40;
+} else {
+var25 = var_;
+}
+if (var25){
+var = ((val*)NULL);
+goto RET_LABEL;
+} else {
+}
+{
+{ /* Inline toolcontext$ToolContext$messages (self) on <self:ToolContext> */
+var47 = self->attrs[COLOR_nitc__toolcontext__ToolContext___messages].val; /* _messages on <self:ToolContext> */
+if (unlikely(var47 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _messages");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 157);
+fatal_exit(1);
+}
+var45 = var47;
+RET_LABEL46:(void)0;
+}
+}
+{
+core___core__Array___core__abstract_collection__SimpleCollection__add(var45, var_m); /* Direct call array$Array$add on <var45:Array[Message]>*/
+}
+{
+{ /* Inline toolcontext$ToolContext$warning_count (self) on <self:ToolContext> */
+var50 = self->attrs[COLOR_nitc__toolcontext__ToolContext___warning_count].l; /* _warning_count on <self:ToolContext> */
+var48 = var50;
+RET_LABEL49:(void)0;
+}
+}
+{
+{ /* Inline kernel$Int$+ (var48,1l) on <var48:Int> */
+/* Covariant cast for argument 0 (i) <1l:Int> isa OTHER */
+/* <1l:Int> isa OTHER */
+var53 = 1; /* easy <1l:Int> isa OTHER*/
+if (unlikely(!var53)) {
+var_class_name56 = type_core__Int.name;
+PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name56);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 728);
+fatal_exit(1);
+}
+var57 = var48 + 1l;
+var51 = var57;
+goto RET_LABEL52;
+RET_LABEL52:(void)0;
+}
+}
+{
+{ /* Inline toolcontext$ToolContext$warning_count= (self,var51) on <self:ToolContext> */
+self->attrs[COLOR_nitc__toolcontext__ToolContext___warning_count].l = var51; /* _warning_count on <self:ToolContext> */
+RET_LABEL58:(void)0;
+}
+}
+{
+{ /* Inline toolcontext$ToolContext$opt_stop_on_first_error (self) on <self:ToolContext> */
+var61 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_stop_on_first_error].val; /* _opt_stop_on_first_error on <self:ToolContext> */
+if (unlikely(var61 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_stop_on_first_error");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 393);
+fatal_exit(1);
+}
+var59 = var61;
+RET_LABEL60:(void)0;
+}
+}
+{
+{ /* Inline opts$Option$value (var59) on <var59:OptionBool> */
+var64 = var59->attrs[COLOR_opts__Option___value].val; /* _value on <var59:OptionBool> */
+var62 = var64;
+RET_LABEL63:(void)0;
+}
+}
+var65 = (short int)((int64_t)(var62)>>2);
+if (var65){
+{
+var66 = nitc___nitc__ToolContext___check_errors(self);
+}
+} else {
+}
+var = var_m;
+goto RET_LABEL;
+RET_LABEL:;
+return var;
+}
+/* method toolcontext$ToolContext$info for (self: ToolContext, String, Int) */
+void nitc___nitc__ToolContext___info(val* self, val* p0, int64_t p1) {
 val* var_s /* var s: String */;
-long var_level /* var level: Int */;
-long var /* : Int */;
-long var2 /* : Int */;
+int64_t var_level /* var level: Int */;
+int64_t var /* : Int */;
+int64_t var2 /* : Int */;
 short int var3 /* : Bool */;
 short int var5 /* : Bool */;
 int cltype;
@@ -2535,21 +2813,21 @@ val* var27 /* : String */;
 var_s = p0;
 var_level = p1;
 {
-{ /* Inline toolcontext#ToolContext#verbose_level (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$verbose_level (self) on <self:ToolContext> */
 var2 = self->attrs[COLOR_nitc__toolcontext__ToolContext___verbose_level].l; /* _verbose_level on <self:ToolContext> */
 var = var2;
 RET_LABEL1:(void)0;
 }
 }
 {
-{ /* Inline kernel#Int#<= (var_level,var) on <var_level:Int> */
+{ /* Inline kernel$Int$<= (var_level,var) on <var_level:Int> */
 /* Covariant cast for argument 0 (i) <var:Int> isa OTHER */
 /* <var:Int> isa OTHER */
 var5 = 1; /* easy <var:Int> isa OTHER*/
 if (unlikely(!var5)) {
 var_class_name = type_core__Int.name;
 PRINT_ERROR("Runtime error: Cast failed. Expected `%s`, got `%s`", "OTHER", var_class_name);
-PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 727);
+PRINT_ERROR(" (%s:%d)\n", FILE_core__kernel, 724);
 fatal_exit(1);
 }
 var6 = var_level <= var;
@@ -2572,12 +2850,12 @@ var9 = ((val*(*)(val* self))(var8->class->vft[COLOR_core__abstract_text__NativeA
 }
 varonce = var8;
 {
-core__file___Sys___print(var7, var9); /* Direct call file#Sys#print on <var7:Sys>*/
+core__file___Sys___print(var7, var9); /* Direct call file$Sys$print on <var7:Sys>*/
 }
 } else {
 }
 {
-{ /* Inline toolcontext#ToolContext#log_info (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$log_info (self) on <self:ToolContext> */
 var12 = self->attrs[COLOR_nitc__toolcontext__ToolContext___log_info].val; /* _log_info on <self:ToolContext> */
 var10 = var12;
 RET_LABEL11:(void)0;
@@ -2589,7 +2867,7 @@ var13 = 0; /* is null */
 var13 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var10,((val*)NULL)) on <var10:nullable Writer> */
+{ /* Inline kernel$Object$!= (var10,((val*)NULL)) on <var10:nullable Writer> */
 var_other = ((val*)NULL);
 {
 var16 = ((short int(*)(val* self, val* p0))(var10->class->vft[COLOR_core__kernel__Object___61d_61d]))(var10, var_other); /* == on <var10:nullable Writer(Writer)>*/
@@ -2603,21 +2881,24 @@ var13 = var14;
 }
 if (var13){
 {
-{ /* Inline toolcontext#ToolContext#log_info (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$log_info (self) on <self:ToolContext> */
 var20 = self->attrs[COLOR_nitc__toolcontext__ToolContext___log_info].val; /* _log_info on <self:ToolContext> */
 var18 = var20;
 RET_LABEL19:(void)0;
 }
 }
 if (var18 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 308);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 323);
 fatal_exit(1);
 } else {
-core___core__FileWriter___core__stream__Writer__write(var18, var_s); /* Direct call file#FileWriter#write on <var18:nullable Writer>*/
+core___core__FileWriter___core__stream__Writer__write(var18, var_s); /* Direct call file$FileWriter$write on <var18:nullable Writer>*/
 }
 {
-{ /* Inline toolcontext#ToolContext#log_info (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$log_info (self) on <self:ToolContext> */
 var23 = self->attrs[COLOR_nitc__toolcontext__ToolContext___log_info].val; /* _log_info on <self:ToolContext> */
 var21 = var23;
 RET_LABEL22:(void)0;
@@ -2632,93 +2913,29 @@ var25 = var27;
 varonce24 = var25;
 }
 if (var21 == NULL) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Receiver is null");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 309);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 324);
 fatal_exit(1);
 } else {
-core___core__FileWriter___core__stream__Writer__write(var21, var25); /* Direct call file#FileWriter#write on <var21:nullable Writer>*/
+core___core__FileWriter___core__stream__Writer__write(var21, var25); /* Direct call file$FileWriter$write on <var21:nullable Writer>*/
 }
 } else {
 }
 RET_LABEL:;
 }
-/* method toolcontext#ToolContext#option_context for (self: ToolContext): OptionContext */
+/* method toolcontext$ToolContext$option_context for (self: ToolContext): OptionContext */
 val* nitc___nitc__ToolContext___option_context(val* self) {
 val* var /* : OptionContext */;
 val* var1 /* : OptionContext */;
 var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___option_context].val; /* _option_context on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _option_context");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 342);
-fatal_exit(1);
-}
-var = var1;
-RET_LABEL:;
-return var;
-}
-/* method toolcontext#ToolContext#opt_warn for (self: ToolContext): OptionCount */
-val* nitc___nitc__ToolContext___opt_warn(val* self) {
-val* var /* : OptionCount */;
-val* var1 /* : OptionCount */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warn].val; /* _opt_warn on <self:ToolContext> */
-if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warn");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 345);
-fatal_exit(1);
-}
-var = var1;
-RET_LABEL:;
-return var;
-}
-/* method toolcontext#ToolContext#opt_warning for (self: ToolContext): OptionArray */
-val* nitc___nitc__ToolContext___opt_warning(val* self) {
-val* var /* : OptionArray */;
-val* var1 /* : OptionArray */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warning].val; /* _opt_warning on <self:ToolContext> */
-if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warning");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 348);
-fatal_exit(1);
-}
-var = var1;
-RET_LABEL:;
-return var;
-}
-/* method toolcontext#ToolContext#opt_quiet for (self: ToolContext): OptionBool */
-val* nitc___nitc__ToolContext___opt_quiet(val* self) {
-val* var /* : OptionBool */;
-val* var1 /* : OptionBool */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_quiet].val; /* _opt_quiet on <self:ToolContext> */
-if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_quiet");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 351);
-fatal_exit(1);
-}
-var = var1;
-RET_LABEL:;
-return var;
-}
-/* method toolcontext#ToolContext#opt_log for (self: ToolContext): OptionBool */
-val* nitc___nitc__ToolContext___opt_log(val* self) {
-val* var /* : OptionBool */;
-val* var1 /* : OptionBool */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_log].val; /* _opt_log on <self:ToolContext> */
-if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_log");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 354);
-fatal_exit(1);
-}
-var = var1;
-RET_LABEL:;
-return var;
-}
-/* method toolcontext#ToolContext#opt_log_dir for (self: ToolContext): OptionString */
-val* nitc___nitc__ToolContext___opt_log_dir(val* self) {
-val* var /* : OptionString */;
-val* var1 /* : OptionString */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_log_dir].val; /* _opt_log_dir on <self:ToolContext> */
-if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_log_dir");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 357);
 fatal_exit(1);
 }
@@ -2726,13 +2943,16 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#opt_nit_dir for (self: ToolContext): OptionString */
-val* nitc___nitc__ToolContext___opt_nit_dir(val* self) {
-val* var /* : OptionString */;
-val* var1 /* : OptionString */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_nit_dir].val; /* _opt_nit_dir on <self:ToolContext> */
+/* method toolcontext$ToolContext$opt_warn for (self: ToolContext): OptionCount */
+val* nitc___nitc__ToolContext___opt_warn(val* self) {
+val* var /* : OptionCount */;
+val* var1 /* : OptionCount */;
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warn].val; /* _opt_warn on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_nit_dir");
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warn");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 360);
 fatal_exit(1);
 }
@@ -2740,13 +2960,16 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#opt_help for (self: ToolContext): OptionBool */
-val* nitc___nitc__ToolContext___opt_help(val* self) {
-val* var /* : OptionBool */;
-val* var1 /* : OptionBool */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_help].val; /* _opt_help on <self:ToolContext> */
+/* method toolcontext$ToolContext$opt_warning for (self: ToolContext): OptionArray */
+val* nitc___nitc__ToolContext___opt_warning(val* self) {
+val* var /* : OptionArray */;
+val* var1 /* : OptionArray */;
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warning].val; /* _opt_warning on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_help");
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warning");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 363);
 fatal_exit(1);
 }
@@ -2754,13 +2977,16 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#opt_version for (self: ToolContext): OptionBool */
-val* nitc___nitc__ToolContext___opt_version(val* self) {
+/* method toolcontext$ToolContext$opt_quiet for (self: ToolContext): OptionBool */
+val* nitc___nitc__ToolContext___opt_quiet(val* self) {
 val* var /* : OptionBool */;
 val* var1 /* : OptionBool */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_version].val; /* _opt_version on <self:ToolContext> */
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_quiet].val; /* _opt_quiet on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_version");
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_quiet");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 366);
 fatal_exit(1);
 }
@@ -2768,13 +2994,16 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#opt_set_dummy_tool for (self: ToolContext): OptionBool */
-val* nitc___nitc__ToolContext___opt_set_dummy_tool(val* self) {
+/* method toolcontext$ToolContext$opt_log for (self: ToolContext): OptionBool */
+val* nitc___nitc__ToolContext___opt_log(val* self) {
 val* var /* : OptionBool */;
 val* var1 /* : OptionBool */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_set_dummy_tool].val; /* _opt_set_dummy_tool on <self:ToolContext> */
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_log].val; /* _opt_log on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_set_dummy_tool");
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_log");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 369);
 fatal_exit(1);
 }
@@ -2782,13 +3011,16 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#opt_verbose for (self: ToolContext): OptionCount */
-val* nitc___nitc__ToolContext___opt_verbose(val* self) {
-val* var /* : OptionCount */;
-val* var1 /* : OptionCount */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_verbose].val; /* _opt_verbose on <self:ToolContext> */
+/* method toolcontext$ToolContext$opt_log_dir for (self: ToolContext): OptionString */
+val* nitc___nitc__ToolContext___opt_log_dir(val* self) {
+val* var /* : OptionString */;
+val* var1 /* : OptionString */;
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_log_dir].val; /* _opt_log_dir on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_verbose");
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_log_dir");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 372);
 fatal_exit(1);
 }
@@ -2796,13 +3028,16 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#opt_stop_on_first_error for (self: ToolContext): OptionBool */
-val* nitc___nitc__ToolContext___opt_stop_on_first_error(val* self) {
-val* var /* : OptionBool */;
-val* var1 /* : OptionBool */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_stop_on_first_error].val; /* _opt_stop_on_first_error on <self:ToolContext> */
+/* method toolcontext$ToolContext$opt_nit_dir for (self: ToolContext): OptionString */
+val* nitc___nitc__ToolContext___opt_nit_dir(val* self) {
+val* var /* : OptionString */;
+val* var1 /* : OptionString */;
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_nit_dir].val; /* _opt_nit_dir on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_stop_on_first_error");
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_nit_dir");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 375);
 fatal_exit(1);
 }
@@ -2810,13 +3045,16 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#opt_keep_going for (self: ToolContext): OptionBool */
-val* nitc___nitc__ToolContext___opt_keep_going(val* self) {
-val* var /* : OptionBool */;
-val* var1 /* : OptionBool */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_keep_going].val; /* _opt_keep_going on <self:ToolContext> */
+/* method toolcontext$ToolContext$opt_share_dir for (self: ToolContext): OptionString */
+val* nitc___nitc__ToolContext___opt_share_dir(val* self) {
+val* var /* : OptionString */;
+val* var1 /* : OptionString */;
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_share_dir].val; /* _opt_share_dir on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_keep_going");
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_share_dir");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 378);
 fatal_exit(1);
 }
@@ -2824,13 +3062,16 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#opt_no_color for (self: ToolContext): OptionBool */
-val* nitc___nitc__ToolContext___opt_no_color(val* self) {
+/* method toolcontext$ToolContext$opt_help for (self: ToolContext): OptionBool */
+val* nitc___nitc__ToolContext___opt_help(val* self) {
 val* var /* : OptionBool */;
 val* var1 /* : OptionBool */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_no_color].val; /* _opt_no_color on <self:ToolContext> */
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_help].val; /* _opt_help on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_no_color");
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_help");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 381);
 fatal_exit(1);
 }
@@ -2838,13 +3079,16 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#opt_bash_completion for (self: ToolContext): OptionBool */
-val* nitc___nitc__ToolContext___opt_bash_completion(val* self) {
+/* method toolcontext$ToolContext$opt_version for (self: ToolContext): OptionBool */
+val* nitc___nitc__ToolContext___opt_version(val* self) {
 val* var /* : OptionBool */;
 val* var1 /* : OptionBool */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_bash_completion].val; /* _opt_bash_completion on <self:ToolContext> */
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_version].val; /* _opt_version on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_bash_completion");
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_version");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 384);
 fatal_exit(1);
 }
@@ -2852,13 +3096,16 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#opt_stub_man for (self: ToolContext): OptionBool */
-val* nitc___nitc__ToolContext___opt_stub_man(val* self) {
+/* method toolcontext$ToolContext$opt_set_dummy_tool for (self: ToolContext): OptionBool */
+val* nitc___nitc__ToolContext___opt_set_dummy_tool(val* self) {
 val* var /* : OptionBool */;
 val* var1 /* : OptionBool */;
-var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_stub_man].val; /* _opt_stub_man on <self:ToolContext> */
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_set_dummy_tool].val; /* _opt_set_dummy_tool on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_stub_man");
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_set_dummy_tool");
 PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 387);
 fatal_exit(1);
 }
@@ -2866,21 +3113,123 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#verbose_level for (self: ToolContext): Int */
-long nitc___nitc__ToolContext___verbose_level(val* self) {
-long var /* : Int */;
-long var1 /* : Int */;
+/* method toolcontext$ToolContext$opt_verbose for (self: ToolContext): OptionCount */
+val* nitc___nitc__ToolContext___opt_verbose(val* self) {
+val* var /* : OptionCount */;
+val* var1 /* : OptionCount */;
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_verbose].val; /* _opt_verbose on <self:ToolContext> */
+if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_verbose");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 390);
+fatal_exit(1);
+}
+var = var1;
+RET_LABEL:;
+return var;
+}
+/* method toolcontext$ToolContext$opt_stop_on_first_error for (self: ToolContext): OptionBool */
+val* nitc___nitc__ToolContext___opt_stop_on_first_error(val* self) {
+val* var /* : OptionBool */;
+val* var1 /* : OptionBool */;
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_stop_on_first_error].val; /* _opt_stop_on_first_error on <self:ToolContext> */
+if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_stop_on_first_error");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 393);
+fatal_exit(1);
+}
+var = var1;
+RET_LABEL:;
+return var;
+}
+/* method toolcontext$ToolContext$opt_keep_going for (self: ToolContext): OptionBool */
+val* nitc___nitc__ToolContext___opt_keep_going(val* self) {
+val* var /* : OptionBool */;
+val* var1 /* : OptionBool */;
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_keep_going].val; /* _opt_keep_going on <self:ToolContext> */
+if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_keep_going");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 396);
+fatal_exit(1);
+}
+var = var1;
+RET_LABEL:;
+return var;
+}
+/* method toolcontext$ToolContext$opt_no_color for (self: ToolContext): OptionBool */
+val* nitc___nitc__ToolContext___opt_no_color(val* self) {
+val* var /* : OptionBool */;
+val* var1 /* : OptionBool */;
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_no_color].val; /* _opt_no_color on <self:ToolContext> */
+if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_no_color");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 399);
+fatal_exit(1);
+}
+var = var1;
+RET_LABEL:;
+return var;
+}
+/* method toolcontext$ToolContext$opt_bash_completion for (self: ToolContext): OptionBool */
+val* nitc___nitc__ToolContext___opt_bash_completion(val* self) {
+val* var /* : OptionBool */;
+val* var1 /* : OptionBool */;
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_bash_completion].val; /* _opt_bash_completion on <self:ToolContext> */
+if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_bash_completion");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 402);
+fatal_exit(1);
+}
+var = var1;
+RET_LABEL:;
+return var;
+}
+/* method toolcontext$ToolContext$opt_stub_man for (self: ToolContext): OptionBool */
+val* nitc___nitc__ToolContext___opt_stub_man(val* self) {
+val* var /* : OptionBool */;
+val* var1 /* : OptionBool */;
+var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_stub_man].val; /* _opt_stub_man on <self:ToolContext> */
+if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
+PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_stub_man");
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 405);
+fatal_exit(1);
+}
+var = var1;
+RET_LABEL:;
+return var;
+}
+/* method toolcontext$ToolContext$verbose_level for (self: ToolContext): Int */
+int64_t nitc___nitc__ToolContext___verbose_level(val* self) {
+int64_t var /* : Int */;
+int64_t var1 /* : Int */;
 var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___verbose_level].l; /* _verbose_level on <self:ToolContext> */
 var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#verbose_level= for (self: ToolContext, Int) */
-void nitc___nitc__ToolContext___verbose_level_61d(val* self, long p0) {
+/* method toolcontext$ToolContext$verbose_level= for (self: ToolContext, Int) */
+void nitc___nitc__ToolContext___verbose_level_61d(val* self, int64_t p0) {
 self->attrs[COLOR_nitc__toolcontext__ToolContext___verbose_level].l = p0; /* _verbose_level on <self:ToolContext> */
 RET_LABEL:;
 }
-/* method toolcontext#ToolContext#init for (self: ToolContext) */
+/* method toolcontext$ToolContext$init for (self: ToolContext) */
 void nitc___nitc__ToolContext___core__kernel__Object__init(val* self) {
 val* var /* : OptionContext */;
 val* var2 /* : OptionContext */;
@@ -2926,11 +3275,14 @@ val* var60 /* : OptionBool */;
 ((void(*)(val* self))(self->class->vft[COLOR_nitc___nitc__ToolContext___core__kernel__Object__init]))(self); /* init on <self:ToolContext>*/
 }
 {
-{ /* Inline toolcontext#ToolContext#option_context (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$option_context (self) on <self:ToolContext> */
 var2 = self->attrs[COLOR_nitc__toolcontext__ToolContext___option_context].val; /* _option_context on <self:ToolContext> */
 if (unlikely(var2 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _option_context");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 342);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 357);
 fatal_exit(1);
 }
 var = var2;
@@ -2938,11 +3290,14 @@ RET_LABEL1:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_warn (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_warn (self) on <self:ToolContext> */
 var5 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warn].val; /* _opt_warn on <self:ToolContext> */
 if (unlikely(var5 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warn");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 345);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 360);
 fatal_exit(1);
 }
 var3 = var5;
@@ -2950,11 +3305,14 @@ RET_LABEL4:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_warning (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_warning (self) on <self:ToolContext> */
 var8 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warning].val; /* _opt_warning on <self:ToolContext> */
 if (unlikely(var8 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warning");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 348);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 363);
 fatal_exit(1);
 }
 var6 = var8;
@@ -2962,11 +3320,14 @@ RET_LABEL7:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_quiet (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_quiet (self) on <self:ToolContext> */
 var11 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_quiet].val; /* _opt_quiet on <self:ToolContext> */
 if (unlikely(var11 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_quiet");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 351);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 366);
 fatal_exit(1);
 }
 var9 = var11;
@@ -2974,11 +3335,14 @@ RET_LABEL10:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_stop_on_first_error (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_stop_on_first_error (self) on <self:ToolContext> */
 var14 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_stop_on_first_error].val; /* _opt_stop_on_first_error on <self:ToolContext> */
 if (unlikely(var14 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_stop_on_first_error");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 375);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 393);
 fatal_exit(1);
 }
 var12 = var14;
@@ -2986,11 +3350,14 @@ RET_LABEL13:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_keep_going (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_keep_going (self) on <self:ToolContext> */
 var17 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_keep_going].val; /* _opt_keep_going on <self:ToolContext> */
 if (unlikely(var17 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_keep_going");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 378);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 396);
 fatal_exit(1);
 }
 var15 = var17;
@@ -2998,11 +3365,14 @@ RET_LABEL16:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_no_color (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_no_color (self) on <self:ToolContext> */
 var20 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_no_color].val; /* _opt_no_color on <self:ToolContext> */
 if (unlikely(var20 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_no_color");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 381);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 399);
 fatal_exit(1);
 }
 var18 = var20;
@@ -3010,11 +3380,14 @@ RET_LABEL19:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_log (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_log (self) on <self:ToolContext> */
 var23 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_log].val; /* _opt_log on <self:ToolContext> */
 if (unlikely(var23 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_log");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 354);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 369);
 fatal_exit(1);
 }
 var21 = var23;
@@ -3022,11 +3395,14 @@ RET_LABEL22:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_log_dir (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_log_dir (self) on <self:ToolContext> */
 var26 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_log_dir].val; /* _opt_log_dir on <self:ToolContext> */
 if (unlikely(var26 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_log_dir");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 357);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 372);
 fatal_exit(1);
 }
 var24 = var26;
@@ -3034,11 +3410,14 @@ RET_LABEL25:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_nit_dir (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_nit_dir (self) on <self:ToolContext> */
 var29 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_nit_dir].val; /* _opt_nit_dir on <self:ToolContext> */
 if (unlikely(var29 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_nit_dir");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 360);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 375);
 fatal_exit(1);
 }
 var27 = var29;
@@ -3046,11 +3425,14 @@ RET_LABEL28:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_help (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_help (self) on <self:ToolContext> */
 var32 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_help].val; /* _opt_help on <self:ToolContext> */
 if (unlikely(var32 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_help");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 363);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 381);
 fatal_exit(1);
 }
 var30 = var32;
@@ -3058,11 +3440,14 @@ RET_LABEL31:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_version (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_version (self) on <self:ToolContext> */
 var35 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_version].val; /* _opt_version on <self:ToolContext> */
 if (unlikely(var35 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_version");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 366);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 384);
 fatal_exit(1);
 }
 var33 = var35;
@@ -3070,11 +3455,14 @@ RET_LABEL34:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_set_dummy_tool (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_set_dummy_tool (self) on <self:ToolContext> */
 var38 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_set_dummy_tool].val; /* _opt_set_dummy_tool on <self:ToolContext> */
 if (unlikely(var38 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_set_dummy_tool");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 369);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 387);
 fatal_exit(1);
 }
 var36 = var38;
@@ -3082,11 +3470,14 @@ RET_LABEL37:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_verbose (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_verbose (self) on <self:ToolContext> */
 var41 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_verbose].val; /* _opt_verbose on <self:ToolContext> */
 if (unlikely(var41 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_verbose");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 372);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 390);
 fatal_exit(1);
 }
 var39 = var41;
@@ -3094,11 +3485,14 @@ RET_LABEL40:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_bash_completion (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_bash_completion (self) on <self:ToolContext> */
 var44 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_bash_completion].val; /* _opt_bash_completion on <self:ToolContext> */
 if (unlikely(var44 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_bash_completion");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 384);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 402);
 fatal_exit(1);
 }
 var42 = var44;
@@ -3106,11 +3500,14 @@ RET_LABEL43:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_stub_man (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_stub_man (self) on <self:ToolContext> */
 var47 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_stub_man].val; /* _opt_stub_man on <self:ToolContext> */
 if (unlikely(var47 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_stub_man");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 387);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 405);
 fatal_exit(1);
 }
 var45 = var47;
@@ -3136,18 +3533,21 @@ var49 = NEW_core__NativeArray(15l, &type_core__NativeArray__opts__Option);
 ((struct instance_core__NativeArray*)var49)->values[13] = (val*) var42;
 ((struct instance_core__NativeArray*)var49)->values[14] = (val*) var45;
 {
-((void(*)(val* self, val* p0, long p1))(var48->class->vft[COLOR_core__array__Array__with_native]))(var48, var49, 15l); /* with_native on <var48:Array[Option]>*/
+((void(*)(val* self, val* p0, int64_t p1))(var48->class->vft[COLOR_core__array__Array__with_native]))(var48, var49, 15l); /* with_native on <var48:Array[Option]>*/
 }
 }
 {
-opts___opts__OptionContext___add_option(var, var48); /* Direct call opts#OptionContext#add_option on <var:OptionContext>*/
+opts___opts__OptionContext___add_option(var, var48); /* Direct call opts$OptionContext$add_option on <var:OptionContext>*/
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_stub_man (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_stub_man (self) on <self:ToolContext> */
 var52 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_stub_man].val; /* _opt_stub_man on <self:ToolContext> */
 if (unlikely(var52 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_stub_man");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 387);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 405);
 fatal_exit(1);
 }
 var50 = var52;
@@ -3155,17 +3555,20 @@ RET_LABEL51:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#hidden= (var50,1) on <var50:OptionBool> */
+{ /* Inline opts$Option$hidden= (var50,1) on <var50:OptionBool> */
 var50->attrs[COLOR_opts__Option___hidden].s = 1; /* _hidden on <var50:OptionBool> */
 RET_LABEL53:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_bash_completion (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_bash_completion (self) on <self:ToolContext> */
 var56 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_bash_completion].val; /* _opt_bash_completion on <self:ToolContext> */
 if (unlikely(var56 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_bash_completion");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 384);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 402);
 fatal_exit(1);
 }
 var54 = var56;
@@ -3173,17 +3576,20 @@ RET_LABEL55:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#hidden= (var54,1) on <var54:OptionBool> */
+{ /* Inline opts$Option$hidden= (var54,1) on <var54:OptionBool> */
 var54->attrs[COLOR_opts__Option___hidden].s = 1; /* _hidden on <var54:OptionBool> */
 RET_LABEL57:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_set_dummy_tool (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_set_dummy_tool (self) on <self:ToolContext> */
 var60 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_set_dummy_tool].val; /* _opt_set_dummy_tool on <self:ToolContext> */
 if (unlikely(var60 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_set_dummy_tool");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 369);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 387);
 fatal_exit(1);
 }
 var58 = var60;
@@ -3191,33 +3597,36 @@ RET_LABEL59:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#hidden= (var58,1) on <var58:OptionBool> */
+{ /* Inline opts$Option$hidden= (var58,1) on <var58:OptionBool> */
 var58->attrs[COLOR_opts__Option___hidden].s = 1; /* _hidden on <var58:OptionBool> */
 RET_LABEL61:(void)0;
 }
 }
 RET_LABEL:;
 }
-/* method toolcontext#ToolContext#tooldescription for (self: ToolContext): String */
+/* method toolcontext$ToolContext$tooldescription for (self: ToolContext): String */
 val* nitc___nitc__ToolContext___tooldescription(val* self) {
 val* var /* : String */;
 val* var1 /* : String */;
 var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___tooldescription].val; /* _tooldescription on <self:ToolContext> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _tooldescription");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 403);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 421);
 fatal_exit(1);
 }
 var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#tooldescription= for (self: ToolContext, String) */
+/* method toolcontext$ToolContext$tooldescription= for (self: ToolContext, String) */
 void nitc___nitc__ToolContext___tooldescription_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__toolcontext__ToolContext___tooldescription].val = p0; /* _tooldescription on <self:ToolContext> */
 RET_LABEL:;
 }
-/* method toolcontext#ToolContext#accept_no_arguments for (self: ToolContext): Bool */
+/* method toolcontext$ToolContext$accept_no_arguments for (self: ToolContext): Bool */
 short int nitc___nitc__ToolContext___accept_no_arguments(val* self) {
 short int var /* : Bool */;
 short int var1 /* : Bool */;
@@ -3226,7 +3635,7 @@ var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#usage for (self: ToolContext) */
+/* method toolcontext$ToolContext$usage for (self: ToolContext) */
 void nitc___nitc__ToolContext___usage(val* self) {
 val* var /* : Sys */;
 val* var1 /* : String */;
@@ -3235,11 +3644,14 @@ val* var4 /* : OptionContext */;
 val* var6 /* : OptionContext */;
 var = glob_sys;
 {
-{ /* Inline toolcontext#ToolContext#tooldescription (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$tooldescription (self) on <self:ToolContext> */
 var3 = self->attrs[COLOR_nitc__toolcontext__ToolContext___tooldescription].val; /* _tooldescription on <self:ToolContext> */
 if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _tooldescription");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 403);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 421);
 fatal_exit(1);
 }
 var1 = var3;
@@ -3247,14 +3659,17 @@ RET_LABEL2:(void)0;
 }
 }
 {
-core__file___Sys___print(var, var1); /* Direct call file#Sys#print on <var:Sys>*/
+core__file___Sys___print(var, var1); /* Direct call file$Sys$print on <var:Sys>*/
 }
 {
-{ /* Inline toolcontext#ToolContext#option_context (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$option_context (self) on <self:ToolContext> */
 var6 = self->attrs[COLOR_nitc__toolcontext__ToolContext___option_context].val; /* _option_context on <self:ToolContext> */
 if (unlikely(var6 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _option_context");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 342);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 357);
 fatal_exit(1);
 }
 var4 = var6;
@@ -3262,11 +3677,11 @@ RET_LABEL5:(void)0;
 }
 }
 {
-opts___opts__OptionContext___usage(var4); /* Direct call opts#OptionContext#usage on <var4:OptionContext>*/
+opts___opts__OptionContext___usage(var4); /* Direct call opts$OptionContext$usage on <var4:OptionContext>*/
 }
 RET_LABEL:;
 }
-/* method toolcontext#ToolContext#process_options for (self: ToolContext, Sequence[String]) */
+/* method toolcontext$ToolContext$process_options for (self: ToolContext, Sequence[String]) */
 void nitc___nitc__ToolContext___process_options(val* self, val* p0) {
 val* var_args /* var args: Sequence[String] */;
 val* var /* : OptionCount */;
@@ -3455,7 +3870,7 @@ val* var202 /* : OptionCount */;
 val* var204 /* : OptionCount */;
 val* var205 /* : nullable Object */;
 val* var207 /* : nullable Object */;
-long var209 /* : Int */;
+int64_t var209 /* : Int */;
 val* var210 /* : OptionBool */;
 val* var212 /* : OptionBool */;
 val* var213 /* : nullable Object */;
@@ -3506,11 +3921,14 @@ val* var272 /* : Path */;
 val* var273 /* : FileWriter */;
 var_args = p0;
 {
-{ /* Inline toolcontext#ToolContext#opt_warn (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_warn (self) on <self:ToolContext> */
 var2 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warn].val; /* _opt_warn on <self:ToolContext> */
 if (unlikely(var2 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warn");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 345);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 360);
 fatal_exit(1);
 }
 var = var2;
@@ -3518,7 +3936,7 @@ RET_LABEL1:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value= (var,1l) on <var:OptionCount> */
+{ /* Inline opts$Option$value= (var,1l) on <var:OptionCount> */
 /* Covariant cast for argument 0 (value) <1l:Int> isa VALUE */
 /* <1l:Int> isa VALUE */
 type_struct = var->type->resolution_table->types[COLOR_opts__Option__VALUE];
@@ -3541,11 +3959,14 @@ RET_LABEL3:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#option_context (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$option_context (self) on <self:ToolContext> */
 var8 = self->attrs[COLOR_nitc__toolcontext__ToolContext___option_context].val; /* _option_context on <self:ToolContext> */
 if (unlikely(var8 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _option_context");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 342);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 357);
 fatal_exit(1);
 }
 var6 = var8;
@@ -3553,14 +3974,17 @@ RET_LABEL7:(void)0;
 }
 }
 {
-opts___opts__OptionContext___parse(var6, var_args); /* Direct call opts#OptionContext#parse on <var6:OptionContext>*/
+opts___opts__OptionContext___parse(var6, var_args); /* Direct call opts$OptionContext$parse on <var6:OptionContext>*/
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_help (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_help (self) on <self:ToolContext> */
 var11 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_help].val; /* _opt_help on <self:ToolContext> */
 if (unlikely(var11 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_help");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 363);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 381);
 fatal_exit(1);
 }
 var9 = var11;
@@ -3568,20 +3992,20 @@ RET_LABEL10:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var9) on <var9:OptionBool> */
+{ /* Inline opts$Option$value (var9) on <var9:OptionBool> */
 var14 = var9->attrs[COLOR_opts__Option___value].val; /* _value on <var9:OptionBool> */
 var12 = var14;
 RET_LABEL13:(void)0;
 }
 }
-var15 = (short int)((long)(var12)>>2);
+var15 = (short int)((int64_t)(var12)>>2);
 if (var15){
 {
-nitc___nitc__ToolContext___usage(self); /* Direct call toolcontext#ToolContext#usage on <self:ToolContext>*/
+nitc___nitc__ToolContext___usage(self); /* Direct call toolcontext$ToolContext$usage on <self:ToolContext>*/
 }
 var16 = glob_sys;
 {
-{ /* Inline kernel#Sys#exit (var16,0l) on <var16:Sys> */
+{ /* Inline kernel$Sys$exit (var16,0l) on <var16:Sys> */
 exit(0l);
 RET_LABEL17:(void)0;
 }
@@ -3589,11 +4013,14 @@ RET_LABEL17:(void)0;
 } else {
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_version (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_version (self) on <self:ToolContext> */
 var20 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_version].val; /* _opt_version on <self:ToolContext> */
 if (unlikely(var20 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_version");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 366);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 384);
 fatal_exit(1);
 }
 var18 = var20;
@@ -3601,24 +4028,24 @@ RET_LABEL19:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var18) on <var18:OptionBool> */
+{ /* Inline opts$Option$value (var18) on <var18:OptionBool> */
 var23 = var18->attrs[COLOR_opts__Option___value].val; /* _value on <var18:OptionBool> */
 var21 = var23;
 RET_LABEL22:(void)0;
 }
 }
-var24 = (short int)((long)(var21)>>2);
+var24 = (short int)((int64_t)(var21)>>2);
 if (var24){
 var25 = glob_sys;
 {
 var26 = nitc___nitc__ToolContext___version(self);
 }
 {
-core__file___Sys___print(var25, var26); /* Direct call file#Sys#print on <var25:Sys>*/
+core__file___Sys___print(var25, var26); /* Direct call file$Sys$print on <var25:Sys>*/
 }
 var27 = glob_sys;
 {
-{ /* Inline kernel#Sys#exit (var27,0l) on <var27:Sys> */
+{ /* Inline kernel$Sys$exit (var27,0l) on <var27:Sys> */
 exit(0l);
 RET_LABEL28:(void)0;
 }
@@ -3626,11 +4053,14 @@ RET_LABEL28:(void)0;
 } else {
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_bash_completion (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_bash_completion (self) on <self:ToolContext> */
 var31 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_bash_completion].val; /* _opt_bash_completion on <self:ToolContext> */
 if (unlikely(var31 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_bash_completion");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 384);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 402);
 fatal_exit(1);
 }
 var29 = var31;
@@ -3638,13 +4068,13 @@ RET_LABEL30:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var29) on <var29:OptionBool> */
+{ /* Inline opts$Option$value (var29) on <var29:OptionBool> */
 var34 = var29->attrs[COLOR_opts__Option___value].val; /* _value on <var29:OptionBool> */
 var32 = var34;
 RET_LABEL33:(void)0;
 }
 }
-var35 = (short int)((long)(var32)>>2);
+var35 = (short int)((int64_t)(var32)>>2);
 if (var35){
 var36 = NEW_nitc__BashCompletion(&type_nitc__BashCompletion);
 {
@@ -3655,7 +4085,7 @@ var36 = NEW_nitc__BashCompletion(&type_nitc__BashCompletion);
 }
 var_bash_completion = var36;
 {
-{ /* Inline kernel#Object#sys (self) on <self:ToolContext> */
+{ /* Inline kernel$Object$sys (self) on <self:ToolContext> */
 var39 = glob_sys;
 var37 = var39;
 goto RET_LABEL38;
@@ -3666,11 +4096,11 @@ RET_LABEL38:(void)0;
 var40 = core__file___Sys___stdout(var37);
 }
 {
-template___template__Template___core__stream__Writable__write_to(var_bash_completion, var40); /* Direct call template#Template#write_to on <var_bash_completion:BashCompletion>*/
+template___template__Template___core__stream__Writable__write_to(var_bash_completion, var40); /* Direct call template$Template$write_to on <var_bash_completion:BashCompletion>*/
 }
 var41 = glob_sys;
 {
-{ /* Inline kernel#Sys#exit (var41,0l) on <var41:Sys> */
+{ /* Inline kernel$Sys$exit (var41,0l) on <var41:Sys> */
 exit(0l);
 RET_LABEL42:(void)0;
 }
@@ -3678,11 +4108,14 @@ RET_LABEL42:(void)0;
 } else {
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_stub_man (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_stub_man (self) on <self:ToolContext> */
 var45 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_stub_man].val; /* _opt_stub_man on <self:ToolContext> */
 if (unlikely(var45 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_stub_man");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 387);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 405);
 fatal_exit(1);
 }
 var43 = var45;
@@ -3690,13 +4123,13 @@ RET_LABEL44:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var43) on <var43:OptionBool> */
+{ /* Inline opts$Option$value (var43) on <var43:OptionBool> */
 var48 = var43->attrs[COLOR_opts__Option___value].val; /* _value on <var43:OptionBool> */
 var46 = var48;
 RET_LABEL47:(void)0;
 }
 }
-var49 = (short int)((long)(var46)>>2);
+var49 = (short int)((int64_t)(var46)>>2);
 if (var49){
 var50 = glob_sys;
 if (unlikely(varonce==NULL)) {
@@ -3724,11 +4157,14 @@ var51 = varonce;
 varonce = NULL;
 }
 {
-{ /* Inline toolcontext#ToolContext#tooldescription (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$tooldescription (self) on <self:ToolContext> */
 var62 = self->attrs[COLOR_nitc__toolcontext__ToolContext___tooldescription].val; /* _tooldescription on <self:ToolContext> */
 if (unlikely(var62 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _tooldescription");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 403);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 421);
 fatal_exit(1);
 }
 var60 = var62;
@@ -3755,14 +4191,17 @@ var69 = ((val*(*)(val* self))(var51->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce = var51;
 {
-core__file___Sys___print(var50, var69); /* Direct call file#Sys#print on <var50:Sys>*/
+core__file___Sys___print(var50, var69); /* Direct call file$Sys$print on <var50:Sys>*/
 }
 {
-{ /* Inline toolcontext#ToolContext#option_context (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$option_context (self) on <self:ToolContext> */
 var72 = self->attrs[COLOR_nitc__toolcontext__ToolContext___option_context].val; /* _option_context on <self:ToolContext> */
 if (unlikely(var72 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _option_context");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 342);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 357);
 fatal_exit(1);
 }
 var70 = var72;
@@ -3770,11 +4209,14 @@ RET_LABEL71:(void)0;
 }
 }
 {
-{ /* Inline opts#OptionContext#options (var70) on <var70:OptionContext> */
+{ /* Inline opts$OptionContext$options (var70) on <var70:OptionContext> */
 var75 = var70->attrs[COLOR_opts__OptionContext___options].val; /* _options on <var70:OptionContext> */
 if (unlikely(var75 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _options");
-PRINT_ERROR(" (%s:%d)\n", FILE_opts, 277);
+PRINT_ERROR(" (%s:%d)\n", FILE_opts, 283);
 fatal_exit(1);
 }
 var73 = var75;
@@ -3788,14 +4230,14 @@ var76 = core___core__AbstractArrayRead___core__abstract_collection__Collection__
 var_77 = var76;
 for(;;) {
 {
-var78 = ((short int(*)(val* self))((((long)var_77&3)?class_info[((long)var_77&3)]:var_77->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_77); /* is_ok on <var_77:IndexedIterator[Option]>*/
+var78 = ((short int(*)(val* self))((((int64_t)var_77&3)?class_info[((int64_t)var_77&3)]:var_77->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_77); /* is_ok on <var_77:IndexedIterator[Option]>*/
 }
 if (var78){
 } else {
 goto BREAK_label;
 }
 {
-var79 = ((val*(*)(val* self))((((long)var_77&3)?class_info[((long)var_77&3)]:var_77->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_77); /* item on <var_77:IndexedIterator[Option]>*/
+var79 = ((val*(*)(val* self))((((int64_t)var_77&3)?class_info[((int64_t)var_77&3)]:var_77->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_77); /* item on <var_77:IndexedIterator[Option]>*/
 }
 var_o = var79;
 var_first = 1;
@@ -3813,16 +4255,19 @@ var85 = NEW_core__Array(&type_core__Array__core__Object);
 var86 = NEW_core__NativeArray(1l, &type_core__NativeArray__core__Object);
 ((struct instance_core__NativeArray*)var86)->values[0] = (val*) var82;
 {
-((void(*)(val* self, val* p0, long p1))(var85->class->vft[COLOR_core__array__Array__with_native]))(var85, var86, 1l); /* with_native on <var85:Array[Object]>*/
+((void(*)(val* self, val* p0, int64_t p1))(var85->class->vft[COLOR_core__array__Array__with_native]))(var85, var86, 1l); /* with_native on <var85:Array[Object]>*/
 }
 }
 {
-core__file___Sys___printn(var80, var85); /* Direct call file#Sys#printn on <var80:Sys>*/
+core__file___Sys___printn(var80, var85); /* Direct call file$Sys$printn on <var80:Sys>*/
 }
 {
-{ /* Inline opts#Option#names (var_o) on <var_o:Option> */
+{ /* Inline opts$Option$names (var_o) on <var_o:Option> */
 var89 = var_o->attrs[COLOR_opts__Option___names].val; /* _names on <var_o:Option> */
 if (unlikely(var89 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _names");
 PRINT_ERROR(" (%s:%d)\n", FILE_opts, 19);
 fatal_exit(1);
@@ -3838,14 +4283,14 @@ var91 = core___core__AbstractArrayRead___core__abstract_collection__Collection__
 var_92 = var91;
 for(;;) {
 {
-var93 = ((short int(*)(val* self))((((long)var_92&3)?class_info[((long)var_92&3)]:var_92->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_92); /* is_ok on <var_92:IndexedIterator[String]>*/
+var93 = ((short int(*)(val* self))((((int64_t)var_92&3)?class_info[((int64_t)var_92&3)]:var_92->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_92); /* is_ok on <var_92:IndexedIterator[String]>*/
 }
 if (var93){
 } else {
 goto BREAK_label94;
 }
 {
-var95 = ((val*(*)(val* self))((((long)var_92&3)?class_info[((long)var_92&3)]:var_92->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_92); /* item on <var_92:IndexedIterator[String]>*/
+var95 = ((val*(*)(val* self))((((int64_t)var_92&3)?class_info[((int64_t)var_92&3)]:var_92->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_92); /* item on <var_92:IndexedIterator[String]>*/
 }
 var_n = var95;
 if (var_first){
@@ -3865,11 +4310,11 @@ var101 = NEW_core__Array(&type_core__Array__core__Object);
 var102 = NEW_core__NativeArray(1l, &type_core__NativeArray__core__Object);
 ((struct instance_core__NativeArray*)var102)->values[0] = (val*) var98;
 {
-((void(*)(val* self, val* p0, long p1))(var101->class->vft[COLOR_core__array__Array__with_native]))(var101, var102, 1l); /* with_native on <var101:Array[Object]>*/
+((void(*)(val* self, val* p0, int64_t p1))(var101->class->vft[COLOR_core__array__Array__with_native]))(var101, var102, 1l); /* with_native on <var101:Array[Object]>*/
 }
 }
 {
-core__file___Sys___printn(var96, var101); /* Direct call file#Sys#printn on <var96:Sys>*/
+core__file___Sys___printn(var96, var101); /* Direct call file$Sys$printn on <var96:Sys>*/
 }
 }
 var103 = glob_sys;
@@ -3907,19 +4352,19 @@ var115 = NEW_core__Array(&type_core__Array__core__Object);
 var116 = NEW_core__NativeArray(1l, &type_core__NativeArray__core__Object);
 ((struct instance_core__NativeArray*)var116)->values[0] = (val*) var114;
 {
-((void(*)(val* self, val* p0, long p1))(var115->class->vft[COLOR_core__array__Array__with_native]))(var115, var116, 1l); /* with_native on <var115:Array[Object]>*/
+((void(*)(val* self, val* p0, int64_t p1))(var115->class->vft[COLOR_core__array__Array__with_native]))(var115, var116, 1l); /* with_native on <var115:Array[Object]>*/
 }
 }
 {
-core__file___Sys___printn(var103, var115); /* Direct call file#Sys#printn on <var103:Sys>*/
+core__file___Sys___printn(var103, var115); /* Direct call file$Sys$printn on <var103:Sys>*/
 }
 {
-((void(*)(val* self))((((long)var_92&3)?class_info[((long)var_92&3)]:var_92->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_92); /* next on <var_92:IndexedIterator[String]>*/
+((void(*)(val* self))((((int64_t)var_92&3)?class_info[((int64_t)var_92&3)]:var_92->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_92); /* next on <var_92:IndexedIterator[String]>*/
 }
 }
 BREAK_label94: (void)0;
 {
-((void(*)(val* self))((((long)var_92&3)?class_info[((long)var_92&3)]:var_92->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_92); /* finish on <var_92:IndexedIterator[String]>*/
+((void(*)(val* self))((((int64_t)var_92&3)?class_info[((int64_t)var_92&3)]:var_92->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_92); /* finish on <var_92:IndexedIterator[String]>*/
 }
 var117 = glob_sys;
 if (likely(varonce118!=NULL)) {
@@ -3931,7 +4376,7 @@ var119 = var121;
 varonce118 = var119;
 }
 {
-core__file___Sys___print(var117, var119); /* Direct call file#Sys#print on <var117:Sys>*/
+core__file___Sys___print(var117, var119); /* Direct call file$Sys$print on <var117:Sys>*/
 }
 var122 = glob_sys;
 if (unlikely(varonce123==NULL)) {
@@ -3950,9 +4395,12 @@ var124 = varonce123;
 varonce123 = NULL;
 }
 {
-{ /* Inline opts#Option#helptext (var_o) on <var_o:Option> */
+{ /* Inline opts$Option$helptext (var_o) on <var_o:Option> */
 var131 = var_o->attrs[COLOR_opts__Option___helptext].val; /* _helptext on <var_o:Option> */
 if (unlikely(var131 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _helptext");
 PRINT_ERROR(" (%s:%d)\n", FILE_opts, 25);
 fatal_exit(1);
@@ -3967,7 +4415,7 @@ var132 = ((val*(*)(val* self))(var124->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce123 = var124;
 {
-core__file___Sys___print(var122, var132); /* Direct call file#Sys#print on <var122:Sys>*/
+core__file___Sys___print(var122, var132); /* Direct call file$Sys$print on <var122:Sys>*/
 }
 var133 = glob_sys;
 if (likely(varonce134!=NULL)) {
@@ -3979,15 +4427,15 @@ var135 = var137;
 varonce134 = var135;
 }
 {
-core__file___Sys___print(var133, var135); /* Direct call file#Sys#print on <var133:Sys>*/
+core__file___Sys___print(var133, var135); /* Direct call file$Sys$print on <var133:Sys>*/
 }
 {
-((void(*)(val* self))((((long)var_77&3)?class_info[((long)var_77&3)]:var_77->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_77); /* next on <var_77:IndexedIterator[Option]>*/
+((void(*)(val* self))((((int64_t)var_77&3)?class_info[((int64_t)var_77&3)]:var_77->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_77); /* next on <var_77:IndexedIterator[Option]>*/
 }
 }
 BREAK_label: (void)0;
 {
-((void(*)(val* self))((((long)var_77&3)?class_info[((long)var_77&3)]:var_77->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_77); /* finish on <var_77:IndexedIterator[Option]>*/
+((void(*)(val* self))((((int64_t)var_77&3)?class_info[((int64_t)var_77&3)]:var_77->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_77); /* finish on <var_77:IndexedIterator[Option]>*/
 }
 var138 = glob_sys;
 if (likely(varonce139!=NULL)) {
@@ -3999,11 +4447,11 @@ var140 = var142;
 varonce139 = var140;
 }
 {
-core__file___Sys___print(var138, var140); /* Direct call file#Sys#print on <var138:Sys>*/
+core__file___Sys___print(var138, var140); /* Direct call file$Sys$print on <var138:Sys>*/
 }
 var143 = glob_sys;
 {
-{ /* Inline kernel#Sys#exit (var143,0l) on <var143:Sys> */
+{ /* Inline kernel$Sys$exit (var143,0l) on <var143:Sys> */
 exit(0l);
 RET_LABEL144:(void)0;
 }
@@ -4011,11 +4459,14 @@ RET_LABEL144:(void)0;
 } else {
 }
 {
-{ /* Inline toolcontext#ToolContext#option_context (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$option_context (self) on <self:ToolContext> */
 var147 = self->attrs[COLOR_nitc__toolcontext__ToolContext___option_context].val; /* _option_context on <self:ToolContext> */
 if (unlikely(var147 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _option_context");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 342);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 357);
 fatal_exit(1);
 }
 var145 = var147;
@@ -4038,14 +4489,14 @@ var152 = core___core__AbstractArrayRead___core__abstract_collection__Collection_
 var_153 = var152;
 for(;;) {
 {
-var154 = ((short int(*)(val* self))((((long)var_153&3)?class_info[((long)var_153&3)]:var_153->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_153); /* is_ok on <var_153:IndexedIterator[String]>*/
+var154 = ((short int(*)(val* self))((((int64_t)var_153&3)?class_info[((int64_t)var_153&3)]:var_153->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_153); /* is_ok on <var_153:IndexedIterator[String]>*/
 }
 if (var154){
 } else {
 goto BREAK_label155;
 }
 {
-var156 = ((val*(*)(val* self))((((long)var_153&3)?class_info[((long)var_153&3)]:var_153->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_153); /* item on <var_153:IndexedIterator[String]>*/
+var156 = ((val*(*)(val* self))((((int64_t)var_153&3)?class_info[((int64_t)var_153&3)]:var_153->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_153); /* item on <var_153:IndexedIterator[String]>*/
 }
 var_e = var156;
 var157 = glob_sys;
@@ -4070,23 +4521,26 @@ var164 = ((val*(*)(val* self))(var159->class->vft[COLOR_core__abstract_text__Nat
 }
 varonce158 = var159;
 {
-core__file___Sys___print(var157, var164); /* Direct call file#Sys#print on <var157:Sys>*/
+core__file___Sys___print(var157, var164); /* Direct call file$Sys$print on <var157:Sys>*/
 }
 {
-((void(*)(val* self))((((long)var_153&3)?class_info[((long)var_153&3)]:var_153->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_153); /* next on <var_153:IndexedIterator[String]>*/
+((void(*)(val* self))((((int64_t)var_153&3)?class_info[((int64_t)var_153&3)]:var_153->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_153); /* next on <var_153:IndexedIterator[String]>*/
 }
 }
 BREAK_label155: (void)0;
 {
-((void(*)(val* self))((((long)var_153&3)?class_info[((long)var_153&3)]:var_153->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_153); /* finish on <var_153:IndexedIterator[String]>*/
+((void(*)(val* self))((((int64_t)var_153&3)?class_info[((int64_t)var_153&3)]:var_153->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_153); /* finish on <var_153:IndexedIterator[String]>*/
 }
 var165 = glob_sys;
 {
-{ /* Inline toolcontext#ToolContext#tooldescription (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$tooldescription (self) on <self:ToolContext> */
 var168 = self->attrs[COLOR_nitc__toolcontext__ToolContext___tooldescription].val; /* _tooldescription on <self:ToolContext> */
 if (unlikely(var168 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _tooldescription");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 403);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 421);
 fatal_exit(1);
 }
 var166 = var168;
@@ -4094,7 +4548,7 @@ RET_LABEL167:(void)0;
 }
 }
 {
-core__file___Sys___print(var165, var166); /* Direct call file#Sys#print on <var165:Sys>*/
+core__file___Sys___print(var165, var166); /* Direct call file$Sys$print on <var165:Sys>*/
 }
 var169 = glob_sys;
 if (likely(varonce170!=NULL)) {
@@ -4106,11 +4560,11 @@ var171 = var173;
 varonce170 = var171;
 }
 {
-core__file___Sys___print(var169, var171); /* Direct call file#Sys#print on <var169:Sys>*/
+core__file___Sys___print(var169, var171); /* Direct call file$Sys$print on <var169:Sys>*/
 }
 var174 = glob_sys;
 {
-{ /* Inline kernel#Sys#exit (var174,1l) on <var174:Sys> */
+{ /* Inline kernel$Sys$exit (var174,1l) on <var174:Sys> */
 exit(1l);
 RET_LABEL175:(void)0;
 }
@@ -4118,20 +4572,23 @@ RET_LABEL175:(void)0;
 } else {
 }
 {
-var176 = nitc___nitc__ToolContext___compute_nit_dir(self);
+var176 = nitc___nitc__ToolContext___locate_nit_dir(self);
 }
 {
-{ /* Inline toolcontext#ToolContext#nit_dir= (self,var176) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$nit_dir= (self,var176) on <self:ToolContext> */
 self->attrs[COLOR_nitc__toolcontext__ToolContext___nit_dir].val = var176; /* _nit_dir on <self:ToolContext> */
 RET_LABEL177:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#option_context (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$option_context (self) on <self:ToolContext> */
 var181 = self->attrs[COLOR_nitc__toolcontext__ToolContext___option_context].val; /* _option_context on <self:ToolContext> */
 if (unlikely(var181 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _option_context");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 342);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 357);
 fatal_exit(1);
 }
 var179 = var181;
@@ -4139,11 +4596,14 @@ RET_LABEL180:(void)0;
 }
 }
 {
-{ /* Inline opts#OptionContext#rest (var179) on <var179:OptionContext> */
+{ /* Inline opts$OptionContext$rest (var179) on <var179:OptionContext> */
 var184 = var179->attrs[COLOR_opts__OptionContext___rest].val; /* _rest on <var179:OptionContext> */
 if (unlikely(var184 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _rest");
-PRINT_ERROR(" (%s:%d)\n", FILE_opts, 280);
+PRINT_ERROR(" (%s:%d)\n", FILE_opts, 286);
 fatal_exit(1);
 }
 var182 = var184;
@@ -4156,7 +4616,7 @@ var185 = core___core__AbstractArrayRead___core__abstract_collection__Collection_
 var_186 = var185;
 if (var185){
 {
-{ /* Inline toolcontext#ToolContext#accept_no_arguments (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$accept_no_arguments (self) on <self:ToolContext> */
 var189 = self->attrs[COLOR_nitc__toolcontext__ToolContext___accept_no_arguments].s; /* _accept_no_arguments on <self:ToolContext> */
 var187 = var189;
 RET_LABEL188:(void)0;
@@ -4170,11 +4630,14 @@ var178 = var_186;
 if (var178){
 var191 = glob_sys;
 {
-{ /* Inline toolcontext#ToolContext#tooldescription (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$tooldescription (self) on <self:ToolContext> */
 var194 = self->attrs[COLOR_nitc__toolcontext__ToolContext___tooldescription].val; /* _tooldescription on <self:ToolContext> */
 if (unlikely(var194 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _tooldescription");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 403);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 421);
 fatal_exit(1);
 }
 var192 = var194;
@@ -4182,7 +4645,7 @@ RET_LABEL193:(void)0;
 }
 }
 {
-core__file___Sys___print(var191, var192); /* Direct call file#Sys#print on <var191:Sys>*/
+core__file___Sys___print(var191, var192); /* Direct call file$Sys$print on <var191:Sys>*/
 }
 var195 = glob_sys;
 if (likely(varonce196!=NULL)) {
@@ -4194,11 +4657,11 @@ var197 = var199;
 varonce196 = var197;
 }
 {
-core__file___Sys___print(var195, var197); /* Direct call file#Sys#print on <var195:Sys>*/
+core__file___Sys___print(var195, var197); /* Direct call file$Sys$print on <var195:Sys>*/
 }
 var200 = glob_sys;
 {
-{ /* Inline kernel#Sys#exit (var200,1l) on <var200:Sys> */
+{ /* Inline kernel$Sys$exit (var200,1l) on <var200:Sys> */
 exit(1l);
 RET_LABEL201:(void)0;
 }
@@ -4206,11 +4669,14 @@ RET_LABEL201:(void)0;
 } else {
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_verbose (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_verbose (self) on <self:ToolContext> */
 var204 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_verbose].val; /* _opt_verbose on <self:ToolContext> */
 if (unlikely(var204 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_verbose");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 372);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 390);
 fatal_exit(1);
 }
 var202 = var204;
@@ -4218,25 +4684,28 @@ RET_LABEL203:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var202) on <var202:OptionCount> */
+{ /* Inline opts$Option$value (var202) on <var202:OptionCount> */
 var207 = var202->attrs[COLOR_opts__Option___value].val; /* _value on <var202:OptionCount> */
 var205 = var207;
 RET_LABEL206:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#verbose_level= (self,var205) on <self:ToolContext> */
-var209 = (long)(var205)>>2;
+{ /* Inline toolcontext$ToolContext$verbose_level= (self,var205) on <self:ToolContext> */
+var209 = (int64_t)(var205)>>2;
 self->attrs[COLOR_nitc__toolcontext__ToolContext___verbose_level].l = var209; /* _verbose_level on <self:ToolContext> */
 RET_LABEL208:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_keep_going (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_keep_going (self) on <self:ToolContext> */
 var212 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_keep_going].val; /* _opt_keep_going on <self:ToolContext> */
 if (unlikely(var212 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_keep_going");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 378);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 396);
 fatal_exit(1);
 }
 var210 = var212;
@@ -4244,16 +4713,16 @@ RET_LABEL211:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var210) on <var210:OptionBool> */
+{ /* Inline opts$Option$value (var210) on <var210:OptionBool> */
 var215 = var210->attrs[COLOR_opts__Option___value].val; /* _value on <var210:OptionBool> */
 var213 = var215;
 RET_LABEL214:(void)0;
 }
 }
-var216 = (short int)((long)(var213)>>2);
+var216 = (short int)((int64_t)(var213)>>2);
 if (var216){
 {
-{ /* Inline toolcontext#ToolContext#keep_going= (self,1) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$keep_going= (self,1) on <self:ToolContext> */
 self->attrs[COLOR_nitc__toolcontext__ToolContext___keep_going].s = 1; /* _keep_going on <self:ToolContext> */
 RET_LABEL217:(void)0;
 }
@@ -4261,11 +4730,14 @@ RET_LABEL217:(void)0;
 } else {
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_quiet (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_quiet (self) on <self:ToolContext> */
 var220 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_quiet].val; /* _opt_quiet on <self:ToolContext> */
 if (unlikely(var220 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_quiet");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 351);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 366);
 fatal_exit(1);
 }
 var218 = var220;
@@ -4273,20 +4745,23 @@ RET_LABEL219:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var218) on <var218:OptionBool> */
+{ /* Inline opts$Option$value (var218) on <var218:OptionBool> */
 var223 = var218->attrs[COLOR_opts__Option___value].val; /* _value on <var218:OptionBool> */
 var221 = var223;
 RET_LABEL222:(void)0;
 }
 }
-var224 = (short int)((long)(var221)>>2);
+var224 = (short int)((int64_t)(var221)>>2);
 if (var224){
 {
-{ /* Inline toolcontext#ToolContext#opt_warn (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_warn (self) on <self:ToolContext> */
 var227 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_warn].val; /* _opt_warn on <self:ToolContext> */
 if (unlikely(var227 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_warn");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 345);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 360);
 fatal_exit(1);
 }
 var225 = var227;
@@ -4294,7 +4769,7 @@ RET_LABEL226:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value= (var225,0l) on <var225:OptionCount> */
+{ /* Inline opts$Option$value= (var225,0l) on <var225:OptionCount> */
 /* Covariant cast for argument 0 (value) <0l:Int> isa VALUE */
 /* <0l:Int> isa VALUE */
 type_struct232 = var225->type->resolution_table->types[COLOR_opts__Option__VALUE];
@@ -4319,11 +4794,14 @@ RET_LABEL228:(void)0;
 } else {
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_log_dir (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_log_dir (self) on <self:ToolContext> */
 var237 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_log_dir].val; /* _opt_log_dir on <self:ToolContext> */
 if (unlikely(var237 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_log_dir");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 357);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 372);
 fatal_exit(1);
 }
 var235 = var237;
@@ -4331,7 +4809,7 @@ RET_LABEL236:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var235) on <var235:OptionString> */
+{ /* Inline opts$Option$value (var235) on <var235:OptionString> */
 var240 = var235->attrs[COLOR_opts__Option___value].val; /* _value on <var235:OptionString> */
 var238 = var240;
 RET_LABEL239:(void)0;
@@ -4343,10 +4821,10 @@ var241 = 0; /* is null */
 var241 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var238,((val*)NULL)) on <var238:nullable Object(nullable String)> */
+{ /* Inline kernel$Object$!= (var238,((val*)NULL)) on <var238:nullable Object(nullable String)> */
 var_other = ((val*)NULL);
 {
-var244 = ((short int(*)(val* self, val* p0))(var238->class->vft[COLOR_core__kernel__Object___61d_61d]))(var238, var_other); /* == on <var238:nullable String(String)>*/
+var244 = ((short int(*)(val* self, val* p0))(var238->class->vft[COLOR_core__kernel__Object___61d_61d]))(var238, var_other); /* == on <var238:nullable Object(String)>*/
 }
 var245 = !var244;
 var242 = var245;
@@ -4357,11 +4835,14 @@ var241 = var242;
 }
 if (var241){
 {
-{ /* Inline toolcontext#ToolContext#opt_log_dir (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_log_dir (self) on <self:ToolContext> */
 var248 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_log_dir].val; /* _opt_log_dir on <self:ToolContext> */
 if (unlikely(var248 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_log_dir");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 357);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 372);
 fatal_exit(1);
 }
 var246 = var248;
@@ -4369,19 +4850,22 @@ RET_LABEL247:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var246) on <var246:OptionString> */
+{ /* Inline opts$Option$value (var246) on <var246:OptionString> */
 var251 = var246->attrs[COLOR_opts__Option___value].val; /* _value on <var246:OptionString> */
 var249 = var251;
 RET_LABEL250:(void)0;
 }
 }
 if (unlikely(var249 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Cast failed");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 502);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 520);
 fatal_exit(1);
 }
 {
-{ /* Inline toolcontext#ToolContext#log_directory= (self,var249) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$log_directory= (self,var249) on <self:ToolContext> */
 self->attrs[COLOR_nitc__toolcontext__ToolContext___log_directory].val = var249; /* _log_directory on <self:ToolContext> */
 RET_LABEL252:(void)0;
 }
@@ -4389,11 +4873,14 @@ RET_LABEL252:(void)0;
 } else {
 }
 {
-{ /* Inline toolcontext#ToolContext#opt_log (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_log (self) on <self:ToolContext> */
 var255 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_log].val; /* _opt_log on <self:ToolContext> */
 if (unlikely(var255 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_log");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 354);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 369);
 fatal_exit(1);
 }
 var253 = var255;
@@ -4401,20 +4888,23 @@ RET_LABEL254:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var253) on <var253:OptionBool> */
+{ /* Inline opts$Option$value (var253) on <var253:OptionBool> */
 var258 = var253->attrs[COLOR_opts__Option___value].val; /* _value on <var253:OptionBool> */
 var256 = var258;
 RET_LABEL257:(void)0;
 }
 }
-var259 = (short int)((long)(var256)>>2);
+var259 = (short int)((int64_t)(var256)>>2);
 if (var259){
 {
-{ /* Inline toolcontext#ToolContext#log_directory (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$log_directory (self) on <self:ToolContext> */
 var262 = self->attrs[COLOR_nitc__toolcontext__ToolContext___log_directory].val; /* _log_directory on <self:ToolContext> */
 if (unlikely(var262 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _log_directory");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 137);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 151);
 fatal_exit(1);
 }
 var260 = var262;
@@ -4422,14 +4912,17 @@ RET_LABEL261:(void)0;
 }
 }
 {
-var263 = core__file___String___mkdir(var260);
+var263 = core__file___String___mkdir(var260, ((val*)NULL));
 }
 {
-{ /* Inline toolcontext#ToolContext#log_directory (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$log_directory (self) on <self:ToolContext> */
 var266 = self->attrs[COLOR_nitc__toolcontext__ToolContext___log_directory].val; /* _log_directory on <self:ToolContext> */
 if (unlikely(var266 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _log_directory");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 137);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 151);
 fatal_exit(1);
 }
 var264 = var266;
@@ -4454,7 +4947,7 @@ var272 = core__file___Text___to_path(var271);
 var273 = core___core__Path___open_wo(var272);
 }
 {
-{ /* Inline toolcontext#ToolContext#log_info= (self,var273) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$log_info= (self,var273) on <self:ToolContext> */
 self->attrs[COLOR_nitc__toolcontext__ToolContext___log_info].val = var273; /* _log_info on <self:ToolContext> */
 RET_LABEL274:(void)0;
 }
@@ -4463,7 +4956,7 @@ RET_LABEL274:(void)0;
 }
 RET_LABEL:;
 }
-/* method toolcontext#ToolContext#version for (self: ToolContext): String */
+/* method toolcontext$ToolContext$version for (self: ToolContext): String */
 val* nitc___nitc__ToolContext___version(val* self) {
 val* var /* : String */;
 val* var1 /* : OptionBool */;
@@ -4478,11 +4971,14 @@ val* var10 /* : String */;
 val* var11 /* : Sys */;
 val* var12 /* : String */;
 {
-{ /* Inline toolcontext#ToolContext#opt_set_dummy_tool (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_set_dummy_tool (self) on <self:ToolContext> */
 var3 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_set_dummy_tool].val; /* _opt_set_dummy_tool on <self:ToolContext> */
 if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_set_dummy_tool");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 369);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 387);
 fatal_exit(1);
 }
 var1 = var3;
@@ -4490,13 +4986,13 @@ RET_LABEL2:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var1) on <var1:OptionBool> */
+{ /* Inline opts$Option$value (var1) on <var1:OptionBool> */
 var6 = var1->attrs[COLOR_opts__Option___value].val; /* _value on <var1:OptionBool> */
 var4 = var6;
 RET_LABEL5:(void)0;
 }
 }
-var7 = (short int)((long)(var4)>>2);
+var7 = (short int)((int64_t)(var4)>>2);
 if (var7){
 if (likely(varonce!=NULL)) {
 var8 = varonce;
@@ -4519,7 +5015,7 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#toolname for (self: ToolContext): String */
+/* method toolcontext$ToolContext$toolname for (self: ToolContext): String */
 val* nitc___nitc__ToolContext___toolname(val* self) {
 val* var /* : String */;
 val* var1 /* : OptionBool */;
@@ -4536,11 +5032,14 @@ val* var13 /* : Sys */;
 val* var14 /* : String */;
 val* var15 /* : String */;
 {
-{ /* Inline toolcontext#ToolContext#opt_set_dummy_tool (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_set_dummy_tool (self) on <self:ToolContext> */
 var3 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_set_dummy_tool].val; /* _opt_set_dummy_tool on <self:ToolContext> */
 if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_set_dummy_tool");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 369);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 387);
 fatal_exit(1);
 }
 var1 = var3;
@@ -4548,13 +5047,13 @@ RET_LABEL2:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var1) on <var1:OptionBool> */
+{ /* Inline opts$Option$value (var1) on <var1:OptionBool> */
 var6 = var1->attrs[COLOR_opts__Option___value].val; /* _value on <var1:OptionBool> */
 var4 = var6;
 RET_LABEL5:(void)0;
 }
 }
-var7 = (short int)((long)(var4)>>2);
+var7 = (short int)((int64_t)(var4)>>2);
 if (var7){
 if (likely(varonce!=NULL)) {
 var8 = varonce;
@@ -4569,7 +5068,7 @@ goto RET_LABEL;
 } else {
 }
 {
-{ /* Inline kernel#Object#sys (self) on <self:ToolContext> */
+{ /* Inline kernel$Object$sys (self) on <self:ToolContext> */
 var13 = glob_sys;
 var11 = var13;
 goto RET_LABEL12;
@@ -4587,27 +5086,22 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#nit_dir for (self: ToolContext): String */
+/* method toolcontext$ToolContext$nit_dir for (self: ToolContext): nullable String */
 val* nitc___nitc__ToolContext___nit_dir(val* self) {
-val* var /* : String */;
-val* var1 /* : String */;
+val* var /* : nullable String */;
+val* var1 /* : nullable String */;
 var1 = self->attrs[COLOR_nitc__toolcontext__ToolContext___nit_dir].val; /* _nit_dir on <self:ToolContext> */
-if (unlikely(var1 == NULL)) {
-PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _nit_dir");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 528);
-fatal_exit(1);
-}
 var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#nit_dir= for (self: ToolContext, String) */
+/* method toolcontext$ToolContext$nit_dir= for (self: ToolContext, nullable String) */
 void nitc___nitc__ToolContext___nit_dir_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__toolcontext__ToolContext___nit_dir].val = p0; /* _nit_dir on <self:ToolContext> */
 RET_LABEL:;
 }
-/* method toolcontext#ToolContext#compute_nit_dir for (self: ToolContext): String */
-val* nitc___nitc__ToolContext___compute_nit_dir(val* self) {
+/* method toolcontext$ToolContext$locate_nit_dir for (self: ToolContext): String */
+val* nitc___nitc__ToolContext___locate_nit_dir(val* self) {
 val* var /* : String */;
 val* var1 /* : OptionString */;
 val* var3 /* : OptionString */;
@@ -4709,11 +5203,14 @@ val* var94 /* : String */;
 char* var95 /* : NativeString */;
 val* var96 /* : String */;
 {
-{ /* Inline toolcontext#ToolContext#opt_nit_dir (self) on <self:ToolContext> */
+{ /* Inline toolcontext$ToolContext$opt_nit_dir (self) on <self:ToolContext> */
 var3 = self->attrs[COLOR_nitc__toolcontext__ToolContext___opt_nit_dir].val; /* _opt_nit_dir on <self:ToolContext> */
 if (unlikely(var3 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _opt_nit_dir");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 360);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 375);
 fatal_exit(1);
 }
 var1 = var3;
@@ -4721,7 +5218,7 @@ RET_LABEL2:(void)0;
 }
 }
 {
-{ /* Inline opts#Option#value (var1) on <var1:OptionString> */
+{ /* Inline opts$Option$value (var1) on <var1:OptionString> */
 var6 = var1->attrs[COLOR_opts__Option___value].val; /* _value on <var1:OptionString> */
 var4 = var6;
 RET_LABEL5:(void)0;
@@ -4734,7 +5231,7 @@ var7 = 0; /* is null */
 var7 = 1; /* arg is null and recv is not */
 }
 if (0) {
-{ /* Inline kernel#Object#!= (var_res,((val*)NULL)) on <var_res:nullable String> */
+{ /* Inline kernel$Object$!= (var_res,((val*)NULL)) on <var_res:nullable String> */
 var_other = ((val*)NULL);
 {
 var10 = ((short int(*)(val* self, val* p0))(var_res->class->vft[COLOR_core__kernel__Object___61d_61d]))(var_res, var_other); /* == on <var_res:nullable String(String)>*/
@@ -4782,7 +5279,7 @@ var23 = ((val*(*)(val* self))(var14->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce = var14;
 {
-nitc___nitc__ToolContext___fatal_error(self, ((val*)NULL), var23); /* Direct call toolcontext#ToolContext#fatal_error on <self:ToolContext>*/
+nitc___nitc__ToolContext___fatal_error(self, ((val*)NULL), var23); /* Direct call toolcontext$ToolContext$fatal_error on <self:ToolContext>*/
 }
 } else {
 }
@@ -4842,7 +5339,7 @@ var43 = ((val*(*)(val* self))(var34->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce33 = var34;
 {
-nitc___nitc__ToolContext___fatal_error(self, ((val*)NULL), var43); /* Direct call toolcontext#ToolContext#fatal_error on <self:ToolContext>*/
+nitc___nitc__ToolContext___fatal_error(self, ((val*)NULL), var43); /* Direct call toolcontext$ToolContext$fatal_error on <self:ToolContext>*/
 }
 } else {
 }
@@ -4866,7 +5363,7 @@ var45 = varonce44;
 varonce44 = NULL;
 }
 {
-{ /* Inline kernel#Object#sys (self) on <self:ToolContext> */
+{ /* Inline kernel$Object$sys (self) on <self:ToolContext> */
 var52 = glob_sys;
 var50 = var52;
 goto RET_LABEL51;
@@ -4906,7 +5403,7 @@ varonce58 = var59;
 }
 var_exe = var59;
 {
-var62 = core__file___String___file_exists(var_exe);
+var62 = core__file___Text___file_exists(var_exe);
 }
 if (var62){
 {
@@ -4971,14 +5468,14 @@ var82 = core___core__AbstractArrayRead___core__abstract_collection__Collection__
 var_83 = var82;
 for(;;) {
 {
-var84 = ((short int(*)(val* self))((((long)var_83&3)?class_info[((long)var_83&3)]:var_83->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_83); /* is_ok on <var_83:IndexedIterator[String]>*/
+var84 = ((short int(*)(val* self))((((int64_t)var_83&3)?class_info[((int64_t)var_83&3)]:var_83->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_83); /* is_ok on <var_83:IndexedIterator[String]>*/
 }
 if (var84){
 } else {
 goto BREAK_label;
 }
 {
-var85 = ((val*(*)(val* self))((((long)var_83&3)?class_info[((long)var_83&3)]:var_83->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_83); /* item on <var_83:IndexedIterator[String]>*/
+var85 = ((val*(*)(val* self))((((int64_t)var_83&3)?class_info[((int64_t)var_83&3)]:var_83->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_83); /* item on <var_83:IndexedIterator[String]>*/
 }
 var_p = var85;
 if (likely(varonce86!=NULL)) {
@@ -5005,12 +5502,12 @@ goto RET_LABEL;
 } else {
 }
 {
-((void(*)(val* self))((((long)var_83&3)?class_info[((long)var_83&3)]:var_83->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_83); /* next on <var_83:IndexedIterator[String]>*/
+((void(*)(val* self))((((int64_t)var_83&3)?class_info[((int64_t)var_83&3)]:var_83->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_83); /* next on <var_83:IndexedIterator[String]>*/
 }
 }
 BREAK_label: (void)0;
 {
-((void(*)(val* self))((((long)var_83&3)?class_info[((long)var_83&3)]:var_83->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_83); /* finish on <var_83:IndexedIterator[String]>*/
+((void(*)(val* self))((((int64_t)var_83&3)?class_info[((int64_t)var_83&3)]:var_83->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_83); /* finish on <var_83:IndexedIterator[String]>*/
 }
 if (likely(varonce93!=NULL)) {
 var94 = varonce93;
@@ -5021,15 +5518,18 @@ var94 = var96;
 varonce93 = var94;
 }
 {
-nitc___nitc__ToolContext___fatal_error(self, ((val*)NULL), var94); /* Direct call toolcontext#ToolContext#fatal_error on <self:ToolContext>*/
+nitc___nitc__ToolContext___fatal_error(self, ((val*)NULL), var94); /* Direct call toolcontext$ToolContext$fatal_error on <self:ToolContext>*/
+}
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
 }
 PRINT_ERROR("Runtime error: %s", "Aborted");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 571);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 620);
 fatal_exit(1);
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#ToolContext#check_nit_dir for (self: ToolContext, String): Bool */
+/* method toolcontext$ToolContext$check_nit_dir for (self: ToolContext, String): Bool */
 short int nitc___nitc__ToolContext___check_nit_dir(val* self, val* p0) {
 short int var /* : Bool */;
 val* var_res /* var res: String */;
@@ -5046,7 +5546,7 @@ val* var8 /* : String */;
 short int var9 /* : Bool */;
 var_res = p0;
 {
-var2 = core__file___String___file_exists(var_res);
+var2 = core__file___Text___file_exists(var_res);
 }
 var_ = var2;
 if (var2){
@@ -5071,7 +5571,7 @@ var8 = ((val*(*)(val* self))(var3->class->vft[COLOR_core__abstract_text__NativeA
 }
 varonce = var3;
 {
-var9 = core__file___String___file_exists(var8);
+var9 = core__file___Text___file_exists(var8);
 }
 var1 = var9;
 } else {
@@ -5082,26 +5582,29 @@ goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#BashCompletion#toolcontext for (self: BashCompletion): ToolContext */
+/* method toolcontext$BashCompletion$toolcontext for (self: BashCompletion): ToolContext */
 val* nitc___nitc__BashCompletion___toolcontext(val* self) {
 val* var /* : ToolContext */;
 val* var1 /* : ToolContext */;
 var1 = self->attrs[COLOR_nitc__toolcontext__BashCompletion___toolcontext].val; /* _toolcontext on <self:BashCompletion> */
 if (unlikely(var1 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 602);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 651);
 fatal_exit(1);
 }
 var = var1;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#BashCompletion#toolcontext= for (self: BashCompletion, ToolContext) */
+/* method toolcontext$BashCompletion$toolcontext= for (self: BashCompletion, ToolContext) */
 void nitc___nitc__BashCompletion___toolcontext_61d(val* self, val* p0) {
 self->attrs[COLOR_nitc__toolcontext__BashCompletion___toolcontext].val = p0; /* _toolcontext on <self:BashCompletion> */
 RET_LABEL:;
 }
-/* method toolcontext#BashCompletion#extract_options_names for (self: BashCompletion): Array[String] */
+/* method toolcontext$BashCompletion$extract_options_names for (self: BashCompletion): Array[String] */
 val* nitc___nitc__BashCompletion___extract_options_names(val* self) {
 val* var /* : Array[String] */;
 val* var1 /* : Array[String] */;
@@ -5133,15 +5636,18 @@ val* var26 /* : String */;
 short int var27 /* : Bool */;
 var1 = NEW_core__Array(&type_core__Array__core__String);
 {
-core___core__Array___core__kernel__Object__init(var1); /* Direct call array#Array#init on <var1:Array[String]>*/
+core___core__Array___core__kernel__Object__init(var1); /* Direct call array$Array$init on <var1:Array[String]>*/
 }
 var_names = var1;
 {
-{ /* Inline toolcontext#BashCompletion#toolcontext (self) on <self:BashCompletion> */
+{ /* Inline toolcontext$BashCompletion$toolcontext (self) on <self:BashCompletion> */
 var4 = self->attrs[COLOR_nitc__toolcontext__BashCompletion___toolcontext].val; /* _toolcontext on <self:BashCompletion> */
 if (unlikely(var4 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 602);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 651);
 fatal_exit(1);
 }
 var2 = var4;
@@ -5149,11 +5655,14 @@ RET_LABEL3:(void)0;
 }
 }
 {
-{ /* Inline toolcontext#ToolContext#option_context (var2) on <var2:ToolContext> */
+{ /* Inline toolcontext$ToolContext$option_context (var2) on <var2:ToolContext> */
 var7 = var2->attrs[COLOR_nitc__toolcontext__ToolContext___option_context].val; /* _option_context on <var2:ToolContext> */
 if (unlikely(var7 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _option_context");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 342);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 357);
 fatal_exit(1);
 }
 var5 = var7;
@@ -5161,11 +5670,14 @@ RET_LABEL6:(void)0;
 }
 }
 {
-{ /* Inline opts#OptionContext#options (var5) on <var5:OptionContext> */
+{ /* Inline opts$OptionContext$options (var5) on <var5:OptionContext> */
 var10 = var5->attrs[COLOR_opts__OptionContext___options].val; /* _options on <var5:OptionContext> */
 if (unlikely(var10 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _options");
-PRINT_ERROR(" (%s:%d)\n", FILE_opts, 277);
+PRINT_ERROR(" (%s:%d)\n", FILE_opts, 283);
 fatal_exit(1);
 }
 var8 = var10;
@@ -5179,20 +5691,23 @@ var11 = core___core__AbstractArrayRead___core__abstract_collection__Collection__
 var_12 = var11;
 for(;;) {
 {
-var13 = ((short int(*)(val* self))((((long)var_12&3)?class_info[((long)var_12&3)]:var_12->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_12); /* is_ok on <var_12:IndexedIterator[Option]>*/
+var13 = ((short int(*)(val* self))((((int64_t)var_12&3)?class_info[((int64_t)var_12&3)]:var_12->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_12); /* is_ok on <var_12:IndexedIterator[Option]>*/
 }
 if (var13){
 } else {
 goto BREAK_label;
 }
 {
-var14 = ((val*(*)(val* self))((((long)var_12&3)?class_info[((long)var_12&3)]:var_12->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_12); /* item on <var_12:IndexedIterator[Option]>*/
+var14 = ((val*(*)(val* self))((((int64_t)var_12&3)?class_info[((int64_t)var_12&3)]:var_12->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_12); /* item on <var_12:IndexedIterator[Option]>*/
 }
 var_option = var14;
 {
-{ /* Inline opts#Option#names (var_option) on <var_option:Option> */
+{ /* Inline opts$Option$names (var_option) on <var_option:Option> */
 var17 = var_option->attrs[COLOR_opts__Option___names].val; /* _names on <var_option:Option> */
 if (unlikely(var17 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _names");
 PRINT_ERROR(" (%s:%d)\n", FILE_opts, 19);
 fatal_exit(1);
@@ -5208,14 +5723,14 @@ var19 = core___core__AbstractArrayRead___core__abstract_collection__Collection__
 var_20 = var19;
 for(;;) {
 {
-var21 = ((short int(*)(val* self))((((long)var_20&3)?class_info[((long)var_20&3)]:var_20->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_20); /* is_ok on <var_20:IndexedIterator[String]>*/
+var21 = ((short int(*)(val* self))((((int64_t)var_20&3)?class_info[((int64_t)var_20&3)]:var_20->class)->vft[COLOR_core__abstract_collection__Iterator__is_ok]))(var_20); /* is_ok on <var_20:IndexedIterator[String]>*/
 }
 if (var21){
 } else {
 goto BREAK_label22;
 }
 {
-var23 = ((val*(*)(val* self))((((long)var_20&3)?class_info[((long)var_20&3)]:var_20->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_20); /* item on <var_20:IndexedIterator[String]>*/
+var23 = ((val*(*)(val* self))((((int64_t)var_20&3)?class_info[((int64_t)var_20&3)]:var_20->class)->vft[COLOR_core__abstract_collection__Iterator__item]))(var_20); /* item on <var_20:IndexedIterator[String]>*/
 }
 var_name = var23;
 if (likely(varonce!=NULL)) {
@@ -5231,32 +5746,32 @@ var27 = core___core__Text___has_prefix(var_name, var24);
 }
 if (var27){
 {
-core___core__Array___core__abstract_collection__SimpleCollection__add(var_names, var_name); /* Direct call array#Array#add on <var_names:Array[String]>*/
+core___core__Array___core__abstract_collection__SimpleCollection__add(var_names, var_name); /* Direct call array$Array$add on <var_names:Array[String]>*/
 }
 } else {
 }
 {
-((void(*)(val* self))((((long)var_20&3)?class_info[((long)var_20&3)]:var_20->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_20); /* next on <var_20:IndexedIterator[String]>*/
+((void(*)(val* self))((((int64_t)var_20&3)?class_info[((int64_t)var_20&3)]:var_20->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_20); /* next on <var_20:IndexedIterator[String]>*/
 }
 }
 BREAK_label22: (void)0;
 {
-((void(*)(val* self))((((long)var_20&3)?class_info[((long)var_20&3)]:var_20->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_20); /* finish on <var_20:IndexedIterator[String]>*/
+((void(*)(val* self))((((int64_t)var_20&3)?class_info[((int64_t)var_20&3)]:var_20->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_20); /* finish on <var_20:IndexedIterator[String]>*/
 }
 {
-((void(*)(val* self))((((long)var_12&3)?class_info[((long)var_12&3)]:var_12->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_12); /* next on <var_12:IndexedIterator[Option]>*/
+((void(*)(val* self))((((int64_t)var_12&3)?class_info[((int64_t)var_12&3)]:var_12->class)->vft[COLOR_core__abstract_collection__Iterator__next]))(var_12); /* next on <var_12:IndexedIterator[Option]>*/
 }
 }
 BREAK_label: (void)0;
 {
-((void(*)(val* self))((((long)var_12&3)?class_info[((long)var_12&3)]:var_12->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_12); /* finish on <var_12:IndexedIterator[Option]>*/
+((void(*)(val* self))((((int64_t)var_12&3)?class_info[((int64_t)var_12&3)]:var_12->class)->vft[COLOR_core__abstract_collection__Iterator__finish]))(var_12); /* finish on <var_12:IndexedIterator[Option]>*/
 }
 var = var_names;
 goto RET_LABEL;
 RET_LABEL:;
 return var;
 }
-/* method toolcontext#BashCompletion#rendering for (self: BashCompletion) */
+/* method toolcontext$BashCompletion$rendering for (self: BashCompletion) */
 void nitc___nitc__BashCompletion___template__Template__rendering(val* self) {
 val* var /* : ToolContext */;
 val* var2 /* : ToolContext */;
@@ -5359,11 +5874,14 @@ char* var96 /* : NativeString */;
 val* var97 /* : String */;
 val* var98 /* : String */;
 {
-{ /* Inline toolcontext#BashCompletion#toolcontext (self) on <self:BashCompletion> */
+{ /* Inline toolcontext$BashCompletion$toolcontext (self) on <self:BashCompletion> */
 var2 = self->attrs[COLOR_nitc__toolcontext__BashCompletion___toolcontext].val; /* _toolcontext on <self:BashCompletion> */
 if (unlikely(var2 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 602);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 651);
 fatal_exit(1);
 }
 var = var2;
@@ -5404,11 +5922,14 @@ varonce = NULL;
 }
 ((struct instance_core__NativeArray*)var5)->values[1]=var_name;
 {
-{ /* Inline toolcontext#BashCompletion#toolcontext (self) on <self:BashCompletion> */
+{ /* Inline toolcontext$BashCompletion$toolcontext (self) on <self:BashCompletion> */
 var16 = self->attrs[COLOR_nitc__toolcontext__BashCompletion___toolcontext].val; /* _toolcontext on <self:BashCompletion> */
 if (unlikely(var16 == NULL)) {
+if(catchStack.cursor >= 0){
+longjmp(catchStack.envs[catchStack.cursor], 1);
+}
 PRINT_ERROR("Runtime error: %s", "Uninitialized attribute _toolcontext");
-PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 602);
+PRINT_ERROR(" (%s:%d)\n", FILE_nitc__toolcontext, 651);
 fatal_exit(1);
 }
 var14 = var16;
@@ -5424,7 +5945,7 @@ var18 = ((val*(*)(val* self))(var5->class->vft[COLOR_core__abstract_text__Native
 }
 varonce = var5;
 {
-template___template__Template___addn(self, var18); /* Direct call template#Template#addn on <self:BashCompletion>*/
+template___template__Template___addn(self, var18); /* Direct call template$Template$addn on <self:BashCompletion>*/
 }
 if (unlikely(varonce19==NULL)) {
 var20 = NEW_core__NativeArray(3l, &type_core__NativeArray__core__String);
@@ -5456,7 +5977,7 @@ var29 = ((val*(*)(val* self))(var20->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce19 = var20;
 {
-template___template__Template___addn(self, var29); /* Direct call template#Template#addn on <self:BashCompletion>*/
+template___template__Template___addn(self, var29); /* Direct call template$Template$addn on <self:BashCompletion>*/
 }
 if (likely(varonce30!=NULL)) {
 var31 = varonce30;
@@ -5467,7 +5988,7 @@ var31 = var33;
 varonce30 = var31;
 }
 {
-template___template__Template___addn(self, var31); /* Direct call template#Template#addn on <self:BashCompletion>*/
+template___template__Template___addn(self, var31); /* Direct call template$Template$addn on <self:BashCompletion>*/
 }
 if (likely(varonce34!=NULL)) {
 var35 = varonce34;
@@ -5478,7 +5999,7 @@ var35 = var37;
 varonce34 = var35;
 }
 {
-template___template__Template___addn(self, var35); /* Direct call template#Template#addn on <self:BashCompletion>*/
+template___template__Template___addn(self, var35); /* Direct call template$Template$addn on <self:BashCompletion>*/
 }
 if (likely(varonce38!=NULL)) {
 var39 = varonce38;
@@ -5489,7 +6010,7 @@ var39 = var41;
 varonce38 = var39;
 }
 {
-template___template__Template___addn(self, var39); /* Direct call template#Template#addn on <self:BashCompletion>*/
+template___template__Template___addn(self, var39); /* Direct call template$Template$addn on <self:BashCompletion>*/
 }
 if (likely(varonce42!=NULL)) {
 var43 = varonce42;
@@ -5500,7 +6021,7 @@ var43 = var45;
 varonce42 = var43;
 }
 {
-template___template__Template___addn(self, var43); /* Direct call template#Template#addn on <self:BashCompletion>*/
+template___template__Template___addn(self, var43); /* Direct call template$Template$addn on <self:BashCompletion>*/
 }
 if (likely(varonce46!=NULL)) {
 var47 = varonce46;
@@ -5511,7 +6032,7 @@ var47 = var49;
 varonce46 = var47;
 }
 {
-template___template__Template___addn(self, var47); /* Direct call template#Template#addn on <self:BashCompletion>*/
+template___template__Template___addn(self, var47); /* Direct call template$Template$addn on <self:BashCompletion>*/
 }
 {
 var50 = core___core__AbstractArrayRead___core__abstract_collection__Collection__is_empty(var_option_names);
@@ -5551,7 +6072,7 @@ var63 = var65;
 varonce62 = var63;
 }
 {
-var66 = core__abstract_text___Collection___join(var_option_names, var63);
+var66 = core__abstract_text___Collection___join(var_option_names, var63, ((val*)NULL));
 }
 ((struct instance_core__NativeArray*)var53)->values[1]=var66;
 {
@@ -5559,7 +6080,7 @@ var67 = ((val*(*)(val* self))(var53->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce52 = var53;
 {
-template___template__Template___addn(self, var67); /* Direct call template#Template#addn on <self:BashCompletion>*/
+template___template__Template___addn(self, var67); /* Direct call template$Template$addn on <self:BashCompletion>*/
 }
 if (likely(varonce68!=NULL)) {
 var69 = varonce68;
@@ -5570,7 +6091,7 @@ var69 = var71;
 varonce68 = var69;
 }
 {
-template___template__Template___addn(self, var69); /* Direct call template#Template#addn on <self:BashCompletion>*/
+template___template__Template___addn(self, var69); /* Direct call template$Template$addn on <self:BashCompletion>*/
 }
 if (likely(varonce72!=NULL)) {
 var73 = varonce72;
@@ -5581,7 +6102,7 @@ var73 = var75;
 varonce72 = var73;
 }
 {
-template___template__Template___addn(self, var73); /* Direct call template#Template#addn on <self:BashCompletion>*/
+template___template__Template___addn(self, var73); /* Direct call template$Template$addn on <self:BashCompletion>*/
 }
 if (likely(varonce76!=NULL)) {
 var77 = varonce76;
@@ -5592,7 +6113,7 @@ var77 = var79;
 varonce76 = var77;
 }
 {
-template___template__Template___addn(self, var77); /* Direct call template#Template#addn on <self:BashCompletion>*/
+template___template__Template___addn(self, var77); /* Direct call template$Template$addn on <self:BashCompletion>*/
 }
 if (likely(varonce80!=NULL)) {
 var81 = varonce80;
@@ -5603,7 +6124,7 @@ var81 = var83;
 varonce80 = var81;
 }
 {
-template___template__Template___addn(self, var81); /* Direct call template#Template#addn on <self:BashCompletion>*/
+template___template__Template___addn(self, var81); /* Direct call template$Template$addn on <self:BashCompletion>*/
 }
 } else {
 }
@@ -5616,7 +6137,7 @@ var85 = var87;
 varonce84 = var85;
 }
 {
-template___template__Template___addn(self, var85); /* Direct call template#Template#addn on <self:BashCompletion>*/
+template___template__Template___addn(self, var85); /* Direct call template$Template$addn on <self:BashCompletion>*/
 }
 if (unlikely(varonce88==NULL)) {
 var89 = NEW_core__NativeArray(4l, &type_core__NativeArray__core__String);
@@ -5649,11 +6170,11 @@ var98 = ((val*(*)(val* self))(var89->class->vft[COLOR_core__abstract_text__Nativ
 }
 varonce88 = var89;
 {
-template___template__Template___addn(self, var98); /* Direct call template#Template#addn on <self:BashCompletion>*/
+template___template__Template___addn(self, var98); /* Direct call template$Template$addn on <self:BashCompletion>*/
 }
 RET_LABEL:;
 }
-/* method toolcontext#BashCompletion#init for (self: BashCompletion) */
+/* method toolcontext$BashCompletion$init for (self: BashCompletion) */
 void nitc___nitc__BashCompletion___core__kernel__Object__init(val* self) {
 {
 ((void(*)(val* self))(self->class->vft[COLOR_nitc___nitc__BashCompletion___core__kernel__Object__init]))(self); /* init on <self:BashCompletion>*/
