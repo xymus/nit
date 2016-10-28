@@ -20,6 +20,7 @@ in "C" `{
 	#include <stdio.h>
 	#include <stdlib.h>
 	#include <string.h>
+	#include <inttypes.h>
 `}
 
 # High-level abstraction for all text representations
@@ -1836,12 +1837,12 @@ redef class Int
 
 	# C function to calculate the length of the `NativeString` to receive `self`
 	private fun int_to_s_len: Int `{
-		return snprintf(NULL, 0, "%ld", self);
+		return snprintf(NULL, 0, "%" PRId64 "", self);
 	`}
 
 	# C function to convert an nit Int to a NativeString (char*)
 	private fun native_int_to_s(nstr: NativeString, strlen: Int) `{
-		snprintf(nstr, strlen, "%ld", self);
+		snprintf(nstr, strlen, "%" PRId64 "", self);
 	`}
 
 	# String representation of `self` in the given `base`
