@@ -117,7 +117,7 @@ class Process
 	private fun basic_exec_execute(prog, args: NativeString, argc: Int, pipeflag: Int): NativeProcess `{
 #ifdef _WIN32
 		// FIXME use a higher level abstraction to support WIN32
-		return -1;
+		return NULL;
 #else
 		se_exec_data_t* result = NULL;
 		int id;
