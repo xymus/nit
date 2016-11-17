@@ -372,7 +372,11 @@ need_skip()
 	fi
 
 	# Skip by hostname
-	local host_skip_file=`hostname -s`.skip
+	if hostname --version | grep coreutils >/dev/null 2>&1; then
+		local host_skip_file=`hostname`.skip
+	else
+		local host_skip_file=`hostname -s`.skip
+	fi
 	if test -e $host_skip_file && echo "$1" | grep -f "$host_skip_file" >/dev/null 2>&1; then
 		echo "=> $2: [skip hostname]"
 		echo >>$xml "<testcase classname='`xmlesc "$3"`' name='`xmlesc "$2"`' `timestamp`><skipped/></testcase>"
