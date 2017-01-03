@@ -135,7 +135,7 @@ class SignupWindow
 
 	redef fun on_event(event)
 	do
-		if debug then print "BenitluxWindow::on_event {event}"
+		if debug then print "TenenitWindow::on_event {event}"
 
 		if event isa ButtonPressEvent then
 			var sender = event.sender

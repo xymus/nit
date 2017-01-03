@@ -27,7 +27,7 @@ intrude import user_views
 redef class HomeWindow
 	init
 	do
-		title = "Benitlux"
+		title = "Tenenit"
 
 		# Force equal height for `news_header`
 		var b = new Button(text="", parent=news_header)

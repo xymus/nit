@@ -12,17 +12,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Android variant without modification, pure prototype
-#
-# Usually, compiling with `nitc -m android client.nit` is enough.
-# In this case, for research purposes we set a different `app_namespace`.
-# This allows both the proto and the adaptation to be installed on the same device.
-module android_proto is
-	app_name "Ben Proto"
-	app_namespace "net.xymus.benitlux_proto"
-	android_api_target 16
+# Portable Tenenit app
+module client is
+	app_name "Tenenit"
+	app_version(0, 3, git_revision)
+	app_namespace "net.xymus.tenenit"
 end
 
-import ::android
+import home_views
+import beer_views
+import social_views
+import user_views
 
-import client
+# ---
+# Services
+
+redef class Deserializer
+	redef fun deserialize_class(name)
+	do
+		if name == "Array[UserAndFollowing]" then return new Array[UserAndFollowing].from_deserializer(self)
+		return super
+	end
+end
+
+set_fr
+super

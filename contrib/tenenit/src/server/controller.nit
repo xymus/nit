@@ -14,36 +14,36 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Actions for the Web interface of Benitlux
-module benitlux_controller
+# Actions for the Web interface of Tenenit
+module controller
 
 import nitcorn
 import nitcorn::restful
 private import json
 
-import benitlux_model
-import benitlux_db
-import benitlux_view
-import benitlux_social
+import model
+import db
+import view
+import social
 
 # Server action for REST or Web, for a given location
-abstract class BenitluxAction
+abstract class TenenitAction
 	super Action
 
 	# Database used for both the mailing list and the social network
-	var db: BenitluxDB
+	var db: TenenitDB
 
 	# Path to the storage of the last email sent
-	var sample_email_path = "benitlux_sherbrooke.email"
+	var sample_email_path = "tenenit_sherbrooke.email"
 end
 
 # Web interface to subscribe to the mailing list
-class BenitluxSubscriptionAction
-	super BenitluxAction
+class TenenitSubscriptionAction
+	super TenenitAction
 
 	redef fun answer(request, turi)
 	do
-		var template = new BenitluxDocument
+		var template = new TenenitDocument
 
 		var sub = request.post_args.keys.has("sub")
 		var unsub = request.all_args.keys.has("unsub")
@@ -83,23 +83,23 @@ class BenitluxSubscriptionAction
 end
 
 # RESTful interface for the client app
-class BenitluxRESTAction
-	super BenitluxAction
+class TenenitRESTAction
+	super TenenitAction
 	super RestfulAction
 
 	# Sign up a new user
 	#
-	# signup?name=a&pass=b&email=c -> LoginResult | BenitluxError
+	# signup?name=a&pass=b&email=c -> LoginResult | TenenitError
 	fun signup(name, pass, email: String): HttpResponse
 	is restful do
 		# Validate input
 		if not name.name_is_ok then
-			var error = new BenitluxError("Invalid username")
+			var error = new TenenitError("Invalid username")
 			return new HttpResponse.ok(error)
 		end
 
 		if not pass.pass_is_ok then
-			var error = new BenitluxError("Invalid password")
+			var error = new TenenitError("Invalid password")
 			return new HttpResponse.ok(error)
 		end
 
@@ -110,7 +110,7 @@ class BenitluxRESTAction
 		if error_message == null then
 			object = db.login(name, pass)
 		else
-			object = new BenitluxError(error_message)
+			object = new TenenitError(error_message)
 		end
 
 		if object == null then
@@ -124,18 +124,18 @@ class BenitluxRESTAction
 
 	# Attempt to login
 	#
-	# login?name=a&pass=b -> LoginResult | BenitluxError
+	# login?name=a&pass=b -> LoginResult | TenenitError
 	fun login(name, pass: String): HttpResponse
 	is restful do
 		var log: nullable Serializable = db.login(name, pass)
-		if log == null then log = new BenitluxError("Login Failed", "Invalid username and password combination.")
+		if log == null then log = new TenenitError("Login Failed", "Invalid username and password combination.")
 
 		return new HttpResponse.ok(log)
 	end
 
 	# Is `token` valid?
 	#
-	# check_token?token=a -> true | BenitluxError
+	# check_token?token=a -> true | TenenitError
 	fun check_token(token: String): HttpResponse
 	is restful do
 		var user_id = db.token_to_id(token)
@@ -145,7 +145,7 @@ class BenitluxRESTAction
 
 	# Search a user
 	#
-	# search?token=b&query=a&offset=0 -> Array[UserAndFollowing] | BenitluxError
+	# search?token=b&query=a&offset=0 -> Array[UserAndFollowing] | TenenitError
 	fun search(token: nullable String, query: String): HttpResponse
 	is restful do
 		var user_id = db.token_to_id(token)
@@ -157,7 +157,7 @@ class BenitluxRESTAction
 
 	# List available beers
 	#
-	# list?token=a[&offset=0&count=1] -> Array[BeerAndRatings] | BenitluxError
+	# list?token=a[&offset=0&count=1] -> Array[BeerAndRatings] | TenenitError
 	fun list(token: nullable String): HttpResponse
 	is restful do
 		var user_id = db.token_to_id(token)
@@ -169,7 +169,7 @@ class BenitluxRESTAction
 
 	# Post a review of `beer`
 	#
-	# review?token=a&beer=b&rating=0 -> true | BenitluxError
+	# review?token=a&beer=b&rating=0 -> true | TenenitError
 	fun review(token: String, rating, beer: Int): HttpResponse
 	is restful do
 		var user_id = db.token_to_id(token)
@@ -182,7 +182,7 @@ class BenitluxRESTAction
 
 	# Set whether user of `token` follows `user_to`, by default set as follow
 	#
-	# follow?token=a&user_to=0 -> true | BenitluxError
+	# follow?token=a&user_to=0 -> true | TenenitError
 	fun follow(token: String, user_to: Int, follow: nullable Bool): HttpResponse
 	is restful do
 		var user = db.token_to_id(token)
@@ -197,7 +197,7 @@ class BenitluxRESTAction
 
 	# List followers of the user of `token`
 	#
-	# followers?token=a -> Array[UserAndFollowing] | BenitluxError | BenitluxError
+	# followers?token=a -> Array[UserAndFollowing] | TenenitError | TenenitError
 	fun followers(token: String): HttpResponse
 	is restful do
 		var user = db.token_to_id(token)
@@ -211,7 +211,7 @@ class BenitluxRESTAction
 
 	# List users followed by the user of `token`
 	#
-	# followed?token=a -> Array[UserAndFollowing] | BenitluxError
+	# followed?token=a -> Array[UserAndFollowing] | TenenitError
 	fun followed(token: String): HttpResponse
 	is restful do
 		var user = db.token_to_id(token)
@@ -225,7 +225,7 @@ class BenitluxRESTAction
 
 	# List friends of the user of `token`
 	#
-	# friends?token=a -> Array[UserAndFollowing] | BenitluxError
+	# friends?token=a -> Array[UserAndFollowing] | TenenitError
 	fun friends(token: String, n: nullable Int): HttpResponse
 	is restful do
 		var user = db.token_to_id(token)
@@ -237,7 +237,7 @@ class BenitluxRESTAction
 
 	# Check user in or out
 	#
-	# checkin?token=a -> true | BenitluxError
+	# checkin?token=a -> true | TenenitError
 	fun checkin(token: String, is_in: nullable Bool): HttpResponse
 	is restful do
 		var id = db.token_to_id(token)
@@ -303,9 +303,9 @@ end
 # ---
 # Push notification
 
-# Benitlux push notification interface
-class BenitluxPushAction
-	super BenitluxAction
+# Tenenit push notification interface
+class TenenitPushAction
+	super TenenitAction
 
 	# Intercept the full answer to set aside the connection and complete it later
 	redef fun prepare_respond_and_close(request, turi, connection)
@@ -335,11 +335,11 @@ end
 # Administration
 
 # Path to the secret used to authenticate admin requests
-fun secret_path: String do return "benitlux.secret"
+fun secret_path: String do return "tenenit.secret"
 
 # Services reserved to administrators
-class BenitluxAdminAction
-	super BenitluxAction
+class TenenitAdminAction
+	super TenenitAction
 	super RestfulAction
 
 	private fun server_secret: String do return secret_path.to_path.read_all
@@ -347,7 +347,7 @@ class BenitluxAdminAction
 	# Trigger sending daily menu to connected clients
 	#
 	# This should usually be called by an external cron program.
-	# send_daily_updates?secret=shared_secret -> true | BenitluxError
+	# send_daily_updates?secret=shared_secret -> true | TenenitError
 	fun send_daily_updates(secret: nullable String): HttpResponse
 	is restful do
 		# Check secrets
@@ -412,27 +412,27 @@ redef class HttpResponse
 		body = data.serialize_to_json
 	end
 
-	# Respond with a `BenitluxError` in JSON and a code 403
+	# Respond with a `TenenitError` in JSON and a code 403
 	init invalid_token
 	do
 		init 403
-		var error = new BenitluxTokenError("Forbidden", "Invalid or outdated token.")
+		var error = new TenenitTokenError("Forbidden", "Invalid or outdated token.")
 		body = error.serialize_to_json
 	end
 
-	# Respond with a `BenitluxError` in JSON and a code 400
+	# Respond with a `TenenitError` in JSON and a code 400
 	init bad_request
 	do
 		init 400
-		var error = new BenitluxError("Bad Request", "Application error, or it needs to be updated.")
+		var error = new TenenitError("Bad Request", "Application error, or it needs to be updated.")
 		body = error.serialize_to_json
 	end
 
-	# Respond with a `BenitluxError` in JSON and a code 500
+	# Respond with a `TenenitError` in JSON and a code 500
 	init server_error
 	do
 		init 500
-		var error = new BenitluxError("Internal Server Error", "Server error, try again later.")
+		var error = new TenenitError("Internal Server Error", "Server error, try again later.")
 		body = error.serialize_to_json
 	end
 end

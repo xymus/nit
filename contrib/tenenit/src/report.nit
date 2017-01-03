@@ -14,8 +14,8 @@
 
 import opts
 
-import benitlux_model
-import benitlux_db
+import model
+import db
 import correct
 
 # Sort beers by their availability
@@ -56,9 +56,9 @@ opts.parse(args)
 var rest = opts.rest
 
 # Use the local DB
-var db_path = "benitlux_sherbrooke.db"
+var db_path = "tenenit_sherbrooke.db"
 if rest.not_empty then db_path = rest.first
-var db = new BenitluxDB.open(db_path)
+var db = new TenenitDB.open(db_path)
 
 # All known beers
 var beers = db.beers

@@ -1,19 +1,19 @@
 SERVER ?= localhost:8080
 
-all: server bin/report bin/benitlux
+all: server bin/report bin/tenenit
 
-server: bin/benitlux_daily bin/benitlux_web
-bin/benitlux_daily: $(shell nitls -M src/server/benitlux_daily.nit)
+server: bin/tenenit_daily bin/tenenit_web
+bin/tenenit_daily: $(shell nitls -M src/server/tenenit_daily.nit)
 	mkdir -p bin/
-	nitc -o $@ src/server/benitlux_daily.nit
+	nitc -o $@ src/server/tenenit_daily.nit
 
-bin/benitlux_web: $(shell nitls -M src/server/server.nit) src/server/benitlux_restful.nit
+bin/tenenit_web: $(shell nitls -M src/server/server.nit) src/server/restful.nit
 	mkdir -p bin/
 	nitc -o $@ src/server/server.nit -D iface=$(SERVER)
 
-pre-build: src/server/benitlux_restful.nit
-src/server/benitlux_restful.nit: $(shell nitls -M src/server/benitlux_controller.nit)
-	nitrestful -o $@ src/server/benitlux_controller.nit
+pre-build: src/server/restful.nit
+src/server/restful.nit: $(shell nitls -M src/server/controller.nit)
+	nitrestful -o $@ src/server/controller.nit
 
 # ---
 # Report
@@ -27,9 +27,9 @@ report: bin/report
 # ---
 # GTK+ client
 
-bin/benitlux: $(shell nitls -M src/client/client.nit)
+bin/tenenit: $(shell nitls -M src/client/client.nit)
 	mkdir -p bin/
-	nitc -o bin/benitlux src/client/client.nit -m linux -D benitlux_rest_server_uri=http://$(SERVER)/
+	nitc -o bin/tenenit src/client/client.nit -m linux -D tenenit_rest_server_uri=http://$(SERVER)/
 
 # ---
 # Android
@@ -45,42 +45,42 @@ android/res/drawable-hdpi/notif.png:
 android-res: android/res/drawable-hdpi/icon.png android/res/drawable-hdpi/notif.png
 
 # Dev / debug app
-android: bin/benitlux.apk
-bin/benitlux.apk: $(shell nitls -M src/client/android.nit) android-res
+android: bin/tenenit.apk
+bin/tenenit.apk: $(shell nitls -M src/client/android.nit) android-res
 	mkdir -p bin/ res/
 	nitc -o $@ src/client/android.nit -m src/client/features/debug.nit \
-		-D benitlux_rest_server_uri=http://$(SERVER)/
+		-D tenenit_rest_server_uri=http://$(SERVER)/
 
 # Pure portable prototype, for comparison
 bin/proto.apk: $(shell nitls -M src/client/android_proto.nit) android-res
 	mkdir -p bin/ res/
 	nitc -o $@ src/client/android_proto.nit \
-		-D benitlux_rest_server_uri=http://$(SERVER)/
+		-D tenenit_rest_server_uri=http://$(SERVER)/
 
 # Release version
 android-release: $(shell nitls -M src/client/android.nit) android-res
 	mkdir -p bin/ res/
-	nitc -o bin/benitlux.apk src/client/android.nit \
-		-D benitlux_rest_server_uri=http://xymus.net/benitlux/ --release
+	nitc -o bin/tenenit.apk src/client/android.nit \
+		-D tenenit_rest_server_uri=http://xymus.net/tenenit/ --release
 
 # ---
 # iOS
 
-ios: bin/benitlux.app
-bin/benitlux.app: $(shell nitls -M src/client/ios.nit) ios/AppIcon.appiconset/Contents.json
+ios: bin/tenenit.app
+bin/tenenit.app: $(shell nitls -M src/client/ios.nit) ios/AppIcon.appiconset/Contents.json
 	mkdir -p bin/
-	rm -rf bin/benitlux.app/
-	nitc -o bin/benitlux.app src/client/ios.nit -D benitlux_rest_server_uri=http://$(SERVER)/
+	rm -rf bin/tenenit.app/
+	nitc -o bin/tenenit.app src/client/ios.nit -D tenenit_rest_server_uri=http://$(SERVER)/
 
 bin/proto.app: $(shell nitls -M src/client/ios_proto.nit) ios/AppIcon.appiconset/Contents.json
 	mkdir -p bin/ res/
 	nitc -o $@ src/client/ios_proto.nit \
-		-D benitlux_rest_server_uri=http://$(SERVER)/
+		-D tenenit_rest_server_uri=http://$(SERVER)/
 
 ios-release: $(shell nitls -M src/client/ios.nit) ios/AppIcon.appiconset/Contents.json
 	mkdir -p bin/
-	nitc -o bin/benitlux.app src/client/ios.nit \
-		-D benitlux_rest_server_uri=http://xymus.net/benitlux/ --release \
+	nitc -o bin/tenenit.app src/client/ios.nit \
+		-D tenenit_rest_server_uri=http://xymus.net/tenenit/ --release \
 		--compile-dir nit_compile
 
 ios/AppIcon.appiconset/Contents.json: art/icon.svg

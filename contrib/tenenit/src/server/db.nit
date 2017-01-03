@@ -15,14 +15,14 @@
 # limitations under the License.
 
 # Database interface to be used by the Web server and daily program
-module benitlux_db
+module db
 
 import sqlite3
 
-import benitlux_model
+import model
 
 # The database of this project
-class BenitluxDB
+class TenenitDB
 	super Sqlite3DB
 
 	redef init open(path)

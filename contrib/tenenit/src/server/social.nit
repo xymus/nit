@@ -13,13 +13,13 @@
 # limitations under the License.
 
 # Social features acting on the database
-module benitlux_social
+module social
 
 import nitcorn::token
 
-import benitlux_db
+import db
 
-redef class BenitluxDB
+redef class TenenitDB
 
 	redef fun create_tables
 	do

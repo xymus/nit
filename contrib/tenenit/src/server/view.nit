@@ -14,21 +14,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# View logic of the Web interface Benitlux
-module benitlux_view
+# View logic of the Web interface Tenenit
+module view
 
-import benitlux_model
+import model
 import template
 
-# Template for the whole Benitlux page
-class BenitluxDocument
+# Template for the whole Tenenit page
+class TenenitDocument
 	super Template
 
 	# Page title
-	var page_title = "Benitlux Mailing List" is writable
+	var page_title = "Tenenit Mailing List" is writable
 
 	# Page header
-	fun header: Template do return new BenitluxHeader
+	fun header: Template do return new TenenitHeader
 
 	# Error or success message content, will be shown in a dismissable panel
 	var message_content: nullable String = null is writable
@@ -111,8 +111,8 @@ class BenitluxDocument
 	end
 end
 
-# Template for the header of Benitlux (right after the opening of `<body>`)
-class BenitluxHeader
+# Template for the header of Tenenit (right after the opening of `<body>`)
+class TenenitHeader
 	super Template
 
 	redef fun rendering
@@ -134,7 +134,7 @@ class BenitluxHeader
       <ul class="nav navbar-nav">
         <li><a href="http://pep8.xymus.net/">Pep/8 Analysis</a></li>
         <li><a href="http://tnitter.xymus.net/">Tnitter</a></li>
-        <li class="active"><a href="http://benitlux.xymus.net/">Benitlux</a></li>
+        <li class="active"><a href="http://tenenit.xymus.net/">Tenenit</a></li>
       </ul>
     </div>
   </div>

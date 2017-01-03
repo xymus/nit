@@ -106,7 +106,7 @@ class BeersWindow
 
 	init
 	do
-		if debug then print "BenitluxWindow::init"
+		if debug then print "TenenitWindow::init"
 
 		action_list_beers
 	end

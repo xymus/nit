@@ -15,14 +15,14 @@
 # limitations under the License.
 
 # Daily program to fetch and parse the Web site, update the database and email subscribers
-module benitlux_daily
+module daily
 
 import curl
 import sendmail
 import opts
 
-import benitlux_model
-import benitlux_db
+import model
+import db
 
 redef class Text
 	# Return a `String` without any HTML tags (such as `<br />`) from `recv`
@@ -70,7 +70,7 @@ redef class Text
 end
 
 # Main logic of the program to be executed daily
-class Benitlux
+class Tenenit
 	# The street on which is the Benelux
 	var street: String
 
@@ -78,10 +78,10 @@ class Benitlux
 	var url = "www.brasseriebenelux.com/{street}" is lazy
 
 	# Path to the database
-	var db_path = "benitlux_{street}.db" is lazy
+	var db_path = "tenenit_{street}.db" is lazy
 
 	# Where to save the sample email
-	var sample_email_path = "benitlux_{street}.email" is lazy
+	var sample_email_path = "tenenit_{street}.email" is lazy
 
 	# Execute the main program logic
 	fun run(send_emails: Bool)
@@ -102,7 +102,7 @@ class Benitlux
 			print beers
 		end
 
-		var db = new BenitluxDB.open(db_path)
+		var db = new TenenitDB.open(db_path)
 
 		# Update the database with the beers of the day
 		db.insert_beers_of_the_day beers
@@ -197,7 +197,7 @@ class Benitlux
 	# Generate email and fill the attributes `email_content` and `email_title`
 	fun generate_email(beer_events: BeerEvents)
 	do
-		email_title = "Benitlux {street.capitalized}{beer_events.to_email_title}"
+		email_title = "Tenenit {street.capitalized}{beer_events.to_email_title}"
 		email_content = beer_events.to_email_content
 	end
 
@@ -205,14 +205,14 @@ class Benitlux
 	fun send_emails_to(subs: Array[String])
 	do
 		for email in subs do
-			var unsub_link = "http://benitlux.xymus.net/?unsub=&email={email}"
+			var unsub_link = "http://tenenit.xymus.net/?unsub=&email={email}"
 			var content = """
 {{{email_content.join("<br />\n")}}}
 <br /><br />
 To unsubscribe, go to <a href="{{{unsub_link}}}">{{{unsub_link}}}</a>
 """
 
-			var mail = new Mail("Benitlux <benitlux@xymus.net>", email_title, content)
+			var mail = new Mail("Tenenit <tenenit@xymus.net>", email_title, content)
 			mail.to.add email
 			mail.header["Content-Type"] = "text/html; charset=\"UTF-8\""
 			mail.header["List-Unsubscribe"] = unsub_link
@@ -248,17 +248,17 @@ if "NIT_TESTING".environ == "true" then exit 0
 opts.parse args
 if not opts.errors.is_empty or opts.help.value == true then
 	print opts.errors.join("\n")
-	print "Usage: benitlux_daily [Options]"
+	print "Usage: tenenit_daily [Options]"
 	opts.usage
 	exit 1
 end
 
-var ben = new Benitlux("sherbrooke")
+var ben = new Tenenit("sherbrooke")
 ben.run(opts.send_emails.value)
 
 # The parsing logic for the wellington location is active (to gather data)
 # but the web interface do not allow to subscribe to its mailing list.
 #
 # TODO revamp mailing list Web interface
-ben = new Benitlux("wellington")
+ben = new Tenenit("wellington")
 ben.run(opts.send_emails.value)

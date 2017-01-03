@@ -12,28 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Portable Benitlux app
-module client is
-	app_name "Benitlux"
-	app_version(0, 3, git_revision)
-	app_namespace "net.xymus.benitlux"
+# Android variant without modification, pure prototype
+#
+# Usually, compiling with `nitc -m android client.nit` is enough.
+# In this case, for research purposes we set a different `app_namespace`.
+# This allows both the proto and the adaptation to be installed on the same device.
+module android_proto is
+	app_name "Ben Proto"
+	app_namespace "net.xymus.tenenit_proto"
+	android_api_target 16
 end
 
-import home_views
-import beer_views
-import social_views
-import user_views
+import ::android
 
-# ---
-# Services
-
-redef class Deserializer
-	redef fun deserialize_class(name)
-	do
-		if name == "Array[UserAndFollowing]" then return new Array[UserAndFollowing].from_deserializer(self)
-		return super
-	end
-end
-
-set_fr
-super
+import client

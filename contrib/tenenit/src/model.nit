@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Database and data model to be used by servers and clients
-module benitlux_model
+module model
 
 import serialization
 import md5
@@ -243,7 +243,7 @@ class DailyNotification
 end
 
 # Server or API usage error
-class BenitluxError
+class TenenitError
 	super Error
 	serialize
 
@@ -252,8 +252,8 @@ class BenitluxError
 end
 
 # Client sent an invalid token
-class BenitluxTokenError
-	super BenitluxError
+class TenenitTokenError
+	super TenenitError
 	serialize
 end
 
@@ -273,11 +273,11 @@ redef class Text
 	# Is `self` a valid password?
 	fun pass_is_ok: Bool do return length >= 6
 
-	# Hashed Benitlux password
-	fun pass_hash: String do return (to_s+benitlux_salt).md5
+	# Hashed Tenenit password
+	fun pass_hash: String do return (to_s+tenenit_salt).md5
 end
 
 # Salt used on passwords
 #
 # Should be refined by user modules.
-fun benitlux_salt: String do return "Vive le ben!"
+fun tenenit_salt: String do return "Vive le ben!"

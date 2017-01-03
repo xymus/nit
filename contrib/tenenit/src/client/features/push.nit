@@ -53,7 +53,7 @@ end
 
 # Open push notification request
 class PushHttpRequest
-	super BenitluxHttpRequest
+	super TenenitHttpRequest
 
 	redef fun on_fail(error)
 	do
@@ -75,7 +75,7 @@ class PushHttpRequest
 		var delay = 0.0
 		if data isa Pushable then
 			data.apply_push_if_desired
-		else if data isa BenitluxError then
+		else if data isa TenenitError then
 			# TODO if forbidden ask for a new token
 			delay = 5.0*60.0
 		else

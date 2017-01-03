@@ -22,11 +22,11 @@
 # ~~~
 module correct
 
-import benitlux_db
+import db
 
-redef class BenitluxDB
+redef class TenenitDB
 	# Path to file with the corrections
-	private var corrections_path = "benitlux_corrections.txt"
+	private var corrections_path = "tenenit_corrections.txt"
 
 	# Corrections of beer name: wrong name to corrected name
 	private var corrections: Map[String, String] is lazy do

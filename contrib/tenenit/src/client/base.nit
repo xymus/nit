@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Common services for the Benitlux app
+# Common services for the Tenenit app
 module base
 
 import app::ui
@@ -21,14 +21,14 @@ import app::http_request
 import android::aware
 import json
 
-import benitlux_model
+import model
 import translations
 
 # Show debug output?
 fun debug: Bool do return true
 
 # Root URI of the remote RESTfule server
-fun benitlux_rest_server_uri: String do return "http://localhost:8080/"
+fun tenenit_rest_server_uri: String do return "http://localhost:8080/"
 
 redef class App
 
@@ -94,10 +94,10 @@ class SectionTitle super Label end
 # Note that connection errors are passed to `on_fail`, and
 # server errors or authentification errors are received by `on_load`
 # and should be passed to `intercept_error`.
-class BenitluxHttpRequest
+class TenenitHttpRequest
 	super AsyncHttpRequest
 
-	redef fun uri_root do return benitlux_rest_server_uri
+	redef fun uri_root do return tenenit_rest_server_uri
 
 	redef var uri_tail
 
@@ -119,11 +119,11 @@ class BenitluxHttpRequest
 	# Intercept known server side errors
 	fun intercept_error(res: nullable Object): Bool
 	do
-		if res isa BenitluxTokenError then
+		if res isa TenenitTokenError then
 			app.token = "none"
 			app.user = null
 			return true
-		else if res isa BenitluxError then
+		else if res isa TenenitError then
 			feedback((res.user_message or else res.message).t)
 			return true
 		else if res isa Error then
@@ -139,7 +139,7 @@ end
 
 # Async request with services to act on the windows of the app
 class WindowHttpRequest
-	super BenitluxHttpRequest
+	super TenenitHttpRequest
 
 	autoinit window, uri_tail
 

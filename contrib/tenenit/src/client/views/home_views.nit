@@ -107,7 +107,7 @@ class HomeWindow
 
 	redef fun on_event(event)
 	do
-		if debug then print "BenitluxWindow::on_event {event}"
+		if debug then print "TenenitWindow::on_event {event}"
 
 		if event isa ButtonPressEvent then
 			var sender = event.sender
@@ -201,11 +201,11 @@ class CheckTokenAction
 	redef fun on_load(res, status) do intercept_error(res)
 end
 
-redef class BenitluxHttpRequest
+redef class TenenitHttpRequest
 	redef fun intercept_error(res)
 	do
 		var r = super
-		if res isa BenitluxTokenError then
+		if res isa TenenitTokenError then
 			var window = app.window
 			if window isa HomeWindow then window.refresh
 		end

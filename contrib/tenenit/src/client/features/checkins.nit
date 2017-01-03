@@ -82,10 +82,10 @@ redef class App
 	end
 
 	# Notify server of checkin
-	private fun server_check_in do (new BenitluxHttpRequest("rest/checkin?token={app.token}&is_in=true")).start
+	private fun server_check_in do (new TenenitHttpRequest("rest/checkin?token={app.token}&is_in=true")).start
 
 	# Notify server of checkout
-	private fun server_check_out do (new BenitluxHttpRequest("rest/checkin?token={app.token}&is_in=false")).start
+	private fun server_check_out do (new TenenitHttpRequest("rest/checkin?token={app.token}&is_in=false")).start
 
 	# History of the last 1 or 2 checkins
 	var checkins = new SimpleMemory
@@ -107,7 +107,7 @@ end
 
 # Request the menu from the server for a notification
 class MenuHttpRequest
-	super BenitluxHttpRequest
+	super TenenitHttpRequest
 
 	redef fun on_load(data, status)
 	do
