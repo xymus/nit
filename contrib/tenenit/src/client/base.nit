@@ -27,8 +27,11 @@ import translations
 # Show debug output?
 fun debug: Bool do return true
 
-# Root URI of the remote RESTfule server
+# Root URI of the remote RESTful server
 fun tenenit_rest_server_uri: String do return "http://localhost:8080/"
+
+# Pretty name shown in app on iOS only
+fun in_app_name: String do return "Tenenit"
 
 redef class App
 
