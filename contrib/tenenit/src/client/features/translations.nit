@@ -54,6 +54,7 @@ do
 	map["Login or signup"] = "S'authentifier"
 	map["On location?"] = "Sur place?"
 	map["Leaving?"] = "Vous quittez?"
+	map["Open website"] = "Voir site web"
 
 	# User/login views
 	map["Account options"] = "Options du compte"

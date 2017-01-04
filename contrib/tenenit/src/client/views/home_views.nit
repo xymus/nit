@@ -19,6 +19,9 @@ import beer_views
 import social_views
 import user_views
 
+# Website address to open to see more information on events
+fun event_website: String do return "http://xymus.net/"
+
 redef class App
 	redef fun on_create
 	do
@@ -75,7 +78,7 @@ class HomeWindow
 	private var layout_news = new VerticalLayout(parent=layout)
 	var news_header = new SectionHeader(parent=layout_news)
 	private var news_title = new SectionTitle(parent=news_header, text="Events".t, size=1.5)
-	#private var news_button = new Button(parent=news_header, text="Open website") # TODO
+	private var news_button = new Button(parent=news_header, text="Open website".t)
 	private var news_cask = new EventView(parent=layout_news, text="Bière en cask le jeudi!")
 
 	redef fun on_resume do refresh
@@ -123,8 +126,8 @@ class HomeWindow
 			else if sender == social_button then
 				app.push_window new SocialWindow
 				return
-			#else if sender == news_button then
-				# TODO open browser?
+			else if sender == news_button then
+				event_website.open_in_browser
 			end
 		end
 

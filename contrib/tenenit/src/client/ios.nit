@@ -25,13 +25,7 @@ import manual_checkins
 intrude import user_views
 
 redef class HomeWindow
-	init
-	do
-		title = in_app_name
-
-		# Force equal height for `news_header`
-		var b = new Button(text="", parent=news_header)
-	end
+	init do title = in_app_name
 end
 
 redef class SignupWindow
