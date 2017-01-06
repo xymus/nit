@@ -52,8 +52,8 @@ do
 	map["Events"] = "Événements"
 	map["Loading..."] = "Chargement..."
 	map["Login or signup"] = "S'authentifier"
-	map["On location?"] = "Sur place?"
-	map["Leaving?"] = "Vous quittez?"
+	map["On location? Check in"] = "Sur place?"
+	map["Leaving? Check out"] = "Vous quittez?"
 	map["Open website"] = "Voir site web"
 
 	# User/login views
@@ -99,7 +99,7 @@ do
 	map[" (New)"] = " (Nouveau)"
 	map["Similar to %0."] = "Similaire à %0."
 	map["Favorite beer on the menu."] = "Bière préférée sur le menu."
-	map["Favorite of %0"] = "Préférée de %0"
+	map["Favorite of %0."] = "Préférée de %0"
 
 	# Preferences
 	map["Notify when a friend checks in"] = "Lorsqu'un ami est sur place"
