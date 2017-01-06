@@ -17,8 +17,12 @@ module client is
 	app_name "Tenenit"
 	app_version(0, 3, git_revision)
 	app_namespace "net.xymus.tenenit"
+
+	android_api_min 16
+	android_api_target 16
 end
 
+import android::aware
 import home_views
 import beer_views
 import social_views

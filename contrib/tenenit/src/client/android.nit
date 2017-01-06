@@ -15,8 +15,6 @@
 # Android variant improved with platform specific services
 module android is
 	android_manifest_activity """android:theme="@android:style/Theme.DeviceDefault" """
-	android_api_min 16 # For BigTextStyle
-	android_api_target 16
 end
 
 import ::android::portrait
