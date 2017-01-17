@@ -67,6 +67,18 @@ redef class Text
 
 		return new_lines
 	end
+
+	# Trim spaces with `trim` and remove '*' at the beginning of `self`
+	#
+	#     assert "\t *beer ".trim_star == "beer"
+	fun trim_star: SELF
+	do
+		var text = trim
+		for i in text.length.times, char in text.chars do
+			if char != '*' then return text.substring_from(i)
+		end
+		return ""
+	end
 end
 
 # Main logic of the program to be executed daily
@@ -182,7 +194,7 @@ class Tenenit
 			var parts = line.split("- ")
 			if parts.length >= 2 then
 				# Let the DB set the id, use 0 temporary
-				beers.add new Beer(0, parts[0].trim, parts[1].trim)
+				beers.add new Beer(0, parts[0].trim_star, parts[1].trim)
 			end
 		end
 		return beers
