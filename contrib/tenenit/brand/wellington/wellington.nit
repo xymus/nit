@@ -23,3 +23,6 @@ import tenenit::client
 redef fun in_app_name do return "Benelux Wellington"
 redef fun event_website do return "http://brasseriebenelux.com/wellington"
 redef fun tenenit_rest_server_uri do return "https://xymus.net/tenenit/wellington/"
+
+set_fr
+super

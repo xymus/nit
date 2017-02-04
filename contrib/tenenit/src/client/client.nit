@@ -34,6 +34,3 @@ redef class Deserializer
 		return super
 	end
 end
-
-set_fr
-super
