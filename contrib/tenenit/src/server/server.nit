@@ -28,8 +28,10 @@ fun iface: String do return "localhost:8080"
 # Listening interface for admin commands
 fun iface_admin: String do return "localhost:8081"
 
+#
+fun db_path: String do return "tenenit_sherbrooke.db"
+
 # Sqlite3 database
-var db_path = "tenenit_sherbrooke.db"
 var db = new TenenitDB.open(db_path)
 var db_error = db.error
 if db_error != null then
