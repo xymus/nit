@@ -173,16 +173,12 @@ var default_vh = new VirtualHost("xymus.net:80")
 var vps_vh = new VirtualHost("vps.xymus.net:80")
 var tnitter_vh = new VirtualHost("tnitter.xymus.net:80")
 var pep8_vh = new VirtualHost("pep8.xymus.net:80")
-var benitlux_vh = new VirtualHost("benitlux.xymus.net:80")
-var benitlux_admin_vh = new VirtualHost("localhost:8081")
 
 var factory = new HttpFactory.and_libevent
 factory.config.virtual_hosts.add default_vh
 factory.config.virtual_hosts.add vps_vh
 factory.config.virtual_hosts.add tnitter_vh
 factory.config.virtual_hosts.add pep8_vh
-factory.config.virtual_hosts.add benitlux_vh
-factory.config.virtual_hosts.add benitlux_admin_vh
 
 # Ports are open, drop to a low-privileged user if we are root
 var user_group = new UserGroup("nitcorn", "nitcorn")
@@ -206,32 +202,6 @@ tnitter_vh.routes.add new Route(null, tnitter)
 # TODO Implement pep8analysis server-side with a nitcorn action
 pep8_vh.routes.add new Route("/static/", shared_file_server)
 pep8_vh.routes.add new Route(null, new FileServer("/var/www/pep8/"))
-
-# Tenenit is available at `benitlux.xymus.net` and `xymus.net/benitlux/`
-#
-# It has 2 actions/Web interfaces. The Web user UI to subscribe and unsubscribe
-# to the mailing list. And the RESTful interface used by the Android app.
-
-var db_path = "benitlux_sherbrooke.db"
-var benitlux_db = new TenenitDB.open(db_path)
-var db_error = benitlux_db.error
-if db_error != null then
-	print_error db_error
-	exit 1
-end
-
-var benitlux_sub = new TenenitSubscriptionAction(benitlux_db)
-var benitlux_rest = new TenenitRESTAction(benitlux_db)
-var benitlux_push = new TenenitPushAction(benitlux_db)
-default_vh.routes.add new Route("/benitlux/rest/", benitlux_rest)
-default_vh.routes.add new Route("/benitlux/push/", benitlux_push)
-default_vh.routes.add new Route("/benitlux", benitlux_sub)
-benitlux_vh.routes.add new Route("/rest/", benitlux_rest)
-benitlux_vh.routes.add new Route("/push/", benitlux_push)
-benitlux_vh.routes.add new Route("/static/", shared_file_server)
-benitlux_vh.routes.add new Route(null, benitlux_sub)
-
-benitlux_admin_vh.routes.add new Route(null, new TenenitAdminAction(benitlux_db))
 
 # Opportunity service
 var opportunity = new OpportunityWelcome
