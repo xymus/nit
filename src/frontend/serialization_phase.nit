@@ -527,7 +527,7 @@ redef class AStdClassdef
 	# * `null`, this class is not to be serialized.
 	# * `true`, the attributes of this class are to be serialized by default.
 	# * `false`, the attributes of this class are to be serialized on demand only.
-	fun how_serialize: nullable Bool
+	private fun how_serialize: nullable Bool
 	do
 		# Is there a declaration on the classdef or the module?
 		var serialize = is_serialize
