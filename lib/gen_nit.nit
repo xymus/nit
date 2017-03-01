@@ -57,6 +57,8 @@ class NitModule
 
 	# Imports from this module
 	var imports = new Array[Writable]
+	var intrude_imports = new Array[Writable]
+	var private_imports = new Array[Writable]
 
 	# Main content of this module
 	var content = new Array[Writable]
@@ -76,6 +78,8 @@ class NitModule
 		end
 
 		for i in imports do add "import {i}\n"
+		for i in intrude_imports do add "intrude import {i}\n"
+		for i in private_imports do add "private import {i}\n"
 		add "\n"
 
 		for l in content do
