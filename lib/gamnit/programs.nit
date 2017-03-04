@@ -13,7 +13,7 @@
 # limitations under the License.
 
 # Services for graphical programs with shaders, attributes and uniforms
-module programs
+module programs is pkgconfig("glesv2")
 
 import display
 import matrix
