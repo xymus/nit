@@ -5,6 +5,7 @@ all: bin/asteronits
 
 bin/asteronits: $(shell ${NITLS} -M src/asteronits.nit linux) pre-build
 	${NITC} src/asteronits.nit -m linux -o $@
+	install_name_tool -add_rpath ~/projects/angle/out/Debug/ bin/asteronits
 
 bin/texture_atlas_parser: ../../lib/gamnit/texture_atlas_parser.nit
 	${NITC} ../../lib/gamnit/texture_atlas_parser.nit -o $@
