@@ -103,6 +103,8 @@ extern class SDLSysWMInfo `{ SDL_SysWMinfo * `}
 	fun window_handle: Pointer `{
 		#ifdef _WIN32
 			return (void*)self->info.win.window;
+		#elif defined(SDL_VIDEO_DRIVER_COCOA)
+			return (void*)self->info.cocoa.window;
 		#else
 			return (void*)self->info.x11.window;
 		#endif
@@ -112,6 +114,8 @@ extern class SDLSysWMInfo `{ SDL_SysWMinfo * `}
 	fun display_handle: Pointer `{
 		#ifdef _WIN32
 			return (void*)self->info.win.hdc;
+		#elif defined(SDL_VIDEO_DRIVER_COCOA)
+			return NULL; // EGL_DEFAULT_DISPLAY
 		#else
 			return (void*)self->info.x11.display;
 		#endif
