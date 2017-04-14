@@ -170,7 +170,7 @@ class Light
 	var position = new Point3d[Float](0.0, 1000.0, 0.0)
 end
 
-redef class App
+redef class Scene
 
 	# Live actors to be drawn on screen
 	var actors = new Array[Actor]
@@ -178,6 +178,5 @@ redef class App
 	# Single light of the scene
 	var light = new Light
 
-	# TODO move `actors & light` to a scene object
 	# TODO support more than 1 light
 end

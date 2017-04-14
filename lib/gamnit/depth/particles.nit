@@ -47,6 +47,9 @@ redef class App
 
 	# Graphics program to display particles slowly drifting upwards
 	var smoke_program = new SmokeProgram
+end
+
+redef class Scene
 
 	# Enabled particle emitters
 	#
@@ -146,7 +149,7 @@ class ParticleSystem
 		program.ttl.array(ttls, 1)
 
 		program.t.uniform clock.total.to_f
-		program.mvp.uniform app.world_camera.mvp_matrix
+		program.mvp.uniform app.scene.world_camera.mvp_matrix
 
 		glDrawArrays(gl_POINTS, 0, ots.length)
 	end

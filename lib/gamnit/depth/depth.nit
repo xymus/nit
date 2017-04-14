@@ -28,8 +28,8 @@ redef class App
 		super
 
 		# Move the camera back a bit
-		world_camera.reset_height(10.0)
-		world_camera.near = 0.1
+		scene.world_camera.reset_height(10.0)
+		scene.world_camera.near = 0.1
 
 		# Prepare programs
 		var programs = [versatile_program, normals_program, explosion_program, smoke_program, static_program, selection_program: GamnitProgram]
@@ -39,6 +39,9 @@ redef class App
 			assert gamnit_error == null else print_error gamnit_error
 		end
 	end
+end
+
+redef class Scene
 
 	redef fun frame_core_draw(display) do frame_core_depth display
 
@@ -48,11 +51,11 @@ redef class App
 		frame_core_dynamic_resolution_before display
 
 		# Update cameras on both our programs
-		versatile_program.use
-		versatile_program.mvp.uniform world_camera.mvp_matrix
+		app.versatile_program.use
+		app.versatile_program.mvp.uniform world_camera.mvp_matrix
 
-		normals_program.use
-		normals_program.mvp.uniform app.world_camera.mvp_matrix
+		app.normals_program.use
+		app.normals_program.mvp.uniform world_camera.mvp_matrix
 
 		frame_core_depth_clock.lapse
 		for actor in actors do

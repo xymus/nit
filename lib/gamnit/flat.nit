@@ -211,9 +211,8 @@ class Sprite
 	private var sprite_set: nullable SpriteSet = null
 end
 
-redef class App
-	# Default graphic program to draw `sprites`
-	private var simple_2d_program = new Simple2dProgram is lazy
+# Graphical context with `sprites`, `ui_sprites`, `world_camera, and `ui_camera`, among others
+class Scene
 
 	# Camera for world `sprites` and `depth::actors` with perspective
 	#
@@ -248,22 +247,74 @@ redef class App
 	do
 		texture.load
 
-		ui_camera.reset_height 1080.0
+		var tmp_scene = new Scene
+		tmp_scene.ui_camera.reset_height 1080.0
 
-		var splash = new Sprite(texture, ui_camera.center)
-		ui_sprites.add splash
+		var splash = new Sprite(texture, tmp_scene.ui_camera.center)
+		tmp_scene.ui_sprites.add splash
 
-		var display = display
+		var display = app.display
 		assert display != null
 		glClear gl_COLOR_BUFFER_BIT
-		frame_core_ui_sprites display
+		tmp_scene.frame_core_ui_sprites display
 		display.flip
 
-		ui_sprites.remove splash
+		tmp_scene.ui_sprites.remove splash
 	end
 
 	# ---
 	# Support and implementation
+
+	# Draw the whole screen, all `glDraw...` calls should be executed here
+	protected fun frame_core_draw(display: GamnitDisplay)
+	do
+		app.frame_core_dynamic_resolution_before display
+
+		app.perf_clock_main.lapse
+		frame_core_world_sprites display
+		perfs["gamnit flat world_sprites"].add app.perf_clock_main.lapse
+
+		frame_core_ui_sprites display
+		perfs["gamnit flat ui_sprites"].add app.perf_clock_main.lapse
+
+		app.frame_core_dynamic_resolution_after display
+	end
+
+	private fun frame_core_sprites(display: GamnitDisplay, sprite_set: SpriteSet, camera: Camera)
+	do
+		var simple_2d_program = app.simple_2d_program
+		simple_2d_program.use
+		simple_2d_program.mvp.uniform camera.mvp_matrix
+
+		# draw
+		sprite_set.draw
+	end
+
+	# Draw world sprites from `sprites`
+	protected fun frame_core_world_sprites(display: GamnitDisplay)
+	do
+		frame_core_sprites(display, sprites.as(SpriteSet), world_camera)
+	end
+
+	# Draw UI sprites from `ui_sprites`
+	protected fun frame_core_ui_sprites(display: GamnitDisplay)
+	do
+		# Reset only the depth buffer
+		glClear gl_DEPTH_BUFFER_BIT
+
+		frame_core_sprites(display, ui_sprites.as(SpriteSet), ui_camera)
+	end
+end
+
+redef class App
+
+	# Default graphic program to draw `sprites`
+	private var simple_2d_program = new Simple2dProgram is lazy # TODO private
+
+	# Active scene to be drawn on screen
+	#
+	# Defaults to a simple `Scene`, but can be set to any custom scenes.
+	var scene = new Scene is lazy, writable
 
 	# Main clock used to count each frame `dt`, lapsed for `update` only
 	private var clock = new Clock is lazy
@@ -340,56 +391,17 @@ redef class App
 		# Update game logic and set sprites
 		perf_clock_main.lapse
 		var dt = clock.lapse.to_f
-		update dt
+
+		scene.update dt
 		sys.perfs["gamnit flat update client"].add perf_clock_main.lapse
 
 		# Draw and flip screen
-		frame_core_draw display
+		scene.frame_core_draw display
 		display.flip
 
 		# Check errors
 		gl_error = glGetError
 		assert gl_error == gl_NO_ERROR else print_error gl_error
-	end
-
-	# Draw the whole screen, all `glDraw...` calls should be executed here
-	protected fun frame_core_draw(display: GamnitDisplay)
-	do
-		frame_core_dynamic_resolution_before display
-
-		perf_clock_main.lapse
-		frame_core_world_sprites display
-		perfs["gamnit flat world_sprites"].add perf_clock_main.lapse
-
-		frame_core_ui_sprites display
-		perfs["gamnit flat ui_sprites"].add perf_clock_main.lapse
-
-		frame_core_dynamic_resolution_after display
-	end
-
-	private fun frame_core_sprites(display: GamnitDisplay, sprite_set: SpriteSet, camera: Camera)
-	do
-		var simple_2d_program = app.simple_2d_program
-		simple_2d_program.use
-		simple_2d_program.mvp.uniform camera.mvp_matrix
-
-		# draw
-		sprite_set.draw
-	end
-
-	# Draw world sprites from `sprites`
-	protected fun frame_core_world_sprites(display: GamnitDisplay)
-	do
-		frame_core_sprites(display, sprites.as(SpriteSet), world_camera)
-	end
-
-	# Draw UI sprites from `ui_sprites`
-	protected fun frame_core_ui_sprites(display: GamnitDisplay)
-	do
-		# Reset only the depth buffer
-		glClear gl_DEPTH_BUFFER_BIT
-
-		frame_core_sprites(display, ui_sprites.as(SpriteSet), ui_camera)
 	end
 end
 

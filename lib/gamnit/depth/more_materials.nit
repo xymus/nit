@@ -43,6 +43,7 @@ class SmoothMaterial
 		program.use
 
 		var mesh = model.mesh
+		var scene = app.scene
 
 		# Actor specs
 		program.translation.uniform(actor.center.x, actor.center.y, actor.center.z, 0.0)
@@ -63,10 +64,10 @@ class SmoothMaterial
 		program.tex_coord.array_enabled = false
 
 		# Lights
-		program.light_center.uniform(app.light.position.x, app.light.position.y, app.light.position.z)
+		program.light_center.uniform(scene.light.position.x, scene.light.position.y, scene.light.position.z)
 
 		# Camera
-		program.camera.uniform(app.world_camera.position.x, app.world_camera.position.y, app.world_camera.position.z)
+		program.camera.uniform(scene.world_camera.position.x, scene.world_camera.position.y, scene.world_camera.position.z)
 
 		# Colors from the material
 		program.ambient_color.uniform(ambient_color[0], ambient_color[1], ambient_color[2], ambient_color[3]*actor.alpha)
@@ -98,6 +99,7 @@ class TexturedMaterial
 	redef fun draw(actor, model)
 	do
 		var mesh = model.mesh
+		var scene = app.scene
 
 		var program = app.versatile_program
 		program.use
@@ -178,8 +180,8 @@ class TexturedMaterial
 		program.normal.array_enabled = true
 		program.normal.array(mesh.normals, 3)
 
-		program.light_center.uniform(app.light.position.x, app.light.position.y, app.light.position.z)
-		program.camera.uniform(app.world_camera.position.x, app.world_camera.position.y, app.world_camera.position.z)
+		program.light_center.uniform(scene.light.position.x, scene.light.position.y, scene.light.position.z)
+		program.camera.uniform(scene.world_camera.position.x, scene.world_camera.position.y, scene.world_camera.position.z)
 
 		if mesh.indices.is_empty then
 			glDrawArrays(mesh.draw_mode, 0, mesh.vertices.length/3)
@@ -200,7 +202,7 @@ class NormalsMaterial
 	do
 		var program = app.normals_program
 		program.use
-		program.mvp.uniform app.world_camera.mvp_matrix
+		program.mvp.uniform app.scene.world_camera.mvp_matrix
 
 		var mesh = model.mesh
 

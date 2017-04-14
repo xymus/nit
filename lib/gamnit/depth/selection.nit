@@ -102,7 +102,7 @@ redef class App
 		selection_calculated = true
 
 		app.selection_program.use
-		app.selection_program.mvp.uniform app.world_camera.mvp_matrix
+		app.selection_program.mvp.uniform scene.world_camera.mvp_matrix
 
 		# Set aside previous buffer clear color
 		var user_r = glGetFloatv(gl_COLOR_CLEAR_VALUE, 0)
@@ -116,7 +116,7 @@ redef class App
 		# TODO restrict the list of actors with a valid ID, maybe with an `active_actors` list?
 
 		var id = 1
-		for actor in actors do
+		for actor in scene.actors do
 			selection_map[id] = actor
 			for leaf in actor.model.leaves do
 				leaf.material.draw_selection(actor, leaf, id)
