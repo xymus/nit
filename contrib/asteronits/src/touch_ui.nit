@@ -19,11 +19,9 @@ import gamnit::virtual_gamepad
 
 import asteronits
 
-redef class App
-	redef fun on_create
+redef class PlayScene
+	init
 	do
-		super
-
 		var gamepad = new VirtualGamepad
 		gamepad.add_dpad
 		gamepad.controls.first.as(DPad).show_down = false

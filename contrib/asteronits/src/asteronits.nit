@@ -57,65 +57,82 @@ end
 
 redef class App
 
-	# Current world in play
-	var world = new World(12, 2, display.aspect_ratio) is lazy
-
 	# Sound effects
 	private var fx_fire = new Sound("sounds/fire.mp3")
 	private var fx_explosion_ship = new Sound("sounds/explosion_ship.wav")
 	private var fx_explosion_asteroids = new Sound("sounds/explosion_asteroids.wav")
 
+	# Main spritesheet with ships, asteroids and beams
+	var spritesheet = new Spritesheet
+
+	# Main play scene
+	var play_scene = new PlayScene is lazy
+
 	redef fun on_create
 	do
 		super
-
-		# Move the camera to show all the world world in the screen range
-		world_camera.reset_height(world.half_height * 2.0)
+		scene = play_scene
 	end
 
-	# Main spritesheet with ships, asteroids and beams
-	var spritesheet = new Spritesheet
+	redef fun accept_event(event)
+	do
+		# General inputs accepted by all scenes
+		if event isa QuitEvent or (event isa KeyEvent and event.name == "escape")
+		then exit 0
+
+		# Other events are left to the scene
+		return super
+	end
+end
+
+# Main play scene with the ship and asteroids
+class PlayScene
+	super Scene
+
+	# Current world in play
+	var world: World is lazy do
+		var world = new World(12, 2, app.display.aspect_ratio)
+		world_camera.reset_height(world.half_height * 2.0)
+		return world
+	end
 
 	redef fun update(dt)
 	do
 		# Update game logic
+		var world = world
 		world.do_turn dt
 
 		# Setup new world if all asteroids are destroyed
 		if world.asteroids.is_empty then
 			sprites.clear
-			world = new World(world.n_asteroids*2, world.n_asteroid_parts+1, display.aspect_ratio)
+			self.world = new World(world.n_asteroids*2, world.n_asteroid_parts+1, app.display.aspect_ratio)
 		end
 	end
 
 	redef fun accept_event(event)
 	do
-		if event isa QuitEvent then
-			exit 0
-		else if event isa KeyEvent then
+		if event isa KeyEvent then
 			var thrust = event.thrust
 			if thrust != 0.0 then
-				app.world.ship.applied_thrust = if event.is_down then thrust else 0.0
+				world.ship.applied_thrust = if event.is_down then thrust else 0.0
 				return true
 			end
 
 			var rot = event.rotation
 			if rot != 0.0 then
-				app.world.ship.applied_rotation = if event.is_down then rot else 0.0
+				world.ship.applied_rotation = if event.is_down then rot else 0.0
 				return true
 			end
 
 			if event.name == "space" and event.is_down then
-				app.world.ship.fire
+				world.ship.fire
 				return true
-			else if event.name == "escape" then
-				exit 0
 			else if event.name == "." and event.is_down then
-				dynamic_resolution_ratio *= 2.0
-				print dynamic_resolution_ratio
+				app.dynamic_resolution_ratio *= 2.0
+				print app.dynamic_resolution_ratio
 			else if event.name == "," and event.is_down then
-				dynamic_resolution_ratio /= 2.0
-				print dynamic_resolution_ratio
+				app.dynamic_resolution_ratio /= 2.0
+				print app.dynamic_resolution_ratio
 			end
 		end
 
@@ -130,7 +147,7 @@ redef class SpacialObject
 	# All `Sprites` composing this object
 	var sprites: Collection[Sprite] = new Ref[Sprite](sprite) is lazy
 
-	init do app.sprites.add_all sprites
+	init do app.scene.sprites.add_all sprites
 
 	redef fun do_turn(dt)
 	do
@@ -141,7 +158,7 @@ redef class SpacialObject
 	redef fun destroy
 	do
 		super
-		for s in sprites do app.sprites.remove s
+		for s in sprites do app.scene.sprites.remove s
 	end
 end
 
