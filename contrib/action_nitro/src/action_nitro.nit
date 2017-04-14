@@ -32,9 +32,6 @@ import gen::planes
 
 redef class App
 
-	# Game world
-	var world: World = new World is lazy
-
 	# ---
 	# Game world assets
 
@@ -71,26 +68,6 @@ redef class App
 	private var city_texture = new TextureAsset("textures/city_background_clean.png")
 
 	private var stars_texture = new Texture("textures/stars.jpg")
-	private var stars = new Sprite(stars_texture, new Point3d[Float](0.0, 1100.0, -600.0)) is lazy
-
-	# ---
-	# Particle effects
-
-	# Explosion particles
-	var explosions = new ParticleSystem(20, explosion_program,
-		new Texture("particles/explosion00.png"))
-
-	# Blood explosion particles
-	var blood = new ParticleSystem(20, explosion_program,
-		new Texture("particles/blood07.png"))
-
-	# Smoke for the background
-	var smoke = new ParticleSystem(500, smoke_program,
-		new Texture("particles/blackSmoke12.png"))
-
-	# Static clouds particles
-	var clouds = new ParticleSystem(1600, static_program,
-		new Texture("particles/whitePuff12.png"))
 
 	# ---
 	# Sound effects
@@ -99,38 +76,16 @@ redef class App
 	#private var fx_fire = new Sound("sounds/fire.mp3")
 
 	# ---
-	# UI
-	private var texts_sheet = new TextsImages
+	# Particles textures
 
-	private var tutorial_wasd = new Sprite(app.texts_sheet.tutorial_wasd,
-		app.ui_camera.center.offset(0.0, -250.0, 0.0)) is lazy
-
-	private var tutorial_arrows = new Sprite(app.texts_sheet.tutorial_arrows,
-		app.ui_camera.center.offset(0.0, -350.0, 0.0)) is lazy
-
-	private var tutorial_chute = new Sprite(app.texts_sheet.tutorial_chute,
-		app.ui_camera.center.offset(0.0, -450.0, 0.0)) is lazy
-
-	private var tutorial_goal = new Sprite(app.texts_sheet.goal,
-		app.ui_camera.center.offset(0.0, 0.0, 0.0)) is lazy
-
-	private var outro_directed = new Sprite(app.texts_sheet.directed,
-		app.ui_camera.center.offset(0.0, 400.0, 0.0)) is lazy
-
-	private var outro_created = new Sprite(app.texts_sheet.created,
-		app.ui_camera.center.offset(0.0, -200.0, 0.0)) is lazy
+	private var explosion_texture = new Texture("particles/explosion00.png")
+	private var blood_texture = new Texture("particles/blood07.png")
+	private var smoke_texture = new Texture("particles/blackSmoke12.png")
+	private var cloud_texture = new Texture("particles/whitePuff12.png")
 
 	# ---
-	# Counters for the UI
-
-	private var score_counter = new CounterSprites(texts_sheet.n,
-		new Point3d[Float](32.0, -64.0, 0.0))
-
-	private var altitude_counter = new CounterSprites(texts_sheet.n,
-		new Point3d[Float](1400.0, -64.0, 0.0))
-
-	# Did the player asked to skip the intro animation?
-	private var skip_intro = false
+	# UI
+	private var texts_sheet = new TextsImages
 
 	redef fun on_create
 	do
@@ -140,7 +95,45 @@ redef class App
 
 		# Load 3d models
 		iss_model.load
+	end
+end
 
+redef class Scene
+
+	# Game world
+	var world: World = new World is lazy
+
+	private var stars = new Sprite(app.stars_texture, new Point3d[Float](0.0, 1100.0, -600.0)) is lazy
+
+	# ---
+	# Particle effects
+
+	# Explosion particles
+	var explosions = new ParticleSystem(20, app.explosion_program, app.explosion_texture)
+
+	# Blood explosion particles
+	var blood = new ParticleSystem(20, app.explosion_program, app.blood_texture)
+
+	# Smoke for the background
+	var smoke = new ParticleSystem(500, app.smoke_program, app.smoke_texture)
+
+	# Static clouds particles
+	var clouds = new ParticleSystem(1600, app.static_program, app.cloud_texture)
+
+	# ---
+	# Counters for the UI
+
+	private var score_counter = new CounterSprites(app.texts_sheet.n,
+		new Point3d[Float](32.0, -64.0, 0.0))
+
+	private var altitude_counter = new CounterSprites(app.texts_sheet.n,
+		new Point3d[Float](1400.0, -64.0, 0.0))
+
+	# Did the player asked to skip the intro animation?
+	private var skip_intro = false
+
+	init
+	do
 		# Setup cameras
 		world_camera.reset_height 60.0
 		ui_camera.reset_height 1080.0
@@ -156,8 +149,8 @@ redef class App
 		stars.scale = 2.1
 
 		# City background
-		city_texture.pixelated = true
-		var city_sprite = new Sprite(city_texture, new Point3d[Float](0.0, 370.0, -600.0))
+		app.city_texture.pixelated = true
+		var city_sprite = new Sprite(app.city_texture, new Point3d[Float](0.0, 370.0, -600.0))
 		city_sprite.scale = 0.8
 		sprites.add city_sprite
 
@@ -168,7 +161,7 @@ redef class App
 
 		var ground_material = new TexturedMaterial(
 			[0.0, 0.1, 0.0, 1.0], [0.4, 0.4, 0.4, 1.0], [0.0]*4)
-		ground_material.diffuse_texture = ground_texture
+		ground_material.diffuse_texture = app.ground_texture
 
 		var ground_model = new LeafModel(ground_mesh, ground_material)
 		var ground = new Actor(ground_model, new Point3d[Float](0.0, 0.0, 0.0))
@@ -178,8 +171,8 @@ redef class App
 		# Trees
 		for i in 2000.times do
 			var s = 0.1 + 0.1.rand
-			var h = tree_texture.height * s
-			var sprite = new Sprite(tree_texture,
+			var h = app.tree_texture.height * s
+			var sprite = new Sprite(app.tree_texture,
 				new Point3d[Float](0.0 & 1500.0, h/2.0 - 10.0*s, 10.0 - 609.0.rand))
 			sprite.static = true
 			sprite.scale = s
@@ -357,6 +350,24 @@ redef class App
 	# Seconds at which the game was won, using `world.t` as reference
 	private var won_at: nullable Float = null
 
+	private var tutorial_wasd = new Sprite(app.texts_sheet.tutorial_wasd,
+		ui_camera.center.offset(0.0, -250.0, 0.0)) is lazy
+
+	private var tutorial_arrows = new Sprite(app.texts_sheet.tutorial_arrows,
+		ui_camera.center.offset(0.0, -350.0, 0.0)) is lazy
+
+	private var tutorial_chute = new Sprite(app.texts_sheet.tutorial_chute,
+		ui_camera.center.offset(0.0, -450.0, 0.0)) is lazy
+
+	private var tutorial_goal = new Sprite(app.texts_sheet.goal,
+		ui_camera.center.offset(0.0, 0.0, 0.0)) is lazy
+
+	private var outro_directed = new Sprite(app.texts_sheet.directed,
+		ui_camera.center.offset(0.0, 400.0, 0.0)) is lazy
+
+	private var outro_created = new Sprite(app.texts_sheet.created,
+		ui_camera.center.offset(0.0, -200.0, 0.0)) is lazy
+
 	# Remove the tutorial sprite about WASD from `ui_sprites`
 	private fun hide_tutorial_wasd do if ui_sprites.has(tutorial_wasd) then ui_sprites.remove(tutorial_wasd)
 
@@ -443,8 +454,8 @@ redef class Body
 	do
 		var actor = actor
 		if actor != null then
-			app.actors.add actor
-		else app.sprites.add sprite
+			app.scene.actors.add actor
+		else app.scene.sprites.add sprite
 	end
 
 	redef fun destroy(world)
@@ -453,8 +464,8 @@ redef class Body
 
 		var actor = actor
 		if actor != null then
-			app.actors.remove actor
-		else app.sprites.remove sprite
+			app.scene.actors.remove actor
+		else app.scene.sprites.remove sprite
 	end
 end
 
@@ -472,7 +483,7 @@ redef class Human
 		var force = 4.0
 		health = 0.0
 		for i in 32.times do
-			app.blood.add(
+			app.scene.blood.add(
 				new Point3d[Float](center.x & force, center.y & force, center.z & force),
 				(2048.0 & 4096.0) * force, 0.3 & 0.1)
 		end
@@ -514,9 +525,9 @@ redef class Boss
 	redef fun death_animation
 	do
 		var force = 64.0
-		app.explosions.add(center, 4096.0 * force, 0.3)
+		app.scene.explosions.add(center, 4096.0 * force, 0.3)
 		for i in (8.0*force).to_i.times do
-			app.explosions.add(
+			app.scene.explosions.add(
 				new Point3d[Float](center.x & force, center.y & force/8.0, center.z & force),
 				(2048.0 & 1024.0) * force, 0.3 + 5.0.rand, 5.0.rand)
 		end
@@ -557,11 +568,11 @@ redef class Player
 				new Point3d[Float](center.x, 0.05 & 0.04, center.y))
 			splatter.scale = 32.0
 			splatter.rotation = 2.0 * pi.rand
-			app.actors.add splatter
+			app.scene.actors.add splatter
 		end
 
 		# Display respawn instructions
-		app.ui_sprites.add new Sprite(app.texts_sheet.respawn, app.ui_camera.center)
+		app.scene.ui_sprites.add new Sprite(app.texts_sheet.respawn, app.scene.ui_camera.center)
 	end
 end
 
@@ -611,9 +622,9 @@ redef class World
 		super
 
 		# Particles
-		app.explosions.add(center, 8192.0 * force, 0.3)
+		app.scene.explosions.add(center, 8192.0 * force, 0.3)
 		for i in (4.0*force).to_i.times do
-			app.explosions.add(
+			app.scene.explosions.add(
 				new Point3d[Float](center.x & force, center.y & force/2.0, center.z & force),
 				(4096.0 & 2048.0) * force, 0.3 & 0.3, 0.5.rand)
 		end
@@ -650,7 +661,7 @@ class PlayerSprite
 	# Start the running animation
 	fun start_running
 	do
-		anim_ot = app.world.t
+		anim_ot = app.scene.world.t
 		current_animation = running_animation
 	end
 
@@ -662,7 +673,7 @@ class PlayerSprite
 	do
 		var anim = current_animation
 		if anim != null then
-			var dt = app.world.t - anim_ot
+			var dt = app.scene.world.t - anim_ot
 			var i = (dt / time_per_frame).to_i+2
 			texture = anim.modulo(i)
 		end
@@ -689,7 +700,7 @@ class CounterSprites
 	fun value=(value: Int)
 	do
 		# Clean up last used sprites
-		for s in sprites do if app.ui_sprites.has(s) then app.ui_sprites.remove s
+		for s in sprites do if app.scene.ui_sprites.has(s) then app.scene.ui_sprites.remove s
 		sprites.clear
 
 		# Build new sprites
@@ -705,7 +716,7 @@ class CounterSprites
 		end
 
 		# Register sprites to be drawn by `app.ui_camera`
-		app.ui_sprites.add_all sprites
+		app.scene.ui_sprites.add_all sprites
 	end
 end
 
