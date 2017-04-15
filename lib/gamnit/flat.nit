@@ -237,9 +237,6 @@ class Scene
 	# UI sprites to draw as seen by `ui_camera`, drawn over world `sprites`
 	var ui_sprites: Set[Sprite] = new SpriteSet
 
-	# Main method to refine in clients to update game logic and `sprites`
-	fun update(dt: Float) do end
-
 	# Display `texture` as a splash screen
 	#
 	# Load `texture` if needed and resets `ui_camera` to 1080 units on the Y axis.
