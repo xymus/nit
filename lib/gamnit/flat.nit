@@ -41,7 +41,7 @@ import performance_analysis
 
 import gamnit
 import gamnit::cameras
-import gamnit::dynamic_resolution
+intrude import gamnit::dynamic_resolution
 import gamnit::limit_fps
 import gamnit::camera_control
 
