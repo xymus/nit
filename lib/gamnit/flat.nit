@@ -859,7 +859,7 @@ private class SpriteContext
 			else
 				rot = new Matrix.rotation(sprite.rotation, 0.0, 0.0, 1.0)
 			end
-			data.fill_from(rot.items, o+15)
+			data.fill_from_matrix(rot, o+15)
 
 			o += float_per_vertex
 		end

@@ -38,6 +38,7 @@ end
 
 import android::aware
 intrude import c
+intrude import matrix
 
 in "C Header" `{
 	#include <GLES2/gl2.h>
@@ -464,6 +465,14 @@ class GLfloatArray
 			self[dst_offset+k] = array[k]
 		end
 	end
+
+	fun fill_from_matrix(matrix: Matrix, dst_offset: nullable Int)
+	do
+		dst_offset = dst_offset or else 0
+		var mat_len = matrix.width*matrix.height
+		assert length >= mat_len + dst_offset
+		native_array.fill_from_matrix_native(matrix.items, dst_offset, mat_len)
+	end
 end
 
 # An array of `GLfloat` in C (`GLfloat*`)
@@ -477,6 +486,12 @@ extern class NativeGLfloatArray `{ GLfloat* `}
 	redef fun []=(index, val) `{ self[index] = val; `}
 
 	redef fun +(offset) `{ return self + offset; `}
+
+	private fun fill_from_matrix_native(matrix: NativeMatrix, dst_offset, len: Int) `{
+		int i;
+		for (i = 0; i < len; i ++)
+			self[i+dst_offset] = (GLfloat)matrix[i];
+	`}
 end
 
 # General type for OpenGL enumerations
