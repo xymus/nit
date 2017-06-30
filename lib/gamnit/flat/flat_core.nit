@@ -405,6 +405,17 @@ redef class App
 		ui_sprites.remove splash
 	end
 
+	# Preload all textures
+	fun load_textures
+	do
+		# Prepare to draw
+		for tex in all_root_textures do
+			tex.load
+			var error = tex.error
+			if error != null then print_error error
+		end
+	end
+
 	# ---
 	# Support and implementation
 
@@ -449,16 +460,6 @@ redef class App
 
 		gl_error = glGetError
 		assert gl_error == gl_NO_ERROR else print_error gl_error
-
-		# Prepare to draw
-		for tex in all_root_textures do
-			tex.load
-			gamnit_error = tex.error
-			if gamnit_error != null then print_error gamnit_error
-
-			glTexParameteri(gl_TEXTURE_2D, gl_TEXTURE_MIN_FILTER, gl_LINEAR)
-			glTexParameteri(gl_TEXTURE_2D, gl_TEXTURE_MAG_FILTER, gl_LINEAR)
-		end
 	end
 
 	redef fun on_stop
