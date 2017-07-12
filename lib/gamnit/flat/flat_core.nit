@@ -950,7 +950,7 @@ class SpriteSet
 	private fun unmap_sprite(sprite: Sprite)
 	do
 		var context = sprite.context
-		assert context != null
+		assert context != null else print_error "{sprite} with t {sprite.texture.root} has no context"
 		context.sprites.remove sprite
 
 		sprite.context = null
