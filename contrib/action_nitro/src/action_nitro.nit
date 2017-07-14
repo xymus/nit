@@ -134,14 +134,16 @@ redef class App
 
 	redef fun on_create
 	do
-		blood.texture.as(RootTexture).premultiply_alpha = false
-		explosions.texture.as(RootTexture).premultiply_alpha = false
-
 		super
 
 		show_splash_screen new Texture("textures/splash.jpg")
 
-		# Load 3d models
+		# Load 2D textures
+		blood.texture.as(RootTexture).premultiply_alpha = false
+		explosions.texture.as(RootTexture).premultiply_alpha = false
+		load_textures
+
+		# Load 3D models
 		iss_model.load
 		if iss_model.errors.not_empty then print_error iss_model.errors.join("\n")
 
