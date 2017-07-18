@@ -524,23 +524,18 @@ redef class App
 		frame_core_dynamic_resolution_after display
 	end
 
-	private fun frame_core_sprites(display: GamnitDisplay, sprite_set: SpriteSet, camera: Camera)
+	private fun frame_core_sprites(sprite_set: SpriteSet, camera: Camera)
 	do
-		var simple_2d_program = app.simple_2d_program
-		simple_2d_program.use
-		simple_2d_program.mvp.uniform camera.mvp_matrix
+		sprite_set.update frame_dt
 
-		sprite_set.time += frame_dt*sprite_set.time_mod
-		simple_2d_program.time.uniform sprite_set.time
-
-		# draw
-		sprite_set.draw
+		# Sort by draw order
+		for context in sprite_set.draw_ordered do context.draw
 	end
 
 	# Draw world sprites from `sprites`
 	protected fun frame_core_world_sprites(display: GamnitDisplay)
 	do
-		frame_core_sprites(display, sprites, world_camera)
+		frame_core_sprites(sprites, world_camera)
 	end
 
 	# Draw UI sprites from `ui_sprites`
@@ -549,7 +544,7 @@ redef class App
 		# Reset only the depth buffer
 		glClear gl_DEPTH_BUFFER_BIT
 
-		frame_core_sprites(display, ui_sprites, ui_camera)
+		frame_core_sprites(ui_sprites, ui_camera)
 	end
 end
 
@@ -890,8 +885,17 @@ class SpriteSet
 	# Map texture then static vs dynamic to a `SpriteContext`
 	private var contexts_map = new HashMap4[RootTexture, nullable RootTexture, Bool, Int, Array[SpriteContext]]
 
-	# Contexts in `contexts_map`, sorted by draw order
+	# Contexts in `contexts_map`
 	private var contexts_items = new Array[SpriteContext]
+
+	#, sorted by draw order
+	private var draw_ordered = new Array[DrawOrdered]
+
+	private fun draw_ordered_add(draw: DrawOrdered)
+	do
+		draw_ordered.add draw
+		sprite_draw_order_sorter.sort draw_ordered
+	end
 
 	# Sprites needing resorting in `contexts_map`
 	private var sprites_to_remap = new Array[Sprite]
@@ -922,7 +926,7 @@ class SpriteSet
 
 		if context == null then
 			var usage = if sprite.static then gl_STATIC_DRAW else gl_DYNAMIC_DRAW
-			context = new SpriteContext(texture, animation_texture, usage, draw_order)
+			context = new SpriteContext(draw_order, self, texture, animation_texture, usage)
 
 			if contexts == null then
 				contexts = new Array[SpriteContext]
@@ -933,6 +937,8 @@ class SpriteSet
 
 			contexts_items.add context
 			sprite_draw_order_sorter.sort(contexts_items)
+
+			draw_ordered_add context
 		end
 
 		context.sprites.add sprite
@@ -960,7 +966,7 @@ class SpriteSet
 	end
 
 	# Draw all sprites by all contexts
-	private fun draw
+	private fun remap_sprites
 	do
 		# Remap sprites that may need to change context
 		for sprite in sprites_to_remap do
@@ -972,9 +978,6 @@ class SpriteSet
 			map_sprite sprite
 		end
 		sprites_to_remap.clear
-
-		# Sort by draw order
-		for context in contexts_items do context.draw
 	end
 
 	redef fun add(e)
@@ -1006,16 +1009,54 @@ class SpriteSet
 		for c in contexts_items do c.destroy
 		contexts_map.clear
 		contexts_items.clear
+		draw_ordered.clear
 	end
+
+	# Update once per frame
+	private fun update(dt: Float)
+	do
+		time += dt*time_mod
+		remap_sprites
+	end
+
+	# Call before drawing sprites from `self`
+	private fun prepare_draw(camera: Camera)
+	do
+		#if sys.last_prepared == self then return
+
+		var simple_2d_program = app.simple_2d_program
+		simple_2d_program.use
+		simple_2d_program.time.uniform time
+		simple_2d_program.mvp.uniform camera.mvp_matrix
+
+		#sys.last_prepared = self
+	end
+end
+
+#redef class Sys
+	#private var last_prepared
+#end
+
+private class DrawOrdered
+	# Draw order shared by all `sprites`
+	var draw_order: Int
+
+	# Even breaking draw order: favors drawing `Actor` over `Sprite`
+	fun even_breaker_draw_order: Int do return 0
+
+	fun draw do end
 end
 
 # Context for calls to `glDrawElements`
 #
 # Each context has only one `texture` and `usage`, but many sprites.
 private class SpriteContext
+	super DrawOrdered
 
 	# ---
 	# Context config and state
+
+	var sprite_set: SpriteSet
 
 	# Only root texture drawn by this context
 	var texture: nullable RootTexture
@@ -1025,9 +1066,6 @@ private class SpriteContext
 
 	# OpenGL ES usage of `buffer_array` and `buffer_element`
 	var usage: GLBufferUsage
-
-	# Draw order shared by all `sprites`
-	var draw_order: Int
 
 	# Sprites drawn by this context
 	var sprites = new GroupedSprites
@@ -1090,7 +1128,7 @@ private class SpriteContext
 	# Main services
 
 	# Allocate `buffer_array` and `buffer_element`
-	fun prepare
+	fun prepare_once
 	do
 		var bufs = glGenBuffers(2)
 		buffer_array = bufs[0]
@@ -1271,9 +1309,16 @@ private class SpriteContext
 	# Call `resize` and `update_sprite` as needed before actual draw operation.
 	#
 	# Require: `app.simple_2d_program` and `mvp` must be bound on the GPU
-	fun draw
+	redef fun draw
 	do
-		if buffer_array == -1 then prepare
+		if buffer_array == -1 then prepare_once
+
+		# Prepare program and some uniforms
+		var camera: Camera
+		if sprite_set == app.sprites then
+			camera = app.world_camera
+		else camera = app.ui_camera
+		sprite_set.prepare_draw camera
 
 		assert buffer_array > 0 and buffer_element > 0 else
 			print_error "Internal error: {self} was destroyed"
@@ -1458,7 +1503,10 @@ private class SpriteContext
 
 		# Take down
 		for attr in [p.translation, p.color, p.scale, p.coord, p.tex_coord,
-		             p.rotation_row0, p.rotation_row1, p.rotation_row2, p.rotation_row3: Attribute] do
+		             p.rotation_row0, p.rotation_row1, p.rotation_row2, p.rotation_row3,
+		             p.animation_fps, p.animation_n_frames, p.animation_coord,
+		             p.animation_tex_coord, p.animation_tex_diff,
+		             p.animation_start, p.animation_loops: Attribute] do
 			if not attr.is_active then continue
 			glDisableVertexAttribArray(attr.location)
 			gl_error = glGetError
@@ -1746,15 +1794,19 @@ redef class Sys
 	private var sprite_draw_order_sorter = new DrawOrderComparator is lazy
 end
 
-# Sort `SpriteContext` by their `draw_order`
+# Sort `DrawOrdered` by their `draw_order`
 private class DrawOrderComparator
 	super Comparator
 
 	# This class can't set COMPARED because
 	# `the public property cannot contain the private type...`
-	#redef type COMPARED: SpriteContext
+	#redef type COMPARED: DrawOrdered
 
-	# Require: `a isa SpriteContext and b isa SpriteContext`
+	# Require: `a isa DrawOrdered and b isa DrawOrdered`
 	redef fun compare(a, b)
-	do return a.as(SpriteContext).draw_order <=> b.as(SpriteContext).draw_order
+	do
+		var d = a.as(DrawOrdered).draw_order <=> b.as(DrawOrdered).draw_order
+		if d == 0 then return a.as(DrawOrdered).even_breaker_draw_order <=> b.as(DrawOrdered).even_breaker_draw_order
+		return d
+	end
 end
