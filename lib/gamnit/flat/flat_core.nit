@@ -458,6 +458,8 @@ redef class App
 		glViewport(0, 0, display.width, display.height)
 		glClearColor(0.0, 0.0, 0.0, 1.0)
 
+		load_textures
+
 		gl_error = glGetError
 		assert gl_error == gl_NO_ERROR else print_error gl_error
 	end
