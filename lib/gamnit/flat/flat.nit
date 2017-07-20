@@ -42,3 +42,23 @@ import gamnit::camera_control
 import gamnit::tileset
 import gamnit::bmfont
 import app::audio
+
+redef class App
+	redef fun load_assets(print_errors)
+	do
+		print_errors = print_errors or else true
+		var errors = super
+
+		for sound in sounds do
+			sound.load
+
+			var error = sound.error
+			if error != null then
+				errors.add error
+				if print_errors then print_error error
+			end
+		end
+
+		return errors
+	end
+end

@@ -71,6 +71,9 @@ abstract class Texture
 	# Load this texture, force reloading it if `force`
 	fun load(force: nullable Bool) do end
 
+	# Load this texture and print errors, if not already loaded
+	fun lazy_load do end
+
 	# Last error on this texture
 	var error: nullable Error = null
 
@@ -284,6 +287,16 @@ class RootTexture
 		load_from_pixels(cpixels.native_array, size, size, gl_RGB)
 
 		cpixels.destroy
+	end
+
+	redef fun lazy_load
+	do
+		if loaded then return
+
+		load
+
+		var error = error
+		if error != null then print_error error
 	end
 
 	# Has this resource been deleted?

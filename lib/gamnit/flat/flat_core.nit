@@ -405,16 +405,27 @@ redef class App
 		ui_sprites.remove splash
 	end
 
-	# Preload all textures
-	fun load_textures
+	# Preload all assets
+	fun load_assets(print_errors: nullable Bool): Array[Error]
 	do
+		print_errors = print_errors or else true
+		var errors = new Array[Error]
+
 		# Prepare to draw
 		for tex in all_root_textures do
 			tex.load
+
 			var error = tex.error
-			if error != null then print_error error
+			if error != null then
+				errors.add error
+				if print_errors then print_error error
+			end
 		end
+
+		return errors
 	end
+
+	fun load_textures do load_assets
 
 	# ---
 	# Support and implementation
@@ -915,6 +926,7 @@ class SpriteSet
 
 		var context = null
 		if contexts != null then
+			# Skip context if full for a gl_UNSIGNED_SHORT
 			for c in contexts.reverse_iterator do
 				var size = c.sprites.length + 1
 				if size * 4 <= 0xffff then
@@ -931,6 +943,9 @@ class SpriteSet
 			if contexts == null then
 				contexts = new Array[SpriteContext]
 				contexts_map[texture, animation_texture, sprite.static, draw_order] = contexts
+
+				# This may be the first time this texture is used, lazy load it!
+				texture.lazy_load
 			end
 
 			contexts.add context
