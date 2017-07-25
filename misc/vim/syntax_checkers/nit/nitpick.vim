@@ -65,7 +65,7 @@ function! SyntaxCheckers_nit_nitpick_GetLocList()
 	end
 
 	" pipe stderr
-	let makeprg .= " 2>&1 "
+	let makeprg .= " 2>&1 | tee ~/nitpick_out"
 
 	" possible combinations of error messages
 	let ef_start = [ '%f:%l\,%c--%*[0-9]:',
