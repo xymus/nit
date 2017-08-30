@@ -17,12 +17,17 @@ android_api.nit: java_api.nit
 # Base wrappers to implement the lib/android/load_image.nit module
 bitmap.nit: ../../bin/jwrapper
 	../../bin/jwrapper -vv -u comment -o $@ -r "^(android.graphics.Bitmap|java.nio.Buffer|java.nio.ByteBuffer).class$$" \
-	-i ../../../../lib/android/assets_and_resources.nit $(ANDROID_JAR) -i ../../../../lib/java/collections.nit
+	-i ../../../../lib/android/assets_and_resources.nit -i ../../../../lib/java/collections.nit $(ANDROID_JAR)
 
 # Base wrappers to implement the lib/android/wifi.nit module
 wifi.nit: ../../bin/jwrapper
 	../../bin/jwrapper -vv -u comment -o $@ -r "^(android.net.wifi)" \
-	-i ../../../../lib/android/assets_and_resources.nit $(ANDROID_JAR) -i ../../../../lib/java/collections.nit
+	-i ../../../../lib/android/assets_and_resources.nit -i ../../../../lib/java/collections.nit $(ANDROID_JAR)
+
+gl.nit: ../../bin/jwrapper
+	../../bin/jwrapper -vv -u comment -o $@ -r "^(android.opengl.GLSurfaceView|javax.microedition.khronos.egl.*)" \
+	-i ../../../../lib/android/assets_and_resources.nit -i ../../../../lib/java/collections.nit $(ANDROID_JAR) \
+	-m java_api.jwrapper.bin -a 0
 
 check: android_api.nit
 	../../../../bin/nitpick android_api.nit
