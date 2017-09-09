@@ -15,7 +15,7 @@
 # Base entities of the depth 3D game framework
 module depth_core
 
-import gamnit::flat_core
+intrude import gamnit::flat_core # For draw_ordered
 
 # Visible 3D entity in the game world
 #
@@ -80,6 +80,46 @@ class Actor
 	# Non-opaque values may result in artifacts as there is no specialized
 	# support for transparent models and the depth buffer.
 	var alpha = 1.0 is writable
+
+	# Draw order, higher values cause this sprite to be drawn latter
+	#
+	# Change this value to avoid artifacts when drawing non-opaque sprites.
+	# In general, sprites with a non-opaque `texture` and sprites closer to
+	# the camera should have a higher value to be drawn last.
+	#
+	# Sprites sharing a `draw_order` are drawn in the same pass.
+	# The sprite to sprite draw order is undefined and may change when adding
+	# and removing sprites, or changing their attributes.
+	#
+	# ### Warning
+	#
+	# Changing this value may have a negative performance impact if there are
+	# many different `draw_order` values across many sprites.
+	# Sprites sharing some attributes are drawn as group to reduce
+	# the communication overhead between the CPU and GPU,
+	# and changing `draw_order` may break up large groups into smaller groups.
+	var draw_order = 0 is writable(draw_order_direct=)
+
+	# Set draw order,  see `draw_order`
+	fun draw_order=(value: Int)
+	do
+		if isset _draw_order and value != draw_order then needs_remap
+		draw_order_direct = value
+	end
+
+	# TODO
+	# Request a resorting of this sprite in its sprite list
+	#
+	# Resorting is required when `static` or the root of `texture` changes.
+	# This is called automatically when such changes are detected.
+	# However, it can still be set manually if a modification can't be
+	# detected or by subclasses.
+	fun needs_remap
+	do
+		actors_to_remap.add self
+	end
+
+	private var context: nullable ActorContext = null
 end
 
 # 3D model composed of `Mesh` and `Material`, loaded from the assets folder by default
@@ -225,11 +265,95 @@ end
 redef class App
 
 	# Live actors to be drawn on screen
-	var actors = new Array[Actor]
+	var actors = new ActorSet
 
 	# Single light of the scene
 	var light: Light = new PointLight is writable
 
 	# TODO move `actors & light` to a scene object
 	# TODO support more than 1 light
+end
+
+class ActorSet
+	super HashSet[Actor]
+
+	redef fun add(e)
+	do
+		e.needs_remap
+		#if contexts_items.has(e.context) then return
+		#map_sprite e
+		super
+	end
+
+	redef fun remove(e)
+	do
+		super
+		if e isa Actor then e.needs_remap
+		#if e isa Sprite then unmap_sprite e
+	end
+
+	redef fun clear
+	do
+		#for sprite in self do
+		#	sprite.context = null
+		#	sprite.sprite_set = null
+		#end
+		super
+		#for c in contexts_items do c.destroy
+		#contexts_map.clear
+		#contexts_items.clear
+		#draw_ordered.clear
+	end
+end
+
+private class ActorContext
+	super DrawOrdered
+
+	var actors = new Array[Actor]
+
+	redef fun even_breaker_draw_order do return -10
+
+	redef fun draw
+	do
+		for actor in actors do
+			for leaf in actor.model.leaves do
+				leaf.material.draw(actor, leaf, app.world_camera)
+			end
+		end
+	end
+end
+
+redef class Sys
+	private var actor_contexts = new Map[Int, ActorContext]
+
+	private var actors_to_remap = new Set[Actor]
+
+	private fun remap_actors
+	do
+		for actor in actors_to_remap do
+			if not app.actors.has(actor) then
+				var context = actor.context
+				if context != null then context.actors.remove actor
+				continue
+			end
+
+			var draw_order = actor.draw_order
+
+			var context = actor_contexts.get_or_null(draw_order)
+			if context == null then
+				context = new ActorContext(draw_order)
+				actor_contexts[draw_order] = context
+				app.sprites.draw_ordered_add context
+			end
+
+			var prev_context = actor.context
+			if prev_context != null then
+				prev_context.actors.remove actor
+			end
+
+			context.actors.add actor
+			actor.context = context
+		end
+		actors_to_remap.clear
+	end
 end

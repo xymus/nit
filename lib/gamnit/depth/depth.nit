@@ -62,15 +62,11 @@ redef class App
 		frame_core_dynamic_resolution_before display
 		perfs["gamnit depth dynres"].add frame_core_depth_clock.lapse
 
-		for actor in actors do
-			for leaf in actor.model.leaves do
-				leaf.material.draw(actor, leaf, app.world_camera)
-			end
-		end
-		perfs["gamnit depth actors"].add frame_core_depth_clock.lapse
+		remap_actors
+		perfs["gamnit depth remap_actors"].add frame_core_depth_clock.lapse
 
 		frame_core_world_sprites display
-		perfs["gamnit depth sprites"].add frame_core_depth_clock.lapse
+		perfs["gamnit depth actors&sprites"].add frame_core_depth_clock.lapse
 
 		# Toggle writing to the depth buffer for particles effects
 		glDepthMask false

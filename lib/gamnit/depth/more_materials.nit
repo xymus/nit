@@ -158,6 +158,7 @@ class TexturedMaterial
 
 		var program = app.versatile_program
 		program.use
+		program.mvp.uniform app.world_camera.mvp_matrix
 
 		# One of the textures used, if any
 		var sample_used_texture = null
