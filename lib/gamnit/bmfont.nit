@@ -549,7 +549,7 @@ class BMFontAsset
 		end
 
 		text_sprites.width = text_width.max(dx)
-		text_sprites.height = dy + line_height
+		text_sprites.height = -dy + line_height#*2.0
 	end
 
 	# Character replacing other characters missing from the font
