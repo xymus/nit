@@ -164,6 +164,8 @@ redef class ToolContext
 		phase.process_npropdef(npropdef)
 	end
 
+	# Process the given `phase` on the `node` annotated with `nat`
+	# Called by `run_phases`
 	protected fun phase_process_annotated_node(phase: Phase, node: ANode, nat: AAnnotation, nmodule: AModule)
 	do
 		phase.process_annotated_node(node, nat)
