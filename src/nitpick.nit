@@ -17,6 +17,7 @@ module nitpick
 
 import frontend
 import doc::vim_autocomplete
+intrude import glsl_validation
 
 redef class ToolContext
 	# Modules to analyze, other modules will only get a shallow processing.
@@ -27,6 +28,12 @@ redef class ToolContext
 
 		# Do not analyze the property bodies outside specified modules
 		if pd != null and not mmodules_to_check.has(pd.mclassdef.mmodule) then return
+		super
+	end
+
+	redef fun phase_process_annotated_node(phase, node, nat, nmodule)
+	do
+		if not mmodules_to_check.has(nmodule.mmodule) then return
 		super
 	end
 end

@@ -141,7 +141,7 @@ redef class ToolContext
 					var p = na.parent
 					if p isa AAnnotations then p = p.parent
 					assert p != null
-					phase.process_annotated_node(p, na)
+					phase_process_annotated_node(phase, p, na, nmodule)
 				end
 				if errcount != self.error_count then
 					self.check_errors
@@ -162,6 +162,11 @@ redef class ToolContext
 	protected fun phase_process_npropdef(phase: Phase, npropdef: APropdef)
 	do
 		phase.process_npropdef(npropdef)
+	end
+
+	protected fun phase_process_annotated_node(phase: Phase, node: ANode, nat: AAnnotation, nmodule: AModule)
+	do
+		phase.process_annotated_node(node, nat)
 	end
 
 	# Run the phase on the given npropdef.
