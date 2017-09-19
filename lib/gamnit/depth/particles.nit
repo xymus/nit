@@ -239,7 +239,7 @@ class ParticleProgram
 	# ~~~
 	fun vertex_shader_core: String do return """
 			gl_Position = center * mvp;
-			gl_PointSize = scale / gl_Position.z;
+			gl_PointSize = scale / gl_Position.z * gl_Position.w / 256.0;
 	"""
 
 	redef var fragment_shader_source = """
@@ -298,7 +298,7 @@ class ExplosionProgram
 
 	redef fun vertex_shader_core do return """
 		gl_Position = center * mvp;
-		gl_PointSize = scale / gl_Position.z * pt;
+		gl_PointSize = scale / gl_Position.z * pt * gl_Position.w / 256.0;
 
 		if (pt > 0.8) v_color *= (1.0-pt)/0.2;
 	"""
@@ -314,7 +314,7 @@ class SmokeProgram
 		c.x += dt * 0.1;
 
 		gl_Position = c * mvp;
-		gl_PointSize = scale / gl_Position.z * (pt+0.1);
+		gl_PointSize = scale / gl_Position.z * (pt+0.1) * gl_Position.w / 256.0;
 
 		if (pt < 0.1)
 			v_color *= pt / 0.1;
