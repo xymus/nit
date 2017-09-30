@@ -153,13 +153,39 @@ class Sprite
 	end
 
 	# Rotation on the Z axis, positive values turn counterclockwise
-	var rotation = 0.0 is writable(rotation_direct=)
+	#
+	# Shortcut to `roll`.
+	fun rotation=(v: Float) do roll = v
 
 	# Rotation on the Z axis, positive values turn counterclockwise
-	fun rotation=(value: Float)
+	#
+	# Shortcut to `roll`.
+	fun rotation: Float do return roll
+
+	var pitch = 0.0 is writable(pitch_direct=)
+
+	fun pitch=(value: Float)
 	do
-		if isset _rotation and value != rotation then needs_update
-		rotation_direct = value
+		if isset _pitch and value != pitch then needs_update
+		pitch_direct = value
+	end
+
+	var yaw = 0.0 is writable(yaw_direct=)
+
+	fun yaw=(value: Float)
+	do
+		if isset _yaw and value != yaw then needs_update
+		yaw_direct = value
+	end
+
+	# Rotation on the Z axis, positive values turn counterclockwise
+	var roll = 0.0 is writable(roll_direct=)
+
+	# Rotation on the Z axis, positive values turn counterclockwise
+	fun roll=(value: Float)
+	do
+		if isset _roll and value != roll then needs_update
+		roll_direct = value
 	end
 
 	# Mirror `texture` horizontally, inverting each pixel on the X axis
@@ -1185,11 +1211,11 @@ private class SpriteContext
 
 			# mat4 rotation
 			var rot
-			if sprite.rotation == 0.0 then
+			if sprite.pitch == 0.0 and sprite.yaw == 0.0 and sprite.roll == 0.0 then
 				# Cache the matrix at no rotation
 				rot = once new Matrix.identity(4)
 			else
-				rot = new Matrix.rotation(sprite.rotation, 0.0, 0.0, 1.0)
+				rot = new Matrix.gamnit_euler_rotation(sprite.pitch, sprite.yaw, sprite.roll)
 			end
 			data.fill_from_matrix(rot, o+15)
 
