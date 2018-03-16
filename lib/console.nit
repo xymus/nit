@@ -282,7 +282,9 @@ end
 # Services to color terminal output
 redef class Text
 	private fun apply_format(f: TermCharFormat): String do
-		return "{f}{self}{normal}"
+		if stdout_isatty or force_console_colors then
+			return "{f}{self}{normal}"
+		else return to_s
 	end
 
 	private fun normal: TermCharFormat do return new TermCharFormat
@@ -408,4 +410,13 @@ class TermProgress
 		current_value = new_current
 		display(metadata)
 	end
+end
+
+redef class Sys
+	private var stdout_isatty: Bool = 1.isatty is lazy
+
+	# Force coloring terminal output, even if stdout is not a TTY?
+	#
+	# Defaults to `false`.
+	var force_console_colors = false
 end
