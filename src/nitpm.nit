@@ -19,6 +19,7 @@ import opts
 import prompt
 import ini
 import curl
+import console
 
 import nitpm_shared
 
@@ -47,6 +48,23 @@ abstract class Command
 		print "usage: {usage}"
 		print ""
 		print "  {description}"
+	end
+
+	private fun exec_git(cmd: Text, silence: nullable Bool): Int
+	do
+		silence = silence or else false
+
+		var proc = new ProcessReader("sh", "-c", cmd)
+		while not proc.eof do
+			var line = proc.read_line
+			if not silence then
+				printn "[git] ".yellow
+				print line
+			end
+		end
+		proc.wait
+		proc.close
+		return proc.status
 	end
 end
 
@@ -132,8 +150,11 @@ class CommandInstall
 			end
 
 			if verbose then
-				print "Found a package description:"
-				print ini_path.to_path.read_all
+				print "Found package description for {package_id.decorate}:"
+				for line in ini_path.to_path.read_lines do
+					printn "[ini] ".yellow
+					print line
+				end
 			end
 
 			var ini = new ConfigTree(ini_path)
@@ -178,18 +199,14 @@ class CommandInstall
 			var cmd_branch = ""
 			if version != null then cmd_branch = "--branch '{version}'"
 
-			var cmd = "git clone --depth 1 {cmd_branch} {git_repo.escape_to_sh} {target_dir.escape_to_sh}"
+			var cmd = "git clone --depth 1 {cmd_branch} {git_repo.escape_to_sh} {target_dir.escape_to_sh} 2>&1"
 			if verbose then print "+ {cmd}"
 
-			if "NIT_TESTING".environ == "true" then
-				# Silence git output when testing
-				cmd += " 2> /dev/null"
-			end
+			var silence = "NIT_TESTING".environ == "true"
 
-			var proc = new Process("sh", "-c", cmd)
-			proc.wait
+			var status = exec_git(cmd, silence)
 
-			if proc.status != 0 then
+			if status != 0 then
 				print_error "Install of '{name}' failed"
 				exit 1
 			end
@@ -232,10 +249,9 @@ class CommandUpgrade
 		var cmd = "cd {target_dir.escape_to_sh}; git pull"
 		if verbose then print "+ {cmd}"
 
-		var proc = new Process("sh", "-c", cmd)
-		proc.wait
+		var status = exec_git(cmd)
 
-		if proc.status != 0 then
+		if status != 0 then
 			print_error "Upgrade failed"
 			exit 1
 		end
