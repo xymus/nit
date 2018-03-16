@@ -24,7 +24,7 @@ fun prompt(prompt: Text, add_history: nullable Bool): nullable String
 do
 	printn prompt
 	var res = stdin.read_line
-	if res == "" and stdin.eof then return null
+	if res == "" and stdin.peek_eof then return null
 	return res
 end
 
@@ -32,3 +32,11 @@ end
 #
 # The default implementation is a noop, but other packages can refine it.
 fun prompt_add_history(line: String) do end
+
+redef class Reader
+	private fun peek_eof: Bool do return eof
+end
+
+redef class BufferedReader
+	redef fun peek_eof do return end_reached
+end
