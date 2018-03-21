@@ -142,7 +142,7 @@ class CommandInstall
 
 			assert response isa CurlFileResponseSuccess
 			if response.status_code == 404 then
-				print_error "Package '{package_id}' not found on the server"
+				print_error "{package_id.decorate} not found"
 				exit 1
 			else if response.status_code != 200 then
 				print_error "Server side error: {response.status_code}"
@@ -182,8 +182,10 @@ class CommandInstall
 	do
 		check_git
 
-		var target_dir = nitpm_lib_dir / name
-		if version != null then target_dir += "=" + version
+		var full_name = name
+		if version != null then full_name += "=" + version
+
+		var target_dir = nitpm_lib_dir / full_name
 		if installed.has(target_dir) then
 			# Ignore packages installed in this run
 			return
@@ -193,7 +195,7 @@ class CommandInstall
 		if target_dir.file_exists then
 			# Warn about packages previously installed,
 			# install dependencies anyway in case of a previous error.
-			print_error "Package '{name}' is already installed"
+			print "{full_name.decorate} already installed"
 		else
 			# Actually install it
 			var cmd_branch = ""
@@ -207,8 +209,10 @@ class CommandInstall
 			var status = exec_git(cmd, silence)
 
 			if status != 0 then
-				print_error "Install of '{name}' failed"
+				print_error "Install of {full_name.decorate} failed"
 				exit 1
+			else
+				print "{full_name.decorate} successfully installed"
 			end
 		end
 
@@ -216,6 +220,10 @@ class CommandInstall
 		var ini = new ConfigTree(target_dir/"package.ini")
 		var import_line = ini["package.import"]
 		if import_line != null then
+			var packs = import_line.parse_import
+			var deco_packs = [for p in packs.values do p.dir_name.decorate]
+			print "{full_name.decorate} imports: {deco_packs.join(", ")}"
+
 			install_packages import_line
 		end
 	end
@@ -240,7 +248,7 @@ class CommandUpgrade
 		var target_dir = nitpm_lib_dir / name
 
 		if not target_dir.file_exists or not target_dir.to_path.is_dir then
-			print_error "Package not found"
+			print_error "{name.decorate} not installed"
 			exit 1
 		end
 
@@ -253,6 +261,7 @@ class CommandUpgrade
 
 		if status != 0 then
 			print_error "Upgrade failed"
+			print_error "Upgrade of {name.decorate} failed"
 			exit 1
 		end
 	end
@@ -288,13 +297,13 @@ class CommandUninstall
 				target_dir.length > clean_nitpm_lib_dir.length + 1
 			var valid_name = name.length > 0 and name.chars.first.is_lower
 			if not valid_name or not within_dir then
-				print_error "Package name '{name}' is invalid"
+				print_warning "{name.decorate} is an invalid package name"
 				continue
 			end
 
 			if not target_dir.file_exists or not target_dir.to_path.is_dir then
-				print_error "Package not found"
-				exit 1
+				print_warning "{name.decorate} not installed"
+				continue
 			end
 
 			# Ask confirmation
@@ -312,7 +321,7 @@ class CommandUninstall
 			proc.wait
 
 			if proc.status != 0 then
-				print_error "Uninstall failed"
+				print_error "Uninstall of '{name}' failed"
 				exit 1
 			end
 		end
@@ -350,10 +359,14 @@ class CommandList
 
 		# Print with clear columns
 		for name in sorted_names do
-			var col0 = name.justify(max_name_len+1, 0.0)
-			var col1 = name_to_desc[name] or else ""
-			var line = col0 + col1
-			print line.trim
+
+			var desc = name_to_desc[name]
+			if desc == null then
+				print name.decorate
+			else
+				var col0 = name.justify(max_name_len+1, 0.0)
+				print col0.decorate + desc
+			end
 		end
 	end
 end
@@ -401,6 +414,21 @@ redef class Sys
 	private var command_update = new CommandUpgrade(commands)
 	private var command_uninstall = new CommandUninstall(commands)
 	private var command_help = new CommandHelp(commands)
+end
+
+redef class Text
+	# Decorate a package name
+	private fun decorate: String
+	do
+		var vsep = "="
+		if has(vsep) then
+			var parts = split(vsep)
+			var vstr = vsep + parts.sub(1, parts.length - 1).join(vsep)
+			return parts.first.blue + vstr.purple
+		else
+			return blue
+		end
+	end
 end
 
 redef fun nitpm_lib_dir
