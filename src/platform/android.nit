@@ -152,6 +152,12 @@ class AndroidToolchain
 		# TODO make configurable client-side
 		var compile_sdk_version = app_target_api
 
+		# Change target ABIs depending on the SDK version
+		var abi_filters = "'armeabi', 'armeabi-v7a', 'x86'"
+		if compile_sdk_version >= 21 then
+			abi_filters = "'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'"
+		end
+
 		var local_build_gradle = """
 apply plugin: 'com.android.application'
 
@@ -169,7 +175,7 @@ android {
         versionCode {{{project.version_code}}}
         versionName "{{{app_version}}}"
         ndk {
-            abiFilters 'armeabi', 'armeabi-v7a', 'x86'
+            abiFilters {{{abi_filters}}}
         }
         externalNativeBuild {
             cmake {
