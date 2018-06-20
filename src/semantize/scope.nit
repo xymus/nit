@@ -283,6 +283,18 @@ redef class AVardeclExpr
 	do
 		super
 		var nid = self.n_id
+		if nid == null then
+			var n_expr = n_expr
+			if n_expr isa ACallFormExpr then
+				nid = n_expr.n_qid.n_id
+			else
+				v.error(self, "Error: variables must have an explicit name when not assigned by a property call.")
+				nid = new TId
+				nid.text = "$invalid"
+				nid.location = location
+			end
+		end
+
 		var variable = new Variable(nid.text)
 		v.register_variable(nid, variable)
 		variable.warn_unread = true # wait for some read mark.

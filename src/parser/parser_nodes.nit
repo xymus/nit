@@ -1859,7 +1859,7 @@ class AVardeclExpr
 	var n_kwvar: nullable TKwvar = null is writable
 
 	# The name of the local variable
-	var n_id: TId is writable, noinit
+	var n_id: nullable TId is writable, noinit
 
 	# The declaration type of the local variable
 	var n_type: nullable AType = null is writable

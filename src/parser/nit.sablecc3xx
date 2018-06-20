@@ -473,7 +473,7 @@ label= kwlabel id?;
 
 vardecl{-> expr}
 	= kwvar id annotations? typing_o {-> New expr.vardecl(kwvar, id, typing_o.type, Null, Null, annotations)}
-	| {assign} kwvar id annotations? typing_o assign no expr {-> New expr.vardecl(kwvar, id, typing_o.type, assign, expr.expr, annotations)}
+	| {assign} kwvar id? annotations? typing_o assign no expr {-> New expr.vardecl(kwvar, id, typing_o.type, assign, expr.expr, annotations)}
 	;
 
 assignment~nopar {-> expr}
@@ -970,7 +970,7 @@ type	= kwnullable? [qid]:qclassid obra? [types]:type* cbra? annotations?;
 label = kwlabel id?;
 
 expr	= {block} expr* kwend?
-	| {vardecl} kwvar? id type? assign? expr? annotations?
+	| {vardecl} kwvar? id? type? assign? expr? annotations?
 	| {return} kwreturn? expr?
 	| {yield} kwyield expr
 	| {break} kwbreak label?

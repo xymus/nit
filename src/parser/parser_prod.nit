@@ -2655,8 +2655,8 @@ redef class AVardeclExpr
 	do
 		_n_kwvar = n_kwvar
 		if n_kwvar != null then n_kwvar.parent = self
-		_n_id = n_id.as(not null)
-		n_id.parent = self
+		_n_id = n_id
+		if n_id != null then n_id.parent = self
 		_n_type = n_type
 		if n_type != null then n_type.parent = self
 		_n_assign = n_assign
@@ -2674,7 +2674,7 @@ redef class AVardeclExpr
 			return
 		end
 		if _n_id == old_child then
-			n_id = new_child.as(TId)
+			n_id = new_child.as(nullable TId)
 			return
 		end
 		if _n_type == old_child then
@@ -2703,7 +2703,7 @@ redef class AVardeclExpr
 	redef fun n_id=(node)
 	do
 		_n_id = node
-		node.parent = self
+		if node != null then node.parent = self
 	end
 	redef fun n_type=(node)
 	do

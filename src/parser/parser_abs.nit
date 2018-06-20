@@ -698,7 +698,7 @@ end
 class AVardeclExpr
 	super AExpr
 	var n_kwvar: nullable TKwvar = null is writable
-	var n_id: TId is writable, noinit
+	var n_id: nullable TId = null is writable
 	var n_type: nullable AType = null is writable
 	var n_assign: nullable TAssign = null is writable
 	var n_expr: nullable AExpr = null is writable
