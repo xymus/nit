@@ -88,6 +88,23 @@ in "ObjC" `{
 		}
 	}
 @end
+
+// Objective-C object receiving callbacks from UI events
+@interface NitCallbackReference2: NSObject
+
+	// Nit object target of the callbacks from UI events
+	@property (nonatomic) View nit_view;
+
+	// Actual callback method
+	-(void) nitOnEvent: (UIView*) sender;
+@end
+
+@implementation NitCallbackReference2
+
+	-(void) nitOnEvent: (UIView*) sender {
+		View_on_ios_event(self.nit_view);
+	}
+@end
 `}
 
 redef class App
@@ -625,5 +642,154 @@ redef class NSString
 	in "ObjC" `{
 		NSURL *nsurl = [NSURL URLWithString: self];
 		[[UIApplication sharedApplication] openURL: nsurl];
+	`}
+end
+
+redef class Slider
+
+	redef type NATIVE: UISlider
+	redef var native = new UISlider
+
+	init
+	do
+		native.continuous = true
+		native.set_callback self
+	end
+
+	redef fun value do return native.value.to_i
+	redef fun value=(value) do native.value = value.to_f
+
+	redef fun max do return native.maximum_value.to_i
+	redef fun max=(value) do native.maximum_value = value.to_f
+
+	redef fun on_ios_event do notify_observers new SliderEvent(self)
+end
+
+private extern class UISlider in "ObjC" `{ UISlider * `}
+	super UIControl
+
+	new in "ObjC" `{ return [[UISlider alloc] init]; `}
+
+	fun value: Float in "ObjC" `{ return self.value; `}
+	fun value=(value: Float) in "ObjC" `{ self.value = value; `}
+
+	fun minimum_value: Float in "ObjC" `{ return self.minimumValue; `}
+	fun minimum_value=(value: Float) in "ObjC" `{ self.minimumValue = value; `}
+
+	fun maximum_value: Float in "ObjC" `{ return self.maximumValue; `}
+	fun maximum_value=(value: Float) in "ObjC" `{ self.maximumValue = value; `}
+
+	fun continuous: Bool in "ObjC" `{ return self.continuous; `}
+	fun continuous=(value: Bool) in "ObjC" `{ self.continuous = value; `}
+
+	# Register callbacks on this button to be relayed to `sender`
+	fun set_callback(sender: View)
+	import View.on_ios_event in "ObjC" `{
+
+		NitCallbackReference2 *ncr = [[NitCallbackReference2 alloc] init];
+		ncr.nit_view = sender;
+
+		// Pin the objects in both Objective-C and Nit GC
+		View_incr_ref(sender);
+		ncr = (__bridge NitCallbackReference2*)CFBridgingRetain(ncr);
+
+		[self addTarget:ncr action:@selector(nitOnEvent:)
+			forControlEvents:UIControlEventValueChanged];
+	`}
+end
+
+redef class ComboBox
+	super Button
+
+	# Title text for the selection window
+	fun text_title: String do return "Combo"
+
+	# Cancel button label text
+	fun text_cancel: String do return "Cancel"
+
+	init
+	do
+		text = choice
+		native.title_label.size = ios_points(1.0)
+	end
+
+	redef fun choice_index=(choice_index)
+	do
+		if choice_index == items.length then
+			# Cancel
+			return
+		end
+
+		super
+		text = choice
+	end
+
+	redef fun on_ios_event
+	do
+		var title = text_title.to_nsstring
+		var cancel = text_cancel.to_nsstring
+
+		var alert = new UIAlertController(title)
+		for item in items do
+			var ns_item = item.to_nsstring
+			alert.add(self, ns_item, 0)
+			ns_item.release
+		end
+		alert.add(self, cancel, 1)
+		alert.show(app.window.native, native)
+
+		title.release
+		cancel.release
+	end
+
+	private fun on_item_click(position: Int)
+	do
+		choice_index = position
+		notify_observers new ComboEvent(self)
+	end
+
+	redef fun remove(item)
+	do
+		super
+		if choice == item then
+			choice = items.first
+			text = choice
+		end
+	end
+end
+
+private extern class UIAlertController in "ObjC" `{ UIAlertController * `}
+	super UIViewController
+
+	new (title: NSString) in "ObjC" `{
+		return [UIAlertController alertControllerWithTitle:title
+			message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+			//UIAlertControllerStyleAlert
+	`}
+
+	# Add an option
+	#
+	# Set `style` to: default 0, cancel 1, destructive 2
+	fun add(sender: ComboBox, title: NSString, style: Int) import ComboBox.on_item_click in "ObjC" `{
+		ComboBox_incr_ref(sender);
+
+		long index = self.actions.count;
+
+		UIAlertAction* act = [UIAlertAction
+			actionWithTitle:title
+			style:(UIAlertActionStyle)style
+			handler:^(UIAlertAction * action) {ComboBox_on_item_click(sender, index);}];
+		[self addAction: act];
+	`}
+
+	fun show(controller: UIViewController, native_sender: UIButton) in "ObjC" `{
+
+		[self setModalPresentationStyle:UIModalPresentationPopover];
+
+		UIPopoverPresentationController *pop = [self popoverPresentationController];
+		pop.sourceView = native_sender;
+		pop.sourceRect = native_sender.bounds;
+
+		[controller presentViewController:self animated:YES completion:nil];
 	`}
 end

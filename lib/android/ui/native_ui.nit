@@ -1075,3 +1075,655 @@ extern class Android_widget_CheckBox in "Java" `{ android.widget.CheckBox `}
 		return (*jni_env)->PopLocalFrame(jni_env, self);
 	`}
 end
+
+# Java class: android.widget.ProgressBar
+extern class Android_widget_ProgressBar in "Java" `{ android.widget.ProgressBar `}
+	super NativeView
+
+	# Java implementation: boolean android.widget.ProgressBar.isIndeterminate()
+	fun is_indeterminate: Bool in "Java" `{
+		return self.isIndeterminate();
+	`}
+
+	# Java implementation:  android.widget.ProgressBar.setIndeterminate(boolean)
+	fun set_indeterminate(arg0: Bool) in "Java" `{
+		self.setIndeterminate(arg0);
+	`}
+
+#	# Java implementation: android.graphics.drawable.Drawable android.widget.ProgressBar.getIndeterminateDrawable()
+#	fun get_indeterminate_drawable: Android_graphics_drawable_Drawable in "Java" `{
+#		return self.getIndeterminateDrawable();
+#	`}
+#
+#	# Java implementation:  android.widget.ProgressBar.setIndeterminateDrawable(android.graphics.drawable.Drawable)
+#	fun set_indeterminate_drawable(arg0: Android_graphics_drawable_Drawable) in "Java" `{
+#		self.setIndeterminateDrawable(arg0);
+#	`}
+#
+#	# Java implementation: android.graphics.drawable.Drawable android.widget.ProgressBar.getProgressDrawable()
+#	fun get_progress_drawable: Android_graphics_drawable_Drawable in "Java" `{
+#		return self.getProgressDrawable();
+#	`}
+#
+#	# Java implementation:  android.widget.ProgressBar.setProgressDrawable(android.graphics.drawable.Drawable)
+#	fun set_progress_drawable(arg0: Android_graphics_drawable_Drawable) in "Java" `{
+#		self.setProgressDrawable(arg0);
+#	`}
+
+	# Java implementation:  android.widget.ProgressBar.setProgress(int)
+	fun set_progress(arg0: Int) in "Java" `{
+		self.setProgress((int)arg0);
+	`}
+
+	# Java implementation:  android.widget.ProgressBar.setSecondaryProgress(int)
+	fun set_secondary_progress(arg0: Int) in "Java" `{
+		self.setSecondaryProgress((int)arg0);
+	`}
+
+	# Java implementation: int android.widget.ProgressBar.getProgress()
+	fun get_progress: Int in "Java" `{
+		return self.getProgress();
+	`}
+
+	# Java implementation: int android.widget.ProgressBar.getSecondaryProgress()
+	fun get_secondary_progress: Int in "Java" `{
+		return self.getSecondaryProgress();
+	`}
+
+	# Java implementation: int android.widget.ProgressBar.getMax()
+	fun get_max: Int in "Java" `{
+		return self.getMax();
+	`}
+
+	# Java implementation:  android.widget.ProgressBar.setMax(int)
+	fun set_max(arg0: Int) in "Java" `{
+		self.setMax((int)arg0);
+	`}
+
+	# Java implementation:  android.widget.ProgressBar.incrementProgressBy(int)
+	fun increment_progress_by(arg0: Int) in "Java" `{
+		self.incrementProgressBy((int)arg0);
+	`}
+
+	# Java implementation:  android.widget.ProgressBar.incrementSecondaryProgressBy(int)
+	fun increment_secondary_progress_by(arg0: Int) in "Java" `{
+		self.incrementSecondaryProgressBy((int)arg0);
+	`}
+
+	# Java implementation:  android.widget.ProgressBar.setInterpolator(android.content.Context, int)
+#	fun set_interpolator_Context_int(arg0: NativeContext, arg1: Int) in "Java" `{
+#		self.setInterpolator(arg0, (int)arg1);
+#	`}
+#
+#	# Java implementation:  android.widget.ProgressBar.setInterpolator(android.view.animation.Interpolator)
+#	fun set_interpolator_Interpolator(arg0: Android_view_animation_Interpolator) in "Java" `{
+#		self.setInterpolator(arg0);
+#	`}
+#
+#	# Java implementation: android.view.animation.Interpolator android.widget.ProgressBar.getInterpolator()
+#	fun get_interpolator: Android_view_animation_Interpolator in "Java" `{
+#		return self.getInterpolator();
+#	`}
+#
+#	# Java implementation: android.os.Parcelable android.widget.ProgressBar.onSaveInstanceState()
+#	fun on_save_instance_state: Android_os_Parcelable in "Java" `{
+#		return self.onSaveInstanceState();
+#	`}
+#
+#	# Java implementation:  android.widget.ProgressBar.onRestoreInstanceState(android.os.Parcelable)
+#	fun on_restore_instance_state(arg0: Android_os_Parcelable) in "Java" `{
+#		self.onRestoreInstanceState(arg0);
+#	`}
+#
+#	# Java constructor: android.widget.ProgressBar
+#	new from_Context(a: NativeContext) in "Java" `{
+#		return new android.widget.ProgressBar(a);
+#	`}
+#
+#	# Java constructor: android.widget.ProgressBar
+#	new from_Context_AttributeSet(a: NativeContext, b: Android_util_AttributeSet) in "Java" `{
+#		return new android.widget.ProgressBar(a, b);
+#	`}
+#
+#	# Java constructor: android.widget.ProgressBar
+#	new from_Context_AttributeSet_int(a: NativeContext, b: Android_util_AttributeSet, c: Int) in "Java" `{
+#		return new android.widget.ProgressBar(a, b, (int)c);
+#	`}
+
+	redef fun new_global_ref import sys, Sys.jni_env `{
+		Sys sys = Android_widget_ProgressBar_sys(self);
+		JNIEnv *env = Sys_jni_env(sys);
+		return (*env)->NewGlobalRef(env, self);
+	`}
+
+	redef fun pop_from_local_frame_with_env(jni_env) `{
+		return (*jni_env)->PopLocalFrame(jni_env, self);
+	`}
+end
+
+# Java class: android.widget.AbsSeekBar
+extern class Android_widget_AbsSeekBar in "Java" `{ android.widget.AbsSeekBar `}
+	super Android_widget_ProgressBar
+
+	# Java implementation:  android.widget.AbsSeekBar.setThumb(android.graphics.drawable.Drawable)
+#	fun set_thumb(arg0: Android_graphics_drawable_Drawable) in "Java" `{
+#		self.setThumb(arg0);
+#	`}
+
+	# Java implementation: int android.widget.AbsSeekBar.getThumbOffset()
+	fun get_thumb_offset: Int in "Java" `{
+		return self.getThumbOffset();
+	`}
+
+	# Java implementation:  android.widget.AbsSeekBar.setThumbOffset(int)
+	fun set_thumb_offset(arg0: Int) in "Java" `{
+		self.setThumbOffset((int)arg0);
+	`}
+
+	# Java implementation:  android.widget.AbsSeekBar.setKeyProgressIncrement(int)
+	fun set_key_progress_increment(arg0: Int) in "Java" `{
+		self.setKeyProgressIncrement((int)arg0);
+	`}
+
+	# Java implementation: int android.widget.AbsSeekBar.getKeyProgressIncrement()
+	fun get_key_progress_increment: Int in "Java" `{
+		return self.getKeyProgressIncrement();
+	`}
+
+	redef fun new_global_ref import sys, Sys.jni_env `{
+		Sys sys = Android_widget_AbsSeekBar_sys(self);
+		JNIEnv *env = Sys_jni_env(sys);
+		return (*env)->NewGlobalRef(env, self);
+	`}
+
+	redef fun pop_from_local_frame_with_env(jni_env) `{
+		return (*jni_env)->PopLocalFrame(jni_env, self);
+	`}
+end
+
+# Java class: android.widget.SeekBar
+extern class Android_widget_SeekBar in "Java" `{ android.widget.SeekBar `}
+	super Android_widget_AbsSeekBar
+
+#	# Java implementation:  android.widget.SeekBar.setOnSeekBarChangeListener(android.widget.SeekBar.OnSeekBarChangeListener)
+#	fun set_on_seek_bar_change_listener(arg0: Android_widget_SeekBar_OnSeekBarChangeListener) in "Java" `{
+#		self.setOnSeekBarChangeListener(arg0);
+#	`}
+
+	# Java constructor: android.widget.SeekBar
+	new (a: NativeContext) in "Java" `{
+		return new android.widget.SeekBar(a);
+	`}
+
+#	# Java constructor: android.widget.SeekBar
+#	new from_Context_AttributeSet(a: NativeContext, b: Android_util_AttributeSet) in "Java" `{
+#		return new android.widget.SeekBar(a, b);
+#	`}
+
+#	# Java constructor: android.widget.SeekBar
+#	new from_Context_AttributeSet_int(a: NativeContext, b: Android_util_AttributeSet, c: Int) in "Java" `{
+#		return new android.widget.SeekBar(a, b, (int)c);
+#	`}
+
+	redef fun new_global_ref import sys, Sys.jni_env `{
+		Sys sys = Android_widget_SeekBar_sys(self);
+		JNIEnv *env = Sys_jni_env(sys);
+		return (*env)->NewGlobalRef(env, self);
+	`}
+
+	redef fun pop_from_local_frame_with_env(jni_env) `{
+		return (*jni_env)->PopLocalFrame(jni_env, self);
+	`}
+end
+
+# Java class: android.widget.AutoCompleteTextView
+extern class Android_widget_AutoCompleteTextView in "Java" `{ android.widget.AutoCompleteTextView `}
+	super NativeEditText
+	#super Android_widget_Filter_FilterListener
+
+	# Java implementation:  android.widget.AutoCompleteTextView.setCompletionHint(java.lang.CharSequence)
+#	fun set_completion_hint(arg0: Java_lang_CharSequence) in "Java" `{
+#		self.setCompletionHint(arg0);
+#	`}
+
+	# Java implementation: int android.widget.AutoCompleteTextView.getDropDownWidth()
+	fun get_drop_down_width: Int in "Java" `{
+		return self.getDropDownWidth();
+	`}
+
+	# Java implementation:  android.widget.AutoCompleteTextView.setDropDownWidth(int)
+	fun set_drop_down_width(arg0: Int) in "Java" `{
+		self.setDropDownWidth((int)arg0);
+	`}
+
+	# Java implementation: int android.widget.AutoCompleteTextView.getDropDownHeight()
+	fun get_drop_down_height: Int in "Java" `{
+		return self.getDropDownHeight();
+	`}
+
+	# Java implementation:  android.widget.AutoCompleteTextView.setDropDownHeight(int)
+	fun set_drop_down_height(arg0: Int) in "Java" `{
+		self.setDropDownHeight((int)arg0);
+	`}
+
+	# Java implementation: int android.widget.AutoCompleteTextView.getDropDownAnchor()
+	fun get_drop_down_anchor: Int in "Java" `{
+		return self.getDropDownAnchor();
+	`}
+
+	# Java implementation:  android.widget.AutoCompleteTextView.setDropDownAnchor(int)
+	fun set_drop_down_anchor(arg0: Int) in "Java" `{
+		self.setDropDownAnchor((int)arg0);
+	`}
+
+	# Java implementation: android.graphics.drawable.Drawable android.widget.AutoCompleteTextView.getDropDownBackground()
+#	fun get_drop_down_background: Android_graphics_drawable_Drawable in "Java" `{
+#		return self.getDropDownBackground();
+#	`}
+#
+#	# Java implementation:  android.widget.AutoCompleteTextView.setDropDownBackgroundDrawable(android.graphics.drawable.Drawable)
+#	fun set_drop_down_background_drawable(arg0: Android_graphics_drawable_Drawable) in "Java" `{
+#		self.setDropDownBackgroundDrawable(arg0);
+#	`}
+
+	# Java implementation:  android.widget.AutoCompleteTextView.setDropDownBackgroundResource(int)
+	fun set_drop_down_background_resource(arg0: Int) in "Java" `{
+		self.setDropDownBackgroundResource((int)arg0);
+	`}
+
+	# Java implementation:  android.widget.AutoCompleteTextView.setDropDownVerticalOffset(int)
+	fun set_drop_down_vertical_offset(arg0: Int) in "Java" `{
+		self.setDropDownVerticalOffset((int)arg0);
+	`}
+
+	# Java implementation: int android.widget.AutoCompleteTextView.getDropDownVerticalOffset()
+	fun get_drop_down_vertical_offset: Int in "Java" `{
+		return self.getDropDownVerticalOffset();
+	`}
+
+	# Java implementation:  android.widget.AutoCompleteTextView.setDropDownHorizontalOffset(int)
+	fun set_drop_down_horizontal_offset(arg0: Int) in "Java" `{
+		self.setDropDownHorizontalOffset((int)arg0);
+	`}
+
+	# Java implementation: int android.widget.AutoCompleteTextView.getDropDownHorizontalOffset()
+	fun get_drop_down_horizontal_offset: Int in "Java" `{
+		return self.getDropDownHorizontalOffset();
+	`}
+
+	# Java implementation: int android.widget.AutoCompleteTextView.getThreshold()
+	fun get_threshold: Int in "Java" `{
+		return self.getThreshold();
+	`}
+
+	# Java implementation:  android.widget.AutoCompleteTextView.setThreshold(int)
+	fun set_threshold(arg0: Int) in "Java" `{
+		self.setThreshold((int)arg0);
+	`}
+
+#	# Java implementation:  android.widget.AutoCompleteTextView.setOnItemClickListener(android.widget.AdapterView.OnItemClickListener)
+#	fun set_on_item_click_listener(arg0: Android_widget_AdapterView_OnItemClickListener) in "Java" `{
+#		self.setOnItemClickListener(arg0);
+#	`}
+#
+#	# Java implementation:  android.widget.AutoCompleteTextView.setOnItemSelectedListener(android.widget.AdapterView.OnItemSelectedListener)
+#	fun set_on_item_selected_listener(arg0: Android_widget_AdapterView_OnItemSelectedListener) in "Java" `{
+#		self.setOnItemSelectedListener(arg0);
+#	`}
+#
+#	# Java implementation: android.widget.AdapterView.OnItemClickListener android.widget.AutoCompleteTextView.getItemClickListener()
+#	fun get_item_click_listener: Android_widget_AdapterView_OnItemClickListener in "Java" `{
+#		return self.getItemClickListener();
+#	`}
+#
+#	# Java implementation: android.widget.AdapterView.OnItemSelectedListener android.widget.AutoCompleteTextView.getItemSelectedListener()
+#	fun get_item_selected_listener: Android_widget_AdapterView_OnItemSelectedListener in "Java" `{
+#		return self.getItemSelectedListener();
+#	`}
+#
+#	# Java implementation: android.widget.AdapterView.OnItemClickListener android.widget.AutoCompleteTextView.getOnItemClickListener()
+#	fun get_on_item_click_listener: Android_widget_AdapterView_OnItemClickListener in "Java" `{
+#		return self.getOnItemClickListener();
+#	`}
+#
+#	# Java implementation: android.widget.AdapterView.OnItemSelectedListener android.widget.AutoCompleteTextView.getOnItemSelectedListener()
+#	fun get_on_item_selected_listener: Android_widget_AdapterView_OnItemSelectedListener in "Java" `{
+#		return self.getOnItemSelectedListener();
+#	`}
+
+	# Java implementation: android.widget.ListAdapter android.widget.AutoCompleteTextView.getAdapter()
+	fun get_adapter: Android_widget_ListAdapter in "Java" `{
+		return self.getAdapter();
+	`}
+
+#	# Java implementation:  android.widget.AutoCompleteTextView.setAdapter(java.lang.Object)
+#	fun set_adapter(arg0: JavaObject) in "Java" `{
+#		self.setAdapter(arg0);
+#	`}
+
+	# Java implementation: boolean android.widget.AutoCompleteTextView.enoughToFilter()
+	fun enough_to_filter: Bool in "Java" `{
+		return self.enoughToFilter();
+	`}
+
+	# Java implementation: boolean android.widget.AutoCompleteTextView.isPopupShowing()
+	fun is_popup_showing: Bool in "Java" `{
+		return self.isPopupShowing();
+	`}
+
+	# Java implementation:  android.widget.AutoCompleteTextView.clearListSelection()
+	fun clear_list_selection in "Java" `{
+		self.clearListSelection();
+	`}
+
+	# Java implementation:  android.widget.AutoCompleteTextView.setListSelection(int)
+	fun set_list_selection(arg0: Int) in "Java" `{
+		self.setListSelection((int)arg0);
+	`}
+
+	# Java implementation: int android.widget.AutoCompleteTextView.getListSelection()
+	fun get_list_selection: Int in "Java" `{
+		return self.getListSelection();
+	`}
+
+	# Java implementation:  android.widget.AutoCompleteTextView.performCompletion()
+	fun perform_completion in "Java" `{
+		self.performCompletion();
+	`}
+
+	# Java implementation: boolean android.widget.AutoCompleteTextView.isPerformingCompletion()
+	fun is_performing_completion: Bool in "Java" `{
+		return self.isPerformingCompletion();
+	`}
+
+	# Java implementation:  android.widget.AutoCompleteTextView.dismissDropDown()
+	fun dismiss_drop_down in "Java" `{
+		self.dismissDropDown();
+	`}
+
+	# Java implementation:  android.widget.AutoCompleteTextView.showDropDown()
+	fun show_drop_down in "Java" `{
+		self.showDropDown();
+	`}
+
+#	# Java implementation:  android.widget.AutoCompleteTextView.setValidator(android.widget.AutoCompleteTextView.Validator)
+#	fun set_validator(arg0: Android_widget_AutoCompleteTextView_Validator) in "Java" `{
+#		self.setValidator(arg0);
+#	`}
+#
+#	# Java implementation: android.widget.AutoCompleteTextView.Validator android.widget.AutoCompleteTextView.getValidator()
+#	fun get_validator: Android_widget_AutoCompleteTextView_Validator in "Java" `{
+#		return self.getValidator();
+#	`}
+
+	# Java implementation:  android.widget.AutoCompleteTextView.performValidation()
+	fun perform_validation in "Java" `{
+		self.performValidation();
+	`}
+
+#	# Java constructor: android.widget.AutoCompleteTextView
+#	new from_Context(a: Android_content_Context) in "Java" `{
+#		return new android.widget.AutoCompleteTextView(a);
+#	`}
+#
+#	# Java constructor: android.widget.AutoCompleteTextView
+#	new from_Context_AttributeSet(a: Android_content_Context, b: Android_util_AttributeSet) in "Java" `{
+#		return new android.widget.AutoCompleteTextView(a, b);
+#	`}
+#
+#	# Java constructor: android.widget.AutoCompleteTextView
+#	new from_Context_AttributeSet_int(a: Android_content_Context, b: Android_util_AttributeSet, c: Int) in "Java" `{
+#		return new android.widget.AutoCompleteTextView(a, b, (int)c);
+#	`}
+
+	redef fun new_global_ref import sys, Sys.jni_env `{
+		Sys sys = Android_widget_AutoCompleteTextView_sys(self);
+		JNIEnv *env = Sys_jni_env(sys);
+		return (*env)->NewGlobalRef(env, self);
+	`}
+
+	redef fun pop_from_local_frame_with_env(jni_env) `{
+		return (*jni_env)->PopLocalFrame(jni_env, self);
+	`}
+end
+
+# Java class: android.widget.AdapterView
+extern class Android_widget_AdapterView in "Java" `{ android.widget.AdapterView `}
+	super NativeViewGroup
+
+#	# Java implementation:  android.widget.AdapterView.setOnItemClickListener(android.widget.AdapterView.OnItemClickListener)
+#	fun set_on_item_click_listener(arg0: Android_widget_AdapterView_OnItemClickListener) in "Java" `{
+#		self.setOnItemClickListener(arg0);
+#	`}
+#
+#	# Java implementation: android.widget.AdapterView.OnItemClickListener android.widget.AdapterView.getOnItemClickListener()
+#	fun get_on_item_click_listener: Android_widget_AdapterView_OnItemClickListener in "Java" `{
+#		return self.getOnItemClickListener();
+#	`}
+#
+#	# Java implementation: boolean android.widget.AdapterView.performItemClick(android.view.View, int, long)
+#	fun perform_item_click(arg0: Android_view_View, arg1: Int, arg2: Int): Bool in "Java" `{
+#		return self.performItemClick(arg0, (int)arg1, arg2);
+#	`}
+#
+#	# Java implementation:  android.widget.AdapterView.setOnItemLongClickListener(android.widget.AdapterView.OnItemLongClickListener)
+#	fun set_on_item_long_click_listener(arg0: Android_widget_AdapterView_OnItemLongClickListener) in "Java" `{
+#		self.setOnItemLongClickListener(arg0);
+#	`}
+#
+#	# Java implementation: android.widget.AdapterView.OnItemLongClickListener android.widget.AdapterView.getOnItemLongClickListener()
+#	fun get_on_item_long_click_listener: Android_widget_AdapterView_OnItemLongClickListener in "Java" `{
+#		return self.getOnItemLongClickListener();
+#	`}
+#
+#	# Java implementation:  android.widget.AdapterView.setOnItemSelectedListener(android.widget.AdapterView.OnItemSelectedListener)
+#	fun set_on_item_selected_listener(arg0: Android_widget_AdapterView_OnItemSelectedListener) in "Java" `{
+#		self.setOnItemSelectedListener(arg0);
+#	`}
+#
+#	# Java implementation: android.widget.AdapterView.OnItemSelectedListener android.widget.AdapterView.getOnItemSelectedListener()
+#	fun get_on_item_selected_listener: Android_widget_AdapterView_OnItemSelectedListener in "Java" `{
+#		return self.getOnItemSelectedListener();
+#	`}
+#
+#	# Java implementation: java.lang.Object android.widget.AdapterView.getAdapter()
+#	fun get_adapter: JavaObject in "Java" `{
+#		return self.getAdapter();
+#	`}
+#
+#	# Java implementation:  android.widget.AdapterView.setAdapter(java.lang.Object)
+#	fun set_adapter(arg0: JavaObject) in "Java" `{
+#		self.setAdapter(arg0);
+#	`}
+
+	# Java implementation: int android.widget.AdapterView.getSelectedItemPosition()
+	fun get_selected_item_position: Int in "Java" `{
+		return self.getSelectedItemPosition();
+	`}
+
+	# Java implementation: long android.widget.AdapterView.getSelectedItemId()
+	fun get_selected_item_id: Int in "Java" `{
+		return self.getSelectedItemId();
+	`}
+
+#	# Java implementation: android.view.View android.widget.AdapterView.getSelectedView()
+#	fun get_selected_view: Android_view_View in "Java" `{
+#		return self.getSelectedView();
+#	`}
+
+	# Java implementation: java.lang.Object android.widget.AdapterView.getSelectedItem()
+	fun get_selected_item: JavaObject in "Java" `{
+		return self.getSelectedItem();
+	`}
+
+	# Java implementation: int android.widget.AdapterView.getCount()
+	fun get_count: Int in "Java" `{
+		return self.getCount();
+	`}
+
+#	# Java implementation: int android.widget.AdapterView.getPositionForView(android.view.View)
+#	fun get_position_for_view(arg0: Android_view_View): Int in "Java" `{
+#		return self.getPositionForView(arg0);
+#	`}
+
+	# Java implementation: int android.widget.AdapterView.getFirstVisiblePosition()
+	fun get_first_visible_position: Int in "Java" `{
+		return self.getFirstVisiblePosition();
+	`}
+
+	# Java implementation: int android.widget.AdapterView.getLastVisiblePosition()
+	fun get_last_visible_position: Int in "Java" `{
+		return self.getLastVisiblePosition();
+	`}
+
+	# Java implementation:  android.widget.AdapterView.setSelection(int)
+	fun set_selection(arg0: Int) in "Java" `{
+		self.setSelection((int)arg0);
+	`}
+
+#	# Java implementation:  android.widget.AdapterView.setEmptyView(android.view.View)
+#	fun set_empty_view(arg0: Android_view_View) in "Java" `{
+#		self.setEmptyView(arg0);
+#	`}
+#
+#	# Java implementation: android.view.View android.widget.AdapterView.getEmptyView()
+#	fun get_empty_view: Android_view_View in "Java" `{
+#		return self.getEmptyView();
+#	`}
+#
+#	# Java implementation: java.lang.Object android.widget.AdapterView.getItemAtPosition(int)
+#	fun get_item_at_position(arg0: Int): JavaObject in "Java" `{
+#		return self.getItemAtPosition((int)arg0);
+#	`}
+
+	# Java implementation: long android.widget.AdapterView.getItemIdAtPosition(int)
+	fun get_item_id_at_position(arg0: Int): Int in "Java" `{
+		return self.getItemIdAtPosition((int)arg0);
+	`}
+
+	redef fun new_global_ref import sys, Sys.jni_env `{
+		Sys sys = Android_widget_AdapterView_sys(self);
+		JNIEnv *env = Sys_jni_env(sys);
+		return (*env)->NewGlobalRef(env, self);
+	`}
+
+	redef fun pop_from_local_frame_with_env(jni_env) `{
+		return (*jni_env)->PopLocalFrame(jni_env, self);
+	`}
+end
+
+# Java getter: android.widget.AdapterView.ITEM_VIEW_TYPE_IGNORE
+fun android_widget_adapter_view_item_view_type_ignore: Int in "Java" `{
+	return android.widget.AdapterView.ITEM_VIEW_TYPE_IGNORE;
+`}
+
+# Java getter: android.widget.AdapterView.ITEM_VIEW_TYPE_HEADER_OR_FOOTER
+fun android_widget_adapter_view_item_view_type_header_or_footer: Int in "Java" `{
+	return android.widget.AdapterView.ITEM_VIEW_TYPE_HEADER_OR_FOOTER;
+`}
+
+# Java getter: android.widget.AdapterView.INVALID_POSITION
+fun android_widget_adapter_view_invalid_position: Int in "Java" `{
+	return android.widget.AdapterView.INVALID_POSITION;
+`}
+
+# Java getter: android.widget.AdapterView.INVALID_ROW_ID
+fun android_widget_adapter_view_invalid_row_id: Int in "Java" `{
+	return android.widget.AdapterView.INVALID_ROW_ID;
+`}
+
+# Java class: android.widget.AbsSpinner
+extern class Android_widget_AbsSpinner in "Java" `{ android.widget.AbsSpinner `}
+	super Android_widget_AdapterView
+
+#	# Java implementation:  android.widget.AbsSpinner.setAdapter(android.widget.SpinnerAdapter)
+#	fun set_adapter_SpinnerAdapter(arg0: Android_widget_SpinnerAdapter) in "Java" `{
+#		self.setAdapter(arg0);
+#	`}
+
+	# Java implementation:  android.widget.AbsSpinner.setAdapter(android.widget.Adapter)
+	fun set_adapter(arg0: Android_widget_SpinnerAdapter) in "Java" `{
+		self.setAdapter(arg0);
+	`}
+
+	# Java implementation:  android.widget.AbsSpinner.setSelection(int, boolean)
+	fun set_selection_int_boolean(arg0: Int, arg1: Bool) in "Java" `{
+		self.setSelection((int)arg0, arg1);
+	`}
+
+	# Java implementation: int android.widget.AbsSpinner.pointToPosition(int, int)
+	fun point_to_position(arg0: Int, arg1: Int): Int in "Java" `{
+		return self.pointToPosition((int)arg0, (int)arg1);
+	`}
+
+#	# Java implementation: android.os.Parcelable android.widget.AbsSpinner.onSaveInstanceState()
+#	fun on_save_instance_state: Android_os_Parcelable in "Java" `{
+#		return self.onSaveInstanceState();
+#	`}
+#
+#	# Java implementation:  android.widget.AbsSpinner.onRestoreInstanceState(android.os.Parcelable)
+#	fun on_restore_instance_state(arg0: Android_os_Parcelable) in "Java" `{
+#		self.onRestoreInstanceState(arg0);
+#	`}
+
+	redef fun new_global_ref import sys, Sys.jni_env `{
+		Sys sys = Android_widget_AbsSpinner_sys(self);
+		JNIEnv *env = Sys_jni_env(sys);
+		return (*env)->NewGlobalRef(env, self);
+	`}
+
+	redef fun pop_from_local_frame_with_env(jni_env) `{
+		return (*jni_env)->PopLocalFrame(jni_env, self);
+	`}
+end
+
+# Java class: android.widget.Spinner
+extern class Android_widget_Spinner in "Java" `{ android.widget.Spinner `}
+	super Android_widget_AbsSpinner
+	#super Android_content_DialogInterface_OnClickListener
+
+	# Java implementation:  android.widget.Spinner.setPrompt(java.lang.CharSequence)
+	fun set_prompt(arg0: JavaString) in "Java" `{
+		self.setPrompt(arg0);
+	`}
+
+	# Java implementation:  android.widget.Spinner.setPromptId(int)
+	fun set_prompt_id(arg0: Int) in "Java" `{
+		self.setPromptId((int)arg0);
+	`}
+
+#	# Java implementation: java.lang.CharSequence android.widget.Spinner.getPrompt()
+#	fun get_prompt: Java_lang_CharSequence in "Java" `{
+#		return self.getPrompt();
+#	`}
+
+	# Java constructor: android.widget.Spinner
+	new (a: NativeContext) in "Java" `{
+		return new android.widget.Spinner(a);
+	`}
+
+#	# Java constructor: android.widget.Spinner
+#	new from_Context_AttributeSet(a: Android_content_Context, b: Android_util_AttributeSet) in "Java" `{
+#		return new android.widget.Spinner(a, b);
+#	`}
+#
+#	# Java constructor: android.widget.Spinner
+#	new from_Context_AttributeSet_int(a: Android_content_Context, b: Android_util_AttributeSet, c: Int) in "Java" `{
+#		return new android.widget.Spinner(a, b, (int)c);
+#	`}
+
+	redef fun new_global_ref import sys, Sys.jni_env `{
+		Sys sys = Android_widget_Spinner_sys(self);
+		JNIEnv *env = Sys_jni_env(sys);
+		return (*env)->NewGlobalRef(env, self);
+	`}
+
+	redef fun pop_from_local_frame_with_env(jni_env) `{
+		return (*jni_env)->PopLocalFrame(jni_env, self);
+	`}
+end
+
+# Java static field: android.R.layout.simple_dropdown_item_1line
+fun android_r_layout_simple_dropdown_item_1line: Int in "Java" `{
+	return android.R.layout.simple_dropdown_item_1line;
+`}

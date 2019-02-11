@@ -345,3 +345,79 @@ end
 redef class Text
 	redef fun open_in_browser do system("xdg-open '{self.escape_to_sh}' &")
 end
+
+redef class Slider
+
+	redef type NATIVE: GtkScale
+	redef var native = new GtkScale.with_range(new GtkOrientation.horizontal, 0.0, 100.0, 1.0)
+
+	init
+	do
+		native.draw_value = false
+		native.signal_connect("value-changed", self, null)
+	end
+
+	redef fun signal(sender, data) do notify_observers new SliderEvent(self)
+
+	redef fun value do return native.value.to_i
+	redef fun value=(value) do native.value = value.to_f
+
+	redef fun max do abort
+	redef fun max=(value) do native.set_range(0.0, value.to_f)
+end
+
+redef class ComboBox
+	redef type NATIVE: GtkComboBoxText
+	redef var native = new GtkComboBoxText
+
+	# Is the control being built?
+	#
+	# Before on inside `init` and other large modifications.
+	private var in_init = true
+
+	init
+	do
+		for item in items do add item
+		native.signal_connect("changed", self, null)
+		native.active_item = 0
+		in_init = false
+	end
+
+	redef fun signal(sender, data)
+	do
+		if in_init then return
+		notify_observers new ComboEvent(self)
+	end
+
+	# Add an item to the end of the list
+	fun add(item: String) do native.append item.to_cstring
+
+	redef fun insert(item, index)
+	do
+		super
+		native.insert(index, item.to_cstring)
+	end
+
+	redef fun remove(item)
+	do
+		super
+		in_init = true
+		native.remove_all
+		for i in items do add i
+		native.active_item = choice_index
+		in_init = false
+	end
+
+	redef fun choice_index
+	do
+		var act = native.active_item
+		if act == -1 then act = 0
+
+		return act
+	end
+
+	redef fun choice_index=(value)
+	do
+		native.active_item = value
+	end
+end

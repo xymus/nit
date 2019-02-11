@@ -339,3 +339,77 @@ redef class Text
 	# Open the URL `self` with the default browser
 	fun open_in_browser do print_error "Text::open_in_browser not implemented on this platform."
 end
+
+# Slider control to select a `value` between 0 and `max`
+class Slider
+	super View
+
+	# Selected value between 0 and `max`
+	fun value: Int is abstract
+
+	# Selected value between 0 and `max`
+	fun value=(value: Int) is abstract
+
+	# Maximum possible `value`
+	fun max: Int is abstract
+
+	# Maximum possible `value`
+	fun max=(max: Int) is autoinit, abstract
+end
+
+# The `value` of the `Slider` `sender` has changed
+class SliderEvent
+	super ViewEvent
+
+	redef type VIEW: Slider
+end
+
+# Control to select a value between a choice of `items`
+#
+# This control is not native on iOS. As such it should generally be avoided,
+# or replaced by a native iOS control in the variant for the platform.
+class ComboBox
+	super View
+
+	# Index of the selected item in `items`
+	var choice_index = 0 is writable
+
+	# Selected item
+	fun choice: String do return items[choice_index]
+
+	# Set the selected item
+	#
+	# Require: `items.has(value)`
+	fun choice=(value: String)
+	do
+		assert items.has(value)
+		var choice_index = items.index_of(value)
+		self.choice_index = choice_index
+	end
+
+	# All displayed items and available to select
+	var items: SequenceRead[String] = new Array[String] is optional
+
+	# Add `item` at `index` in `items`
+	fun insert(item: String, index: Int)
+	do
+		items.as(Array[String]).insert(item, index)
+		if choice_index >= index then choice_index += 1
+	end
+
+	# Remove `item` from `items`
+	fun remove(item: String)
+	do
+		assert items.has(item)
+		var i = items.index_of(item)
+		items.as(Array[String]).remove_at i
+		if choice_index >= i then choice_index -= 1
+	end
+end
+
+# The `choice` of the `ComboBox` `sender` has changed
+class ComboBoxEvent
+	super ViewEvent
+
+	redef type VIEW: ComboBox
+end

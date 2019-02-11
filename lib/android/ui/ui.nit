@@ -184,8 +184,8 @@ redef class ListLayout
 	end
 
 	private var adapter: Android_widget_ArrayAdapter do
-		var adapter = new Android_widget_ArrayAdapter(app.native_activity,
-			android_r_layout_simple_list_item_1, self)
+		var adapter = new Android_widget_ArrayAdapter.for_list_layout(
+			app.native_activity, android_r_layout_simple_list_item_1, self)
 		native.set_adapter adapter
 		return adapter.new_global_ref
 	end
@@ -205,7 +205,12 @@ redef class ListLayout
 end
 
 redef class Android_widget_ArrayAdapter
-	private new (context: NativeContext, res: Int, sender: ListLayout)
+
+	private new (context: NativeContext, res: Int) in "Java" `{
+		return new android.widget.ArrayAdapter(context, (int)res);
+	`}
+
+	private new for_list_layout(context: NativeContext, res: Int, sender: ListLayout)
 	import ListLayout.create_view in "Java" `{
 		final int final_sender_object = sender;
 		ListLayout_incr_ref(sender);
@@ -376,4 +381,116 @@ redef class JavaString
 			android.net.Uri.parse(self));
 		context.startActivity(intent);
 	`}
+end
+
+redef class Slider
+
+	redef type NATIVE: Android_widget_SeekBar
+
+	redef var native = (new Android_widget_SeekBar(app.native_activity)).new_global_ref
+
+	init do set_callback_on_change(native)
+
+	redef fun value do return native.get_progress
+	redef fun value=(value) do native.set_progress(value)
+
+	redef fun max do return native.get_max
+	redef fun max=(value) do native.set_max(value)
+
+	private fun on_change do notify_observers new SliderEvent(self)
+
+	private fun set_callback_on_change(view: NATIVE)
+	import on_change in "Java" `{
+		final int final_sender_object = self;
+		Slider_incr_ref(final_sender_object);
+
+		view.setOnSeekBarChangeListener(
+			new android.widget.SeekBar.OnSeekBarChangeListener() {
+				boolean user_controlled = false;
+
+				@Override
+				public void onStartTrackingTouch(android.widget.SeekBar seekbar) {
+					user_controlled = true;
+				}
+
+				@Override
+				public void onStopTrackingTouch(android.widget.SeekBar seekbar) {
+					user_controlled = false;
+				}
+
+				@Override
+				public void onProgressChanged(android.widget.SeekBar seekbar, int progress, boolean fromUser) {
+					if (user_controlled) Slider_on_change(final_sender_object);
+				}
+			});
+	`}
+end
+
+redef class ComboBox
+
+	redef type NATIVE: Android_widget_Spinner
+
+	redef var native = (new Android_widget_Spinner(app.native_activity)).new_global_ref
+
+	init
+	do
+		for item in items do
+			adapter.add item.to_java_string
+		end
+		set_callback_on_change native
+	end
+
+	private var adapter: Android_widget_ArrayAdapter do
+		var adapter = new Android_widget_ArrayAdapter(app.native_activity,
+			android_r_layout_simple_dropdown_item_1line)
+		native.set_adapter adapter
+		return adapter.new_global_ref
+	end
+
+	private fun on_item_click(position: Int)
+	do
+		choice_index = position
+		notify_observers new ComboBoxEvent(self)
+	end
+
+	private fun set_callback_on_change(view: NATIVE)
+	import on_item_click in "Java" `{
+		final int final_sender_object = self;
+		ComboBox_incr_ref(final_sender_object);
+
+		view.setOnItemSelectedListener(
+			new android.widget.AdapterView.OnItemSelectedListener() {
+				@Override
+				public void onItemSelected(android.widget.AdapterView<?> parent, android.view.View view, int position, long id) {
+					ComboBox_on_item_click(final_sender_object, position);
+				}
+
+				@Override
+				public void onNothingSelected(android.widget.AdapterView<?> parent) {
+				}
+
+				@Override
+				public void finalize() {
+					ComboBox_decr_ref(final_sender_object);
+				}
+			});
+	`}
+
+	redef fun insert(item, index)
+	do
+		adapter.insert(item.to_java_string, index)
+		super
+	end
+
+	redef fun remove(item)
+	do
+		adapter.remove item.to_java_string
+		super
+	end
+
+	redef fun choice_index=(index)
+	do
+		native.set_selection index
+		super
+	end
 end
