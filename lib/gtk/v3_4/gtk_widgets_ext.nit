@@ -277,3 +277,31 @@ extern class GtkCheckButton `{ GtkCheckButton * `}
 
 	new with_label(lbl: CString) `{ return (GtkCheckButton *)gtk_check_button_new_with_label((gchar *)lbl); `}
 end
+
+# Text-only combo box
+extern class GtkComboBoxText `{GtkComboBoxText *`}
+	super GtkComboBox
+
+	new `{
+		return (GtkComboBoxText *)gtk_combo_box_text_new();
+	`}
+
+	new with_entry `{
+		return (GtkComboBoxText *)gtk_combo_box_text_new_with_entry();
+	`}
+
+	# Append `text` to the list of strings
+	fun append(text: CString) `{
+		return gtk_combo_box_text_append(self, NULL, text);
+	`}
+
+	# Insert `text` at `position`
+	fun insert(position: Int, text: CString) `{
+		return gtk_combo_box_text_insert(self, position, NULL, text);
+	`}
+
+	# Remove all text entries
+	fun remove_all `{
+		return gtk_combo_box_text_remove_all(self);
+	`}
+end
