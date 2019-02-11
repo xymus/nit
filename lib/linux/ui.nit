@@ -386,7 +386,7 @@ redef class ComboBox
 	redef fun signal(sender, data)
 	do
 		if in_init then return
-		notify_observers new ComboEvent(self)
+		notify_observers new ComboBoxEvent(self)
 	end
 
 	# Add an item to the end of the list

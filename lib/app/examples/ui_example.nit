@@ -30,19 +30,19 @@ import android::aware # for android_api_target
 class UiExampleWindow
 	super Window
 
-	# Root layout
+	# Root layout, parent to all the controls of this window
 	var layout = new ListLayout(parent=self)
 
-	# Some label
+	# Some label, displaying text
 	var some_label = new Label(parent=layout, text="Sample Window using a ListLayout.")
 
 	# A checkbox
 	var checkbox = new CheckBox(parent=layout, text="A CheckBox")
 
-	# Horizontal organization
+	# Horizontal controls organization
 	var h_layout = new HorizontalLayout(parent=layout)
 
-	# Description for the `user_input`
+	# Description label to explain the field `user_input`
 	var user_input_label = new Label(parent=h_layout, text="Input some text:", align=0.5)
 
 	# Field for the user to enter data
@@ -57,6 +57,12 @@ class UiExampleWindow
 	# Button to open the browser
 	var button_browser = new Button(parent=layout, text="Open {example_url}")
 
+	# Slide to select a value between 0 and 100
+	var slider = new Slider(parent=layout, max=100)
+
+	# Combo box offering to select one choices among many items
+	var combo = new ComboBox(parent=layout, items=["Choice A", "Choice B"])
+
 	redef fun on_event(event)
 	do
 		if event isa ButtonPressEvent then
@@ -67,6 +73,10 @@ class UiExampleWindow
 			end
 		else if event isa ToggleEvent then
 			if event.sender == checkbox then checkbox.text = if checkbox.is_checked then "Checked" else "Unchecked"
+		else if event isa SliderEvent then
+			some_label.text = "Slider at {event.sender.value}"
+		else if event isa ComboBoxEvent then
+			some_label.text = "ComboBox at {event.sender.choice}"
 		end
 	end
 end

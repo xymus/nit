@@ -693,3 +693,42 @@ extern class UIScrollView in "ObjC" `{ UIScrollView* `}
 
 	new in "ObjC" `{ return [[UIScrollView alloc] init]; `}
 end
+
+extern class UISlider in "ObjC" `{ UISlider * `}
+	super UIControl
+
+	new in "ObjC" `{ return [[UISlider alloc] init]; `}
+
+	fun value: Float in "ObjC" `{ return self.value; `}
+	fun value=(value: Float) in "ObjC" `{ self.value = value; `}
+
+	fun minimum_value: Float in "ObjC" `{ return self.minimumValue; `}
+	fun minimum_value=(value: Float) in "ObjC" `{ self.minimumValue = value; `}
+
+	fun maximum_value: Float in "ObjC" `{ return self.maximumValue; `}
+	fun maximum_value=(value: Float) in "ObjC" `{ self.maximumValue = value; `}
+
+	fun continuous: Bool in "ObjC" `{ return self.continuous; `}
+	fun continuous=(value: Bool) in "ObjC" `{ self.continuous = value; `}
+end
+
+extern class UIAlertController in "ObjC" `{ UIAlertController * `}
+	super UIViewController
+
+	new (title: NSString) in "ObjC" `{
+		return [UIAlertController alertControllerWithTitle:title
+			message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+			//UIAlertControllerStyleAlert
+	`}
+
+	fun show(controller: UIViewController, native_sender: UIButton) in "ObjC" `{
+
+		[self setModalPresentationStyle:UIModalPresentationPopover];
+
+		UIPopoverPresentationController *pop = [self popoverPresentationController];
+		pop.sourceView = native_sender;
+		pop.sourceRect = native_sender.bounds;
+
+		[controller presentViewController:self animated:YES completion:nil];
+	`}
+end

@@ -665,47 +665,15 @@ redef class Slider
 	redef fun on_ios_event do notify_observers new SliderEvent(self)
 end
 
-private extern class UISlider in "ObjC" `{ UISlider * `}
-	super UIControl
-
-	new in "ObjC" `{ return [[UISlider alloc] init]; `}
-
-	fun value: Float in "ObjC" `{ return self.value; `}
-	fun value=(value: Float) in "ObjC" `{ self.value = value; `}
-
-	fun minimum_value: Float in "ObjC" `{ return self.minimumValue; `}
-	fun minimum_value=(value: Float) in "ObjC" `{ self.minimumValue = value; `}
-
-	fun maximum_value: Float in "ObjC" `{ return self.maximumValue; `}
-	fun maximum_value=(value: Float) in "ObjC" `{ self.maximumValue = value; `}
-
-	fun continuous: Bool in "ObjC" `{ return self.continuous; `}
-	fun continuous=(value: Bool) in "ObjC" `{ self.continuous = value; `}
-
-	# Register callbacks on this button to be relayed to `sender`
-	fun set_callback(sender: View)
-	import View.on_ios_event in "ObjC" `{
-
-		NitCallbackReference2 *ncr = [[NitCallbackReference2 alloc] init];
-		ncr.nit_view = sender;
-
-		// Pin the objects in both Objective-C and Nit GC
-		View_incr_ref(sender);
-		ncr = (__bridge NitCallbackReference2*)CFBridgingRetain(ncr);
-
-		[self addTarget:ncr action:@selector(nitOnEvent:)
-			forControlEvents:UIControlEventValueChanged];
-	`}
-end
-
+# The ComboBox is not standard on iOS, it is implemented using a `UIAlertController`
 redef class ComboBox
 	super Button
 
 	# Title text for the selection window
-	fun text_title: String do return "Combo"
+	var title = "Please select one" is writable
 
 	# Cancel button label text
-	fun text_cancel: String do return "Cancel"
+	var cancel = "Cancel" is writable
 
 	init
 	do
@@ -726,8 +694,8 @@ redef class ComboBox
 
 	redef fun on_ios_event
 	do
-		var title = text_title.to_nsstring
-		var cancel = text_cancel.to_nsstring
+		var title = title.to_nsstring
+		var cancel = cancel.to_nsstring
 
 		var alert = new UIAlertController(title)
 		for item in items do
@@ -745,7 +713,7 @@ redef class ComboBox
 	private fun on_item_click(position: Int)
 	do
 		choice_index = position
-		notify_observers new ComboEvent(self)
+		notify_observers new ComboBoxEvent(self)
 	end
 
 	redef fun remove(item)
@@ -758,14 +726,25 @@ redef class ComboBox
 	end
 end
 
-private extern class UIAlertController in "ObjC" `{ UIAlertController * `}
-	super UIViewController
+redef class UISlider
 
-	new (title: NSString) in "ObjC" `{
-		return [UIAlertController alertControllerWithTitle:title
-			message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-			//UIAlertControllerStyleAlert
+	# Register callbacks on this button to be relayed to `sender`
+	fun set_callback(sender: View)
+	import View.on_ios_event in "ObjC" `{
+
+		NitCallbackReference2 *ncr = [[NitCallbackReference2 alloc] init];
+		ncr.nit_view = sender;
+
+		// Pin the objects in both Objective-C and Nit GC
+		View_incr_ref(sender);
+		ncr = (__bridge NitCallbackReference2*)CFBridgingRetain(ncr);
+
+		[self addTarget:ncr action:@selector(nitOnEvent:)
+			forControlEvents:UIControlEventValueChanged];
 	`}
+end
+
+redef class UIAlertController
 
 	# Add an option
 	#
@@ -780,16 +759,5 @@ private extern class UIAlertController in "ObjC" `{ UIAlertController * `}
 			style:(UIAlertActionStyle)style
 			handler:^(UIAlertAction * action) {ComboBox_on_item_click(sender, index);}];
 		[self addAction: act];
-	`}
-
-	fun show(controller: UIViewController, native_sender: UIButton) in "ObjC" `{
-
-		[self setModalPresentationStyle:UIModalPresentationPopover];
-
-		UIPopoverPresentationController *pop = [self popoverPresentationController];
-		pop.sourceView = native_sender;
-		pop.sourceRect = native_sender.bounds;
-
-		[controller presentViewController:self animated:YES completion:nil];
 	`}
 end
