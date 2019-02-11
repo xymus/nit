@@ -23,6 +23,12 @@ in "ObjC Header" `{
 
 # Base of the Foundation framework class hierarchy
 extern class NSObject in "ObjC" `{ NSObject * `}
+
+	# Release a reference to `self` in the Objective-C reference counter
+	fun release in "ObjC" `{ CFRelease((__bridge void*)(self)); `}
+
+	# Retain a reference to `self` in the Objective-C reference counter
+	fun retain in "ObjC" `{ CFRetain((__bridge void*)(self)); `}
 end
 
 # String of the Foundation Kit
@@ -42,6 +48,9 @@ end
 
 redef class CString
 	# Get a `NSString` from `self` with the specified `length`
+	#
+	# The caller owns the returned value, as so it must be released manually
+	# after use by calling `release`.
 	fun to_nsstring(length: Int): NSString in "ObjC" `{
 		return [[NSString alloc] initWithBytes:self
 			length:length
