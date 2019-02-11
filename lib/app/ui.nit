@@ -172,31 +172,36 @@ class CompositeControl
 	super Control
 
 	# Child controls composing this control
-	protected var items = new Array[Control]
+	#
+	# Children controls can't be added directly to this list.
+	# Set `self` as the parent of the child view instead.
+	fun items: SequenceRead[Control] do return items_write
+
+	private var items_write = new Array[Control]
 
 	# Add `item` as a child of `self`
-	protected fun add(item: Control) do items.add item
+	protected fun add(item: Control) do items_write.add item
 
 	# Remove `item` from `self`
-	fun remove(item: Control) do if has(item) then items.remove item
+	fun remove(item: Control) do if has(item) then items_write.remove item
 
 	# Is `item` in `self`?
-	fun has(item: Control): Bool do return items.has(item)
+	fun has(item: Control): Bool do return items_write.has(item)
 
 	# Remove all items from `self`
-	fun clear do for item in items.to_a do remove item
+	fun clear do for item in items_write.to_a do remove item
 
-	redef fun on_create do for i in items do i.on_create
+	redef fun on_create do for i in items_write do i.on_create
 
-	redef fun on_resume do for i in items do i.on_resume
+	redef fun on_resume do for i in items_write do i.on_resume
 
-	redef fun on_pause do for i in items do i.on_pause
+	redef fun on_pause do for i in items_write do i.on_pause
 
-	redef fun on_stop do for i in items do i.on_stop
+	redef fun on_stop do for i in items_write do i.on_stop
 
-	redef fun on_restore_state do for i in items do i.on_restore_state
+	redef fun on_restore_state do for i in items_write do i.on_restore_state
 
-	redef fun on_save_state do for i in items do i.on_save_state
+	redef fun on_save_state do for i in items_write do i.on_save_state
 end
 
 # A window, root of the `Control` tree
