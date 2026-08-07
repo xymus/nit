@@ -96,9 +96,12 @@ class JoinTask
 	# Return immediatly if the task terminated, or block waiting for `self` to terminate
 	fun join do
 		mutex.lock
-		if not is_done then
-			var cond = new NativePthreadCond
-			self.cond = cond
+		while not is_done do
+			var cond = self.cond
+			if cond == null then
+				cond = new NativePthreadCond
+				self.cond = cond
+			end
 			cond.wait(mutex.native.as(not null))
 		end
 		mutex.unlock
