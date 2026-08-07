@@ -4235,16 +4235,20 @@ redef class ASuperstringExpr
 			array.add(ne)
 		end
 
-		# Store the allocated native array in a static variable
-		# For reusing later
-		var varonce = v.get_name("varonce")
-		v.add("if (unlikely({varonce}==NULL)) \{")
-
 		# The native array that will contains the elements to_s-ized.
 		# For fast concatenation.
-		var a = v.native_array_instance(type_string, v.int_instance(array.length))
+		var a = v.new_var(v.mmodule.native_array_type(type_string))
 
+		# A static variable stores the allocated native array for reusing later.
+		# It is taken atomically so that concurrent or recursive executions
+		# cannot use (and corrupt) the same native array.
+		var varonce = v.get_name("varonce")
 		v.add_decl("static {a.mtype.ctype} {varonce};")
+		v.add("{a} = __atomic_exchange_n(&{varonce}, NULL, __ATOMIC_ACQUIRE);")
+		v.add("if (unlikely({a}==NULL)) \{")
+
+		var na = v.native_array_instance(type_string, v.int_instance(array.length))
+		v.add("{a} = {na};")
 
 		# Pre-fill the array with the literal string parts.
 		# So they do not need to be filled again when reused
@@ -4255,12 +4259,6 @@ redef class ASuperstringExpr
 			v.native_array_set(a, i, e)
 		end
 
-		v.add("\} else \{")
-		# Take the native-array from the store.
-		# The point is to prevent that some recursive execution use (and corrupt) the same native array
-		# WARNING: not thread safe! (FIXME?)
-		v.add("{a} = {varonce};")
-		v.add("{varonce} = NULL;")
 		v.add("\}")
 
 		# Stringify the elements and put them in the native array
@@ -4284,7 +4282,7 @@ redef class ASuperstringExpr
 
 		# We finish to work with the native array,
 		# so store it so that it can be reused
-		v.add("{varonce} = {a};")
+		v.add("__atomic_store_n(&{varonce}, {a}, __ATOMIC_RELEASE);")
 
 		return res
 	end
