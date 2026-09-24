@@ -141,8 +141,15 @@ class Lexer
 	end
 
 	# Primitive method to return a token, or return null if it is discarded
-	# Is used to implement `peek` and `next`
-	protected fun get_token: nullable Token
+	#
+	# Is used to implement `peek` and `next`.
+	# Refine it to filter or alter the token stream, see `scan_token` for the raw tokens.
+	protected fun get_token: nullable Token do return scan_token
+
+	# Scan the next token from the source, or return null if it is discarded
+	#
+	# The raw tokens, before any refinement of `get_token`.
+	protected fun scan_token: nullable Token
 	do
 		var dfa_state = 0
 
