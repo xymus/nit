@@ -36,21 +36,9 @@ redef class ToolContext
 	# Combine module to make a single one if required.
 	fun make_main_module(mmodules: Array[MModule]): MModule
 	do
-		assert not mmodules.is_empty
-		var mainmodule
-		# We need a main module, so we build it by importing all modules
-		mainmodule = new MModule(modelbuilder.model, null, mmodules.first.name + "-m", new Location(mmodules.first.location.file, 0, 0, 0, 0))
-		mainmodule.is_fictive = true
-		mainmodule.first_real_mmodule = mmodules.first.first_real_mmodule
-		mainmodule.set_imported_mmodules(mmodules)
-		modelbuilder.apply_conditional_importations(mainmodule)
-		if mainmodule.in_importation.direct_greaters.length == 1 and mainmodule.in_importation.direct_greaters.first == mmodules.first then
-			# Drop the fictive module if not needed
-			mainmodule = mmodules.first
-		else
-			# Or else run phases on it
-			modelbuilder.run_phases
-		end
+		var mainmodule = modelbuilder.combine_main_module(mmodules)
+		# Run the phases on the fictive module, if any
+		if mainmodule.is_fictive then modelbuilder.run_phases
 		return mainmodule
 	end
 
@@ -89,6 +77,25 @@ end
 
 
 redef class ModelBuilder
+	# Combine `mmodules` into the main module of a program, with the conditional importations applied
+	#
+	# A fictive module importing all of them, unless the first one already imports the others.
+	fun combine_main_module(mmodules: Array[MModule]): MModule
+	do
+		assert not mmodules.is_empty
+		var mainmodule = new MModule(model, null, mmodules.first.name + "-m", new Location(mmodules.first.location.file, 0, 0, 0, 0))
+		mainmodule.is_fictive = true
+		mainmodule.first_real_mmodule = mmodules.first.first_real_mmodule
+		mainmodule.set_imported_mmodules(mmodules)
+		apply_conditional_importations(mainmodule)
+
+		# Drop the fictive module if not needed
+		var imported = mainmodule.in_importation.direct_greaters
+		if imported.length == 1 and imported.first == mmodules.first then return mmodules.first
+
+		return mainmodule
+	end
+
 	# Run phases on all loaded modules
 	fun run_phases
 	do
