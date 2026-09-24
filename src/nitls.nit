@@ -18,6 +18,7 @@
 module nitls
 
 import modelbuilder
+import mixin
 import loader_header_only
 import ordered_tree
 import console
@@ -123,6 +124,7 @@ var model = new Model
 var mb = new ModelBuilder(model, tc)
 
 if tc.option_context.rest.is_empty then tc.option_context.rest.add "."
+tc.option_context.rest.add_all tc.opt_mixins.value
 var files
 if opt_recursive.value then
 	files = new Array[String]
@@ -167,6 +169,10 @@ end
 #tc.check_errors
 
 if opt_depends.value then
+	# Apply the conditional importations, as nitc does with the main module of the program
+	# importing all the modules and the mixins
+	if mmodules.not_empty then mb.combine_main_module(mmodules)
+
 	# Extends the list of module with the loaded ones
 	mmodules = mb.parsed_modules.to_a
 end
